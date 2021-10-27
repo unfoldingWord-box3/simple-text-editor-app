@@ -1,10 +1,22 @@
 
-import {TextFileEditor} from 'simple-text-editor-rcl';
+import TextFileEditor from './components/TextFileEditor';
 
 function App() {
+  const workspaceStyle = {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'flex-start',
+  };
   return (
     <div className="App">
-      <TextFileEditor />
+      <div style={workspaceStyle}>
+        <div style={{ width: '100%', overflowY: 'scroll', padding: '0 1em', }}>
+          <TextFileEditor editable={false} />
+        </div>
+        <div style={{ width: '100%', overflowY: 'scroll', padding: '0 1em', }}>
+          <TextFileEditor />
+        </div>
+      </div>
     </div>
   );
 }
