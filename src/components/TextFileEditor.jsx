@@ -25,13 +25,14 @@ export default function TextFileEditor ({file, onFile, editable}) {
   const textEditor = useMemo(() => {
     const editorStyle = { width: '100%', whiteSpace: 'pre-wrap' };
     const blockComponent = (props) => <div {...props} style={editorStyle}></div>;
-    const headingComponent = (props) => (<h3 {...props}>{props.text.split('\n')[0]}</h3>);
+    const headingComponent = (props) => (<div {...props}><button>{props.text.split('\n')[0]}</button><hr /></div>);
     const textEditorProps = {
       sectionParser: (_text) => (_text.split('\\c ')),
       sectionJoiner: '\\c ',
       blockParser: (_text) => (_text.split('\\p')),
       blockJoiner: '\\p',
       blockComponent,
+      titleComponent: () => (<h2 style={{textAlign: 'center'}}>{state.name}</h2>),
       headingComponent,
       text: state.content,
       onEdit,
@@ -40,7 +41,7 @@ export default function TextFileEditor ({file, onFile, editable}) {
       blockable: true,
     };
     return <DocumentEditor {...textEditorProps} />
-  }, [state.content, onEdit, editable]);
+  }, [state.name, state.content, onEdit, editable]);
 
   const textFileEditorStyle = {
     width: '100%',
@@ -48,11 +49,10 @@ export default function TextFileEditor ({file, onFile, editable}) {
 
   return (
     <div style={textFileEditorStyle}>
-      <h2 style={{textAlign: 'center'}}>
-        <OpenFile onFile={setState} />
-        <span style={{margin: '0 1em'}}>{state.name}</span>
+      <div style={{textAlign: 'center', paddingTop: '0.5em' }}>
+        <OpenFile onFile={setState} /> 
         { editable && <SaveFile file={state} /> }
-      </h2>
+      </div>
       <hr />
       {textEditor}
     </div>
