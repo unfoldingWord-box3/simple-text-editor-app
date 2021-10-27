@@ -13,6 +13,13 @@ export default function TextFileEditor ({file, onFile, editable}) {
     name: undefined, content: undefined, lastModified: undefined
   };
   const [state, setState] = useState(initialState);
+  const [sectionable, setSectionable] = useState(true);
+  const [blockable, setBlockable] = useState(true);
+
+
+  const onSectionable = () => { setSectionable(!sectionable); };
+
+  const onBlockable = () => { setBlockable(!blockable); };
 
   const onEdit = useCallback((text) => {
     setState({
@@ -23,7 +30,7 @@ export default function TextFileEditor ({file, onFile, editable}) {
   }, [state.name, state.lastModified]);
 
   const textEditor = useMemo(() => {
-    const editorStyle = { width: '100%', whiteSpace: 'pre-wrap' };
+    const editorStyle = { width: '100%', whiteSpace: 'pre-wrap', padding: '0 0.2em' };
     const blockComponent = (props) => <div {...props} style={editorStyle}></div>;
     const headingComponent = (props) => (<div {...props}><button>{props.text.split('\n')[0]}</button><hr /></div>);
     const textEditorProps = {
@@ -37,11 +44,11 @@ export default function TextFileEditor ({file, onFile, editable}) {
       text: state.content,
       onEdit,
       editable,
-      sectionable: true,
-      blockable: true,
+      sectionable,
+      blockable,
     };
     return <DocumentEditor {...textEditorProps} />
-  }, [state.name, state.content, onEdit, editable]);
+  }, [state.name, state.content, onEdit, editable, sectionable, blockable]);
 
   const textFileEditorStyle = {
     width: '100%',
@@ -50,7 +57,9 @@ export default function TextFileEditor ({file, onFile, editable}) {
   return (
     <div style={textFileEditorStyle}>
       <div style={{textAlign: 'center', paddingTop: '0.5em' }}>
-        <OpenFile onFile={setState} /> 
+        <OpenFile onFile={setState} />
+        <button onClick={onSectionable}>Sections</button>
+        <button onClick={onBlockable}>Paragraphs</button>
         { editable && <SaveFile file={state} /> }
       </div>
       <hr />
