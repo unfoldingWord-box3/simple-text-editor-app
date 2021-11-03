@@ -21,7 +21,7 @@ export default function TextFileEditor ({file, onFile, editable}) {
 
   const onBlockable = () => { setBlockable(!blockable); };
 
-  const onEdit = useCallback((text) => {
+  const onText = useCallback((text) => {
     setState({
       name: state.name,
       content: text,
@@ -29,26 +29,62 @@ export default function TextFileEditor ({file, onFile, editable}) {
     });
   }, [state.name, state.lastModified]);
 
+  
   const textEditor = useMemo(() => {
     const editorStyle = { width: '100%', whiteSpace: 'pre-wrap', padding: '0 0.2em' };
-    const blockComponent = (props) => <div {...props} style={editorStyle}></div>;
-    const headingComponent = (props) => (<div {...props}><button>{props.text.split('\n')[0]}</button><hr /></div>);
-    const textEditorProps = {
+    const blockComponent = (props) => <><div {...props} style={editorStyle}></div><hr /></>;
+    const headingComponent = (props) => {
+      const headingText = props.text.replace(/^\n+/, '').split('\n')[0];
+      const component = (<div {...props}><button>{headingText}</button><hr /></div>);
+      return component;
+    };
+
+    const mdProps = {
+      sectionParser: (_text='') => {
+        let sections = [_text];
+        const headerRegexHashtag = /(?<heading>(^|\n)\s*#{1,4}\s+.*)(?<section>(\n|.)+?)(?=($|(\n\s*#{1,4}\s+)))/g;
+        // if (headerRegexHashtag.test(_text)) {
+        sections = [];
+        var match = headerRegexHashtag.exec(_text);
+        while (match !== null) {
+          // console.log('match.groups: ', match?.groups);
+          const { heading, section } = match.groups;
+          const sectionText = heading + section;
+          sections = [...sections, sectionText];
+          match = headerRegexHashtag.exec(_text);
+        };
+        // };
+        return sections;
+      },
+      sectionJoiner: '',
+      blockParser: (_text) => (_text.split('\n\n')),
+      blockJoiner: '\n\n',
+    };
+    
+    const usfmProps = {
       sectionParser: (_text) => (_text.split('\\c ')),
       sectionJoiner: '\\c ',
       blockParser: (_text) => (_text.split('\\p')),
       blockJoiner: '\\p',
+    };
+
+    const isUSFM = /\.usfm$/.test(state.name);
+    
+    let textEditorProps = isUSFM ? usfmProps : mdProps;
+
+    textEditorProps = {
+      ...textEditorProps,
       blockComponent,
       titleComponent: () => (<h2 style={{textAlign: 'center'}}>{state.name}</h2>),
       headingComponent,
       text: state.content,
-      onEdit,
+      onText,
       editable,
       sectionable,
       blockable,
     };
     return <DocumentEditor {...textEditorProps} />
-  }, [state.name, state.content, onEdit, editable, sectionable, blockable]);
+  }, [state.name, state.content, onText, editable, sectionable, blockable]);
 
   const textFileEditorStyle = {
     width: '100%',
