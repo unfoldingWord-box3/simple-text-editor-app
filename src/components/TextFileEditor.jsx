@@ -42,14 +42,14 @@ export default function TextFileEditor ({file, onFile, editable}) {
     const mdProps = {
       sectionParser: (_text='') => {
         let sections = [_text];
-        const headerRegexHashtag = /(?<heading>(^|\n)\s*#{1,4}\s+.*)(?<section>(\n|.)+?)(?=($|(\n\s*#{1,4}\s+)))/g;
+        const headerRegexHashtag = /(?<section>((^|) *#{1,4} +.+\n*)(\n|.)+?(\n|$))(?=(( *#{1,4} +.+\n*)|$))/g;
         // if (headerRegexHashtag.test(_text)) {
         sections = [];
         var match = headerRegexHashtag.exec(_text);
         while (match !== null) {
           // console.log('match.groups: ', match?.groups);
-          const { heading, section } = match.groups;
-          const sectionText = heading + section;
+          const { section } = match.groups;
+          const sectionText = section;
           sections = [...sections, sectionText];
           match = headerRegexHashtag.exec(_text);
         };
