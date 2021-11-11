@@ -15,6 +15,9 @@ function Layout() {
         <TextFileEditor editable={false} sectionIndex={sectionIndex} onSectionIndex={setSectionIndex} />
       </div>
       <div style={{ width: '100%', overflowY: 'scroll', padding: '0 1em', }}>
+        <TextFileEditor editable={false} sectionIndex={sectionIndex} onSectionIndex={setSectionIndex} />
+      </div>
+      <div style={{ width: '100%', overflowY: 'scroll', padding: '0 1em', }}>
         <TextFileEditor sectionIndex={sectionIndex} onSectionIndex={setSectionIndex} />
       </div>
     </div>
