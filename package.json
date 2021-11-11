@@ -1,7 +1,7 @@
 {
-  "name": "simple-text-editor-app",
+  "name": "simple-usfm-alignment-prototype",
   "version": "0.6.0",
-  "homepage": "https://simple-text-editor-app.netlify.app/",
+  "homepage": "https://simple-usfm-alignment-prototype.netlify.app/",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
