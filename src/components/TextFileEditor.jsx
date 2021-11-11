@@ -8,14 +8,13 @@ import {
 import OpenFile from './OpenFile';
 import SaveFile from './SaveFile';
 
-export default function TextFileEditor ({file, onFile, editable}) {
+export default function TextFileEditor ({file, onFile, editable, sectionIndex, onSectionIndex}) {
   const initialState = file || {
     name: undefined, content: undefined, lastModified: undefined
   };
   const [state, setState] = useState(initialState);
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
-
 
   const onSectionable = () => { setSectionable(!sectionable); };
 
@@ -82,9 +81,11 @@ export default function TextFileEditor ({file, onFile, editable}) {
       editable,
       sectionable,
       blockable,
+      sectionIndex,
+      onSectionIndex,
     };
     return <DocumentEditor {...textEditorProps} />
-  }, [state.name, state.content, onText, editable, sectionable, blockable]);
+  }, [state.name, state.content, onText, editable, sectionable, blockable, sectionIndex, onSectionIndex]);
 
   const textFileEditorStyle = {
     width: '100%',
