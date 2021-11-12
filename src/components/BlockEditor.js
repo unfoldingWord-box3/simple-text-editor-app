@@ -1,5 +1,6 @@
 
 export default function blockComponent ({ onVerse, ...props }) {
+  
   const onBlockClick = (e) => {
     const regex = /\\v *(\d+)/;
     const text = e.target.innerText;
