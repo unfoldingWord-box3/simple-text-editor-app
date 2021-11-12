@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Open/i);
-  expect(linkElement).toBeInTheDocument();
+  const textElement = screen.getByText(/Alignment Workspace/i);
+  expect(textElement).toBeInTheDocument();
 });
