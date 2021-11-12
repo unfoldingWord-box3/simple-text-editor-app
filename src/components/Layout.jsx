@@ -15,8 +15,7 @@ function Layout() {
   const upperStyle = {
     top: '0',
     height: '50%',
-    minHeight: '50%',  
-    overflowY: 'scroll',
+    minHeight: '50%',
   };
 
   const lowerStyle = {
@@ -28,20 +27,22 @@ function Layout() {
 
   const workspaceStyle = {
     width: '100%',
+    height: '100%',
     display: 'flex',
     alignItems: 'flex-start',
   };
+  
   return (
     <div style={containerStyle}>
       <div style={upperStyle}>
         <div style={workspaceStyle}>
-          <div style={{ width: '100%', overflowY: 'scroll', padding: '0 1em', }}>
+          <div style={{ width: '100%', height: '100%', minHeight: '100%', overflowY: 'scroll', padding: '0 1em', }}>
             <TextFileEditor editable={false} sectionIndex={sectionIndex} onSectionIndex={setSectionIndex} />
           </div>
-          <div style={{ width: '100%', overflowY: 'scroll', padding: '0 1em', }}>
+          <div style={{ width: '100%', height: '100%', minHeight: '100%',  overflowY: 'scroll', padding: '0 1em', }}>
             <TextFileEditor editable={false} sectionIndex={sectionIndex} onSectionIndex={setSectionIndex} />
           </div>
-          <div style={{ width: '100%', overflowY: 'scroll', padding: '0 1em', }}>
+          <div style={{ width: '100%', height: '100%', minHeight: '100%', overflowY: 'scroll', padding: '0 1em', }}>
             <TextFileEditor sectionIndex={sectionIndex} onSectionIndex={setSectionIndex} />
           </div>
        </div>
