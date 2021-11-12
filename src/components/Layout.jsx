@@ -46,7 +46,7 @@ function Layout() {
           </div>
        </div>
       </div>
-      <div style={lowerStyle}>Testing<br />more<br />rows<br />.<br />Testing<br />more<br />rows<br />.<br />Testing<br />more<br />rows<br />.<br />Testing<br />more<br />rows<br />.<br />Testing<br />more<br />rows<br />.<br />Testing<br />more<br />rows<br />.<br /></div>
+      <div style={lowerStyle}>[Alignment Workspace]</div>
     </div>
   );
 }
