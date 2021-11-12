@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { DocumentEditor } from 'simple-text-editor-rcl';
 
 import OpenFile from './OpenFile';
-import SaveFile from './SaveFile';
+import ExportFile from './ExportFile';
 import { segmenter } from '../helpers/segmenter';
 import { styles } from './UsfmFileEditor.styles';
 
@@ -74,7 +74,7 @@ export default function UsfmFileEditor ({
         <OpenFile onFile={setFile} />
         <button onClick={onSectionable}>Sections</button>
         <button onClick={onBlockable}>Paragraphs</button>
-        { editable && <SaveFile file={file} /> }
+        { editable && <ExportFile file={file} /> }
       </div>
       <hr />
       {textEditor}
