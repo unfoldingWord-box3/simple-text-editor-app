@@ -5,7 +5,7 @@ import { useFilePicker } from 'use-file-picker';
 
 export default function OpenFile ({onFile}) {
   const [openFileSelector, { filesContent }] = useFilePicker({
-    accept: '.md, .txt, .usfm', multiple: false, readAs: 'Text'
+    accept: '.usfm', multiple: false, readAs: 'Text'
   });
   const openedFile = filesContent[0] || {};
 

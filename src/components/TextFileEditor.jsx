@@ -1,12 +1,11 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  DocumentEditor
-} from 'simple-text-editor-rcl';
+import { DocumentEditor } from 'simple-text-editor-rcl';
 
 import OpenFile from './OpenFile';
 import SaveFile from './SaveFile';
+import { segmenter } from '../helpers/segmenter';
 
 export default function TextFileEditor ({file, onFile, editable, sectionIndex, onSectionIndex}) {
   const initialState = file || {
@@ -27,7 +26,6 @@ export default function TextFileEditor ({file, onFile, editable, sectionIndex, o
       lastModified: state.lastModified,
     });
   }, [state.name, state.lastModified]);
-
   
   const textEditor = useMemo(() => {
     const editorStyle = { width: '100%', whiteSpace: 'pre-wrap', padding: '0 0.2em' };
@@ -38,39 +36,21 @@ export default function TextFileEditor ({file, onFile, editable, sectionIndex, o
       return component;
     };
 
-    const mdProps = {
-      sectionParser: (_text='') => {
-        let sections = [_text];
-        const headerRegexHashtag = /(?<section>((^|) *#{1,4} +.+\n*)(\n|.)+?(\n|$))(?=(( *#{1,4} +.+\n*)|$))/g;
-        // if (headerRegexHashtag.test(_text)) {
-        sections = [];
-        var match = headerRegexHashtag.exec(_text);
-        while (match !== null) {
-          // console.log('match.groups: ', match?.groups);
-          const { section } = match.groups;
-          const sectionText = section;
-          sections = [...sections, sectionText];
-          match = headerRegexHashtag.exec(_text);
-        };
-        // };
-        return sections;
+    let textEditorProps = {
+      sectionParser: (_text) => {
+        const regex = /(^|\\c +\d+)(\n|.)+?(\n|$)?(?=(\\c +\d+|$))/g;
+        const segments = segmenter({ text: _text, regex });
+        return segments;
       },
       sectionJoiner: '',
-      blockParser: (_text) => (_text.split('\n\n')),
-      blockJoiner: '\n\n',
+      blockParser: (_text) => {
+        const regex = /(^|\\[cspv])(\n|.)+?(\n|$)?(?=(\\[cspv]|$))/g;
+        const segments = segmenter({ text: _text, regex });
+        return segments;
+      },
+      blockJoiner: '',
     };
     
-    const usfmProps = {
-      sectionParser: (_text) => (_text.split('\\c ')),
-      sectionJoiner: '\\c ',
-      blockParser: (_text) => (_text.split('\\p')),
-      blockJoiner: '\\p',
-    };
-
-    const isUSFM = /\.usfm$/.test(state.name);
-    
-    let textEditorProps = isUSFM ? usfmProps : mdProps;
-
     textEditorProps = {
       ...textEditorProps,
       blockComponent,
