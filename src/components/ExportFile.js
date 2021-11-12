@@ -3,23 +3,23 @@ import PropTypes from 'prop-types';
 
 import fileDownload from 'js-file-download';
 
-export default function SaveFile ({file}) {
+export default function ExportFile ({file}) {
   const disabled = (!file.name || !file.content);
 
-  const save = () => {
+  const ExportFile = () => {
     fileDownload(file.content, file.name);
   };
 
   return (
-    <button disabled={disabled} onClick={save}>Save</button>
+    <button disabled={disabled} onClick={ExportFile}>Export</button>
   );
 };
 
-SaveFile.propTypes = {
+ExportFile.propTypes = {
   /** Preload file content if need to file open bypass */
   file: PropTypes.object,
 };
 
-SaveFile.defaultProps = {
+ExportFile.defaultProps = {
   file: '',
 };
