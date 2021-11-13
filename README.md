@@ -1,4 +1,4 @@
-# Getting Started with Simple USFM Alignment Prototype
+# Almost a Simple USFM Alignment Prototype
 
 Version 0.6.0 needs the adverb "almost" in front of it -- Almost a Simple USFM Alignment Prototype. It includes:
 * Side-by-side USFM areas for the Original Source Language, an Aligned Bridge Language, and the Target Language.
