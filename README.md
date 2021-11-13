@@ -1,21 +1,23 @@
+# Project Goals
+ * Offline translating, editing, and aligning that accepts all valid [USFM](https://ubsicap.github.io/usfm/) formatting. Aligning in this context refers to mapping translated results and the source to indicate granular correlation.
+ * Stay simple. We strive to become and remain the most functional bottom-rung in the space.
+
 # Almost a Simple USFM Alignment Prototype
 
-Version 0.6.0 needs the adverb "almost" in front of it -- Almost a Simple USFM Alignment Prototype. It includes:
+Version 0.6.0 needs the adverb "*almost*" in front of it -- ***Almost*** a Simple USFM Alignment Prototype. It includes:
 * Side-by-side USFM areas for the Original Source Language, an Aligned Bridge Language, and the Target Language.
-* Expandable and Collapsible sections and paragraphs, synchronized across all three areas.
+* Expandable and Collapsible chapters and paragraphs. * Chapter selection synchronized across all three areas.
 * Placeholder for an alignment area -- "Coming Soon", currently with selected chapter and verse reference to be aligned displayed.
-    * Important: Ability to store aligned target language information a project will be "Coming Later".
-* Drafting, editing, USFM formatting, and exporting of the Target Language
+    * Important: Ability to store aligned target language information a project will be "Coming ***Later***". This prototype does ***not yet*** save alignment!
+* Translating, editing, [USFM](https://ubsicap.github.io/usfm/) formatting, and exporting of the Target Language
 
 ## See it in Action Online
 
-With version 0.6.0, you will want to have your own USFM files on hand to open. This can be experienced online [here](https://simple-usfm-alignment-prototype.netlify.app/).
+While Version 0.6.0 can be experienced [online](https://simple-usfm-alignment-prototype.netlify.app/), note that it requires having your own [USFM](https://ubsicap.github.io/usfm/) files on hand to open.
 
 
 ### Install the Progressive Web App for an Offline Experience
 
 An installation option will be presented by web browsers that support this features, such as Brave, Opera, Vivaldi, MS Edge, Google Chrome, other Chromium-based web browsers, and Safari. Firefox support is available through [Progressive Web Apps for Firefox](https://addons.mozilla.org/en-US/firefox/addon/firefoxpwa/).
 
-Icons indicating progressive web app download availability differ by browser, though tend to have a plus sign in them and tend to be on the top row of the browser next to the web address.  A mousever will indicate that an app is available, and a click will provide an opportunity to install.
-
-
+Icons indicating progressive web app download availability differ by browser, though tend to have a plus sign in them and tend to be on the top row of the browser next to the web address. A mousever will indicate that an app is available, and a click will provide an opportunity to install.

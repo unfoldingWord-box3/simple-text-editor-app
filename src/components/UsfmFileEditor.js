@@ -74,7 +74,8 @@ export default function UsfmFileEditor ({
     <div style={styles.textFileEditor}>
       <div style={styles.toolbar}>
         <OpenFile onFile={onFile} />
-        <button onClick={onSectionable}>Sections</button>
+        <button onClick={onSectionable}>Chapters</button>
+        {/** Chapters are Sections */}
         <button onClick={onBlockable}>Paragraphs</button>
         { editable && <ExportFile file={file} /> }
       </div>
