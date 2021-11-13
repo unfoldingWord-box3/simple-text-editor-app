@@ -1,6 +1,7 @@
 # Project Goals
  * Offline translating, editing, and aligning that accepts all valid [USFM](https://ubsicap.github.io/usfm/) formatting. Aligning in this context refers to mapping translated results and the source to indicate granular correlation.
  * Stay simple. We strive to become and remain the most functional bottom-rung in the space.
+ * Designed from the beginning for full offline use compatibility.
 
 ## Almost a Simple USFM Alignment Prototype
 
