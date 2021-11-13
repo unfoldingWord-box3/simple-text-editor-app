@@ -23,6 +23,7 @@ export const styles = {
     height: '50%',
     minHeight: '50%',
     overflowY: 'scroll',
+    textAlign: 'center',
   },
   workspace: {
     width: '100%',

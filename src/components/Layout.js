@@ -42,8 +42,8 @@ function Layout() {
       </div>
       <div style={styles.lower}>
         <hr />
-        [Alignment Workspace]
-        <hr />
+        [Alignment Workspace Placeholder]
+        <hr style={{ width: '20%', }} />
         Reference: { JSON.stringify( reference ) }
       </div>
     </div>
