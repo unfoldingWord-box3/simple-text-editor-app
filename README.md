@@ -1,14 +1,16 @@
 # Project Goals
- * Offline translating, editing, and aligning that accepts all valid [USFM](https://ubsicap.github.io/usfm/) formatting. Aligning in this context refers to mapping translated results and the source to indicate granular correlation.
+ * Deliver offline translating, editing, and aligning capability that accepts all valid [USFM](https://ubsicap.github.io/usfm/) formatting.
+    * Aligning in this context refers to mapping translated results and the source to indicate granular correlation.
  * Stay simple. We strive to become and remain the most functional *bottom-rung* in this space.
- * Designed from the beginning for full offline use compatibility.
+ * Design from the beginning for full offline use compatibility.
+ * Maintain separation of concerns. This project provides technology, ***not*** content. Compatible content will be available from other sources.
 
 ## Almost a Simple USFM Alignment Prototype
 
 Version 0.6.0 needs the adverb "*almost*" in front of it -- ***Almost*** a Simple USFM Alignment Prototype. It includes:
 * Side-by-side USFM areas for the Original Source Language, an Aligned Bridge Language, and the Target Language.
 * Expandable and collapsible chapters and paragraphs
-    * Chapter selection synchronized across all three areas.
+    * Chapter selection synchronized across all three areas
 * *Placeholder* for an alignment area
     * This feature is *Coming Soon*. Currently it only displays the selected chapter and verse reference to be aligned.
     * Important: Ability to **store** aligned target language information a project is *not* coming as soon. This will be "Coming ***Later***". This prototype does ***not yet*** save alignment!
