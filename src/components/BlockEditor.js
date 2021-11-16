@@ -27,6 +27,10 @@ export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, .
     _markerText = _markerText.replace(attrRegex, attrReplacer);
     return _markerText;
   }, [text]);
+
+  const blockMarkerRegex = /^ *\\([\w-]+)/;
+  const blockMarkerMatch = blockMarkerRegex.exec(text);
+  const blockClass = `block ${blockMarkerMatch[1]}`;
   
   return (
     <>
@@ -34,6 +38,7 @@ export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, .
         {...props}
         onClick={onBlockClick}
         style={editorStyle}
+        class={blockClass}
         suppressContentEditableWarning={true}
         dangerouslySetInnerHTML={{ __html: markerText }}
       >

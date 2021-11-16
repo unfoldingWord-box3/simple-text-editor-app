@@ -8,13 +8,20 @@
   font-size: 1.2em;
 }
 
-.v {
+.marker.v {
   color: blue;
   font-size: 1.2em;
 }
 
-.p, .s, .s5, .ts {
+.marker.p, .s, .s5, .ts {
   color: green;
+}
+
+.block.s {
+  font-size: 1.5em;
+}
+.marker.s {
+  font-size: 0.75em;
 }
 
 .f, .fk, .ft, .fr {
@@ -33,3 +40,5 @@
   font-size: 0.8em;
   font-style: italic;
 }
+
+.block {}

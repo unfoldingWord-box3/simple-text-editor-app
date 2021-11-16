@@ -1,14 +1,14 @@
-export default function SectionHeading ({ onChapter, ...props }) {
+export default function SectionHeading ({ text, onChapter, ...props }) {
   
   const onHeadingClick = (e) => {
     const regex = /\\c *(\d+)/;
-    const text = e.target.innerText;
-    const match = regex.exec(text);
+    const _text = e.target.innerText;
+    const match = regex.exec(_text);
     const chapter = match && match[1];
     onChapter(chapter);
   };
 
-  const headingText = props.text.replace(/^\n+/, '').split('\n')[0];
+  const headingText = text.replace(/^\n+/, '').split('\n')[0];
 
   return (
     <div {...props}>
