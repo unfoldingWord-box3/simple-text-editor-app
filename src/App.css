@@ -8,7 +8,7 @@
   font-size: 1.2em;
 }
 
-.v {
+.marker.v {
   color: blue;
   font-size: 1.2em;
 }
@@ -32,4 +32,8 @@
 .attribute {
   font-size: 0.8em;
   font-style: italic;
+}
+
+.block {
+
 }
