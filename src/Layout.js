@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import UsfmFileEditor from './UsfmFileEditor';
+import UsfmFileEditor from './components/UsfmFileEditor';
 import { styles } from './Layout.styles';
 
 function Layout() {

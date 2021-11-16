@@ -17,9 +17,13 @@ export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, .
   };
 
   const markerText = useMemo(() => {
-    const markerRegex = /(\\\w{1,2} *\d*)/g;
+    let _markerText = text.replace(/</g, '&lt;');
+    const markerRegex = /(\\[\w-]*\** *\d*)(?=[^:.])/g;
     const replacer = "<strong>$1</strong>";
-    const _markerText = text.replace(/</g, '&lt;').replace(markerRegex, replacer);
+    _markerText = _markerText.replace(markerRegex, replacer);
+    const attrRegex = /(x?-?[\w-]+=".*")/g;
+    const attrReplacer = "<em>$1</em>";
+    _markerText = _markerText.replace(attrRegex, attrReplacer);
     return _markerText;
   }, [text]);
   
