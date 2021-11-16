@@ -1,9 +1,10 @@
 import { useMemo } from "react";
+import PropTypes from 'prop-types';
 
 export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, ...props }) {
 
   const onBlockClick = (e) => {
-    const regex = /\\v *(\d+)/;
+    const regex = /\\v *(\d+-?\d*)/;
     const _text = e.target.innerText;
     const match = regex.exec(_text);
     const verse = match && match[1];
@@ -18,7 +19,7 @@ export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, .
 
   const markerText = useMemo(() => {
     let _markerText = text.replace(/</g, '&lt;');
-    const markerRegex = /(\\[\w-]*\** *\d*)(?=[^:.])/g;
+    const markerRegex = /(\\[\w-]*\** *\d*-?\d*)(?=[^:.])/g;
     const replacer = "<strong>$1</strong>";
     _markerText = _markerText.replace(markerRegex, replacer);
     const attrRegex = /(x?-?[\w-]+=".*")/g;
@@ -40,4 +41,17 @@ export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, .
       <hr />
     </>
   );
+};
+
+BlockEditor.propTypes = {
+  /** Function called when block is clicked and verse returned*/
+  onVerse: PropTypes.func,
+  /** String of text for the block. */
+  text: PropTypes.string,
+  /** HTML Attribute for setting editable loop. */
+  dangerouslySetInnerHTML: PropTypes.object,
+}
+
+BlockEditor.defaultProps = {
+  text: '',
 };
