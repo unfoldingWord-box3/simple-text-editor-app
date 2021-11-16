@@ -2,10 +2,6 @@ import { useMemo } from "react";
 
 export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, ...props }) {
 
-  if(!text) {
-    text = '';
-  };
-
   const onBlockClick = (e) => {
     const regex = /\\v *(\d+)/;
     const _text = e.target.innerText;
