@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import PropTypes from 'prop-types';
 
 export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, ...props }) {
 
@@ -40,4 +41,17 @@ export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, .
       <hr />
     </>
   );
+};
+
+BlockEditor.propTypes = {
+  /** Function called when block is clicked and verse returned*/
+  onVerse: PropTypes.func,
+  /** String of text for the block. */
+  text: PropTypes.string,
+  /** HTML Attribute for setting editable loop. */
+  dangerouslySetInnerHTML: PropTypes.object,
+}
+
+BlockEditor.defaultProps = {
+  text: '',
 };
