@@ -1,4 +1,31 @@
 export const styles = {
+  heading1: {
+    float: 'left',
+    fontSize: 'xx-small',
+    textAlign: 'center',
+    width: '100%',
+    padding: '0px',
+    margin: '0px',
+    borderBottom: '1px black solid',
+  },
+  heading2: {
+    float: 'left',
+    fontSize: 'xx-small',
+    textAlign: 'right',
+    width: '50%',
+    padding: '0px',
+    margin: '0px',
+    borderBottom: '1px black solid',
+  },
+  built: {
+    float: 'right',
+    fontSize: 'xx-small',
+    textAlign: 'right',
+    width: '50%',
+    padding: '0px',
+    margin: '0px',
+    borderBottom: '1px black solid',
+  },
   container: {
     position: 'absolute',
     left: '0',

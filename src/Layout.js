@@ -31,19 +31,22 @@ function Layout() {
       <div style={styles.upper}>
         <div style={styles.workspace}>
           <div style={styles.editor}>
+          <div style={styles.heading1}>Original</div>
             <UsfmFileEditor {...editorProps} editable={false} file={files.original} type={'original'} />
           </div>
           <div style={styles.editor}>
+          <div style={styles.heading1}>Bridge</div>
             <UsfmFileEditor {...editorProps} editable={false} file={files.bridge} type={'bridge'} />
           </div>
           <div style={styles.editor}>
+          <div style={styles.heading2}>Translation</div><div style={styles.built}>Built: {preval`module.exports = new Date().toLocaleString();`}</div>
             <UsfmFileEditor {...editorProps} file={files.target} type={'target'} />
           </div>
        </div>
       </div>
       <div style={styles.lower}>
         <hr />
-        [Alignment Workspace Placeholder...Build Date: {preval`module.exports = new Date().toLocaleString();`}]
+        [Alignment Workspace Placeholder]
         <hr style={{ width: '35%', }} />
         Reference: { JSON.stringify( reference ) }
       </div>
