@@ -39,7 +39,7 @@ function Layout() {
             <UsfmFileEditor {...editorProps} editable={false} file={files.bridge} type={'bridge'} />
           </div>
           <div style={styles.editor}>
-          <div style={styles.heading2}>Translation</div><div style={styles.built}>Built: {preval`module.exports = new Date().toLocaleString();`}</div>
+          <div style={styles.heading2}>Translation</div><div style={styles.built}>Built: {preval`module.exports = new Date().toLocaleString();`} UTC/GMT</div>
             <UsfmFileEditor {...editorProps} file={files.target} type={'target'} />
           </div>
        </div>
