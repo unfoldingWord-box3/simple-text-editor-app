@@ -17,20 +17,33 @@ export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, .
     padding: '0 0.2em'
   };
 
-  const markerText = useMemo(() => {
-    let _markerText = text.replace(/</g, '&lt;');
-    const markerRegex = /(\\([\w-]*)\** *)(\d*-?\d*)(?=[^:.])/g;
-    const replacer = "<span class='marker $2'>$1<span class='digit'>$3</span></span>";
-    _markerText = _markerText.replace(markerRegex, replacer);
-    const attrRegex = /(x?-?[\w-]+=".*")/g;
-    const attrReplacer = "<span class='attribute'>$1</span>";
-    _markerText = _markerText.replace(attrRegex, attrReplacer);
-    return _markerText;
-  }, [text]);
+  const decorators = [
+    {
+      name: 'embededHtml',
+      regex: /</g,
+      replacer: "&lt;",
+    },
+    {
+      name: 'block',
+      regex: /(\\([cspv])(\n|.|$)+?)(?=(\\[cspv]|$))/g,
+      replacer: "<div class='block $2'>$1</div>"
+    },
+    {
+      name: 'markers',
+      regex: /(\\([\w-]*)\** *)(\d*-?\d*)(?=[^:.])/g,
+      replacer: "<span class='marker $2'>$1<span class='digit'>$3</span></span>",
+    },
+    {
+      name: 'attributes',
+      regex: /(x?-?[\w-]+=".*")/g,
+      replacer: "<span class='attribute'>$1</span>",
+    },
+  ];
 
-  const blockMarkerRegex = /^ *\\([\w-]+)/;
-  const blockMarkerMatch = blockMarkerRegex.exec(text);
-  const blockClass = `block ${blockMarkerMatch[1]}`;
+  let __html = text;
+  decorators.forEach( ({ name, regex, replacer }) => {
+    __html = __html.replace(regex, replacer);
+  });
   
   return (
     <>
@@ -38,9 +51,8 @@ export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, .
         {...props}
         onClick={onBlockClick}
         style={editorStyle}
-        class={blockClass}
         suppressContentEditableWarning={true}
-        dangerouslySetInnerHTML={{ __html: markerText }}
+        dangerouslySetInnerHTML={{ __html }}
       >
       </div>
       <hr />
