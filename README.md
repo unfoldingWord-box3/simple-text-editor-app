@@ -24,4 +24,4 @@ While Version 0.6.0 can be experienced [online](https://simple-usfm-alignment-pr
 
 An installation option will be presented by web browsers that support this PWA's, such as Brave, Opera, Vivaldi, MS Edge, Google Chrome, other Chromium-based web browsers, and Safari. Firefox support is available through [Progressive Web Apps for Firefox](https://addons.mozilla.org/en-US/firefox/addon/firefoxpwa/).
 
-Icons indicating progressive web app download availability differ by browser, though tend to have a plus sign in them and tend to be on the top row of the browser next to the web address. A mousever will indicate that an app is available, and a click will provide an opportunity to install.
+Icons indicating progressive web app download availability differ by browser, though tend to have a plus sign in them and tend to be on the top row of the browser next to the web address. A mouseover will indicate that an app is available, and a click will provide an opportunity to install.
