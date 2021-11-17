@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import PropTypes from 'prop-types';
 
 export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, ...props }) {
