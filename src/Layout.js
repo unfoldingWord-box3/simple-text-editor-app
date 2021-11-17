@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import UsfmFileEditor from './components/UsfmFileEditor';
 import { styles } from './Layout.styles';
+import preval from 'preval.macro';
 
 function Layout() {
   const [sectionIndex, setSectionIndex] = useState(0);
@@ -42,8 +43,8 @@ function Layout() {
       </div>
       <div style={styles.lower}>
         <hr />
-        [Alignment Workspace Placeholder]
-        <hr style={{ width: '20%', }} />
+        [Alignment Workspace Placeholder...Build Date: {preval`module.exports = new Date().toLocaleString();`}]
+        <hr style={{ width: '35%', }} />
         Reference: { JSON.stringify( reference ) }
       </div>
     </div>
