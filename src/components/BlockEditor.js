@@ -19,8 +19,8 @@ export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, .
 
   const markerText = useMemo(() => {
     let _markerText = text.replace(/</g, '&lt;');
-    const markerRegex = /(\\([\w-]*)\** *\d*-?\d*)(?=[^:.])/g;
-    const replacer = "<span class='marker $2'>$1</span>";
+    const markerRegex = /(\\([\w-]*)\** *)(\d*-?\d*)(?=[^:.])/g;
+    const replacer = "<span class='marker $2'>$1<span class='digit'>$3</span></span>";
     _markerText = _markerText.replace(markerRegex, replacer);
     const attrRegex = /(x?-?[\w-]+=".*")/g;
     const attrReplacer = "<span class='attribute'>$1</span>";

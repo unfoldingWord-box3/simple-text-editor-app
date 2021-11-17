@@ -3,25 +3,34 @@
   font-size: 0.9em;
 }
 
-.c {
-  color: brown;
-  font-size: 1.2em;
+.marker.c .digit {
+  font-size: 2em;
+  color: initial;
 }
 
-.marker.v {
+.marker.c, .marker.v {
   color: blue;
-  font-size: 1.2em;
+}
+.marker.v {
+  font-size: 0.9em;
+  vertical-align: super
+}
+.marker.v .digit {
+  color: initial;
 }
 
-.marker.p, .s, .s5, .ts {
+.marker.p, .marker.s, .marker.s5, .marker.ts {
   color: green;
 }
 
 .block.s {
-  font-size: 1.5em;
+  font-size: 1.2em;
+  font-weight: bolder;
+  text-align: center;
 }
 .marker.s {
   font-size: 0.75em;
+  font-weight: bold;
 }
 
 .f, .fk, .ft, .fr {
