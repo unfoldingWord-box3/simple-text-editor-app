@@ -33,6 +33,9 @@
   font-weight: bold;
 }
 
+.footnote {
+  font-weight: lighter;
+}
 .f, .fk, .ft, .fr {
   color: orange;
 }
@@ -46,8 +49,8 @@
 }
 
 .attribute {
-  font-size: 0.8em;
-  font-style: italic;
+  font-size: 0.9em;
+  font-weight: lighter;
 }
 
 .block {}

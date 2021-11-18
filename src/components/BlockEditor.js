@@ -24,8 +24,13 @@ export default function BlockEditor ({ onVerse, text, dangerouslySetInnerHTML, .
     },
     {
       name: 'block',
-      regex: /(\\([cspv])(\n|.|$)+?)(?=(\\[cspv]|$))/g,
+      regex: /(\\([cspv]) (\n|.|$)+?)(?=(\\[cspv] |$))/g,
       replacer: "<div class='block $2'>$1</div>"
+    },
+    {
+      name: 'footnotes',
+      regex: /(\\f (.|\n)+?(\\f\*))/g,
+      replacer: "<span class='footnote'>$1</span>",
     },
     {
       name: 'markers',
