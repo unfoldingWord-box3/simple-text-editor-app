@@ -1,5 +1,5 @@
 export const styles = {
-  heading1: {
+  heading: {
     float: 'left',
     fontSize: 'xx-small',
     textAlign: 'center',
@@ -8,23 +8,32 @@ export const styles = {
     margin: '0px',
     borderBottom: '1px black solid',
   },
-  heading2: {
+  translationHeading: {
+    float: 'left',
+    width: '100%',
+    position: 'relative',
+    overflow: 'hidden',
+    padding: '0px',
+    margin: '0px',
+    borderBottom: '1px black solid',
+  },
+  translationHeadingL: {
     float: 'left',
     fontSize: 'xx-small',
     textAlign: 'right',
     width: '50%',
     padding: '0px',
     margin: '0px',
-    borderBottom: '1px black solid',
+    position: 'absolute', 
+    bottom: '0',
   },
-  built: {
+  translationHeadingR: {
     float: 'right',
     fontSize: 'xx-small',
     textAlign: 'right',
     width: '50%',
     padding: '0px',
     margin: '0px',
-    borderBottom: '1px black solid',
   },
   container: {
     position: 'absolute',

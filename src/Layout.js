@@ -31,15 +31,18 @@ function Layout() {
       <div style={styles.upper}>
         <div style={styles.workspace}>
           <div style={styles.editor}>
-          <div style={styles.heading1}>Original</div>
+          <div style={styles.heading}>Original</div>
             <UsfmFileEditor {...editorProps} editable={false} file={files.original} type={'original'} />
           </div>
           <div style={styles.editor}>
-          <div style={styles.heading1}>Bridge</div>
+          <div style={styles.heading}>Bridge</div>
             <UsfmFileEditor {...editorProps} editable={false} file={files.bridge} type={'bridge'} />
           </div>
           <div style={styles.editor}>
-          <div style={styles.heading2}>Translation</div><div style={styles.built}>Built: {preval`module.exports = new Date().toLocaleString();`} UTC/GMT</div>
+            <div style={styles.translationHeading}>
+              <div style={styles.translationHeadingL}>Translation</div>
+              <div style={styles.translationHeadingR}>Built {preval`module.exports = new Date().toLocaleString('en-GB', { day: 'numeric', month: 'short', year: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short' });`}</div>
+            </div>
             <UsfmFileEditor {...editorProps} file={files.target} type={'target'} />
           </div>
        </div>
