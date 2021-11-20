@@ -3,38 +3,38 @@ Markers are characters immediately preceeded by a backslash and followed by a sp
 
 ## Common Markers
 - `\c #` Chapter (required) - `\c`is followed by a space, then the chapter number in place of `#`, then another space, all on a line of its own, like this:\
-    `\c 1`
+        `\c 1`
 - `\s#` Section (optional) - `\s`is followed by a space, then the section number within the chapter in place of `#`, then the section title, all on a line of its own, like this:\
-    `\s1 Title of the First Section in a Chapter`
+        `\s1 Title of the First Section in a Chapter`
 - `\v #` Verse (required) - `\v` is always placed at the very begining of a line, followed by a space, then the verse number in place of `#`, another space, and then the verse, like this:\
-    `\v 1 This is verse one.`
+        `\v 1 This is verse one.`
 - `\p` Paragraph with an indented first line (optional) - `\p` is placed on a line of its own, indicating the start of a new paragraph, like this:\
-    `\v 5 This is the last verse in a paragraph.`\
-    `\p`\
-    `\p 6 This is the first verse in a new paragraph.`\
+        `\v 5 This is the last verse in a paragraph.`\
+        `\p`\
+        `\p 6 This is the first verse in a new paragraph.`\
     Note: When a paragraph without an indent is desired, then use `\m` in place of `\p`. The "m" stands for margin (with no indent).
 - `\mt#` Major Title (name of the book) - `\mt#` goes in the heading section at the top of the file on a line of its own. The highest priority title is indicated by the number 1 in place of `#`, with any subtitles (optional) indicated by sequential numbers, like this:\
-    `\mt1 Acts` (required)\
-    `\mt2 of the Apostles` (optional)
+        `\mt1 Acts` (required)\
+        `\mt2 of the Apostles` (optional)
 - `\id ABC` File identification (required) - `\id` is placed at the very begining of the first line, followed by a space, followed by the applicable 3 letter book code in place of `ABC`, followed by a space, followed by additional file information if desired, like this:\
-    `\id JHN Optionally followed by things like the name of the translation, the language name, versions number, date, ...`
+        `\id JHN Optionally followed by things like the name of the translation, the language name, versions number, date, ...`
 
 ## Example Using All of the Above
-`\id JHN Translation for Translators, English\
-\mt1 John\
-\c 1\
-\s1 This book is about Jesus, who was eternally with God but also became a human being to reveal God to mankind.\
-\p\
-\v 1 The one who expresses God’s character has always existed. He has always existed with God, and he has God’s nature.\
-\v 2 He always existed with God before he began to create anything.\
-\v 3 He is the one by whom God caused everything to exist. He is the one who created absolutely everything.\
-\v 4 He is the one who caused everything to live. He, who caused us people to live, revealed to us the truth about God as a light reveals what is in the darkness.\
-\v 5 People do not want him to reveal that what they do is evil, just like darkness is evil. But just like darkness cannot put out light, evil people have never prevented the one who was like a light from revealing God’s truth.\
-\p\
-\v 6 God sent a man whose name was John.\
-\v 7 He came to tell people about the one who was like a light. He came to show that everything that the one who was like a light said was true, in order that he could enable all people to believe in the one who was like a light.\
-\v 8 John himself was not the one who was like a light. Instead, he came to tell others about that one who was like a light.\
-\v 9 While John was doing that, the one who was truly like a light was about to show himself to the world. He was the one who enables all people to know about God, as a light enables people to know what is in the darkness.\
+`\id JHN Translation for Translators, English  
+\mt1 John  
+\c 1  
+\s1 This book is about Jesus, who was eternally with God but also became a human being to reveal God to mankind.  
+\p  
+\v 1 The one who expresses God’s character has always existed. He has always existed with God, and he has God’s nature.  
+\v 2 He always existed with God before he began to create anything.  
+\v 3 He is the one by whom God caused everything to exist. He is the one who created absolutely everything.  
+\v 4 He is the one who caused everything to live. He, who caused us people to live, revealed to us the truth about God as a light reveals what is in the darkness.  
+\v 5 People do not want him to reveal that what they do is evil, just like darkness is evil. But just like darkness cannot put out light, evil people have never prevented the one who was like a light from revealing God’s truth.  
+\p  
+\v 6 God sent a man whose name was John.  
+\v 7 He came to tell people about the one who was like a light. He came to show that everything that the one who was like a light said was true, in order that he could enable all people to believe in the one who was like a light.  
+\v 8 John himself was not the one who was like a light. Instead, he came to tell others about that one who was like a light.  
+\v 9 While John was doing that, the one who was truly like a light was about to show himself to the world. He was the one who enables all people to know about God, as a light enables people to know what is in the darkness.  
 \p`
 
 ## Book Codes
