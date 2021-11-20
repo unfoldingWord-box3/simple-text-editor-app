@@ -1,48 +1,126 @@
 # Markers
-Markers are characters immediately preceeded by a backslash. They identify how a document is organized and convey important and helpful information about the text.
+Markers are characters immediately preceeded by a backslash and followed by a space. They identify how a document is organized and convey important and helpful information about the text.
 
 ## Common Markers
-- `\c` Chapter
-- `\s` Section (for section heading)
-- `\v` Verse
-- `\p` Paragraph
-- `\mt` - Major Title (for book name)
-- `\id` Identifiation (3 letter book abbreviation)
-- ...
+- `\c #` Chapter (required) - It is followed by a space, then the chapter number in place of "#", then another space, all on a line of its own, like this:
+    `\c 1`
+- `\s#` Section (optional) - This is followed by a space, then the section number within the chapter in place of "#", then the section title, all on a line of its own, like this:
+    `\s1 Title of the First Section in a Chapter`
+- `\v #` Verse (required) - This is always placed at the very begining of a line, followed by a space, then the verse number in place of "#", another space, and then the verse, like this:
+    `\v 1 This is verse one.`
+- `\p` Paragraph with an indented first line (optional) - This is all on a line of its own, indicating a paragraph break in the text, like this:
+    `\v 5 This is the last verse in a paragraph.`
+    `\p`
+    `\p 6 This is the first verse in a new paragraph.`
+    Note:  When a paragraph without an indent is desired, then use `\m` in place of `\p`. The "m" stands for margin (with no indent).
+- `\mt#` Major Title - This is the name of the book. It goes in the heading section at the top of the file on a line of its own. The highest priority title is indicated by the number 1, with any subtitles (optional) indicated by sequential numbers, like this:
+    `\mt1 Acts` (required)
+    `\mt2 of the Apostles` (optional)
+- `\id ABC` File identification (required) - This placed at the very begining of the first line, followed by a space, followed by the applicable 3 letter book code (referece provided below), followed by a space, followed by additional file information if desired, like this:
+    `\id JHN Optionally followed by things like the name of the translation, the language name, versions number, date, ...`
 
-## `\c` Chapter
-Description of a chapter marker here.
+## Example Using All of the Above
+`\id JHN Translation for Translators, English
+\mt1 John
+\c 1
+\s1 This book is about Jesus, who was eternally with God but also became a human being to reveal God to mankind.
+\p
+\v 1 The one who expresses God’s character has always existed. He has always existed with God, and he has God’s nature.
+\v 2 He always existed with God before he began to create anything.
+\v 3 He is the one by whom God caused everything to exist. He is the one who created absolutely everything.
+\v 4 He is the one who caused everything to live. He, who caused us people to live, revealed to us the truth about God as a light reveals what is in the darkness.
+\v 5 People do not want him to reveal that what they do is evil, just like darkness is evil. But just like darkness cannot put out light, evil people have never prevented the one who was like a light from revealing God’s truth.
+\p
+\v 6 God sent a man whose name was John.
+\v 7 He came to tell people about the one who was like a light. He came to show that everything that the one who was like a light said was true, in order that he could enable all people to believe in the one who was like a light.
+\v 8 John himself was not the one who was like a light. Instead, he came to tell others about that one who was like a light.
+\v 9 While John was doing that, the one who was truly like a light was about to show himself to the world. He was the one who enables all people to know about God, as a light enables people to know what is in the darkness.
+\p`
 
-Examples:
-`\c 1`
+## Book Codes
+Use the applicable book code from the list below in place of "ABC" on the first line:
+`\id ABC`
 
-## `\s` Section
-Description of a section marker here.
-
-Examples:
-`\s Section heading here`
-
-## `\v` Verse
-Description of a verse marker here.
-
-Examples:
-`\v Verse here`
-`\v Joined or spanned verses here`
-
-## `\p` Paragraph
-Description of a paragraph marker here.
-
-Examples:
-`\p Paragraph here`
-
-## `\mt` - Major Title (for book name)
-Description of a paragraph marker here.
-
-Examples:
-`\mt - Book name here`
-
-## `\id` Identifiation (3 letter book abbreviation)
-Description of a paragraph marker here.
-
-Examples:
-`\id Identifiation (3 letter book abbreviation) here`
+| Code | Book | Additional Information |
+| --- | --- | --- |
+| GEN | Genesis | ‘1 Moses’ in some Bibles |
+| EXO | Exodus | ‘2 Moses’ in some Bibles |
+| LEV | Leviticus | ‘3 Moses’ in some Bibles |
+| NUM | Numbers | ‘4 Moses’ in some Bibles |
+| DEU | Deuteronomy | ‘5 Moses’ in some Bibles |
+| JOS | Joshua |  |
+| JDG | Judges |  |
+| RUT | Ruth |  |
+| 1SA | 1 Samuel | 1 Kings or Kingdoms in some Bibles; Do not confuse this abbreviation with ISA for Isaiah |
+| 2SA | 2 Samuel | 2 Kings or Kingdoms in some Bibles |
+| 1KI | 1 Kings | 3 Kings or Kingdoms in some Bibles |
+| 2KI | 2 Kings | 4 Kings or Kingdoms in some Bibles |
+| 1CH | 1 Chronicles | 1 Paralipomenon in some Bibles |
+| 2CH | 2 Chronicles | 2 Paralipomenon in some Bibles |
+| EZR | Ezra | This is for Hebrew Ezra, sometimes called 1 Ezra or 1 Esdras; also for Ezra-Nehemiah when one book |
+| NEH | Nehemiah | Sometimes appended to Ezra; called 2 Esdras in the Vulgate |
+| EST | Esther | This is for Hebrew Esther |
+| JOB | Job |  |
+| PSA | Psalms |  |
+| PRO | Proverbs |  |
+| ECC | Ecclesiastes | Qoholeth in some Bibles |
+| SNG | Song of Songs | Song of Solomon, or Canticles of Canticles in some Bibles |
+| ISA | Isaiah | Do not confuse this abbreviation with 1SA for 1 Samuel |
+| JER | Jeremiah | The Book of Jeremiah |
+| LAM | Lamentations | The Lamentations of Jeremiah |
+| EZK | Ezekiel |  |
+| DAN | Daniel | This is for Hebrew Daniel |
+| HOS | Hosea |  |
+| JOL | Joel |  |
+| AMO | Amos |  |
+| OBA | Obadiah |  |
+| JON | Jonah | Do not confuse this abbreviation with JHN for John |
+| MIC | Micah |  |
+| NAM | Nahum |  |
+| HAB | Habakkuk |  |
+| ZEP | Zephaniah |  |
+| HAG | Haggai |  |
+| ZEC | Zechariah |  |
+| MAL | Malachi |  |
+| MAT | Matthew | The Gospel according to Matthew |
+| MRK | Mark | The Gospel according to Mark |
+| LUK | Luke | The Gospel according to Luke |
+| JHN | John | The Gospel according to John |
+| ACT | Acts | The Acts of the Apostles |
+| ROM | Romans | The Letter of Paul to the Romans |
+| 1CO | 1 Corinthians | The First Letter of Paul to the Corinthians |
+| 2CO | 2 Corinthians | The Second Letter of Paul to the Corinthians |
+| GAL | Galatians | The Letter of Paul to the Galatians |
+| EPH | Ephesians | The Letter of Paul to the Ephesians |
+| PHP | Philippians | The Letter of Paul to the Philippians |
+| COL | Colossians | The Letter of Paul to the Colossians |
+| 1TH | 1 Thessalonians | The First Letter of Paul to the Thessalonians |
+| 2TH | 2 Thessalonians | The Second Letter of Paul to the Thessalonians |
+| 1TI | 1 Timothy | The First Letter of Paul to Timothy |
+| 2TI | 2 Timothy | The Second Letter of Paul to Timothy |
+| TIT | Titus | The Letter of Paul to Titus |
+| PHM | Philemon | The Letter of Paul to Philemon |
+| HEB | Hebrews | The Letter to the Hebrews |
+| JAS | James | The Letter of James |
+| 1PE | 1 Peter | The First Letter of Peter |
+| 2PE | 2 Peter | The Second Letter of Peter |
+| 1JN | 1 John | The First Letter of John |
+| 2JN | 2 John | The Second Letter of John |
+| 3JN | 3 John | The Third Letter of John |
+| JUD | Jude | The Letter of Jude; do not confuse this abbreviation with JDG for Judges, or JDT for Judith |
+| REV | Revelation | The Revelation to John; called Apocalypse in some Bibles |
+| FRT | Front Matter |  |
+| BAK | Back Matter |  |
+| OTH | Other Matter |  |
+| INT | Introduction Matter |  |
+| CNC | Concordance |  |
+| GLO | Glossary / Wordlist |  |
+| TDX | Topical Index |  |
+| NDX | Names Index |  |
+| XXA | Extra material |  |
+| XXB | Extra material |  |
+| XXC | Extra material |  |
+| XXD | Extra material |  |
+| XXE | Extra material |  |
+| XXF | Extra material |  |
+| XXG | Extra material |  |
