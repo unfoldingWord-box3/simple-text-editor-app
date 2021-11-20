@@ -3,17 +3,17 @@
     * Aligning in this context refers to mapping translated results and the source to indicate granular correlation.
  * Stay simple. We strive to become and remain the most functional *bottom-rung* in this space.
  * Design from the beginning for full offline use compatibility.
- * Maintain separation of concerns. This project provides technology, ***not*** content. Compatible content will be available from other sources.
+ * Maintain separation of concerns. This project provides technology, *not* content. Compatible content will be available from other sources.
 
 ## Almost a Simple USFM Alignment Prototype
 
-Version 0.6.0 needs the adverb "*almost*" in front of it -- ***Almost*** a Simple USFM Alignment Prototype. It includes:
+Version 0.6.0 needs the adverb "*almost*" in front of it -- *Almost* a Simple USFM Alignment Prototype. It includes:
 * Side-by-side USFM areas for the Original Source Language, an Aligned Bridge Language, and the Target Language.
 * Expandable and collapsible chapters and paragraphs
     * Chapter selection synchronized across all three areas
 * *Placeholder* for an alignment area
     * This feature is *Coming Soon*. Currently it only displays the selected chapter and verse reference to be aligned.
-    * Important: Ability to **store** aligned target language information a project is *not* coming as soon. This will be "Coming ***Later***". This prototype does ***not yet*** save alignment!
+    * Important: Ability to **store** aligned target language information a project is *not* coming as soon. This will be "Coming *Later*". This prototype does *not yet* save alignment!
 * Translating, editing, [USFM](https://ubsicap.github.io/usfm/) formatting, and exporting of the Target Language
 
 ## See it in Action Online
