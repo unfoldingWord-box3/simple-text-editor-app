@@ -1,15 +1,13 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { DocumentEditor } from 'simple-text-editor-rcl';
+import { UsfmEditor } from 'simple-text-editor-rcl';
 
 import OpenFile from './OpenFile';
 import ExportFile from './ExportFile';
-import { segmenter } from '../helpers/segmenter';
 import { styles } from './UsfmFileEditor.styles';
-
-import BlockEditor from './BlockEditor';
-import SectionHeading from './SectionHeading';
+import { getSectionChapter, getBlockVerse } from '../helpers/getChapterVerse';
+import './Usfm.css';
 
 export default function UsfmFileEditor ({
   editable,
@@ -21,7 +19,6 @@ export default function UsfmFileEditor ({
   onFile: _onFile,
   type,
 }) {
-
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
 
@@ -42,33 +39,33 @@ export default function UsfmFileEditor ({
     const onVerse = (verse) => {
       onReference({ bookId: reference.bookId, chapter: reference.chapter, verse })
     };
-    const blockComponent = (props) => (<BlockEditor {...props} onVerse={onVerse} />);
     const onChapter = (chapter) => {
       onReference({ bookId: reference.bookId, chapter, verse: undefined })
     };
-    const headingComponent = (props) => (<SectionHeading {...props} onChapter={onChapter} />);
-    const textEditorProps = {
-      blockComponent,
-      titleComponent: () => (<h2 style={{textAlign: 'center'}}>{file.name}</h2>),
-      headingComponent,
-      text: file.content,
+    
+    const onSectionClick = ({text: _text, index}) => {
+      onSectionIndex(index);
+      const chapter = getSectionChapter(_text);
+      onChapter(chapter);
+    };
+
+    const onBlockClick = ({text: _text, index}) => {
+      const verse = getBlockVerse(_text);
+      onVerse(verse);
+    };
+
+    const editorProps = {
+      text: file.content || '',
       onText,
       editable,
       sectionable,
       blockable,
       sectionIndex,
-      onSectionIndex,
-      sectionParser: (_text) => (
-        segmenter({ text: _text, regex: /(^|\\c +\d+)(\n|.)+?(\n|$)?(?=(\\c +\d+|$))/g })
-      ),
-      sectionJoiner: '',
-      blockParser: (_text) => (
-        segmenter({ text: _text, regex: /(^|\\[cspv])(\n|.)+?(\n|$)?(?=(\\[cspv]|$))/g })
-      ),
-      blockJoiner: '',
+      onSectionClick,
+      onBlockClick,
     };
-    return <DocumentEditor {...textEditorProps} />;
-  }, [file.content, file.name, onText, editable, sectionable, blockable, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId]);
+    return <UsfmEditor {...editorProps} />;
+  }, [file.content, onText, editable, sectionable, blockable, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId]);
 
   return (
     <div style={styles.textFileEditor}>
@@ -80,6 +77,7 @@ export default function UsfmFileEditor ({
         { editable && <ExportFile file={file} /> }
       </div>
       <hr />
+      <h2 style={{textAlign: 'center'}}>{file.name}</h2>
       {textEditor}
     </div>
   );
