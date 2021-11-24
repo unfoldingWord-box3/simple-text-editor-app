@@ -5,6 +5,8 @@
 /* If Firefox */
 @-moz-document url-prefix() {
   @font-face {
+    /* This font is licensed under the Open Font License (OFL), Version 1.1. For OFL details, see http://scripts.sil.org/OFL. */
+    /* This is version 2.2000 of this font. */
     font-family: AwamiNastaliqRW;
     src: url(AwamiNastaliq-Regular.woff2);
   }
