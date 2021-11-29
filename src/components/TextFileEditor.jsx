@@ -9,15 +9,13 @@ import SaveFile from './SaveFile';
 import './Usfm.css';
 import './Markdown.css';
 
-export default function TextFileEditor ({file, onFile, editable}) {
+export default function TextFileEditor ({file, onFile, editable, sectionIndex, onSectionIndex}) {
   const initialState = file || {
     name: undefined, content: undefined, lastModified: undefined
   };
   const [state, setState] = useState(initialState);
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
-  const [sectionIndex, setSectionIndex] = useState(0);
-
 
   const onSectionable = () => { setSectionable(!sectionable); };
 
@@ -31,9 +29,9 @@ export default function TextFileEditor ({file, onFile, editable}) {
     });
   }, [state.name, state.lastModified]);
 
-  const onSectionClick = ({text: _text, index}) => {
-    setSectionIndex(index);
-  };
+  const onSectionClick = useCallback(({text: _text, index}) => {
+    onSectionIndex(index);
+  }, [onSectionIndex]);
 
   const textEditor = useMemo(() => {
     const textEditorProps = {
@@ -49,7 +47,7 @@ export default function TextFileEditor ({file, onFile, editable}) {
     const textEditor = isUSFM ? <UsfmEditor {...textEditorProps} /> : <MarkdownEditor {...textEditorProps} />;
 
     return textEditor;
-  }, [state.content, state.name, onText, editable, sectionable, blockable, sectionIndex]);
+  }, [state.content, state.name, onText, editable, sectionable, blockable, sectionIndex, onSectionClick]);
 
   const textFileEditorStyle = {
     width: '100%',

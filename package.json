@@ -1,6 +1,6 @@
 {
   "name": "simple-text-editor-app",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "homepage": "https://simple-text-editor-app.netlify.app/",
   "private": false,
   "dependencies": {
