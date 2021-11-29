@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <div style={workspaceStyle}>
         <div style={{ width: '100%', overflowY: 'scroll', padding: '0 1em', }}>
-          <TextFileEditor editable={false} />
+          <TextFileEditor editable={true} />
         </div>
         <div style={{ width: '100%', overflowY: 'scroll', padding: '0 1em', }}>
           <TextFileEditor />

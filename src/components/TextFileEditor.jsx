@@ -1,12 +1,13 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  DocumentEditor
-} from 'simple-text-editor-rcl';
+import { UsfmEditor, MarkdownEditor } from 'simple-text-editor-rcl';
 
 import OpenFile from './OpenFile';
 import SaveFile from './SaveFile';
+
+import './Usfm.css';
+import './Markdown.css';
 
 export default function TextFileEditor ({file, onFile, editable}) {
   const initialState = file || {
@@ -15,6 +16,7 @@ export default function TextFileEditor ({file, onFile, editable}) {
   const [state, setState] = useState(initialState);
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
+  const [sectionIndex, setSectionIndex] = useState(0);
 
 
   const onSectionable = () => { setSectionable(!sectionable); };
@@ -29,62 +31,25 @@ export default function TextFileEditor ({file, onFile, editable}) {
     });
   }, [state.name, state.lastModified]);
 
-  
+  const onSectionClick = ({text: _text, index}) => {
+    setSectionIndex(index);
+  };
+
   const textEditor = useMemo(() => {
-    const editorStyle = { width: '100%', whiteSpace: 'pre-wrap', padding: '0 0.2em' };
-    const blockComponent = (props) => <><div {...props} style={editorStyle}></div><hr /></>;
-    const headingComponent = (props) => {
-      const headingText = props.text.replace(/^\n+/, '').split('\n')[0];
-      const component = (<div {...props}><button>{headingText}</button><hr /></div>);
-      return component;
-    };
-
-    const mdProps = {
-      sectionParser: (_text='') => {
-        let sections = [_text];
-        const headerRegexHashtag = /(?<section>((^|) *#{1,4} +.+\n*)(\n|.)+?(\n|$))(?=(( *#{1,4} +.+\n*)|$))/g;
-        // if (headerRegexHashtag.test(_text)) {
-        sections = [];
-        var match = headerRegexHashtag.exec(_text);
-        while (match !== null) {
-          // console.log('match.groups: ', match?.groups);
-          const { section } = match.groups;
-          const sectionText = section;
-          sections = [...sections, sectionText];
-          match = headerRegexHashtag.exec(_text);
-        };
-        // };
-        return sections;
-      },
-      sectionJoiner: '',
-      blockParser: (_text) => (_text.split('\n\n')),
-      blockJoiner: '\n\n',
-    };
-    
-    const usfmProps = {
-      sectionParser: (_text) => (_text.split('\\c ')),
-      sectionJoiner: '\\c ',
-      blockParser: (_text) => (_text.split('\\p')),
-      blockJoiner: '\\p',
-    };
-
-    const isUSFM = /\.usfm$/.test(state.name);
-    
-    let textEditorProps = isUSFM ? usfmProps : mdProps;
-
-    textEditorProps = {
-      ...textEditorProps,
-      blockComponent,
-      titleComponent: () => (<h2 style={{textAlign: 'center'}}>{state.name}</h2>),
-      headingComponent,
+    const textEditorProps = {
       text: state.content,
       onText,
       editable,
       sectionable,
       blockable,
+      sectionIndex,
+      onSectionClick,
     };
-    return <DocumentEditor {...textEditorProps} />
-  }, [state.name, state.content, onText, editable, sectionable, blockable]);
+    const isUSFM = /\.usfm$/.test(state.name);
+    const textEditor = isUSFM ? <UsfmEditor {...textEditorProps} /> : <MarkdownEditor {...textEditorProps} />;
+
+    return textEditor;
+  }, [state.content, state.name, onText, editable, sectionable, blockable, sectionIndex]);
 
   const textFileEditorStyle = {
     width: '100%',
@@ -99,6 +64,7 @@ export default function TextFileEditor ({file, onFile, editable}) {
         { editable && <SaveFile file={state} /> }
       </div>
       <hr />
+      <h2 style={{textAlign: 'center'}}>{state.name}</h2>
       {textEditor}
     </div>
   );
