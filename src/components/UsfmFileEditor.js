@@ -10,7 +10,7 @@ import { getSectionChapter, getBlockVerse } from '../helpers/getChapterVerse';
 import './Usfm.css';
 
 export default function UsfmFileEditor ({
-  editable,
+  target,
   sectionIndex,
   onSectionIndex,
   reference,
@@ -21,9 +21,15 @@ export default function UsfmFileEditor ({
 }) {
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
+  const [editable, setEditable] = useState(false);
+  const [preview, setPreview] = useState(false);
+
 
   const onSectionable = () => { setSectionable(!sectionable); };
   const onBlockable = () => { setBlockable(!blockable); };
+  const onEditable = () => { setEditable(!editable); };
+  const onPreview = () => { setPreview(!preview); };
+
 
   const onFile = useCallback((_file) => { _onFile({ file: _file, type }); }, [_onFile, type]);
 
@@ -34,6 +40,8 @@ export default function UsfmFileEditor ({
       lastModified: file.lastModified,
     });
   }, [file.name, file.lastModified, onFile]);
+
+  const disabled = (!file.name || !file.content);
   
   const textEditor = useMemo(() => {
     const onVerse = (verse) => {
@@ -57,24 +65,28 @@ export default function UsfmFileEditor ({
     const editorProps = {
       text: file.content || '',
       onText,
+      target,
       editable,
       sectionable,
       blockable,
+      preview,
       sectionIndex,
       onSectionClick,
       onBlockClick,
     };
     return <UsfmEditor {...editorProps} />;
-  }, [file.content, onText, editable, sectionable, blockable, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId]);
+  }, [file.content, onText, editable, target, sectionable, blockable, preview, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId]);
 
   return (
     <div style={styles.textFileEditor}>
       <div style={styles.toolbar}>
         <OpenFile onFile={onFile} />
-        <button onClick={onSectionable}>Chapters</button>
+        <button style={(sectionable ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onSectionable}>Chapters</button>
         {/** Chapters are Sections */}
-        <button onClick={onBlockable}>Paragraphs</button>
-        { editable && <ExportFile file={file} /> }
+        <button style={(blockable ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onBlockable}>Paragraphs</button>
+        { target && <button style={(editable ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onEditable}>Editable</button> }
+        <button style={(preview ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onPreview}>Preview</button>  
+        { target && <ExportFile file={file} /> }
       </div>
       <hr />
       <h2 style={{textAlign: 'center'}}>{file.name}</h2>
@@ -90,6 +102,8 @@ UsfmFileEditor.propTypes = {
   onFile: PropTypes.func,
   /** Editable? */
   editable: PropTypes.bool,
+    /** Target? */
+  target: PropTypes.bool,
   /** Reference: { bookId, chapter, verse } */
   reference: PropTypes.object.isRequired,
   /** Function to update reference */

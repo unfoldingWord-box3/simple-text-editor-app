@@ -5,7 +5,7 @@ import { styles } from './Layout.styles';
 import preval from 'preval.macro';
 
 function Layout() {
-  const [sectionIndex, setSectionIndex] = useState(0);
+  const [sectionIndex, setSectionIndex] = useState(1);
   const [reference, setReference] = useState({ bookId: undefined, chapter: undefined, verse: undefined });
 
   const initialFile = { name: undefined, content: undefined, lastModified: undefined };
@@ -32,18 +32,18 @@ function Layout() {
         <div style={styles.workspace}>
           <div style={styles.editor}>
           <div style={styles.heading}>Original</div>
-            <UsfmFileEditor {...editorProps} editable={false} file={files.original} type={'original'} />
+            <UsfmFileEditor {...editorProps} file={files.original} type={'original'} />
           </div>
           <div style={styles.editor}>
           <div style={styles.heading}>Bridge</div>
-            <UsfmFileEditor {...editorProps} editable={false} file={files.bridge} type={'bridge'} />
+            <UsfmFileEditor {...editorProps} file={files.bridge} type={'bridge'} />
           </div>
           <div style={styles.editor}>
             <div style={styles.translationHeading}>
               <div style={styles.translationHeadingL}>Translation</div>
               <div style={styles.translationHeadingR}>Built {preval`module.exports = new Date().toLocaleString('en-GB', { day: 'numeric', month: 'short', year: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short' });`}</div>
             </div>
-            <UsfmFileEditor {...editorProps} file={files.target} type={'target'} />
+            <UsfmFileEditor {...editorProps} target={true} file={files.target} type={'target'} />
           </div>
        </div>
       </div>
