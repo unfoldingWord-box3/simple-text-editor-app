@@ -16,10 +16,11 @@ export default function TextFileEditor ({file, onFile, editable, sectionIndex, o
   const [state, setState] = useState(initialState);
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
+  const [preview, setPreview] = useState(false);
 
   const onSectionable = () => { setSectionable(!sectionable); };
-
   const onBlockable = () => { setBlockable(!blockable); };
+  const onPreview = () => { setPreview(!preview); };
 
   const onText = useCallback((text) => {
     setState({
@@ -38,6 +39,7 @@ export default function TextFileEditor ({file, onFile, editable, sectionIndex, o
       text: state.content,
       onText,
       editable,
+      preview,
       sectionable,
       blockable,
       sectionIndex,
@@ -47,7 +49,7 @@ export default function TextFileEditor ({file, onFile, editable, sectionIndex, o
     const textEditor = isUSFM ? <UsfmEditor {...textEditorProps} /> : <MarkdownEditor {...textEditorProps} />;
 
     return textEditor;
-  }, [state.content, state.name, onText, editable, sectionable, blockable, sectionIndex, onSectionClick]);
+  }, [state.content, state.name, onText, editable, sectionable, blockable, preview, sectionIndex, onSectionClick]);
 
   const textFileEditorStyle = {
     width: '100%',
@@ -59,6 +61,7 @@ export default function TextFileEditor ({file, onFile, editable, sectionIndex, o
         <OpenFile onFile={setState} />
         <button onClick={onSectionable}>Sections</button>
         <button onClick={onBlockable}>Paragraphs</button>
+        <button onClick={onPreview}>Preview</button>
         { editable && <SaveFile file={state} /> }
       </div>
       <hr />
