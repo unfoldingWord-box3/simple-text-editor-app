@@ -102,7 +102,7 @@ UsfmFileEditor.propTypes = {
   onFile: PropTypes.func,
   /** Editable? */
   editable: PropTypes.bool,
-    /** Target? */
+  /** Target? */
   target: PropTypes.bool,
   /** Reference: { bookId, chapter, verse } */
   reference: PropTypes.object.isRequired,
@@ -111,5 +111,6 @@ UsfmFileEditor.propTypes = {
 };
 
 UsfmFileEditor.defaultProps = {
-  editable: true,
+  editable: false,
+  target: false,
 };

@@ -42,10 +42,15 @@ export const styles = {
     height: '100%',
     minHeight: '100%',
   },
-  upper: {
+  upperAlignOn: {
     top: '0',
     height: '50%',
     minHeight: '50%',
+  },
+  upperAlignOff: {
+    top: '0',
+    height: '96%',
+    minHeight: '96%',
   },
   editor: {
     width: '100%',
@@ -54,12 +59,23 @@ export const styles = {
     overflowY: 'scroll',
     padding: '0 1em',
   },
-  lower: {
+  lowerAlignOn: {
     bottom: '0',
-    height: '50%',
-    minHeight: '50%',
     overflowY: 'scroll',
     textAlign: 'center',
+    boxSizing: 'border-box',
+    borderTop: '1px black solid',
+    height: '50%',
+    minHeight: '50%',
+  },
+  lowerAlignOff: {
+    bottom: '0',
+    overflowY: 'hidden',
+    textAlign: 'center',
+    boxSizing: 'border-box',
+    borderTop: '1px black solid',
+    height: '4%',
+    minHeight: '4%',
   },
   workspace: {
     width: '100%',

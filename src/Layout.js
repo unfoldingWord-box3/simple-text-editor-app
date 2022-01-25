@@ -7,11 +7,13 @@ import preval from 'preval.macro';
 function Layout() {
   const [sectionIndex, setSectionIndex] = useState(1);
   const [reference, setReference] = useState({ bookId: undefined, chapter: undefined, verse: undefined });
+  const [align, setAlign] = useState(true);
 
   const initialFile = { name: undefined, content: undefined, lastModified: undefined };
   const initialFiles = { original: initialFile, bridge: initialFile, target: initialFile };
   const [files, setFiles] = useState(initialFiles);
 
+  const onAlign = () => { setAlign(!align); };
   const onFile = ({file, type}) => {
     let _files = {...files};
     _files[type] = file;
@@ -28,7 +30,7 @@ function Layout() {
   
   return (
     <div style={styles.container}>
-      <div style={styles.upper}>
+      <div style={(align ? styles.upperAlignOn : styles.upperAlignOff)}>
         <div style={styles.workspace}>
           <div style={styles.editor}>
           <div style={styles.heading}>Original</div>
@@ -47,10 +49,10 @@ function Layout() {
           </div>
        </div>
       </div>
-      <div style={styles.lower}>
-        <hr />
-        [Alignment Workspace Placeholder]
-        <hr style={{ width: '35%', }} />
+      <div style={(align ? styles.lowerAlignOn : styles.lowerAlignOff)}>
+        <button style={(align ? {borderStyle: 'inset'} : {})}  onClick={onAlign}>Alignment Workspace</button>
+        <br />[Alignment Workspace Placeholder]
+        <br />
         Reference: { JSON.stringify( reference ) }
       </div>
     </div>
