@@ -6,7 +6,7 @@ import preval from 'preval.macro';
 
 function Layout() {
   const [sectionIndex, setSectionIndex] = useState(1);
-  const [reference, setReference] = useState({ bookId: undefined, chapter: undefined, verse: undefined });
+  const [reference, setReference] = useState({ bookId: undefined, chapter: 1, verse: undefined });
   const [align, setAlign] = useState(true);
 
   const initialFile = { name: undefined, content: undefined, lastModified: undefined };
