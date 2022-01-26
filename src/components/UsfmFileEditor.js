@@ -11,6 +11,7 @@ import './Usfm.css';
 
 export default function UsfmFileEditor ({
   target,
+  align,
   sectionIndex,
   onSectionIndex,
   reference,
@@ -23,14 +24,12 @@ export default function UsfmFileEditor ({
   const [blockable, setBlockable] = useState(true);
   const [editable, setEditable] = useState(false);
   const [preview, setPreview] = useState(false);
-
-
+  
   const onSectionable = () => { setSectionable(!sectionable); };
   const onBlockable = () => { setBlockable(!blockable); };
   const onEditable = () => { setEditable(!editable); };
   const onPreview = () => { setPreview(!preview); };
-
-
+ 
   const onFile = useCallback((_file) => { _onFile({ file: _file, type }); }, [_onFile, type]);
 
   const onText = useCallback((text) => {
@@ -42,6 +41,8 @@ export default function UsfmFileEditor ({
   }, [file.name, file.lastModified, onFile]);
 
   const disabled = (!file.name || !file.content);
+  const disabledbyalign = (align || disabled);
+
   
   const textEditor = useMemo(() => {
     const onVerse = (verse) => {
@@ -81,8 +82,8 @@ export default function UsfmFileEditor ({
     <div style={styles.textFileEditor}>
       <div style={styles.toolbar}>
         <OpenFile onFile={onFile} />
-        <button style={(sectionable ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onSectionable}>Chapters</button>
         {/** Chapters are Sections */}
+        <button style={(sectionable ? {borderStyle: 'inset'} : {})} disabled={disabledbyalign} onClick={onSectionable}>Chapters</button>
         <button style={(blockable ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onBlockable}>Paragraphs</button>
         { target && <button style={(editable ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onEditable}>Editable</button> }
         <button style={(preview ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onPreview}>Preview</button>  
@@ -104,6 +105,8 @@ UsfmFileEditor.propTypes = {
   editable: PropTypes.bool,
   /** Target? */
   target: PropTypes.bool,
+  /** Align? */
+  align: PropTypes.bool,
   /** Reference: { bookId, chapter, verse } */
   reference: PropTypes.object.isRequired,
   /** Function to update reference */
@@ -113,4 +116,6 @@ UsfmFileEditor.propTypes = {
 UsfmFileEditor.defaultProps = {
   editable: false,
   target: false,
+  align: true,
+  sectionable: true,
 };

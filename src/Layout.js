@@ -26,6 +26,7 @@ function Layout() {
     reference,
     onReference: setReference,
     onFile,
+    align,
   };
   
   return (
