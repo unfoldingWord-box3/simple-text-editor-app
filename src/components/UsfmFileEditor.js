@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { UsfmEditor } from 'simple-text-editor-rcl';
@@ -42,8 +42,11 @@ export default function UsfmFileEditor ({
 
   const disabled = (!file.name || !file.content);
   const disabledbyalign = (align || disabled);
-
+  useEffect(() => {
+    if (align) setSectionable(true);
+  }, [align]);
   
+ 
   const textEditor = useMemo(() => {
     const onVerse = (verse) => {
       onReference({ bookId: reference.bookId, chapter: reference.chapter, verse })
