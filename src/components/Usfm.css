@@ -3,7 +3,7 @@
     @font-face {
       /* This font (ver 2.2000) is licensed under the Open Font License (OFL), Version 1.1. For OFL details, see http://scripts.sil.org/OFL. */
       font-family: AwamiNastaliqRW;
-      src: url(AwamiNastaliq-Regular.woff2);
+      src: url(../fonts/AwamiNastaliq-Regular.woff2);
     }
     .document {
       font-family: AwamiNastaliqRW, Arial, Helvetica, sans-serif;

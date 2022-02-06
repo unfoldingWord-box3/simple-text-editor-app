@@ -8,6 +8,7 @@ import ExportFile from './ExportFile';
 import { styles } from './UsfmFileEditor.styles';
 import { getSectionChapter, getBlockVerse } from '../helpers/getChapterVerse';
 import './Usfm.css';
+import FontDropdown from './FontDropdown';
 
 export default function UsfmFileEditor ({
   target,
@@ -84,13 +85,16 @@ export default function UsfmFileEditor ({
   return (
     <div style={styles.textFileEditor}>
       <div style={styles.toolbar}>
-        <OpenFile onFile={onFile} />
-        {/** Chapters are Sections */}
-        <button style={(sectionable ? {borderStyle: 'inset'} : {})} disabled={disabledbyalign} onClick={onSectionable}>Chapters</button>
-        <button style={(blockable ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onBlockable}>Paragraphs</button>
-        { target && <button style={(editable ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onEditable}>Editable</button> }
-        <button style={(preview ? {borderStyle: 'inset'} : {})} disabled={disabled} onClick={onPreview}>Preview</button>  
-        { target && <ExportFile file={file} /> }
+        <div class="btnGroup" role="group">
+          <OpenFile onFile={onFile} />
+          {/** Chapters are Sections */}
+          <button class={(sectionable ? "btn on" : "btn")} disabled={disabledbyalign} onClick={onSectionable}>Chapters</button>
+          <button class={(blockable ? "btn on" : "btn")} disabled={disabled} onClick={onBlockable}>Paragraphs</button>
+          { target && <button class={(editable ? "btn on" : "btn")} disabled={disabled} onClick={onEditable}>Editable</button> }
+          <button class={(preview ? "btn on" : "btn")} disabled={disabled} onClick={onPreview}>Preview</button>  
+          { target && <ExportFile file={file} /> }
+          { target && <FontDropdown /> }
+        </div>
       </div>
       <hr />
       <h2 style={{textAlign: 'center'}}>{file.name}</h2>

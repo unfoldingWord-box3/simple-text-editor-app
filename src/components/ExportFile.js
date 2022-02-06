@@ -11,7 +11,7 @@ export default function ExportFile ({file}) {
   };
 
   return (
-    <button disabled={disabled} onClick={ExportFile}>Export</button>
+    <button class="btn" disabled={disabled} onClick={ExportFile}>Export</button>
   );
 };
 

@@ -3,7 +3,7 @@ export const styles = {
     width: '100%',
   },
   toolbar: {
-    textAlign: 'center',
+    textAlign: 'left',
     paddingTop: '0.5em'
   },
 };

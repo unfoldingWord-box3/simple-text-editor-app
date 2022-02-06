@@ -2,11 +2,12 @@ export const styles = {
   heading: {
     float: 'left',
     fontSize: 'xx-small',
-    textAlign: 'center',
+    textAlign: 'left',
     width: '100%',
     padding: '0px',
     margin: '0px',
     borderBottom: '1px black solid',
+    fontWeight: 'bold',
   },
   translationHeading: {
     float: 'left',
@@ -16,11 +17,12 @@ export const styles = {
     padding: '0px',
     margin: '0px',
     borderBottom: '1px black solid',
+    fontWeight: 'bold',
   },
   translationHeadingL: {
     float: 'left',
     fontSize: 'xx-small',
-    textAlign: 'right',
+    textAlign: 'left',
     width: '50%',
     padding: '0px',
     margin: '0px',

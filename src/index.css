@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,110 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.btnGroup {
+/*  @apply inline-flex; */
+  @apply shadow-md;
+  @apply hover:shadow-lg;
+  @apply focus:shadow-lg;
+}
+
+.btn {
+  @apply rounded-l rounded-r;
+  @apply px-0.5;
+  @apply py-0.5;
+  @apply border-2 border-blue-600;
+  @apply text-blue-600;
+  @apply font-medium;
+  @apply text-xs;
+  @apply leading-tight;
+/*  @apply uppercase; */
+  @apply hover:bg-black hover:bg-opacity-10 hover:text-blue-600;
+  @apply focus:outline-none focus:ring-0;
+  @apply active:bg-blue-800;
+  @apply transition;
+  @apply duration-150;
+  @apply ease-in-out;
+  @apply disabled:opacity-50;
+}
+
+.menuitems {
+  @apply absolute right-0 w-48 mt-0.5 origin-top-right;
+  @apply bg-white;
+  @apply divide-y divide-gray-100;
+  @apply rounded-md shadow-lg;
+  @apply ring-1 ring-black ring-opacity-5;
+  @apply focus:outline-none;
+}
+
+.menuitem {
+  @apply flex;
+  @apply rounded-md;
+  @apply items-center;
+  @apply w-full;
+  @apply px-0.5;
+  @apply py-0.5;
+  @apply text-xs;
+}
+
+.menuitemnohov {
+  @apply text-blue-600;
+}
+
+.on {
+  @apply bg-blue-800;
+  @apply text-white;
+  @apply disabled:hover:bg-blue-800 disabled:hover:opacity-50 disabled:hover:text-white;
+}
+
+.menuitemhov {
+  @apply bg-black bg-opacity-10;
+  @apply text-blue-600;
+}
+
+.notff {
+  visibility: hidden;
+}
+
+/* If Firefox */
+@-moz-document url-prefix() {
+  @font-face {
+    /* These fonts are licensed under the Open Font License (OFL), Version 1.1. For OFL details, see http://scripts.sil.org/OFL. */
+    font-family: AwamiNastaliqRW;
+    src: url(./fonts/AwamiNastaliq-Regular.woff2);
+    font-family: HarmattanW;
+    src: url(./fonts/Harmattan-Regular.woff);
+    font-family: ScheherazadeRW;
+    src: url(./fonts/ScheherazadeNew-Regular.woff2);
+  }
+
+  .ff {
+    visibility: visible;
+  }
+
+  .AwamiNastaliqRW {
+    font-family: AwamiNastaliqRW;
+  }
+
+  .HarmattanW {
+    font-family: HarmattanW;
+  }
+
+  .ScheherazadeRW {
+    font-family: ScheherazadeRW;
+  }
+
+  .AwamiNastaliq {
+    font-family: AwamiNastaliq;
+  }
+
+  .Harmattan {
+    font-family: Harmattan;
+  }
+
+  .Scheherazade {
+    font-family: Scheherazade;
+  }
+  
 }
