@@ -7,7 +7,7 @@
 
 ## Almost a Simple USFM Alignment Prototype
 
-Version 0.6.6 needs the adverb "*almost*" in front of it -- *Almost* a Simple USFM Alignment Prototype. It includes:
+Version 0.6.7 needs the adverb "*almost*" in front of it -- *Almost* a Simple USFM Alignment Prototype. It includes:
 * Side-by-side USFM areas for the Original Source Language, an Aligned Bridge Language, and the Target Language.
 * Expandable and collapsible chapters and paragraphs
     * Chapter selection synchronized across all three areas
@@ -18,7 +18,7 @@ Version 0.6.6 needs the adverb "*almost*" in front of it -- *Almost* a Simple US
 
 ## See it in Action Online
 
-While Version 0.6.6 can be experienced [online](https://simple-usfm-alignment-prototype.netlify.app/), it requires having or obtaining [USFM](https://ubsicap.github.io/usfm/) files to have something to open.
+While Version 0.6.7 can be experienced [online](https://simple-usfm-alignment-prototype.netlify.app/), it requires having or obtaining [USFM](https://ubsicap.github.io/usfm/) files to have something to open.
 
 ## Install the Progressive Web App (PWA) for an Offline Experience
 

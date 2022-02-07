@@ -90,7 +90,7 @@ export default function UsfmFileEditor ({
           <OpenFile onFile={onFile} />
           {/** Chapters are Sections */}
           <button class={(sectionable ? "btn on" : "btn")} disabled={disabledbyalign} onClick={onSectionable}>Chapters</button>
-          <button class={(blockable ? "btn on" : "btn")} disabled={disabled} onClick={onBlockable}>Paragraphs</button>
+          <button class={(blockable ? "btn" : "btn on")} disabled={disabled} onClick={onBlockable}>Paragraphs</button>
           { target && <button class={(editable ? "btn on" : "btn")} disabled={disabled} onClick={onEditable}>Editable</button> }
           <button class={(preview ? "btn on" : "btn")} disabled={disabled} onClick={onPreview}>Preview</button>  
           { target && <ExportFile file={file} /> }
