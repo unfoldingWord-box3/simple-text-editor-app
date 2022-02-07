@@ -5,11 +5,17 @@ export default function FontDropdown(props) {
   const {font, setFont} = props;
 
   const onFontClear = () => { setFont(''); };
+  const onFontAlkalamiRW = () => { setFont('AlkalamiRW'); };
+  const onFontAlkalamiLW = () => { setFont('AlkalamiLW'); };
   const onFontAwamiNastaliqRW = () => { setFont('AwamiNastaliqRW'); };
   const onFontHarmattanW = () => { setFont('HarmattanW'); };
+  const onFontLateefRW = () => { setFont('LateefRW'); };
   const onFontScheherazadeRW = () => { setFont('ScheherazadeRW'); };
+  const onFontAlkalami = () => { setFont('Alkalami'); };
+  const onFontAlkalamiLight = () => { setFont('AlkalamiLight'); };
   const onFontAwamiNastaliq = () => { setFont('AwamiNastaliq'); };
   const onFontHarmattan = () => { setFont('Harmattan'); };
+  const onFontLateefGR = () => { setFont('LateefGR'); };
   const onFontScheherazadeNew = () => { setFont('ScheherazadeNew'); };
 
   return (
@@ -43,6 +49,34 @@ export default function FontDropdown(props) {
                   )}
                   </Menu.Item>
                 )}
+                <Menu.Item>
+                {({ active }) => (
+                  <button
+                    onClick={onFontAlkalamiRW}
+                    className={`${
+                      active ? 'menuitemhov' : 'menuitemnohov'
+                    } group menuitem ${
+                      font === "AlkalamiRW" ? 'on' : ''
+                    }`}
+                  >
+                    ➤ Alkalami 1.200
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+              {({ active }) => (
+                <button
+                  onClick={onFontAlkalamiLW}
+                  className={`${
+                    active ? 'menuitemhov' : 'menuitemnohov'
+                  } group menuitem ${
+                    font === "AlkalamiLW" ? 'on' : ''
+                  }`}
+                >
+                  ➤ Alkalami Light 1.200
+                </button>
+              )}
+              </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
                   <button
@@ -72,6 +106,20 @@ export default function FontDropdown(props) {
                 )}
               </Menu.Item>
               <Menu.Item>
+              {({ active }) => (
+                <button
+                  onClick={onFontLateefRW}
+                  className={`${
+                    active ? 'menuitemhov' : 'menuitemnohov'
+                  } group menuitem ${
+                    font === "LateefRW" ? 'on' : ''
+                  }`}
+                >
+                  ➤ LateefGR 1.200
+                </button>
+              )}
+              </Menu.Item>
+              <Menu.Item>
                 {({ active }) => (
                   <button
                     onClick={onFontScheherazadeRW}
@@ -88,6 +136,34 @@ export default function FontDropdown(props) {
             </div>
             <div className="px-1 py-1 ">
             <span className={'text-gray-900 group menuitem'}><b>If Locally Installed:</b></span>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    onClick={onFontAlkalami}
+                    className={`${
+                      active ? 'menuitemhov' : 'menuitemnohov'
+                    } group menuitem ${
+                      font === "Alkalami" ? 'on' : ''
+                    }`}
+                  >
+                    <span style={{ marginLeft: '.5rem' }}>➤ Alkalami</span>
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+              {({ active }) => (
+                <button
+                  onClick={onFontAlkalamiLight}
+                  className={`${
+                    active ? 'menuitemhov' : 'menuitemnohov'
+                  } group menuitem ${
+                    font === "AlkalamiLight" ? 'on' : ''
+                  }`}
+                >
+                  <span style={{ marginLeft: '.5rem' }}>➤ Alkalami Light</span>
+                </button>
+              )}
+              </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
                   <button
@@ -116,6 +192,21 @@ export default function FontDropdown(props) {
                   </button>
                 )}
               </Menu.Item>
+              <Menu.Item>
+              {({ active }) => (
+                <button
+                  onClick={onFontLateefGR}
+                  className={`${
+                    active ? 'menuitemhov' : 'menuitemnohov'
+                  } group menuitem ${
+                    font === "LateefGR" ? 'on' : ''
+                  }`}
+                >
+                  <span style={{ marginLeft: '.5rem' }}>➤ LateefGR</span>
+                </button>
+              )}
+            </Menu.Item>
+
               <Menu.Item>
                 {({ active }) => (
                   <button

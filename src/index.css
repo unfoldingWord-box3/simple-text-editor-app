@@ -83,20 +83,50 @@ code {
 /* If Firefox then load these fonts, licensed under the Open Font License ver 1.1. See http://scripts.sil.org/OFL for details. */
 @-moz-document url-prefix() {
   @font-face {
+    font-family: AlkalamiRW;
+    src: url(./fonts/Alkalami-Regular.woff) format('woff');
+  }
+  @font-face {
+    font-family: AlkalamiLW;
+    src: url(./fonts/Alkalami-Light.woff) format('woff');
+  }
+  @font-face {
     font-family: AwamiNastaliqRW;
-    src: url(./fonts/AwamiNastaliq-Regular.woff2)  format('woff2');
+    src: url(./fonts/AwamiNastaliq-Regular.woff2) format('woff2');
   }
   @font-face {
     font-family: HarmattanW;
-    src: url(./fonts/Harmattan-Regular.woff)  format('woff');
+    src: url(./fonts/Harmattan-Regular.woff) format('woff');
+  }
+  @font-face {
+    font-family: LateefRW;
+    src: url(./fonts/LateefGR-Regular.woff) format('woff');
   }
   @font-face {
     font-family: ScheherazadeRW;
-    src: url(./fonts/ScheherazadeNew-Regular.woff2)  format('woff2');
+    src: url(./fonts/ScheherazadeNew-Regular.woff2) format('woff2');
   }
 
   .ff {
     visibility: visible;
+  }
+
+  .AlkalamiRW, .AlkalamiLW, .AwamiNastaliqRW, .HarmattanW, .LateefRW, .ScheherazadeRW, .Alkalami, .AlkalamiLight, .AwamiNastaliq, .Harmattan, .LateefGR, .ScheherazadeNew {
+    font-size: 150%;
+  }
+  .AlkalamiRW h1, .AlkalamiLW h1, .AwamiNastaliqRW h1, .HarmattanW h1, .LateefRW h1, .ScheherazadeRW h1, .Alkalami h1, .AlkalamiLight h1, .AwamiNastaliq h1, .Harmattan h1, .LateefGR h1, .ScheherazadeNew h1 {
+    font-size: 172.5%;
+  }
+  .AlkalamiRW h2, .AlkalamiLW h2, .AwamiNastaliqRW h2, .HarmattanW h2, .LateefRW h2, .Alkalami h2, .ScheherazadeRW h2, .AlkalamiLight h2, .AwamiNastaliq h2, .Harmattan h2, .LateefGR h2, .ScheherazadeNew h2 {
+    font-size: 165%;
+  }
+
+  .AlkalamiRW {
+    font-family: AlkalamiRW;
+  }
+
+  .AlkalamiLW {
+    font-family: 'AlkalamiLW';
   }
 
   .AwamiNastaliqRW {
@@ -107,20 +137,36 @@ code {
     font-family: HarmattanW;
   }
 
+  .LateefRW {
+    font-family: LateefRW;
+  }
+
   .ScheherazadeRW {
     font-family: ScheherazadeRW;
   }
 
+  .Alkalami {
+    font-family: Alkalami;
+  }
+
+  .AlkalamiLight {
+    font-family: 'Alkalami Light';
+  }
+
   .AwamiNastaliq {
-    font-family: AwamiNastaliq;
+    font-family: 'Awami Nastaliq';
   }
 
   .Harmattan {
     font-family: Harmattan;
   }
 
+  .LateefGR {
+    font-family: LateefGR;
+  }
+
   .ScheherazadeNew {
     font-family: 'Scheherazade New';
   }
-  
+
 }
