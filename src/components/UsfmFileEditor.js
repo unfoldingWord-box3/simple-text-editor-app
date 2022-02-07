@@ -7,7 +7,6 @@ import OpenFile from './OpenFile';
 import ExportFile from './ExportFile';
 import { styles } from './UsfmFileEditor.styles';
 import { getSectionChapter, getBlockVerse } from '../helpers/getChapterVerse';
-import './Usfm.css';
 import FontDropdown from './FontDropdown';
 
 export default function UsfmFileEditor ({
@@ -20,6 +19,8 @@ export default function UsfmFileEditor ({
   file,
   onFile: _onFile,
   type,
+  font,
+  setFont
 }) {
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
@@ -93,7 +94,7 @@ export default function UsfmFileEditor ({
           { target && <button class={(editable ? "btn on" : "btn")} disabled={disabled} onClick={onEditable}>Editable</button> }
           <button class={(preview ? "btn on" : "btn")} disabled={disabled} onClick={onPreview}>Preview</button>  
           { target && <ExportFile file={file} /> }
-          { target && <FontDropdown /> }
+          { target && <FontDropdown font={font} setFont={setFont} /> }
         </div>
       </div>
       <hr />

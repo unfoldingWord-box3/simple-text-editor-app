@@ -1,23 +1,22 @@
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 
-export default function FontDropdown() {
+export default function FontDropdown(props) {
+  const {font, setFont} = props;
 
-  const [value, setValue] = useState('')
-
-  const onValueClear = () => { setValue(''); };
-  const onValueAwamiNastaliqRW = () => { setValue('AwamiNastaliqRW'); };
-  const onValueHarmattanW = () => { setValue('HarmattanW'); };
-  const onValueScheherazadeRW = () => { setValue('ScheherazadeRW'); };
-  const onValueAwamiNastaliq = () => { setValue('AwamiNastaliq'); };
-  const onValueHarmattan = () => { setValue('Harmattan'); };
-  const onValueScheherazade = () => { setValue('Scheherazade'); };
+  const onFontClear = () => { setFont(''); };
+  const onFontAwamiNastaliqRW = () => { setFont('AwamiNastaliqRW'); };
+  const onFontHarmattanW = () => { setFont('HarmattanW'); };
+  const onFontScheherazadeRW = () => { setFont('ScheherazadeRW'); };
+  const onFontAwamiNastaliq = () => { setFont('AwamiNastaliq'); };
+  const onFontHarmattan = () => { setFont('Harmattan'); };
+  const onFontScheherazade = () => { setFont('Scheherazade'); };
 
   return (
       <Menu as="div" className="relative inline-block text-left notff ff" style={{textAlign: "center"}}>
         <div>
-          <Menu.Button className={(value === "" ? "btn" : "btn on")}>
-            {(value === "" ? "Set Font ⇩" : value + " ⇩")}
+          <Menu.Button className={(font === "" ? "btn" : "btn on")}>
+            {(font === "" ? "Set Font ⇩" : font + " ⇩")}
           </Menu.Button>
         </div>
         <Transition
@@ -31,10 +30,10 @@ export default function FontDropdown() {
         >
               <Menu.Items className="menuitems">
                 <div className="px-1 py-1 ">
-                {(value === "" ? "" : <Menu.Item>
+                {(font === "" ? "" : <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={onValueClear}
+                    onClick={onFontClear}
                     className={`${
                       active ? 'menuitemhov' : 'menuitemnohov'
                     } group menuitem`}
@@ -46,11 +45,11 @@ export default function FontDropdown() {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={onValueAwamiNastaliqRW}
+                    onClick={onFontAwamiNastaliqRW}
                     className={`${
                       active ? 'menuitemhov' : 'menuitemnohov'
                     } group menuitem ${
-                      value === "AwamiNastaliqRW" ? 'on' : ''
+                      font === "AwamiNastaliqRW" ? 'on' : ''
                     }`}
                   >
                     ➤ Awami Nastaliq 2.200
@@ -60,11 +59,11 @@ export default function FontDropdown() {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={onValueHarmattanW}
+                    onClick={onFontHarmattanW}
                     className={`${
                       active ? 'menuitemhov' : 'menuitemnohov'
                     } group menuitem ${
-                      value === "HarmattanW" ? 'on' : ''
+                      font === "HarmattanW" ? 'on' : ''
                     }`}
                   >
                     ➤ Harmattan 2.000
@@ -74,11 +73,11 @@ export default function FontDropdown() {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={onValueScheherazadeRW}
+                    onClick={onFontScheherazadeRW}
                     className={`${
                       active ? 'menuitemhov' : 'menuitemnohov'
                     } group menuitem ${
-                      value === "ScheherazadeRW" ? 'on' : ''
+                      font === "ScheherazadeRW" ? 'on' : ''
                     }`}
                   >
                     ➤ Scheherazade New 3.300
@@ -91,11 +90,11 @@ export default function FontDropdown() {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={onValueAwamiNastaliq}
+                    onClick={onFontAwamiNastaliq}
                     className={`${
                       active ? 'menuitemhov' : 'menuitemnohov'
                     } group menuitem ${
-                      value === "AwamiNastaliq" ? 'on' : ''
+                      font === "AwamiNastaliq" ? 'on' : ''
                     }`}
                   >
                     <span style={{ marginLeft: '.5rem' }}>➤ Awami Nastaliq</span>
@@ -105,11 +104,11 @@ export default function FontDropdown() {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={onValueHarmattan}
+                    onClick={onFontHarmattan}
                     className={`${
                       active ? 'menuitemhov' : 'menuitemnohov'
                     } group menuitem ${
-                      value === "Harmattan" ? 'on' : ''
+                      font === "Harmattan" ? 'on' : ''
                     }`}
                   >
                     <span style={{ marginLeft: '.5rem' }}>➤ Harmattan</span>
@@ -119,11 +118,11 @@ export default function FontDropdown() {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={onValueScheherazade}
+                    onClick={onFontScheherazade}
                     className={`${
                       active ? 'menuitemhov' : 'menuitemnohov'
                     } group menuitem ${
-                      value === "Scheherazade" ? 'on' : ''
+                      font === "Scheherazade" ? 'on' : ''
                     }`}
                   >
                     <span style={{ marginLeft: '.5rem' }}>➤ Scheherazade New</span>
