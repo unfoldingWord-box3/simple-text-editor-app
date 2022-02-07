@@ -25,7 +25,7 @@ export default function UsfmFileEditor ({
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
   const [editable, setEditable] = useState(false);
-  const [preview, setPreview] = useState(false);
+  const [preview, setPreview] = useState(true);
   
   const onSectionable = () => { setSectionable(!sectionable); };
   const onBlockable = () => { setBlockable(!blockable); };

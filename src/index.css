@@ -80,16 +80,19 @@ code {
   visibility: hidden;
 }
 
-/* If Firefox */
+/* If Firefox then load these fonts, licensed under the Open Font License ver 1.1. See http://scripts.sil.org/OFL for details. */
 @-moz-document url-prefix() {
   @font-face {
-    /* These fonts are licensed under the Open Font License (OFL), Version 1.1. For OFL details, see http://scripts.sil.org/OFL. */
     font-family: AwamiNastaliqRW;
-    src: url(./fonts/AwamiNastaliq-Regular.woff2);
+    src: url(./fonts/AwamiNastaliq-Regular.woff2)  format('woff2');
+  }
+  @font-face {
     font-family: HarmattanW;
-    src: url(./fonts/Harmattan-Regular.woff);
+    src: url(./fonts/Harmattan-Regular.woff)  format('woff');
+  }
+  @font-face {
     font-family: ScheherazadeRW;
-    src: url(./fonts/ScheherazadeNew-Regular.woff2);
+    src: url(./fonts/ScheherazadeNew-Regular.woff2)  format('woff2');
   }
 
   .ff {
@@ -116,8 +119,8 @@ code {
     font-family: Harmattan;
   }
 
-  .Scheherazade {
-    font-family: Scheherazade;
+  .ScheherazadeNew {
+    font-family: 'Scheherazade New';
   }
   
 }

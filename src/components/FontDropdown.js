@@ -10,7 +10,7 @@ export default function FontDropdown(props) {
   const onFontScheherazadeRW = () => { setFont('ScheherazadeRW'); };
   const onFontAwamiNastaliq = () => { setFont('AwamiNastaliq'); };
   const onFontHarmattan = () => { setFont('Harmattan'); };
-  const onFontScheherazade = () => { setFont('Scheherazade'); };
+  const onFontScheherazadeNew = () => { setFont('ScheherazadeNew'); };
 
   return (
       <Menu as="div" className="relative inline-block text-left notff ff" style={{textAlign: "center"}}>
@@ -31,17 +31,18 @@ export default function FontDropdown(props) {
               <Menu.Items className="menuitems">
                 <div className="px-1 py-1 ">
                 {(font === "" ? "" : <Menu.Item>
-                {({ active }) => (
-                  <button
-                    onClick={onFontClear}
-                    className={`${
-                      active ? 'menuitemhov' : 'menuitemnohov'
-                    } group menuitem`}
-                  >
-                    ➤ Reset to Default Font
-                  </button>
+                  {({ active }) => (
+                    <button
+                      onClick={onFontClear}
+                      className={`${
+                        active ? 'menuitemhov' : 'menuitemnohov'
+                      } group menuitem`}
+                    >
+                      ➤ Reset to Default Font
+                    </button>
+                  )}
+                  </Menu.Item>
                 )}
-              </Menu.Item> )}
               <Menu.Item>
                 {({ active }) => (
                   <button
@@ -118,11 +119,11 @@ export default function FontDropdown(props) {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={onFontScheherazade}
+                    onClick={onFontScheherazadeNew}
                     className={`${
                       active ? 'menuitemhov' : 'menuitemnohov'
                     } group menuitem ${
-                      font === "Scheherazade" ? 'on' : ''
+                      font === "ScheherazadeNew" ? 'on' : ''
                     }`}
                   >
                     <span style={{ marginLeft: '.5rem' }}>➤ Scheherazade New</span>
