@@ -83,17 +83,29 @@ code {
 /* If Firefox then load these fonts, licensed under the Open Font License ver 1.1. See http://scripts.sil.org/OFL for details. */
 @-moz-document url-prefix() {
   @font-face {
-    font-family: AlkalamiRW;
-    src: url(./fonts/Alkalami-Regular.woff) format('woff');
+    font-family: AkatabRW;
+    src: url(./fonts/Akatab-Regular.woff) format('woff');
   }
   @font-face {
     font-family: AlkalamiLW;
     src: url(./fonts/Alkalami-Light.woff) format('woff');
   }
   @font-face {
+    font-family: AlkalamiRW;
+    src: url(./fonts/Alkalami-Regular.woff) format('woff');
+  }
+  @font-face {
+    font-family: AndikaRW;
+    src: url(./fonts/Andika-Regular.woff2) format('woff2');
+  }
+  @font-face {
     font-family: AwamiNastaliqRW;
     src: url(./fonts/AwamiNastaliq-Regular.woff2) format('woff2');
   }
+  @font-face {
+    font-family: GentiumPlusRW;
+    src: url(./fonts/GentiumPlus-Regular.woff2) format('woff2');
+  }  
   @font-face {
     font-family: HarmattanW;
     src: url(./fonts/Harmattan-Regular.woff) format('woff');
@@ -103,8 +115,28 @@ code {
     src: url(./fonts/LateefGR-Regular.woff) format('woff');
   }
   @font-face {
+    font-family: MingzatW;
+    src: url(./fonts/Mingzat-Regular.woff) format('woff');
+  }
+  @font-face {
+    font-family: NarnoorW;
+    src: url(./fonts/Narnoor-Regular.woff) format('woff');
+  }
+  @font-face {
+    font-family: PadaukRW;
+    src: url(./fonts/Padauk-Regular.woff2) format('woff2');
+  }
+  @font-face {
     font-family: ScheherazadeRW;
     src: url(./fonts/ScheherazadeNew-Regular.woff2) format('woff2');
+  }
+  @font-face {
+    font-family: TagmukayRW;
+    src: url(./fonts/Tagmukay-Regular.woff) format('woff');
+  }
+  @font-face {
+    font-family: TaiHeritageProRW;
+    src: url(./fonts/TaiHeritagePro-Regular.woff) format('woff');
   }
 
   .ff {
@@ -125,16 +157,28 @@ code {
     line-height: 2.7;
   }
 
-  .AlkalamiRW {
-    font-family: AlkalamiRW;
+  .AktabRW {
+    font-family: AktabRW;
   }
 
   .AlkalamiLW {
     font-family: 'AlkalamiLW';
   }
 
+  .AlkalamiRW {
+    font-family: AlkalamiRW;
+  }
+
+  .AndikaRW {
+    font-family: AndikaRW;
+  }
+
   .AwamiNastaliqRW {
     font-family: AwamiNastaliqRW;
+  }
+
+  .GentiumPlusRW {
+    font-family: GentiumPlusRW;
   }
 
   .HarmattanW {
@@ -145,8 +189,32 @@ code {
     font-family: LateefRW;
   }
 
+  .MingzatW {
+    font-family: MingzatW;
+  }
+
+  .NarnoorW {
+    font-family: NarnoorW;
+  }
+  
+  .PadaukRW {
+    font-family: PadaukRW;
+  }
+
   .ScheherazadeRW {
     font-family: ScheherazadeRW;
+  }
+
+  .TagmukayRW {
+    font-family: TagmukayRW;
+  }
+  
+  .TaiHeritageProRW {
+    font-family: TaiHeritageProRW;
+  }
+
+  .Aktab {
+    font-family: Aktab;
   }
 
   .Alkalami {
@@ -157,20 +225,65 @@ code {
     font-family: 'Alkalami Light';
   }
 
+  .Andika {
+    font-family: Andika;
+  }
+
   .AwamiNastaliq {
     font-family: 'Awami Nastaliq';
+  }
+
+  .GentiumPlus {
+    font-family: 'Gentium Plus';
   }
 
   .Harmattan {
     font-family: Harmattan;
   }
 
+  .KhmerBusra {
+    font-family: KhmerBusra;
+  }
+
+  .KhmerMondulkiri {
+    font-family: 'Khmer Mondulkiri';
+  }
+
   .LateefGR {
     font-family: LateefGR;
+  }
+
+  .Mingzat {
+    font-family: Mingzat;
+  }
+
+  .Narnoor{
+    font-family: Narnoor;
+  }
+
+  .Padauk {
+    font-family: Padauk;
   }
 
   .ScheherazadeNew {
     font-family: 'Scheherazade New';
   }
+
+  .Shimenkan {
+    font-family: Shimenkan;
+  }
+
+  .SophiaNubian {
+    font-family: 'Sophia Nubian';
+  }
+
+  .Tagmukay {
+    font-family: Tagmukay;
+  }
+
+  .TaiHeritagePro {
+    font-family: 'Tai Heritage Pro';
+  }
+
 
 }
