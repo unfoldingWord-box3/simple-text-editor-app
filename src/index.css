@@ -121,6 +121,10 @@ code {
     font-size: 165%;
   }
 
+  .AwamiNastaliqRW, .AwamiNastaliq {
+    line-height: 2.7;
+  }
+
   .AlkalamiRW {
     font-family: AlkalamiRW;
   }
