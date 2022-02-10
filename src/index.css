@@ -144,13 +144,13 @@ code {
   }
 
   .AlkalamiRW, .AlkalamiLW, .AwamiNastaliqRW, .HarmattanW, .LateefRW, .ScheherazadeRW, .Alkalami, .AlkalamiLight, .AwamiNastaliq, .Harmattan, .LateefGR, .ScheherazadeNew {
-    font-size: 150%;
-  }
-  .AlkalamiRW h1, .AlkalamiLW h1, .AwamiNastaliqRW h1, .HarmattanW h1, .LateefRW h1, .ScheherazadeRW h1, .Alkalami h1, .AlkalamiLight h1, .AwamiNastaliq h1, .Harmattan h1, .LateefGR h1, .ScheherazadeNew h1 {
-    font-size: 172.5%;
+    font-size: 100%;
   }
   .AlkalamiRW h2, .AlkalamiLW h2, .AwamiNastaliqRW h2, .HarmattanW h2, .LateefRW h2, .Alkalami h2, .ScheherazadeRW h2, .AlkalamiLight h2, .AwamiNastaliq h2, .Harmattan h2, .LateefGR h2, .ScheherazadeNew h2 {
-    font-size: 165%;
+    font-size: 110%;
+  }
+  .AlkalamiRW h1, .AlkalamiLW h1, .AwamiNastaliqRW h1, .HarmattanW h1, .LateefRW h1, .ScheherazadeRW h1, .Alkalami h1, .AlkalamiLight h1, .AwamiNastaliq h1, .Harmattan h1, .LateefGR h1, .ScheherazadeNew h1 {
+    font-size: 115%;
   }
 
   .AwamiNastaliqRW, .AwamiNastaliq {

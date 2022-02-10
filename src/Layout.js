@@ -20,8 +20,6 @@ function Layout() {
     setFiles(_files);
   }
 
-  const [font, setFont] = useState('');
-
   const editorProps = {
     sectionIndex,
     onSectionIndex: setSectionIndex,
@@ -43,12 +41,12 @@ function Layout() {
           <div style={styles.heading}>Bridge</div>
             <UsfmFileEditor {...editorProps} file={files.bridge} type={'bridge'} />
           </div>
-          <div style={styles.editor} class={font}>
+          <div style={styles.editor}>
             <div style={styles.translationHeading}>
               <div style={styles.translationHeadingL}>Translation</div>
               <div style={styles.translationHeadingR}>Built {preval`module.exports = new Date().toLocaleString('en-GB', { day: 'numeric', month: 'short', year: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short' });`}</div>
             </div>
-            <UsfmFileEditor {...editorProps} target={true} file={files.target} type={'target'} font={font} setFont={setFont} />
+            <UsfmFileEditor {...editorProps} target={true} file={files.target} type={'target'} />
           </div>
        </div>
       </div>

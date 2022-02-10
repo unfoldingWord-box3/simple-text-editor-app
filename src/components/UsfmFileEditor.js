@@ -18,9 +18,7 @@ export default function UsfmFileEditor ({
   onReference,
   file,
   onFile: _onFile,
-  type,
-  font,
-  setFont
+  type
 }) {
   const [sectionable, setSectionable] = useState(true);
   const [blockable, setBlockable] = useState(true);
@@ -48,6 +46,7 @@ export default function UsfmFileEditor ({
     if (align) setSectionable(true);
   }, [align]);
   
+  const [font, setFont] = useState('');
  
   const textEditor = useMemo(() => {
     const onVerse = (verse) => {
@@ -67,7 +66,7 @@ export default function UsfmFileEditor ({
       const verse = getBlockVerse(_text);
       onVerse(verse);
     };
-
+    
     const editorProps = {
       text: file.content || '',
       onText,
@@ -79,9 +78,11 @@ export default function UsfmFileEditor ({
       sectionIndex,
       onSectionClick,
       onBlockClick,
+      font,
+      setFont
     };
-    return <UsfmEditor {...editorProps} />;
-  }, [file.content, onText, editable, target, sectionable, blockable, preview, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId]);
+    return <div class={font}><UsfmEditor {...editorProps} /></div>;
+  }, [file.content, onText, editable, target, sectionable, blockable, preview, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId, font, setFont]);
 
   return (
     <div style={styles.textFileEditor}>
@@ -94,7 +95,7 @@ export default function UsfmFileEditor ({
           { target && <button class={(editable ? "btn on" : "btn")} disabled={disabled} onClick={onEditable}>Editable</button> }
           <button class={(preview ? "btn on" : "btn")} disabled={disabled} onClick={onPreview}>Preview</button>  
           { target && <ExportFile file={file} /> }
-          { target && <FontDropdown font={font} setFont={setFont} /> }
+          { <FontDropdown font={font} setFont={setFont} /> }
         </div>
       </div>
       <hr />
