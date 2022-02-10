@@ -38,30 +38,32 @@ export default function FontDropdown(props) {
   const onFontTagmukay = () => { setFont('Tagmukay'); };
   const onFontTaiHeritagePro = () => { setFont('TaiHeritagePro'); };
 
+  const fontOnOrOff = (itemFont) => font === itemFont ? 'on' : ''
+  const itemPresentation = (itemType, itemName) => (itemType === 'local' ? <span style={{ marginLeft: '.5rem' }}>➤ {itemName}</span> : "➤" + itemName)
+
   function FontMenuItem(itemName, itemClick, itemFont, itemType) {
     return (
       <Menu.Item>
       {({ active }) => (
         <button
           onClick={itemClick}
-          className={`${
-          active ? 'menuitemhov' : 'menuitemnohov'
-          } group menuitem ${
-          font === itemFont ? 'on' : ''
-        }`}
+          className={`${ active ? 'menuitemhov' : 'menuitemnohov' } group menuitem ${fontOnOrOff(itemFont)}`}
         >
-        {(itemType === 'local' ? <span style={{ marginLeft: '.5rem' }}>➤ {itemName}</span> : "➤" + itemName)}
+        {itemPresentation(itemType, itemName)}
       </button>
       )}
       </Menu.Item>
     )
   }
 
+  const fontDropdownOnOrOff = font === "" ? "btn" : "btn on"
+  const fontDropdownPresentation = font === "" ? "Set Font ⇩" : font + " ⇩"
+
   return (
       <Menu as="div" className="relative inline-block text-left notff ff" style={{textAlign: "center"}}>
         <div>
-          <Menu.Button className={(font === "" ? "btn" : "btn on")}>
-            {(font === "" ? "Set Font ⇩" : font + " ⇩")}
+          <Menu.Button className={fontDropdownOnOrOff}>
+            {fontDropdownPresentation}
           </Menu.Button>
         </div>
         <Transition
@@ -75,7 +77,7 @@ export default function FontDropdown(props) {
         >
               <Menu.Items className="menuitems">
                 <div className="px-1 py-1 ">
-                {(font === "" ? "" : FontMenuItem('Reset to Default Font', onFontClear, 'AktabRW', 'woff'))}
+                {FontMenuItem('Default Font', onFontClear, '', '')}
                 {FontMenuItem('Aktab 2.000', onFontAktabRW, 'AktabRW', 'woff')}
                 {FontMenuItem('Alkalami 1.200', onFontAlkalamiRW, 'AlkalamiRW', 'woff')}
                 {FontMenuItem('Alkalami Light 1.200', onFontAlkalamiLW, 'AlkalamiLW', 'woff')}
