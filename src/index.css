@@ -27,15 +27,15 @@ code {
   @apply rounded-l rounded-r;
   @apply px-0.5;
   @apply py-0.5;
-  @apply border-2 border-blue-600;
-  @apply text-blue-600;
+  @apply border-2 border-gray-600;
+  @apply text-gray-600;
   @apply font-medium;
   @apply text-xs;
   @apply leading-tight;
 /*  @apply uppercase; */
-  @apply hover:bg-black hover:bg-opacity-10 hover:text-blue-600;
+  @apply hover:bg-black hover:bg-opacity-10 hover:text-gray-600;
   @apply focus:outline-none focus:ring-0;
-  @apply active:bg-blue-800;
+  @apply active:bg-gray-800;
   @apply transition;
   @apply duration-150;
   @apply ease-in-out;
@@ -62,18 +62,18 @@ code {
 }
 
 .menuitemnohov {
-  @apply text-blue-600;
+  @apply text-gray-700;
 }
 
 .on {
-  @apply bg-blue-800;
+  @apply bg-gray-800;
   @apply text-white;
-  @apply disabled:hover:bg-blue-800 disabled:hover:opacity-50 disabled:hover:text-white;
+  @apply disabled:hover:bg-gray-800 disabled:hover:opacity-50 disabled:hover:text-white;
 }
 
 .menuitemhov {
   @apply bg-black bg-opacity-10;
-  @apply text-blue-600;
+  @apply text-gray-700;
 }
 
 .notff {
