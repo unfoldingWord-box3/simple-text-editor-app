@@ -40,21 +40,22 @@ export default function FontDropdown(props) {
 
   const fontOnOrOff = (itemFont) => font === itemFont ? 'on' : ''
   const itemPresentation = (itemType, itemName) => (itemType === 'local' ? <span style={{ marginLeft: '.5rem' }}>➤ {itemName}</span> : "➤" + itemName)
-  const fontItem = (active, itemName, itemClick, itemFont, itemType) => {
-    (
-      <button
-        onClick={itemClick}
-        className={`${ active ? 'menuitemhov' : 'menuitemnohov' } group menuitem ${fontOnOrOff(itemFont)}`}
-      >
-      {itemPresentation(itemType, itemName)}
-    </button>
-    )
-  };
 
-  function FontMenuItem() {
+  function FontMenuItem(itemName, itemClick, itemFont, itemType) {
+
+    const fontActive = fontOnOrOff(itemFont)
+    const fontList = itemPresentation(itemType, itemName)
+
     return (
       <Menu.Item>
-      {fontItem}
+      {({ active }) => (
+        <button
+          onClick={itemClick}
+          className={`${ active ? 'menuitemhov' : 'menuitemnohov' } group menuitem ${fontActive}`}
+        >
+        {fontList}
+      </button>
+      )}
       </Menu.Item>
     )
   }
@@ -62,69 +63,99 @@ export default function FontDropdown(props) {
   const fontDropdownOnOrOff = font === "" ? "btn" : "btn on"
   const fontDropdownPresentation = font === "" ? "Set Font ⇩" : font + " ⇩"
 
-  const fontBuiltInList = () => {
-    FontMenuItem('Default Font', onFontClear, '', '')
-    FontMenuItem('Aktab 2.000', onFontAktabRW, 'AktabRW', 'woff')
-    FontMenuItem('Alkalami 1.200', onFontAlkalamiRW, 'AlkalamiRW', 'woff')
-    FontMenuItem('Alkalami Light 1.200', onFontAlkalamiLW, 'AlkalamiLW', 'woff')
-    FontMenuItem('Andika 6.001', onFontAndikaRW, 'AndikaRW', 'woff2')
-    FontMenuItem('Awami Nastaliq 2.200', onFontAwamiNastaliqRW, 'AwamiNastaliqRW', 'woff2')
-    FontMenuItem('Gentium Plus 6.001', onFontGentiumPlusRW, 'GentiumPlusRW', 'woff2')
-    FontMenuItem('Harmattan 2.000', onFontHarmattanW, 'HarmattanW', 'woff')
-    FontMenuItem('LateefGR 1.200', onFontLateefRW, 'LateefRW', 'woff')
-    FontMenuItem('Mingzat 1.000', onFontMingzatW, 'MingzatW', 'woff')
-    FontMenuItem('Narnoor 1.000', onFontNarnoorW, 'NarnoorW', 'woff')
-    FontMenuItem('Padauk 5.000', onFontPadaukRW, 'PadaukRW', 'woff2')
-    FontMenuItem('Scheherazade New 3.300', onFontScheherazadeRW, 'AScheherazadeRW', 'woff2')
-    FontMenuItem('Tagmukay 2.000', onFontTagmukayRW, 'TagmukayRW', 'woff')
-    FontMenuItem('TaiHeritagePro 2.600', onFontTaiHeritageProRW, 'TaiHeritageProRW', 'woff')
-  };
+  const defaultFont = FontMenuItem('Default Font', onFontClear, '', '')
+  const aktabRW = FontMenuItem('Aktab 2.000', onFontAktabRW, 'AktabRW', 'woff')
+  const alkalamiRW = FontMenuItem('Alkalami 1.200', onFontAlkalamiRW, 'AlkalamiRW', 'woff')
+  const alkalamiLW = FontMenuItem('Alkalami Light 1.200', onFontAlkalamiLW, 'AlkalamiLW', 'woff')
+  const andikaRW = FontMenuItem('Andika 6.001', onFontAndikaRW, 'AndikaRW', 'woff2')
+  const awamiNastaliqRW = FontMenuItem('Awami Nastaliq 2.200', onFontAwamiNastaliqRW, 'AwamiNastaliqRW', 'woff2')
+  const gentiumPlusRW = FontMenuItem('Gentium Plus 6.001', onFontGentiumPlusRW, 'GentiumPlusRW', 'woff2')
+  const harmattanW = FontMenuItem('Harmattan 2.000', onFontHarmattanW, 'HarmattanW', 'woff')
+  const lateefRW = FontMenuItem('LateefGR 1.200', onFontLateefRW, 'LateefRW', 'woff')
+  const mingzatW = FontMenuItem('Mingzat 1.000', onFontMingzatW, 'MingzatW', 'woff')
+  const narnoorW = FontMenuItem('Narnoor 1.000', onFontNarnoorW, 'NarnoorW', 'woff')
+  const padaukRW = FontMenuItem('Padauk 5.000', onFontPadaukRW, 'PadaukRW', 'woff2')
+  const scheherazadeRW = FontMenuItem('Scheherazade New 3.300', onFontScheherazadeRW, 'AScheherazadeRW', 'woff2')
+  const tagmukayRW = FontMenuItem('Tagmukay 2.000', onFontTagmukayRW, 'TagmukayRW', 'woff')
+  const taiHeritageProRW = FontMenuItem('TaiHeritagePro 2.600', onFontTaiHeritageProRW, 'TaiHeritageProRW', 'woff')
 
-  const fontLocalList = () => {
-    FontMenuItem('Aktab', onFontAktab, 'Aktab', 'local')
-    FontMenuItem('Alkalami', onFontAlkalami, 'Alkalami', 'local')
-    FontMenuItem('Alkalami Light', onFontAlkalamiLight, 'AlkalamiLight', 'local')
-    FontMenuItem('Andika', onFontAndika, 'Andika', 'local')
-    FontMenuItem('Awami Nastaliq', onFontAwamiNastaliq, 'AwamiNastaliq', 'local')
-    FontMenuItem('Gentium Plus', onFontGentiumPlus, 'GentiumPlus', 'local')
-    FontMenuItem('Harmattan', onFontHarmattan, 'Harmattan', 'local')
-    FontMenuItem('Khmer Busra', onFontKhmerBusra, 'KhmerBusra', 'local')
-    FontMenuItem('Khmer Mondulkiri', onFontKhmerMondulkiri, 'KhmerMondulkiri', 'local')
-    FontMenuItem('LateefGR', onFontLateefGR, 'LateefGR', 'local')
-    FontMenuItem('Mingzat', onFontMingzat, 'Mingzat', 'local')
-    FontMenuItem('Narnoor', onFontNarnoor, 'Narnoor', 'local')
-    FontMenuItem('Padauk', onFontPadauk, 'Padauk', 'local')
-    FontMenuItem('Scheherazade New', onFontScheherazadeNew, 'ScheherazadeNew', 'local')
-    FontMenuItem('Shimenkan', onFontShimenkan, 'Shimenkan', 'local')
-    FontMenuItem('Sophia Nubian', onFontSophiaNubian, 'SophiaNubian', 'local')
-    FontMenuItem('Tagmukay', onFontTagmukay, 'Tagmukay', 'local')
-    FontMenuItem('Tai Heritage Pro', onFontTaiHeritagePro, 'TaiHeritagePro', 'local')
-  };
+  const aktab = FontMenuItem('Aktab', onFontAktab, 'Aktab', 'local')
+  const alkalami = FontMenuItem('Alkalami', onFontAlkalami, 'Alkalami', 'local')
+  const alkalamiLight = FontMenuItem('Alkalami Light', onFontAlkalamiLight, 'AlkalamiLight', 'local')
+  const andika = FontMenuItem('Andika', onFontAndika, 'Andika', 'local')
+  const awamiNastaliq = FontMenuItem('Awami Nastaliq', onFontAwamiNastaliq, 'AwamiNastaliq', 'local')
+  const gentiumPlus = FontMenuItem('Gentium Plus', onFontGentiumPlus, 'GentiumPlus', 'local')
+  const harmattan = FontMenuItem('Harmattan', onFontHarmattan, 'Harmattan', 'local')
+  const khmerBusra = FontMenuItem('Khmer Busra', onFontKhmerBusra, 'KhmerBusra', 'local')
+  const khmerMondulkiri = FontMenuItem('Khmer Mondulkiri', onFontKhmerMondulkiri, 'KhmerMondulkiri', 'local')
+  const lateefGR = FontMenuItem('LateefGR', onFontLateefGR, 'LateefGR', 'local')
+  const mingzat = FontMenuItem('Mingzat', onFontMingzat, 'Mingzat', 'local')
+  const narnoor = FontMenuItem('Narnoor', onFontNarnoor, 'Narnoor', 'local')
+  const padauk = FontMenuItem('Padauk', onFontPadauk, 'Padauk', 'local')
+  const scheherazadeNew = FontMenuItem('Scheherazade New', onFontScheherazadeNew, 'ScheherazadeNew', 'local')
+  const shimenkan = FontMenuItem('Shimenkan', onFontShimenkan, 'Shimenkan', 'local')
+  const sophiaNubian = FontMenuItem('Sophia Nubian', onFontSophiaNubian, 'SophiaNubian', 'local')
+  const tagmukay = FontMenuItem('Tagmukay', onFontTagmukay, 'Tagmukay', 'local')
+  const taiHeritagePro = FontMenuItem('Tai Heritage Pro', onFontTaiHeritagePro, 'TaiHeritagePro', 'local')
+
 
   return (
-    <Menu as="div" className="relative inline-block text-left notff ff" style={{textAlign: "center"}}>
-      <div>
-        <Menu.Button className={fontDropdownOnOrOff}>{fontDropdownPresentation}</Menu.Button>
-      </div>
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="menuitems">
-        <div className="px-1 py-1 ">
-          {fontBuiltInList}
+      <Menu as="div" className="relative inline-block text-left notff ff" style={{textAlign: "center"}}>
+        <div>
+          <Menu.Button className={fontDropdownOnOrOff}>
+            {fontDropdownPresentation}
+          </Menu.Button>
         </div>
-        <div className="px-1 py-1 ">
-        <span className={'text-gray-900 group menuitem'}><b>If Locally Installed:</b></span>
-          {fontLocalList}
-        </div>
-        </Menu.Items>
-      </Transition>
-    </Menu>
+        <Transition
+          as={Fragment}
+          enter="transition ease-out duration-100"
+          enterFrom="transform opacity-0 scale-95"
+          enterTo="transform opacity-100 scale-100"
+          leave="transition ease-in duration-75"
+          leaveFrom="transform opacity-100 scale-100"
+          leaveTo="transform opacity-0 scale-95"
+        >
+          <Menu.Items className="menuitems">
+            <div className="px-1 py-1 ">
+              {defaultFont}
+              {aktabRW}
+              {alkalamiRW}
+              {alkalamiLW}
+              {andikaRW}
+              {awamiNastaliqRW}
+              {gentiumPlusRW}
+              {harmattanW}
+              {lateefRW}
+              {mingzatW}
+              {narnoorW}
+              {padaukRW}
+              {scheherazadeRW}
+              {tagmukayRW}
+              {taiHeritageProRW}
+            </div>
+            <div className="px-1 py-1 ">
+              <span className={'text-gray-900 group menuitem'}><b>If Locally Installed:</b></span>
+              {aktab}
+              {alkalami}
+              {alkalamiLight}
+              {andika}
+              {awamiNastaliq}
+              {gentiumPlus}
+              {harmattan}
+              {khmerBusra}
+              {khmerMondulkiri}
+              {lateefGR}
+              {mingzat}
+              {narnoor}
+              {padauk}
+              {scheherazadeNew}
+              {shimenkan}
+              {sophiaNubian}
+              {tagmukay}
+              {taiHeritagePro}
+            </div>
+          </Menu.Items>
+        </Transition>
+      </Menu>
   )
 }
