@@ -23,23 +23,41 @@ code {
   @apply focus:shadow-lg;
 }
 
-.btn {
-  /*  @apply rounded-l rounded-r; */
+.btnAll {
   @apply px-0.5;
   @apply py-0.5;
-  @apply border-2 border-gray-600;
+  @apply border-gray-600;
   @apply text-gray-600;
   @apply font-medium;
   @apply text-xs;
   @apply leading-tight;
-  /*  @apply uppercase; */
+  /* @apply uppercase; */
   @apply hover:bg-black hover:bg-opacity-10 hover:text-gray-600;
   @apply focus:outline-none focus:ring-0;
   @apply active:bg-gray-800;
+  @apply disabled:opacity-50;
   @apply transition;
   @apply duration-150;
   @apply ease-in-out;
-  @apply disabled:opacity-50;
+}
+
+.btnAlone {
+  @apply rounded-l rounded-r;
+  @apply border-2;
+}
+
+.btnLeft {
+  @apply rounded-l;
+  @apply border-2;
+}
+
+.btnMiddle {
+  @apply border-t-2 border-b-2 border-r-2;
+}
+
+.btnRight {
+  @apply rounded-r;
+  @apply border-t-2 border-b-2 border-r-2;
 }
 
 .menuitems {

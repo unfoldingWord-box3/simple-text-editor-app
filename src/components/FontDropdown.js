@@ -194,7 +194,7 @@ export default function FontDropdown(props) {
     )
   }
 
-  const fontDropdownOnOrOff = font === "" ? "btn" : "btn on"
+  const fontDropdownOnOrOff = font === "" ? "btnAll btnRight" : "btnAll btnRight on"
   const fontDropdownPresentation = font === "" ? "Set Font ⇩" : font + " ⇩"
 
   /** Graphite-enabled woff and woff2 fonts included */

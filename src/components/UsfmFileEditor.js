@@ -90,10 +90,10 @@ export default function UsfmFileEditor ({
         <div class="btnGroup" role="group">
           <OpenFile onFile={onFile} />
           {/** Chapters are Sections */}
-          <button  type="button" class={(sectionable ? "btn on" : "btn")} disabled={disabledbyalign} onClick={onSectionable}>Chapters</button>
-          <button  type="button" class={(blockable ? "btn" : "btn on")} disabled={disabled} onClick={onBlockable}>Paragraphs</button>
-          { target && <button  type="button" class={(editable ? "btn on" : "btn")} disabled={disabled} onClick={onEditable}>Editable</button> }
-          <button  type="button" class={(preview ? "btn on" : "btn")} disabled={disabled} onClick={onPreview}>Preview</button>  
+          <button  type="button" class={(sectionable ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabledbyalign} onClick={onSectionable}>Chapters</button>
+          <button  type="button" class={(blockable ? "btnAll btnMiddle" : "btnAll btnMiddle on")} disabled={disabled} onClick={onBlockable}>Paragraphs</button>
+          { target && <button  type="button" class={(editable ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabled} onClick={onEditable}>Editable</button> }
+          <button  type="button" class={(preview ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabled} onClick={onPreview}>Preview</button>  
           { target && <ExportFile file={file} /> }
           { <FontDropdown font={font} setFont={setFont} /> }
         </div>

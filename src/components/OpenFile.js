@@ -19,7 +19,7 @@ export default function OpenFile ({onFile}) {
   }, [openedFile.name, openedFile.content, openedFile.lastModified]); // exclude onFile to prevent infinite loop.
 
   return (
-    <button type="button" class={(openedFile === filesContent[0] ? "btn on" : "btn")} onClick={openFileSelector}>Open</button>
+    <button type="button" class={(openedFile === filesContent[0] ? "btnAll btnLeft on" : "btnAll btnLeft")} onClick={openFileSelector}>Open</button>
   );
 };
 

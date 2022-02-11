@@ -51,7 +51,7 @@ function Layout() {
        </div>
       </div>
       <div style={(align ? styles.lowerAlignOn : styles.lowerAlignOff)}>
-        <button class={(align ? "btn on" : "btn")}  onClick={onAlign}>Alignment Workspace</button>
+        <button class={(align ? "btnAll btnAlone on" : "btnAll btnAlone")}  onClick={onAlign}>Alignment Workspace</button>
         <br />[Alignment Workspace Placeholder]
         <br />
         Reference: { JSON.stringify( reference ) }
