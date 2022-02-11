@@ -366,7 +366,7 @@ export default function FontDropdown(props) {
   const YuMinchoLight = FontMenuItem('Yu Mincho Light', onFontYuMinchoLight, 'YuMinchoLight')
 
   return (
-      <Menu as="div" className="relative inline-block text-left notff ff" style={{textAlign: "center"}}>
+      <Menu as="div" className="relative inline-block text-left" style={{textAlign: "center"}}>
         <div>
           <Menu.Button className={fontDropdownOnOrOff}>
             {fontDropdownPresentation}
@@ -385,7 +385,7 @@ export default function FontDropdown(props) {
             <div className="px-1 py-1">
               {defaultFont}
             </div>
-            {graphiteEnabled && <div className='px-1 py-1'>
+            {graphiteEnabled && <div className="px-1 py-1">
              <span className="text-gray-900 group menuitem"><b>Graphite-enabled:</b></span>
               {aktabRW}
               {alkalamiRW}
@@ -402,27 +402,27 @@ export default function FontDropdown(props) {
               {tagmukayRW}
               {taiHeritageProRW}
             </div>}
-            <div className="px-1 py-1">
-              <span className={'text-gray-900 group menuitem'}><b>Graphite-enabled (local):</b></span>
-              {graphiteEnabled && aktab}
-              {graphiteEnabled && alkalami}
-              {graphiteEnabled && alkalamiLight}
-              {graphiteEnabled && andika}
-              {graphiteEnabled && awamiNastaliq}
-              {graphiteEnabled && gentiumPlus}
-              {graphiteEnabled && harmattan}
-              {graphiteEnabled && khmerBusra}
-              {graphiteEnabled && khmerMondulkiri}
-              {graphiteEnabled && lateefGR}
-              {graphiteEnabled && mingzat}
-              {graphiteEnabled && narnoor}
-              {graphiteEnabled && padauk}
-              {graphiteEnabled && scheherazadeNew}
-              {graphiteEnabled && shimenkan}
-              {graphiteEnabled && sophiaNubian}
-              {graphiteEnabled && tagmukay}
-              {graphiteEnabled && taiHeritagePro}
-            </div>
+            {graphiteEnabled && <div className="px-1 py-1">
+              <span className="text-gray-900 group menuitem"><b>Graphite-enabled (local):</b></span>
+              {aktab}
+              {alkalami}
+              {alkalamiLight}
+              {andika}
+              {awamiNastaliq}
+              {gentiumPlus}
+              {harmattan}
+              {khmerBusra}
+              {khmerMondulkiri}
+              {lateefGR}
+              {mingzat}
+              {narnoor}
+              {padauk}
+              {scheherazadeNew}
+              {shimenkan}
+              {sophiaNubian}
+              {tagmukay}
+              {taiHeritagePro}
+            </div>}
             <div className="px-1 py-1">
               <span className={'text-gray-900 group menuitem'}><b>If Locally Installed:</b></span>
               {AharoniBold}

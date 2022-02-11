@@ -76,16 +76,8 @@ code {
   @apply text-gray-700;
 }
 
-.notff {
-  visibility: hidden;
-}
-
 /* If Firefox then load these fonts, licensed under the Open Font License ver 1.1. See http://scripts.sil.org/OFL for details. */
 @-moz-document url-prefix() {
-  .ff {
-    visibility: visible;
-  }
-
   @font-face {
     font-family: AkatabRW;
     src: url(./fonts/Akatab-Regular.woff) format('woff');
