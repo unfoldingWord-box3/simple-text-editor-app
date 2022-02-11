@@ -24,7 +24,7 @@ code {
 }
 
 .btn {
-  @apply rounded-l rounded-r;
+/*  @apply rounded-l rounded-r; */
   @apply px-0.5;
   @apply py-0.5;
   @apply border-2 border-gray-600;
@@ -43,9 +43,9 @@ code {
 }
 
 .menuitems {
-  @apply absolute right-0 w-48 mt-0.5 origin-top-right;
+  @apply absolute right-0 w-40 mt-0.5 origin-top-right;
   @apply bg-white;
-  @apply divide-y divide-gray-100;
+  @apply divide-y divide-gray-900 divide-opacity-50;
   @apply rounded-md shadow-lg;
   @apply ring-1 ring-black ring-opacity-5;
   @apply focus:outline-none;

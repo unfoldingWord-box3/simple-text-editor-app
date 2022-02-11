@@ -39,20 +39,17 @@ export default function FontDropdown(props) {
   const onFontTaiHeritagePro = () => { setFont('TaiHeritagePro'); };
 
   const fontOnOrOff = (itemFont) => font === itemFont ? 'on' : ''
-  const itemPresentation = (itemType, itemName) => (itemType === 'local' ? <span style={{ marginLeft: '.5rem' }}>➤ {itemName}</span> : "➤" + itemName)
+  const itemPresentation = (itemName) => "➤" + itemName
 
   function FontMenuItem(itemName, itemClick, itemFont, itemType) {
 
     const fontActive = fontOnOrOff(itemFont)
-    const fontList = itemPresentation(itemType, itemName)
+    const fontList = itemPresentation(itemName)
 
     return (
       <Menu.Item>
       {({ active }) => (
-        <button
-          onClick={itemClick}
-          className={`${ active ? 'menuitemhov' : 'menuitemnohov' } group menuitem ${fontActive}`}
-        >
+        <button  type="button" onClick={itemClick} className={`${ active ? 'menuitemhov' : 'menuitemnohov' } group menuitem ${fontActive}`}>
         {fontList}
       </button>
       )}
@@ -63,40 +60,40 @@ export default function FontDropdown(props) {
   const fontDropdownOnOrOff = font === "" ? "btn" : "btn on"
   const fontDropdownPresentation = font === "" ? "Set Font ⇩" : font + " ⇩"
 
-  const defaultFont = FontMenuItem('Default Font', onFontClear, '', '')
-  const aktabRW = FontMenuItem('Aktab 2.000', onFontAktabRW, 'AktabRW', 'woff')
-  const alkalamiRW = FontMenuItem('Alkalami 1.200', onFontAlkalamiRW, 'AlkalamiRW', 'woff')
-  const alkalamiLW = FontMenuItem('Alkalami Light 1.200', onFontAlkalamiLW, 'AlkalamiLW', 'woff')
-  const andikaRW = FontMenuItem('Andika 6.001', onFontAndikaRW, 'AndikaRW', 'woff2')
-  const awamiNastaliqRW = FontMenuItem('Awami Nastaliq 2.200', onFontAwamiNastaliqRW, 'AwamiNastaliqRW', 'woff2')
-  const gentiumPlusRW = FontMenuItem('Gentium Plus 6.001', onFontGentiumPlusRW, 'GentiumPlusRW', 'woff2')
-  const harmattanW = FontMenuItem('Harmattan 2.000', onFontHarmattanW, 'HarmattanW', 'woff')
-  const lateefRW = FontMenuItem('LateefGR 1.200', onFontLateefRW, 'LateefRW', 'woff')
-  const mingzatW = FontMenuItem('Mingzat 1.000', onFontMingzatW, 'MingzatW', 'woff')
-  const narnoorW = FontMenuItem('Narnoor 1.000', onFontNarnoorW, 'NarnoorW', 'woff')
-  const padaukRW = FontMenuItem('Padauk 5.000', onFontPadaukRW, 'PadaukRW', 'woff2')
-  const scheherazadeRW = FontMenuItem('Scheherazade New 3.300', onFontScheherazadeRW, 'AScheherazadeRW', 'woff2')
-  const tagmukayRW = FontMenuItem('Tagmukay 2.000', onFontTagmukayRW, 'TagmukayRW', 'woff')
-  const taiHeritageProRW = FontMenuItem('TaiHeritagePro 2.600', onFontTaiHeritageProRW, 'TaiHeritageProRW', 'woff')
+  const defaultFont = FontMenuItem('Default Font', onFontClear, '')
+  const aktabRW = FontMenuItem('Aktab 2.000', onFontAktabRW, 'AktabRW')
+  const alkalamiRW = FontMenuItem('Alkalami 1.200', onFontAlkalamiRW, 'AlkalamiRW')
+  const alkalamiLW = FontMenuItem('Alkalami Light 1.200', onFontAlkalamiLW, 'AlkalamiLW')
+  const andikaRW = FontMenuItem('Andika 6.001', onFontAndikaRW, 'AndikaRW')
+  const awamiNastaliqRW = FontMenuItem('Awami Nastaliq 2.200', onFontAwamiNastaliqRW, 'AwamiNastaliqRW')
+  const gentiumPlusRW = FontMenuItem('Gentium Plus 6.001', onFontGentiumPlusRW, 'GentiumPlusRW')
+  const harmattanW = FontMenuItem('Harmattan 2.000', onFontHarmattanW, 'HarmattanW')
+  const lateefRW = FontMenuItem('LateefGR 1.200', onFontLateefRW, 'LateefRW')
+  const mingzatW = FontMenuItem('Mingzat 1.000', onFontMingzatW, 'MingzatW')
+  const narnoorW = FontMenuItem('Narnoor 1.000', onFontNarnoorW, 'NarnoorW')
+  const padaukRW = FontMenuItem('Padauk 5.000', onFontPadaukRW, 'PadaukRW')
+  const scheherazadeRW = FontMenuItem('Scheherazade New 3.300', onFontScheherazadeRW, 'AScheherazadeRW')
+  const tagmukayRW = FontMenuItem('Tagmukay 2.000', onFontTagmukayRW, 'TagmukayRW')
+  const taiHeritageProRW = FontMenuItem('TaiHeritagePro 2.600', onFontTaiHeritageProRW, 'TaiHeritageProRW')
 
-  const aktab = FontMenuItem('Aktab', onFontAktab, 'Aktab', 'local')
-  const alkalami = FontMenuItem('Alkalami', onFontAlkalami, 'Alkalami', 'local')
-  const alkalamiLight = FontMenuItem('Alkalami Light', onFontAlkalamiLight, 'AlkalamiLight', 'local')
-  const andika = FontMenuItem('Andika', onFontAndika, 'Andika', 'local')
-  const awamiNastaliq = FontMenuItem('Awami Nastaliq', onFontAwamiNastaliq, 'AwamiNastaliq', 'local')
-  const gentiumPlus = FontMenuItem('Gentium Plus', onFontGentiumPlus, 'GentiumPlus', 'local')
-  const harmattan = FontMenuItem('Harmattan', onFontHarmattan, 'Harmattan', 'local')
-  const khmerBusra = FontMenuItem('Khmer Busra', onFontKhmerBusra, 'KhmerBusra', 'local')
-  const khmerMondulkiri = FontMenuItem('Khmer Mondulkiri', onFontKhmerMondulkiri, 'KhmerMondulkiri', 'local')
-  const lateefGR = FontMenuItem('LateefGR', onFontLateefGR, 'LateefGR', 'local')
-  const mingzat = FontMenuItem('Mingzat', onFontMingzat, 'Mingzat', 'local')
-  const narnoor = FontMenuItem('Narnoor', onFontNarnoor, 'Narnoor', 'local')
-  const padauk = FontMenuItem('Padauk', onFontPadauk, 'Padauk', 'local')
-  const scheherazadeNew = FontMenuItem('Scheherazade New', onFontScheherazadeNew, 'ScheherazadeNew', 'local')
-  const shimenkan = FontMenuItem('Shimenkan', onFontShimenkan, 'Shimenkan', 'local')
-  const sophiaNubian = FontMenuItem('Sophia Nubian', onFontSophiaNubian, 'SophiaNubian', 'local')
-  const tagmukay = FontMenuItem('Tagmukay', onFontTagmukay, 'Tagmukay', 'local')
-  const taiHeritagePro = FontMenuItem('Tai Heritage Pro', onFontTaiHeritagePro, 'TaiHeritagePro', 'local')
+  const aktab = FontMenuItem('Aktab', onFontAktab, 'Aktab')
+  const alkalami = FontMenuItem('Alkalami', onFontAlkalami, 'Alkalami')
+  const alkalamiLight = FontMenuItem('Alkalami Light', onFontAlkalamiLight, 'AlkalamiLight')
+  const andika = FontMenuItem('Andika', onFontAndika, 'Andika')
+  const awamiNastaliq = FontMenuItem('Awami Nastaliq', onFontAwamiNastaliq, 'AwamiNastaliq')
+  const gentiumPlus = FontMenuItem('Gentium Plus', onFontGentiumPlus, 'GentiumPlus')
+  const harmattan = FontMenuItem('Harmattan', onFontHarmattan, 'Harmattan')
+  const khmerBusra = FontMenuItem('Khmer Busra', onFontKhmerBusra, 'KhmerBusra')
+  const khmerMondulkiri = FontMenuItem('Khmer Mondulkiri', onFontKhmerMondulkiri, 'KhmerMondulkiri')
+  const lateefGR = FontMenuItem('LateefGR', onFontLateefGR, 'LateefGR')
+  const mingzat = FontMenuItem('Mingzat', onFontMingzat, 'Mingzat')
+  const narnoor = FontMenuItem('Narnoor', onFontNarnoor, 'Narnoor')
+  const padauk = FontMenuItem('Padauk', onFontPadauk, 'Padauk')
+  const scheherazadeNew = FontMenuItem('Scheherazade New', onFontScheherazadeNew, 'ScheherazadeNew')
+  const shimenkan = FontMenuItem('Shimenkan', onFontShimenkan, 'Shimenkan')
+  const sophiaNubian = FontMenuItem('Sophia Nubian', onFontSophiaNubian, 'SophiaNubian')
+  const tagmukay = FontMenuItem('Tagmukay', onFontTagmukay, 'Tagmukay')
+  const taiHeritagePro = FontMenuItem('Tai Heritage Pro', onFontTaiHeritagePro, 'TaiHeritagePro')
 
 
   return (
@@ -118,6 +115,9 @@ export default function FontDropdown(props) {
           <Menu.Items className="menuitems">
             <div className="px-1 py-1 ">
               {defaultFont}
+            </div>
+            <div className="px-1 py-1 ">
+              <span className={'text-gray-900 group menuitem'}><b>Graphite-enabled:</b></span>
               {aktabRW}
               {alkalamiRW}
               {alkalamiLW}
