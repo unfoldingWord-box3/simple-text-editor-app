@@ -205,137 +205,336 @@ code {
 
 }
 
-/* Windows 11 system fonts if locally installed                          */
+/* Windows 11 system font families                                       */
 /*    * includes supplemental language packs                             */
 /*    * excludes symbols, icons, emojis, assets, wingdings, and webdings */
+/* And MacOS Font system font famlies through Catalina 10.15             */
 .AharoniBold { font-family: 'Aharoni Bold'; }
+.AlBayan { font-family: 'Al Bayan'; }
+.AlNile { font-family: 'Al Nile'; }
+.AlTarikh { font-family: 'Al Tarikh'; }
 .Aldhabi { font-family: Aldhabi; }
+.AmericanTypewriter { font-family: 'American Typewriter'; }
+.AndaleMono { font-family: 'Andale Mono'; }
 .Andalus { font-family: Andalus; }
 .AngsanaNew { font-family: 'Angsana New'; }
 .AngsanaUPC { font-family: AngsanaUPC; }
 .Aparajita { font-family: Aparajita; }
+.AppleBraille { font-family: 'Apple Braille'; }
+.AppleCasual { font-family: 'Apple Casual'; }
+.AppleChancery { font-family: 'Apple Chancery'; }
+.AppleGaramond { font-family: 'Apple Garamond'; }
+.AppleGothic { font-family: 'Apple Gothic'; }
+.AppleLiGothic { font-family: 'Apple LiGothic'; }
+.AppleLiSung { font-family: 'Apple LiSung'; }
+.AppleMyungjo { font-family: 'Apple Myungjo'; }
+.AppleSDGothicNeoReg { font-family: 'Apple SD Gothic Neo Reg'; }
+.AquaKana { font-family: AquaKana; }
 .ArabicTypesetting { font-family: 'Arabic Typesetting'; }
 .Arial { font-family: Arial; }
 .ArialBlack { font-family: 'Arial Black'; }
-.ArialNovaLight { font-family: 'Arial Nova Light'; }
+.ArialHebrew { font-family: 'Arial Hebrew'; }
+.ArialNova { font-family: 'Arial Nova'; }
+.AvenirBook { font-family: 'Avenir Book'; }
+.AvenirNext { font-family: 'Avenir Next'; }
+.AvenirRoman { font-family: 'Avenir Roman'; }
+.Ayuthaya { font-family: Ayuthaya; }
+.Baghdad { font-family: Baghdad; }
 .Bahnschrift { font-family: Bahnschrift; }
+.BanglaMN { font-family: 'Bangla MN'; }
+.BanglaSangamMN { font-family: 'Bangla Sangam MN'; }
+.Baskerville { font-family: Baskerville; }
 .Batang { font-family: Batang; }
+.Beijing { font-family: Beijing; }
+.Beirut { font-family: Beirut; }
+.BiauKai { font-family: BiauKai; }
+.BigCaslon { font-family: 'Big Caslon'; }
 .BIZUDGothic { font-family: 'BIZ UDGothic'; }
 .BIZUDMinchoMedium { font-family: 'BIZ UDMincho Medium'; }
+.Bodoni72Book { font-family: 'Bodoni 72 Book'; }
 .BrowalliaNew { font-family: 'Browallia New'; }
 .BrowalliaUPC { font-family: BrowalliaUPC; }
-.CalibriLight { font-family: 'Calibri Light'; }
+.BrushScript { font-family: 'Brush Script'; }
+.Calibri { font-family: Calibri; }
 .Cambria { font-family: Cambria; }
-.CandaraLight { font-family: 'Candara Light'; }
+.Candara { font-family: Candara; }
+.Chalkboard { font-family: Chalkboard; }
+.ChalkboardSE { font-family: 'Chalkboard SE'; }
+.Chalkduster { font-family: Chalkduster; }
+.Charcoal { font-family: Charcoal; }
+.CharcoalCY { font-family: 'Charcoal CY'; }
+.CharterRoman { font-family: 'Charter Roman'; }
+.Chicago { font-family: Chicago; }
+.Cochin { font-family: Cochin; }
+.ComicSans { font-family: 'Comic Sans'; }
 .ComicSansMS { font-family: 'Comic Sans MS'; }
 .Consolas { font-family: Consolas; }
 .Constantia { font-family: Constantia; }
-.CorbelLight { font-family: 'Corbel Light'; }
+.Cooper { font-family: Cooper; }
+.Copperplate { font-family: Copperplate; }
+.Corbel { font-family: Corbel; }
 .CordiaNew { font-family: 'Cordia New'; }
 .CordiaUPC { font-family: CordiaUPC; }
+.CorsivaHebrew { font-family: 'Corsiva Hebrew'; }
+.Courier { font-family: Courier; }
 .CourierNew { font-family: 'Courier New'; }
+.Damascus { font-family: Damascus; }
 .DaunPenh { font-family: DaunPenh; }
 .David { font-family: David; }
-.DengXianLight { font-family: 'DengXian Light'; }
+.DecoTypeNaskh { font-family: 'DecoType Naskh'; }
+.DengXian { font-family: DengXian; }
+.Devanagari { font-family: Devanagari; }
+.DevanagariMT { font-family: 'Devanagari MT'; }
+.DevanagariSangamMN { font-family: 'Devanagari Sangam MN'; }
 .DFKaiSB { font-family: DFKai-SB; }
+.Didot { font-family: Didot; }
 .DilleniaUPC { font-family: DilleniaUPC; }
+.DiwanKufi { font-family: 'Diwan Kufi'; }
+.DiwanThuluth { font-family: 'Diwan Thuluth'; }
 .DokChampa { font-family: DokChampa; }
 .Dotum { font-family: Dotum; }
 .Ebrima { font-family: Ebrima; }
 .EstrangeloEdessa { font-family: 'Estrangelo Edessa'; }
 .EucrosiaUPC { font-family: EucrosiaUPC; }
 .Euphemia { font-family: Euphemia; }
+.EuphemiaUCAS { font-family: 'Euphemia UCAS'; }
 .FangSong { font-family: FangSong; }
+.Farah { font-family: Farah; }
+.Farisi { font-family: Farisi; }
 .FranklinGothicMedium { font-family: 'Franklin Gothic Medium'; }
 .FrankRuehl { font-family: FrankRuehl; }
 .FreesiaUPC { font-family: FreesiaUPC; }
+.Futura { font-family: Futura; }
 .Gabriola { font-family: Gabriola; }
+.Gadget { font-family: Gadget; }
 .Gadugi { font-family: Gadugi; }
+.Galvji { font-family: Galvji; }
 .Gautami { font-family: Gautami; }
+.GB18030Bitmap { font-family: 'GB18030 Bitmap'; }
+.GeezaPro { font-family: 'Geeza Pro'; }
+.Geezah { font-family: Geezah; }
+.Geneva { font-family: Geneva; }
+.GenevaCY { font-family: 'Geneva CY'; }
 .Georgia { font-family: Georgia; }
-.GeorgiaProLight { font-family: 'Georgia Pro Light'; }
-.GillSansNovaLight { font-family: 'Gill Sans Nova Light'; }
+.GeorgiaPro { font-family: 'Georgia Pro'; }
+.GillSans { font-family: 'Gill Sans'; }
+.GillSansNova { font-family: 'Gill Sans Nova'; }
 .Gisha { font-family: Gisha; }
+.Gujarati { font-family: Gujarati; }
+.GujaratiMT { font-family: 'Gujarati MT'; }
+.GujaratiSangamMN { font-family: 'Gujarati Sangam MN'; }
 .Gulim { font-family: Gulim; }
+.GungSeoche { font-family: 'Gung Seoche'; }
 .Gungsuh { font-family: Gungsuh; }
+.Gurmukhi { font-family: Gurmukhi; }
+.GurmukhiMN { font-family: 'Gurmukhi MN'; }
+.GurmukhiMT { font-family: 'Gurmukhi MT'; }
+.GurmukhiSangamMN { font-family: 'Gurmukhi Sangam MN'; }
+.Hangangche { font-family: Hangangche; }
+.HeadlineA { font-family: HeadlineA; }
+.Hei { font-family: Hei; }
+.Helvetica { font-family: Helvetica; }
+.HelveticaCY { font-family: 'Helvetica CY'; }
+.HelveticaNeue { font-family: 'Helvetica Neue'; }
+.Herculanum { font-family: Herculanum; }
+.HiraginoKakuGothicPro { font-family: 'Hiragino Kaku Gothic Pro'; }
+.HiraginoMaruGothicPro { font-family: 'Hiragino Maru Gothic Pro'; }
+.HiraginoMinchoPro { font-family: 'Hiragino Mincho Pro'; }
+.HiraginoSansGBW3 { font-family: 'Hiragino Sans GB W3'; }
+.HiraginoSansGBW6 { font-family: 'Hiragino Sans GB W6'; }
+.HiraginoSansW0 { font-family: 'Hiragino Sans W0'; }
+.HiraginoSansW1 { font-family: 'Hiragino Sans W1'; }
+.HiraginoSansW2 { font-family: 'Hiragino Sans W2'; }
+.HiraginoSansW3 { font-family: 'Hiragino Sans W3'; }
+.HiraginoSansW4 { font-family: 'Hiragino Sans W4'; }
+.HiraginoSansW5 { font-family: 'Hiragino Sans W5'; }
+.HiraginoSansW6 { font-family: 'Hiragino Sans W6'; }
+.HiraginoSansW7 { font-family: 'Hiragino Sans W7'; }
+.HiraginoSansW8 { font-family: 'Hiragino Sans W8'; }
+.HiraginoSansW9 { font-family: 'Hiragino Sans W9'; }
+.HoeflerText { font-family: 'Hoefler Text'; }
 .Impact { font-family: Impact; }
+.InaiMathi { font-family: 'Inai Mathi'; }
 .InkFree { font-family: 'Ink Free'; }
 .IrisUPC { font-family: IrisUPC; }
 .IskoolaPota { font-family: 'Iskoola Pota'; }
+.ITFDevanagariBook { font-family: 'ITF Devanagari Book'; }
+.ITFDevanagariMarathiBk { font-family: 'ITF Devanagari MarathiBk'; }
 .JasmineUPC { font-family: JasmineUPC; }
 .JavaneseText { font-family: 'Javanese Text'; }
+.JungGothic { font-family: 'Jung Gothic'; }
+.Kai { font-family: Kai; }
+.Kailasa { font-family: Kailasa; }
 .KaiTi { font-family: KaiTi; }
 .Kalinga { font-family: Kalinga; }
+.KannadaMN { font-family: 'Kannada MN'; }
+.KannadaSangamMN { font-family: 'Kannada Sangam MN'; }
 .Kartika { font-family: Kartika; }
+.KefaBold { font-family: 'Kefa Bold'; }
+.Kefa { font-family: Kefa; }
+.Keyboard { font-family: Keyboard; }
+.KhmerMN { font-family: 'Khmer MN'; }
+.KhmerSangamMN { font-family: 'Khmer Sangam MN'; }
 .KhmerUI { font-family: 'Khmer UI'; }
 .KodchiangUPC { font-family: KodchiangUPC; }
+.KohinoorBangla { font-family: 'Kohinoor Bangla'; }
+.KohinoorDevanagari { font-family: 'Kohinoor Devanagari'; }
+.KohinoorTelugu { font-family: 'Kohinoor Telugu'; }
 .Kokila { font-family: Kokila; }
+.Kokonor { font-family: Kokonor; }
+.Krungthep { font-family: Krungthep; }
+.KuenstlerScript { font-family: 'Kuenstler Script'; }
+.KufiStandardGK { font-family: 'KufiStandard GK'; }
+.LaoMN { font-family: 'Lao MN'; }
+.LaoSangamMN { font-family: 'Lao Sangam MN'; }
 .LaoUI { font-family: 'Lao UI'; }
+.LastResort { font-family: LastResort; }
 .Latha { font-family: Latha; }
 .Leelawadee { font-family: Leelawadee; }
 .LeelawadeeUI { font-family: 'Leelawadee UI'; }
 .LevenimMT { font-family: 'Levenim MT'; }
+.LiHeiPro { font-family: 'LiHei Pro'; }
 .LilyUPC { font-family: LilyUPC; }
+.LiSongPro { font-family: 'LiSong Pro'; }
 .LucidaConsole { font-family: 'Lucida Console'; }
+.LucidaGrande { font-family: 'Lucida Grande'; }
+.LucidaSans { font-family: 'Lucida Sans'; }
 .LucidaSansUnicode { font-family: 'Lucida Sans Unicode'; }
+.Luminari { font-family: Luminari; }
+.MalayalamMN { font-family: 'Malayalam MN'; }
+.MalayalamSangamMN { font-family: 'Malayalam Sangam MN'; }
 .MalgunGothic { font-family: 'Malgun Gothic'; }
 .Mangal { font-family: Mangal; }
+.MarkerFelt { font-family: 'Marker Felt'; }
 .Marlett { font-family: Marlett; }
 .Meiryo { font-family: Meiryo; }
+.Menlo { font-family: Menlo; }
 .MicrosoftHimalaya { font-family: 'Microsoft Himalaya'; }
-.MicrosoftJhengHeiLight { font-family: 'Microsoft JhengHei Light'; }
+.MicrosoftJhengHei { font-family: 'Microsoft JhengHei'; }
 .MicrosoftNewTaiLue { font-family: 'Microsoft New Tai Lue'; }
 .MicrosoftPhagsPa { font-family: 'Microsoft PhagsPa'; }
 .MicrosoftSansSerif { font-family: 'Microsoft Sans Serif'; }
 .MicrosoftTaiLe { font-family: 'Microsoft Tai Le'; }
 .MicrosoftUighur { font-family: 'Microsoft Uighur'; }
-.MicrosoftYaHeiLight { font-family: 'Microsoft YaHei Light'; }
+.MicrosoftYaHei { font-family: 'Microsoft YaHei'; }
 .MicrosoftYiBaiti { font-family: 'Microsoft Yi Baiti'; }
 .MingLiU { font-family: MingLiU; }
 .MingLiUExtB { font-family: MingLiU-ExtB; }
 .Miriam { font-family: Miriam; }
+.MishafiGold { font-family: 'Mishafi Gold'; }
+.Mishafi { font-family: Mishafi; }
+.Monaco { font-family: Monaco; }
+.MonacoCY { font-family: 'Monaco CY'; }
 .MongolianBaiti { font-family: 'Mongolian Baiti'; }
 .MoolBoran { font-family: MoolBoran; }
 .MSGothic { font-family: 'MS Gothic'; }
 .MSMincho { font-family: 'MS Mincho'; }
+.Mshtakan { font-family: Mshtakan; }
+.MuktaMahee { font-family: MuktaMahee; }
+.Muna { font-family: Muna; }
 .MVBoli { font-family: 'MV Boli'; }
+.MyanmarMN { font-family: 'Myanmar MN'; }
+.MyanmarSangamMN { font-family: 'Myanmar Sangam MN'; }
 .MyanmarText { font-family: 'Myanmar Text'; }
+.Nadeem { font-family: Nadeem; }
 .Narkisim { font-family: Narkisim; }
-.NeueHaasGrtskTPrUT { font-family: 'Neue Haas Grotesk Text Pro UltraThin'; }
-.NirmalaUISemilight { font-family: 'Nirmala UI Semilight'; }
+.NeueHaasGrotskTxtPro { font-family: 'Neue Haas Grotsk Txt Pro'; }
+.NewPeninim { font-family: 'New Peninim'; }
+.NewPeninimMT { font-family: 'New Peninim MT'; }
+.NewYork { font-family: 'New York'; }
+.NirmalaUI { font-family: 'Nirmala UI'; }
+.NISCGB18030 { font-family: 'NISC GB18030'; }
+.NotoNastaliqUrdu { font-family: 'Noto Nastaliq Urdu'; }
+.NotoSansJavanese { font-family: 'Noto Sans Javanese'; }
+.NotoSansKannada { font-family: 'Noto Sans Kannada'; }
+.NotoSansMyanmar { font-family: 'Noto Sans Myanmar'; }
+.NotoSansOriya { font-family: 'Noto Sans Oriya'; }
+.NotoSerifMyanmar { font-family: 'Noto Serif Myanmar'; }
 .Nyala { font-family: Nyala; }
+.Optima { font-family: Optima; }
+.OriyaMN { font-family: 'Oriya MN'; }
+.OriyaSangamMN { font-family: 'Oriya Sangam MN'; }
+.Osaka { font-family: Osaka; }
+.Palatino { font-family: Palatino; }
 .PalatinoLinotype { font-family: 'Palatino Linotype'; }
+.Papyrus { font-family: Papyrus; }
+.PartyLETPlain { font-family: 'Party LET Plain'; }
+.PCMyungjo { font-family: 'PC Myungjo'; }
+.Pilgiche { font-family: Pilgiche; }
+.PingFangHK { font-family: 'PingFang HK'; }
+.PingFangSC { font-family: 'PingFang SC'; }
+.PingFangTC { font-family: 'PingFang TC'; }
 .PlantagenetCherokee { font-family: 'Plantagenet Cherokee'; }
+.PTMono { font-family: 'PT Mono'; }
+.PTSans { font-family: 'PT Sans'; }
+.PTSerif { font-family: 'PT Serif'; }
+.Raanana { font-family: Raanana; }
 .Raavi { font-family: Raavi; }
+.Rockwell { font-family: Rockwell; }
 .RockwellNova { font-family: 'Rockwell Nova'; }
 .Rod { font-family: Rod; }
 .SakkalMajalla { font-family: 'Sakkal Majalla'; }
+.Sana { font-family: Sana; }
+.Sand { font-family: Sand; }
 .SanskritText { font-family: 'Sanskrit Text'; }
+.Sathu { font-family: Sathu; }
 .SegoePrint { font-family: 'Segoe Print'; }
 .SegoeScript { font-family: 'Segoe Script'; }
-.SegoeUILight { font-family: 'Segoe UI Light'; }
-.SegoeUIVrblDsplyLght { font-family: 'Segoe UI Variable Display Light'; }
+.SegoeUI { font-family: 'Segoe UI'; }
+.Seoul { font-family: Seoul; }
+.ShinMyungjoNeue { font-family: 'Shin Myungjo Neue'; }
 .ShonarBangla { font-family: 'Shonar Bangla'; }
+.ShreeDevanagari714 { font-family: 'Shree Devanagari 714'; }
 .Shruti { font-family: Shruti; }
+.SignPainterHouseScript { font-family: SignPainter-HouseScript; }
+.Silom { font-family: Silom; }
 .SimHei { font-family: SimHei; }
 .SimplifiedArabic { font-family: 'Simplified Arabic'; }
 .SimSun { font-family: SimSun; }
-.SitkaBanner { font-family: 'Sitka Banner'; }
+.SinhalaMN { font-family: 'Sinhala MN'; }
+.SinhalaSangamMN { font-family: 'Sinhala Sangam MN'; }
+.SitkaText { font-family: 'Sitka Text'; }
+.Skia { font-family: Skia; }
+.SnellRoundhand { font-family: 'Snell Roundhand'; }
+.SnellRoundhandBlack { font-family: 'Snell Roundhand Black'; }
+.SongtiSC { font-family: 'Songti SC'; }
+.SongtiTC { font-family: 'Songti TC'; }
+.STFangSong { font-family: 'ST FangSong'; }
+.STFangSong2 { font-family: 'ST FangSong 2'; }
+.STHeiti { font-family: 'ST Heiti'; }
+.STKaiti { font-family: 'ST Kaiti'; }
+.STSong { font-family: 'ST Song'; }
+.STIXGeneralRegular { font-family: STIXGeneral-Regular; }
+.SukhumvitSetText { font-family: 'Sukhumvit Set Text'; }
 .Sylfaen { font-family: Sylfaen; }
+.TaeGraphic { font-family: 'Tae Graphic'; }
 .Tahoma { font-family: Tahoma; }
+.Taipei { font-family: Taipei; }
+.TamilMN { font-family: 'Tamil MN'; }
+.TamilSangamMN { font-family: 'Tamil Sangam MN'; }
+.Techno { font-family: Techno; }
+.TeluguMN { font-family: 'Telugu MN'; }
+.TeluguSangamMN { font-family: 'Telugu Sangam MN'; }
+.Textile { font-family: Textile; }
+.Thonburi { font-family: Thonburi; }
+.Times { font-family: Times; }
+.TimesCY { font-family: 'Times CY'; }
 .TimesNewRoman { font-family: 'Times New Roman'; }
+.TimesRoman { font-family: 'Times Roman'; }
 .TraditionalArabic { font-family: 'Traditional Arabic'; }
+.Trattatello { font-family: Trattatello; }
 .TrebuchetMS { font-family: 'Trebuchet MS'; }
 .Tunga { font-family: Tunga; }
-.UDDigiKyokashoNB { font-family: 'UD Digi Kyokasho N-B'; }
+.UDDigiKyokashoNR { font-family: 'UD Digi Kyokasho N-R'; }
 .UrduTypesetting { font-family: 'Urdu Typesetting'; }
 .Utsaah { font-family: Utsaah; }
 .Vani { font-family: Vani; }
 .Verdana { font-family: Verdana; }
-.VerdanaProLight { font-family: 'Verdana Pro Light'; }
+.VerdanaPro { font-family: 'Verdana Pro'; }
 .Vijaya { font-family: Vijaya; }
 .Vrinda { font-family: Vrinda; }
-.YuGothicLight { font-family: 'Yu Gothic Light'; }
-.YuMinchoLight { font-family: 'Yu Mincho Light'; }
-
-
+.Waseem { font-family: Waseem; }
+.YuGothic { font-family: 'Yu Gothic'; }
+.YuMincho { font-family: 'Yu Mincho'; }
+.ZapfChancery { font-family: 'Zapf Chancery'; }
+.Zapfino { font-family: Zapfino; }
