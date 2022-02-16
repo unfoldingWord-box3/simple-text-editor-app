@@ -4,34 +4,24 @@ import { Fragment } from 'react'
 export default function FontDropdown(props) {
   const {font, setFont} = props;
 
-// Call this function and pass in the name of the font to check for availability.
+// Test font availability.
 function doesFontExist(fontName) {
-  // creating our in-memory Canvas element where the magic happens
+  // Create an in-memory Canvas element.
   var canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
-   
-  // the text whose final pixel size I want to measure
+  // The text whose final pixel size will be measured
   const text = "abcdefghijklmnopqrstuvwxyz0123456789";
-   
-  // specifying the baseline font
+  // Baseline font; Must be available for the test to work.
   context.font = "72px monospace";
-   
-  // checking the size of the baseline text
+  // Get the size of text with the baseline font.
   const baselineSize = context.measureText(text).width;
-   
-  // specifying the font whose existence we want to check
+  // Specify the font to test
   context.font = "72px '" + fontName + "', monospace";
-
-  // checking the size of the font we want to check
+  // Get the size of the text with the tested font.
   const newSize = context.measureText(text).width;
-   
-  // removing the Canvas element we created
+  // Remove the in-memory Canvas element.
   canvas = null;
-   
-  //
-  // If the size of the two text instances is the same, the font does not exist because it is being rendered
-  // using the default sans-serif font
-  //
+  // If the size of the two text instances differs, then font exists.
   return (newSize === baselineSize ? false : true);
 }
 
@@ -54,6 +44,8 @@ const isShimenkan = doesFontExist('Shimenkan')
 const isSophiaNubian = doesFontExist('Sophia Nubian')
 const isTagmukay = doesFontExist('Tagmukay')
 const isTaiHeritagePro = doesFontExist('Tai Heritage Pro')
+// Are any Graphite-enabled fonts locally installed?
+const isNoGEFonts = (!isAkatab || !isAlkalami || !isAlkalamiLight || !isAndika || !isAwamiNastaliq || !isGentiumPlus || !isHarmattan || !isKhmerBusra || !isKhmerMondulkiri || !isLateefGR || !isMingzat || !isNarnoor || !isPadauk || !isScheherazadeNew || !isShimenkan || !isSophiaNubian || !isTagmukay || !isTaiHeritagePro);
 
 // Which of these Windows and MacOS system fonts are locally installed?
 const isAharoniBold = doesFontExist('Aharoni Bold')
@@ -1185,7 +1177,7 @@ const isZapfino = doesFontExist('Zapfino')
               {taiHeritageProRW}
             </div>}
             {graphiteEnabled && <div className="px-1 py-1">
-              <span className="text-gray-900 group menuitem"><b>Graphite-enabled (local):</b></span>
+              <span className="text-gray-900 group menuitem"><b>Graphite-enabled (local):</b>{isNoGEFonts && '<br /> - none detected -'}</span>
               {isAkatab && akatab}
               {isAlkalami && alkalami}
               {isAlkalamiLight && alkalamiLight}
