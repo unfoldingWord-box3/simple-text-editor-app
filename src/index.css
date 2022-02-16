@@ -184,18 +184,31 @@ code {
   .TaiHeritageProRW { font-family: TaiHeritageProRW; }
 
   /* Graphite-enabled font if locally installed */
+  .AbyssinicaSIL { font-family: 'Abyssinica SIL'; }
   .Akatab { font-family: Akatab; }
   .Alkalami { font-family: Alkalami; }
   .AlkalamiLight { font-family: 'Alkalami Light'; }
   .Andika { font-family: Andika; }
+  .AnnapurnaSIL { font-family: 'Annapurna SIL'; }
+  .ApparatusSIL { font-family: 'Apparatus SIL'; }
   .AwamiNastaliq { font-family: 'Awami Nastaliq'; }
+  .CharisSIL { font-family: 'Charis SIL'; }
+  .DaiBannaSILBook { font-family: 'Dai Banna SIL Book'; }
+  .DaiBannaSILLight { font-family: 'Dai Banna SIL Light'; }
+  .DoulosSIL { font-family: 'Doulos SIL'; }
+  .DoulosSILCipher { font-family: 'Doulos SIL Cipher'; }
+  .EzraSIL { font-family: 'Ezra SIL'; }
+  .EzraSILSR { font-family: 'Ezra SIL SR'; }
+  .GalatiaSIL { font-family: 'Galatia SIL'; }
   .GentiumPlus { font-family: 'Gentium Plus'; }
   .Harmattan { font-family: Harmattan; }
   .KhmerBusra { font-family: KhmerBusra; }
   .KhmerMondulkiri { font-family: 'Khmer Mondulkiri'; }
   .LateefGR { font-family: LateefGR; }
   .Mingzat { font-family: Mingzat; }
+  .NamdhinggoSIL { font-family: 'Namdhinggo SIL'; }
   .Narnoor{ font-family: Narnoor; }
+  .NuosuSIL { font-family: 'Nuosu SIL'; }
   .Padauk { font-family: Padauk; }
   .ScheherazadeNew { font-family: 'Scheherazade New'; }
   .Shimenkan { font-family: Shimenkan; }
@@ -209,6 +222,7 @@ code {
 /*    * includes supplemental language packs                             */
 /*    * excludes symbols, icons, emojis, assets, wingdings, and webdings */
 /* And MacOS Font system font famlies through Catalina 10.15             */
+/*    * excludes symbols, icons, emojis, assets, wingdings, and webdings */
 .AharoniBold { font-family: 'Aharoni Bold'; }
 .AlBayan { font-family: 'Al Bayan'; }
 .AlNile { font-family: 'Al Nile'; }
