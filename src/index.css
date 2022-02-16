@@ -168,7 +168,7 @@ code {
   }
 
   /* Graphite-enabled woff and woff2 fonts included above */
-  .AktabRW { font-family: AktabRW; }
+  .AkatabRW { font-family: AkatabRW; }
   .AlkalamiLW { font-family: 'AlkalamiLW'; }
   .AlkalamiRW { font-family: AlkalamiRW; }
   .AndikaRW { font-family: AndikaRW; }
@@ -184,7 +184,7 @@ code {
   .TaiHeritageProRW { font-family: TaiHeritageProRW; }
 
   /* Graphite-enabled font if locally installed */
-  .Aktab { font-family: Aktab; }
+  .Akatab { font-family: Akatab; }
   .Alkalami { font-family: Alkalami; }
   .AlkalamiLight { font-family: 'Alkalami Light'; }
   .Andika { font-family: Andika; }

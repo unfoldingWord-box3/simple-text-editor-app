@@ -4,11 +4,394 @@ import { Fragment } from 'react'
 export default function FontDropdown(props) {
   const {font, setFont} = props;
 
+// Call this function and pass in the name of the font to check for availability.
+function doesFontExist(fontName) {
+  // creating our in-memory Canvas element where the magic happens
+  var canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+   
+  // the text whose final pixel size I want to measure
+  const text = "abcdefghijklmnopqrstuvwxyz0123456789";
+   
+  // specifying the baseline font
+  context.font = "72px monospace";
+   
+  // checking the size of the baseline text
+  const baselineSize = context.measureText(text).width;
+   
+  // specifying the font whose existence we want to check
+  context.font = "72px '" + fontName + "', monospace";
+
+  // checking the size of the font we want to check
+  const newSize = context.measureText(text).width;
+   
+  // removing the Canvas element we created
+  canvas = null;
+   
+  //
+  // If the size of the two text instances is the same, the font does not exist because it is being rendered
+  // using the default sans-serif font
+  //
+  return (newSize === baselineSize ? false : true);
+}
+
+// Which of these Graphite-enabled fonts are locally installed?
+const isAkatab = doesFontExist('Akatab')
+const isAlkalami = doesFontExist('Alkalami')
+const isAlkalamiLight = doesFontExist('Alkalami Light')
+const isAndika = doesFontExist('Andika')
+const isAwamiNastaliq = doesFontExist('Awami Nastaliq')
+const isGentiumPlus = doesFontExist('Gentium Plus')
+const isHarmattan = doesFontExist('Harmattan')
+const isKhmerBusra = doesFontExist('Khmer Busra')
+const isKhmerMondulkiri = doesFontExist('Khmer Mondulkiri')
+const isLateefGR = doesFontExist('LateefGR')
+const isMingzat = doesFontExist('Mingzat')
+const isNarnoor = doesFontExist('Narnoor')
+const isPadauk = doesFontExist('Padauk')
+const isScheherazadeNew = doesFontExist('Scheherazade New')
+const isShimenkan = doesFontExist('Shimenkan')
+const isSophiaNubian = doesFontExist('Sophia Nubian')
+const isTagmukay = doesFontExist('Tagmukay')
+const isTaiHeritagePro = doesFontExist('Tai Heritage Pro')
+
+// Which of these Windows and MacOS system fonts are locally installed?
+const isAharoniBold = doesFontExist('Aharoni Bold')
+const isAlBayan = doesFontExist('Al Bayan')
+const isAlNile = doesFontExist('Al Nile')
+const isAlTarikh = doesFontExist('Al Tarikh')
+const isAldhabi = doesFontExist('Aldhabi')
+const isAmericanTypewriter = doesFontExist('American Typewriter')
+const isAndaleMono = doesFontExist('Andalé Mono')
+const isAndalus = doesFontExist('Andalus')
+const isAngsanaNew = doesFontExist('Angsana New')
+const isAngsanaUPC = doesFontExist('AngsanaUPC')
+const isAparajita = doesFontExist('Aparajita')
+const isAppleBraille = doesFontExist('Apple Braille')
+const isAppleCasual = doesFontExist('Apple Casual')
+const isAppleChancery = doesFontExist('Apple Chancery')
+const isAppleGaramond = doesFontExist('Apple Garamond')
+const isAppleGothic = doesFontExist('Apple Gothic')
+const isAppleLiGothic = doesFontExist('Apple LiGothic')
+const isAppleLiSung = doesFontExist('Apple LiSung')
+const isAppleMyungjo = doesFontExist('Apple Myungjo')
+const isAppleSDGothicNeoReg = doesFontExist('Apple SD Gothic Neo Reg')
+const isAquaKana = doesFontExist('AquaKana')
+const isArabicTypesetting = doesFontExist('Arabic Typesetting')
+const isArial = doesFontExist('Arial')
+const isArialBlack = doesFontExist('Arial Black')
+const isArialHebrew = doesFontExist('Arial Hebrew')
+const isArialNova = doesFontExist('Arial Nova')
+const isAvenirBook = doesFontExist('Avenir Book')
+const isAvenirNext = doesFontExist('Avenir Next')
+const isAvenirRoman = doesFontExist('Avenir Roman')
+const isAyuthaya = doesFontExist('Ayuthaya')
+const isBaghdad = doesFontExist('Baghdad')
+const isBahnschrift = doesFontExist('Bahnschrift')
+const isBanglaMN = doesFontExist('Bangla MN')
+const isBanglaSangamMN = doesFontExist('Bangla Sangam MN')
+const isBaskerville = doesFontExist('Baskerville')
+const isBatang = doesFontExist('Batang')
+const isBeijing = doesFontExist('Beijing')
+const isBeirut = doesFontExist('Beirut')
+const isBiauKai = doesFontExist('BiauKai')
+const isBigCaslon = doesFontExist('Big Caslon')
+const isBIZUDGothic = doesFontExist('BIZ UDGothic')
+const isBIZUDMinchoMedium = doesFontExist('BIZ UDMincho Medium')
+const isBodoni72Book = doesFontExist('Bodoni 72 Book')
+const isBrowalliaNew = doesFontExist('Browallia New')
+const isBrowalliaUPC = doesFontExist('BrowalliaUPC')
+const isBrushScript = doesFontExist('Brush Script')
+const isCalibri = doesFontExist('Calibri')
+const isCambria = doesFontExist('Cambria')
+const isCandara = doesFontExist('Candara')
+const isChalkboard = doesFontExist('Chalkboard')
+const isChalkboardSE = doesFontExist('Chalkboard SE')
+const isChalkduster = doesFontExist('Chalkduster')
+const isCharcoal = doesFontExist('Charcoal')
+const isCharcoalCY = doesFontExist('Charcoal CY')
+const isCharterRoman = doesFontExist('Charter Roman')
+const isChicago = doesFontExist('Chicago')
+const isCochin = doesFontExist('Cochin')
+const isComicSans = doesFontExist('Comic Sans')
+const isComicSansMS = doesFontExist('Comic Sans MS')
+const isConsolas = doesFontExist('Consolas')
+const isConstantia = doesFontExist('Constantia')
+const isCooper = doesFontExist('Cooper')
+const isCopperplate = doesFontExist('Copperplate')
+const isCorbel = doesFontExist('Corbel')
+const isCordiaNew = doesFontExist('Cordia New')
+const isCordiaUPC = doesFontExist('CordiaUPC')
+const isCorsivaHebrew = doesFontExist('Corsiva Hebrew')
+const isCourier = doesFontExist('Courier')
+const isCourierNew = doesFontExist('Courier New')
+const isDamascus = doesFontExist('Damascus')
+const isDaunPenh = doesFontExist('DaunPenh')
+const isDavid = doesFontExist('David')
+const isDecoTypeNaskh = doesFontExist('DecoType Naskh')
+const isDengXian = doesFontExist('DengXian')
+const isDevanagari = doesFontExist('Devanagari')
+const isDevanagariMT = doesFontExist('Devanagari MT')
+const isDevanagariSangamMN = doesFontExist('Devanagari Sangam MN')
+const isDFKaiSB = doesFontExist('DFKai-SB')
+const isDidot = doesFontExist('Didot')
+const isDilleniaUPC = doesFontExist('DilleniaUPC')
+const isDiwanKufi = doesFontExist('Diwan Kufi')
+const isDiwanThuluth = doesFontExist('Diwan Thuluth')
+const isDokChampa = doesFontExist('DokChampa')
+const isDotum = doesFontExist('Dotum')
+const isEbrima = doesFontExist('Ebrima')
+const isEstrangeloEdessa = doesFontExist('Estrangelo Edessa')
+const isEucrosiaUPC = doesFontExist('EucrosiaUPC')
+const isEuphemia = doesFontExist('Euphemia')
+const isEuphemiaUCAS = doesFontExist('Euphemia UCAS')
+const isFangSong = doesFontExist('FangSong')
+const isFarah = doesFontExist('Farah')
+const isFarisi = doesFontExist('Farisi')
+const isFranklinGothicMedium = doesFontExist('Franklin Gothic Medium')
+const isFrankRuehl = doesFontExist('FrankRuehl')
+const isFreesiaUPC = doesFontExist('FreesiaUPC')
+const isFutura = doesFontExist('Futura')
+const isGabriola = doesFontExist('Gabriola')
+const isGadget = doesFontExist('Gadget')
+const isGadugi = doesFontExist('Gadugi')
+const isGalvji = doesFontExist('Galvji')
+const isGautami = doesFontExist('Gautami')
+const isGB18030Bitmap = doesFontExist('GB18030 Bitmap')
+const isGeezaPro = doesFontExist('Geeza Pro')
+const isGeezah = doesFontExist('Geezah')
+const isGeneva = doesFontExist('Geneva')
+const isGenevaCY = doesFontExist('Geneva CY')
+const isGeorgia = doesFontExist('Georgia')
+const isGeorgiaPro = doesFontExist('Georgia Pro')
+const isGillSans = doesFontExist('Gill Sans')
+const isGillSansNova = doesFontExist('Gill Sans Nova')
+const isGisha = doesFontExist('Gisha')
+const isGujarati = doesFontExist('Gujarati')
+const isGujaratiMT = doesFontExist('Gujarati MT')
+const isGujaratiSangamMN = doesFontExist('Gujarati Sangam MN')
+const isGulim = doesFontExist('Gulim')
+const isGungSeoche = doesFontExist('Gung Seoche')
+const isGungsuh = doesFontExist('Gungsuh')
+const isGurmukhi = doesFontExist('Gurmukhi')
+const isGurmukhiMN = doesFontExist('Gurmukhi MN')
+const isGurmukhiMT = doesFontExist('Gurmukhi MT')
+const isGurmukhiSangamMN = doesFontExist('Gurmukhi Sangam MN')
+const isHangangche = doesFontExist('Hangangche')
+const isHeadlineA = doesFontExist('HeadlineA')
+const isHei = doesFontExist('Hei')
+const isHelvetica = doesFontExist('Helvetica')
+const isHelveticaCY = doesFontExist('Helvetica CY')
+const isHelveticaNeue = doesFontExist('Helvetica Neue')
+const isHerculanum = doesFontExist('Herculanum')
+const isHiraginoKakuGothicPro = doesFontExist('Hiragino Kaku Gothic Pro')
+const isHiraginoMaruGothicPro = doesFontExist('Hiragino Maru Gothic Pro')
+const isHiraginoMinchoPro = doesFontExist('Hiragino Mincho Pro')
+const isHiraginoSansGBW3 = doesFontExist('Hiragino Sans GB W3')
+const isHiraginoSansGBW6 = doesFontExist('Hiragino Sans GB W6')
+const isHiraginoSansW0 = doesFontExist('Hiragino Sans W0')
+const isHiraginoSansW1 = doesFontExist('Hiragino Sans W1')
+const isHiraginoSansW2 = doesFontExist('Hiragino Sans W2')
+const isHiraginoSansW3 = doesFontExist('Hiragino Sans W3')
+const isHiraginoSansW4 = doesFontExist('Hiragino Sans W4')
+const isHiraginoSansW5 = doesFontExist('Hiragino Sans W5')
+const isHiraginoSansW6 = doesFontExist('Hiragino Sans W6')
+const isHiraginoSansW7 = doesFontExist('Hiragino Sans W7')
+const isHiraginoSansW8 = doesFontExist('Hiragino Sans W8')
+const isHiraginoSansW9 = doesFontExist('Hiragino Sans W9')
+const isHoeflerText = doesFontExist('Hoefler Text')
+const isImpact = doesFontExist('Impact')
+const isInaiMathi = doesFontExist('Inai Mathi')
+const isInkFree = doesFontExist('Ink Free')
+const isIrisUPC = doesFontExist('IrisUPC')
+const isIskoolaPota = doesFontExist('Iskoola Pota')
+const isITFDevanagariBook = doesFontExist('ITF Devanagari Book')
+const isITFDevanagariMarathiBk = doesFontExist('ITF Devanagari MarathiBk')
+const isJasmineUPC = doesFontExist('JasmineUPC')
+const isJavaneseText = doesFontExist('Javanese Text')
+const isJungGothic = doesFontExist('Jung Gothic')
+const isKai = doesFontExist('Kai')
+const isKailasa = doesFontExist('Kailasa')
+const isKaiTi = doesFontExist('KaiTi')
+const isKalinga = doesFontExist('Kalinga')
+const isKannadaMN = doesFontExist('Kannada MN')
+const isKannadaSangamMN = doesFontExist('Kannada Sangam MN')
+const isKartika = doesFontExist('Kartika')
+const isKefaBold = doesFontExist('Kefa Bold')
+const isKefa = doesFontExist('Kefa')
+const isKeyboard = doesFontExist('Keyboard')
+const isKhmerMN = doesFontExist('Khmer MN')
+const isKhmerSangamMN = doesFontExist('Khmer Sangam MN')
+const isKhmerUI = doesFontExist('Khmer UI')
+const isKodchiangUPC = doesFontExist('KodchiangUPC')
+const isKohinoorBangla = doesFontExist('Kohinoor Bangla')
+const isKohinoorDevanagari = doesFontExist('Kohinoor Devanagari')
+const isKohinoorTelugu = doesFontExist('Kohinoor Telugu')
+const isKokila = doesFontExist('Kokila')
+const isKokonor = doesFontExist('Kokonor')
+const isKrungthep = doesFontExist('Krungthep')
+const isKuenstlerScript = doesFontExist('Kuenstler Script')
+const isKufiStandardGK = doesFontExist('KufiStandard GK')
+const isLaoMN = doesFontExist('Lao MN')
+const isLaoSangamMN = doesFontExist('Lao Sangam MN')
+const isLaoUI = doesFontExist('Lao UI')
+const isLastResort = doesFontExist('LastResort')
+const isLatha = doesFontExist('Latha')
+const isLeelawadee = doesFontExist('Leelawadee')
+const isLeelawadeeUI = doesFontExist('Leelawadee UI')
+const isLevenimMT = doesFontExist('Levenim MT')
+const isLiHeiPro = doesFontExist('LiHei Pro')
+const isLilyUPC = doesFontExist('LilyUPC')
+const isLiSongPro = doesFontExist('LiSong Pro')
+const isLucidaConsole = doesFontExist('Lucida Console')
+const isLucidaGrande = doesFontExist('Lucida Grande')
+const isLucidaSans = doesFontExist('Lucida Sans')
+const isLucidaSansUnicode = doesFontExist('Lucida Sans Unicode')
+const isLuminari = doesFontExist('Luminari')
+const isMalayalamMN = doesFontExist('Malayalam MN')
+const isMalayalamSangamMN = doesFontExist('Malayalam Sangam MN')
+const isMalgunGothic = doesFontExist('Malgun Gothic')
+const isMangal = doesFontExist('Mangal')
+const isMarkerFelt = doesFontExist('Marker Felt')
+const isMarlett = doesFontExist('Marlett')
+const isMeiryo = doesFontExist('Meiryo')
+const isMenlo = doesFontExist('Menlo')
+const isMicrosoftHimalaya = doesFontExist('Microsoft Himalaya')
+const isMicrosoftJhengHei = doesFontExist('Microsoft JhengHei')
+const isMicrosoftNewTaiLue = doesFontExist('Microsoft New Tai Lue')
+const isMicrosoftPhagsPa = doesFontExist('Microsoft PhagsPa')
+const isMicrosoftSansSerif = doesFontExist('Microsoft Sans Serif')
+const isMicrosoftTaiLe = doesFontExist('Microsoft Tai Le')
+const isMicrosoftUighur = doesFontExist('Microsoft Uighur')
+const isMicrosoftYaHei = doesFontExist('Microsoft YaHei')
+const isMicrosoftYiBaiti = doesFontExist('Microsoft Yi Baiti')
+const isMingLiU = doesFontExist('MingLiU')
+const isMingLiUExtB = doesFontExist('MingLiU-ExtB')
+const isMiriam = doesFontExist('Miriam')
+const isMishafiGold = doesFontExist('Mishafi Gold')
+const isMishafi = doesFontExist('Mishafi')
+const isMonaco = doesFontExist('Monaco')
+const isMonacoCY = doesFontExist('Monaco CY')
+const isMongolianBaiti = doesFontExist('Mongolian Baiti')
+const isMoolBoran = doesFontExist('MoolBoran')
+const isMSGothic = doesFontExist('MS Gothic')
+const isMSMincho = doesFontExist('MS Mincho')
+const isMshtakan = doesFontExist('Mshtakan')
+const isMuktaMahee = doesFontExist('MuktaMahee')
+const isMuna = doesFontExist('Muna')
+const isMVBoli = doesFontExist('MV Boli')
+const isMyanmarMN = doesFontExist('Myanmar MN')
+const isMyanmarSangamMN = doesFontExist('Myanmar Sangam MN')
+const isMyanmarText = doesFontExist('Myanmar Text')
+const isNadeem = doesFontExist('Nadeem')
+const isNarkisim = doesFontExist('Narkisim')
+const isNeueHaasGrotskTxtPro = doesFontExist('Neue Haas Grotsk Txt Pro')
+const isNewPeninim = doesFontExist('New Peninim')
+const isNewPeninimMT = doesFontExist('New Peninim MT')
+const isNewYork = doesFontExist('New York')
+const isNirmalaUI = doesFontExist('Nirmala UI')
+const isNISCGB18030 = doesFontExist('NISC GB18030')
+const isNotoNastaliqUrdu = doesFontExist('Noto Nastaliq Urdu')
+const isNotoSansJavanese = doesFontExist('Noto Sans Javanese')
+const isNotoSansKannada = doesFontExist('Noto Sans Kannada')
+const isNotoSansMyanmar = doesFontExist('Noto Sans Myanmar')
+const isNotoSansOriya = doesFontExist('Noto Sans Oriya')
+const isNotoSerifMyanmar = doesFontExist('Noto Serif Myanmar')
+const isNyala = doesFontExist('Nyala')
+const isOptima = doesFontExist('Optima')
+const isOriyaMN = doesFontExist('Oriya MN')
+const isOriyaSangamMN = doesFontExist('Oriya Sangam MN')
+const isOsaka = doesFontExist('Osaka')
+const isPalatino = doesFontExist('Palatino')
+const isPalatinoLinotype = doesFontExist('Palatino Linotype')
+const isPapyrus = doesFontExist('Papyrus')
+const isPartyLETPlain = doesFontExist('Party LET Plain')
+const isPCMyungjo = doesFontExist('PC Myungjo')
+const isPilgiche = doesFontExist('Pilgiche')
+const isPingFangHK = doesFontExist('PingFang HK')
+const isPingFangSC = doesFontExist('PingFang SC')
+const isPingFangTC = doesFontExist('PingFang TC')
+const isPlantagenetCherokee = doesFontExist('Plantagenet Cherokee')
+const isPTMono = doesFontExist('PT Mono')
+const isPTSans = doesFontExist('PT Sans')
+const isPTSerif = doesFontExist('PT Serif')
+const isRaanana = doesFontExist('Raanana')
+const isRaavi = doesFontExist('Raavi')
+const isRockwell = doesFontExist('Rockwell')
+const isRockwellNova = doesFontExist('Rockwell Nova')
+const isRod = doesFontExist('Rod')
+const isSakkalMajalla = doesFontExist('Sakkal Majalla')
+const isSana = doesFontExist('Sana')
+const isSand = doesFontExist('Sand')
+const isSanskritText = doesFontExist('Sanskrit Text')
+const isSathu = doesFontExist('Sathu')
+const isSegoePrint = doesFontExist('Segoe Print')
+const isSegoeScript = doesFontExist('Segoe Script')
+const isSegoeUI = doesFontExist('Segoe UI')
+const isSeoul = doesFontExist('Seoul')
+const isShinMyungjoNeue = doesFontExist('Shin Myungjo Neue')
+const isShonarBangla = doesFontExist('Shonar Bangla')
+const isShreeDevanagari714 = doesFontExist('Shree Devanagari 714')
+const isShruti = doesFontExist('Shruti')
+const isSignPainterHouseScript = doesFontExist('SignPainter-HouseScript')
+const isSilom = doesFontExist('Silom')
+const isSimHei = doesFontExist('SimHei')
+const isSimplifiedArabic = doesFontExist('Simplified Arabic')
+const isSimSun = doesFontExist('SimSun')
+const isSinhalaMN = doesFontExist('Sinhala MN')
+const isSinhalaSangamMN = doesFontExist('Sinhala Sangam MN')
+const isSitkaText = doesFontExist('Sitka Text')
+const isSkia = doesFontExist('Skia')
+const isSnellRoundhand = doesFontExist('Snell Roundhand')
+const isSnellRoundhandBlack = doesFontExist('Snell Roundhand Black')
+const isSongtiSC = doesFontExist('Songti SC')
+const isSongtiTC = doesFontExist('Songti TC')
+const isSTFangSong = doesFontExist('ST FangSong')
+const isSTFangSong2 = doesFontExist('ST FangSong 2')
+const isSTHeiti = doesFontExist('ST Heiti')
+const isSTKaiti = doesFontExist('ST Kaiti')
+const isSTSong = doesFontExist('ST Song')
+const isSTIXGeneralRegular = doesFontExist('STIXGeneral-Regular')
+const isSukhumvitSetText = doesFontExist('Sukhumvit Set Text')
+const isSylfaen = doesFontExist('Sylfaen')
+const isTaeGraphic = doesFontExist('Tae Graphic')
+const isTahoma = doesFontExist('Tahoma')
+const isTaipei = doesFontExist('Taipei')
+const isTamilMN = doesFontExist('Tamil MN')
+const isTamilSangamMN = doesFontExist('Tamil Sangam MN')
+const isTechno = doesFontExist('Techno')
+const isTeluguMN = doesFontExist('Telugu MN')
+const isTeluguSangamMN = doesFontExist('Telugu Sangam MN')
+const isTextile = doesFontExist('Textile')
+const isThonburi = doesFontExist('Thonburi')
+const isTimes = doesFontExist('Times')
+const isTimesCY = doesFontExist('Times CY')
+const isTimesNewRoman = doesFontExist('Times New Roman')
+const isTimesRoman = doesFontExist('Times Roman')
+const isTraditionalArabic = doesFontExist('Traditional Arabic')
+const isTrattatello = doesFontExist('Trattatello')
+const isTrebuchetMS = doesFontExist('Trebuchet MS')
+const isTunga = doesFontExist('Tunga')
+const isUDDigiKyokashoNR = doesFontExist('UD Digi Kyokasho N-R')
+const isUrduTypesetting = doesFontExist('Urdu Typesetting')
+const isUtsaah = doesFontExist('Utsaah')
+const isVani = doesFontExist('Vani')
+const isVerdana = doesFontExist('Verdana')
+const isVerdanaPro = doesFontExist('Verdana Pro')
+const isVijaya = doesFontExist('Vijaya')
+const isVrinda = doesFontExist('Vrinda')
+const isWaseem = doesFontExist('Waseem')
+const isYuGothic = doesFontExist('Yu Gothic')
+const isYuMincho = doesFontExist('Yu Mincho')
+const isZapfChancery = doesFontExist('Zapf Chancery')
+const isZapfino = doesFontExist('Zapfino')
+
+
   const graphiteEnabled = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ? true : false);
 
   /** Graphite-enabled woff and woff2 fonts included */
   const onFontClear = () => { setFont(''); };
-  const onFontAktabRW = () => { setFont('AktabRW'); };
+  const onFontAkatabRW = () => { setFont('AkatabRW'); };
   const onFontAlkalamiLW = () => { setFont('AlkalamiLW'); };
   const onFontAlkalamiRW = () => { setFont('AlkalamiRW'); };
   const onFontAndikaRW = () => { setFont('AndikaRW'); };
@@ -24,7 +407,7 @@ export default function FontDropdown(props) {
   const onFontTaiHeritageProRW = () => { setFont('TaiHeritageProRW'); };
 
   /** Graphite-enabled fonts if locally installed */
-  const onFontAktab = () => { setFont('Aktab'); };
+  const onFontAkatab = () => { setFont('Akatab'); };
   const onFontAlkalami = () => { setFont('Alkalami'); };
   const onFontAlkalamiLight = () => { setFont('AlkalamiLight'); };
   const onFontAndika = () => { setFont('Andika'); };
@@ -377,7 +760,7 @@ export default function FontDropdown(props) {
   const fontOnOrOff = (itemFont) => font === itemFont ? 'on' : ''
   const itemPresentation = (itemName) => "➤" + itemName
 
-  function FontMenuItem(itemName, itemClick, itemFont, itemType) {
+  function FontMenuItem(itemName, itemClick, itemFont) {
 
     const fontActive = fontOnOrOff(itemFont)
     const fontList = itemPresentation(itemName)
@@ -398,7 +781,7 @@ export default function FontDropdown(props) {
 
   /** Graphite-enabled woff and woff2 fonts included */
   const defaultFont = FontMenuItem('Default Font', onFontClear, '')
-  const aktabRW = FontMenuItem('Aktab 2.000', onFontAktabRW, 'AktabRW')
+  const akatabRW = FontMenuItem('Akatab 2.000', onFontAkatabRW, 'AkatabRW')
   const alkalamiRW = FontMenuItem('Alkalami 1.200', onFontAlkalamiRW, 'AlkalamiRW')
   const alkalamiLW = FontMenuItem('Alkalami Light 1.200', onFontAlkalamiLW, 'AlkalamiLW')
   const andikaRW = FontMenuItem('Andika 6.001', onFontAndikaRW, 'AndikaRW')
@@ -414,7 +797,7 @@ export default function FontDropdown(props) {
   const taiHeritageProRW = FontMenuItem('TaiHeritagePro 2.600', onFontTaiHeritageProRW, 'TaiHeritageProRW')
 
   /** Graphite-enabled fonts if locally installed */
-  const aktab = FontMenuItem('Aktab', onFontAktab, 'Aktab')
+  const akatab = FontMenuItem('Akatab', onFontAkatab, 'Akatab')
   const alkalami = FontMenuItem('Alkalami', onFontAlkalami, 'Alkalami')
   const alkalamiLight = FontMenuItem('Alkalami Light', onFontAlkalamiLight, 'AlkalamiLight')
   const andika = FontMenuItem('Andika', onFontAndika, 'Andika')
@@ -786,7 +1169,7 @@ export default function FontDropdown(props) {
             </div>
             {graphiteEnabled && <div className="px-1 py-1">
              <span className="text-gray-900 group menuitem"><b>Graphite-enabled:</b></span>
-              {aktabRW}
+              {akatabRW}
               {alkalamiRW}
               {alkalamiLW}
               {andikaRW}
@@ -803,356 +1186,356 @@ export default function FontDropdown(props) {
             </div>}
             {graphiteEnabled && <div className="px-1 py-1">
               <span className="text-gray-900 group menuitem"><b>Graphite-enabled (local):</b></span>
-              {aktab}
-              {alkalami}
-              {alkalamiLight}
-              {andika}
-              {awamiNastaliq}
-              {gentiumPlus}
-              {harmattan}
-              {khmerBusra}
-              {khmerMondulkiri}
-              {lateefGR}
-              {mingzat}
-              {narnoor}
-              {padauk}
-              {scheherazadeNew}
-              {shimenkan}
-              {sophiaNubian}
-              {tagmukay}
-              {taiHeritagePro}
+              {isAkatab && akatab}
+              {isAlkalami && alkalami}
+              {isAlkalamiLight && alkalamiLight}
+              {isAndika && andika}
+              {isAwamiNastaliq && awamiNastaliq}
+              {isGentiumPlus && gentiumPlus}
+              {isHarmattan && harmattan}
+              {isKhmerBusra && khmerBusra}
+              {isKhmerMondulkiri && khmerMondulkiri}
+              {isLateefGR && lateefGR}
+              {isMingzat && mingzat}
+              {isNarnoor && narnoor}
+              {isPadauk && padauk}
+              {isScheherazadeNew && scheherazadeNew}
+              {isShimenkan && shimenkan}
+              {isSophiaNubian && sophiaNubian}
+              {isTagmukay && tagmukay}
+              {isTaiHeritagePro && taiHeritagePro}              
             </div>}
             <div className="px-1 py-1">
-              <span className={'text-gray-900 group menuitem'}><b>If Locally Installed:</b></span>
-              {AharoniBold}
-              {AlBayan}
-              {AlNile}
-              {AlTarikh}
-              {Aldhabi}
-              {AmericanTypewriter}
-              {AndaleMono}
-              {Andalus}
-              {AngsanaNew}
-              {AngsanaUPC}
-              {Aparajita}
-              {AppleBraille}
-              {AppleCasual}
-              {AppleChancery}
-              {AppleGaramond}
-              {AppleGothic}
-              {AppleLiGothic}
-              {AppleLiSung}
-              {AppleMyungjo}
-              {AppleSDGothicNeoReg}
-              {AquaKana}
-              {ArabicTypesetting}
-              {Arial}
-              {ArialBlack}
-              {ArialHebrew}
-              {ArialNova}
-              {AvenirBook}
-              {AvenirNext}
-              {AvenirRoman}
-              {Ayuthaya}
-              {Baghdad}
-              {Bahnschrift}
-              {BanglaMN}
-              {BanglaSangamMN}
-              {Baskerville}
-              {Batang}
-              {Beijing}
-              {Beirut}
-              {BiauKai}
-              {BigCaslon}
-              {BIZUDGothic}
-              {BIZUDMinchoMedium}
-              {Bodoni72Book}
-              {BrowalliaNew}
-              {BrowalliaUPC}
-              {BrushScript}
-              {Calibri}
-              {Cambria}
-              {Candara}
-              {Chalkboard}
-              {ChalkboardSE}
-              {Chalkduster}
-              {Charcoal}
-              {CharcoalCY}
-              {CharterRoman}
-              {Chicago}
-              {Cochin}
-              {ComicSans}
-              {ComicSansMS}
-              {Consolas}
-              {Constantia}
-              {Cooper}
-              {Copperplate}
-              {Corbel}
-              {CordiaNew}
-              {CordiaUPC}
-              {CorsivaHebrew}
-              {Courier}
-              {CourierNew}
-              {Damascus}
-              {DaunPenh}
-              {David}
-              {DecoTypeNaskh}
-              {DengXian}
-              {Devanagari}
-              {DevanagariMT}
-              {DevanagariSangamMN}
-              {DFKaiSB}
-              {Didot}
-              {DilleniaUPC}
-              {DiwanKufi}
-              {DiwanThuluth}
-              {DokChampa}
-              {Dotum}
-              {Ebrima}
-              {EstrangeloEdessa}
-              {EucrosiaUPC}
-              {Euphemia}
-              {EuphemiaUCAS}
-              {FangSong}
-              {Farah}
-              {Farisi}
-              {FranklinGothicMedium}
-              {FrankRuehl}
-              {FreesiaUPC}
-              {Futura}
-              {Gabriola}
-              {Gadget}
-              {Gadugi}
-              {Galvji}
-              {Gautami}
-              {GB18030Bitmap}
-              {GeezaPro}
-              {Geezah}
-              {Geneva}
-              {GenevaCY}
-              {Georgia}
-              {GeorgiaPro}
-              {GillSans}
-              {GillSansNova}
-              {Gisha}
-              {Gujarati}
-              {GujaratiMT}
-              {GujaratiSangamMN}
-              {Gulim}
-              {GungSeoche}
-              {Gungsuh}
-              {Gurmukhi}
-              {GurmukhiMN}
-              {GurmukhiMT}
-              {GurmukhiSangamMN}
-              {Hangangche}
-              {HeadlineA}
-              {Hei}
-              {Helvetica}
-              {HelveticaCY}
-              {HelveticaNeue}
-              {Herculanum}
-              {HiraginoKakuGothicPro}
-              {HiraginoMaruGothicPro}
-              {HiraginoMinchoPro}
-              {HiraginoSansGBW3}
-              {HiraginoSansGBW6}
-              {HiraginoSansW0}
-              {HiraginoSansW1}
-              {HiraginoSansW2}
-              {HiraginoSansW3}
-              {HiraginoSansW4}
-              {HiraginoSansW5}
-              {HiraginoSansW6}
-              {HiraginoSansW7}
-              {HiraginoSansW8}
-              {HiraginoSansW9}
-              {HoeflerText}
-              {Impact}
-              {InaiMathi}
-              {InkFree}
-              {IrisUPC}
-              {IskoolaPota}
-              {ITFDevanagariBook}
-              {ITFDevanagariMarathiBk}
-              {JasmineUPC}
-              {JavaneseText}
-              {JungGothic}
-              {Kai}
-              {Kailasa}
-              {KaiTi}
-              {Kalinga}
-              {KannadaMN}
-              {KannadaSangamMN}
-              {Kartika}
-              {KefaBold}
-              {Kefa}
-              {Keyboard}
-              {KhmerMN}
-              {KhmerSangamMN}
-              {KhmerUI}
-              {KodchiangUPC}
-              {KohinoorBangla}
-              {KohinoorDevanagari}
-              {KohinoorTelugu}
-              {Kokila}
-              {Kokonor}
-              {Krungthep}
-              {KuenstlerScript}
-              {KufiStandardGK}
-              {LaoMN}
-              {LaoSangamMN}
-              {LaoUI}
-              {LastResort}
-              {Latha}
-              {Leelawadee}
-              {LeelawadeeUI}
-              {LevenimMT}
-              {LiHeiPro}
-              {LilyUPC}
-              {LiSongPro}
-              {LucidaConsole}
-              {LucidaGrande}
-              {LucidaSans}
-              {LucidaSansUnicode}
-              {Luminari}
-              {MalayalamMN}
-              {MalayalamSangamMN}
-              {MalgunGothic}
-              {Mangal}
-              {MarkerFelt}
-              {Marlett}
-              {Meiryo}
-              {Menlo}
-              {MicrosoftHimalaya}
-              {MicrosoftJhengHei}
-              {MicrosoftNewTaiLue}
-              {MicrosoftPhagsPa}
-              {MicrosoftSansSerif}
-              {MicrosoftTaiLe}
-              {MicrosoftUighur}
-              {MicrosoftYaHei}
-              {MicrosoftYiBaiti}
-              {MingLiU}
-              {MingLiUExtB}
-              {Miriam}
-              {MishafiGold}
-              {Mishafi}
-              {Monaco}
-              {MonacoCY}
-              {MongolianBaiti}
-              {MoolBoran}
-              {MSGothic}
-              {MSMincho}
-              {Mshtakan}
-              {MuktaMahee}
-              {Muna}
-              {MVBoli}
-              {MyanmarMN}
-              {MyanmarSangamMN}
-              {MyanmarText}
-              {Nadeem}
-              {Narkisim}
-              {NeueHaasGrotskTxtPro}
-              {NewPeninim}
-              {NewPeninimMT}
-              {NewYork}
-              {NirmalaUI}
-              {NISCGB18030}
-              {NotoNastaliqUrdu}
-              {NotoSansJavanese}
-              {NotoSansKannada}
-              {NotoSansMyanmar}
-              {NotoSansOriya}
-              {NotoSerifMyanmar}
-              {Nyala}
-              {Optima}
-              {OriyaMN}
-              {OriyaSangamMN}
-              {Osaka}
-              {Palatino}
-              {PalatinoLinotype}
-              {Papyrus}
-              {PartyLETPlain}
-              {PCMyungjo}
-              {Pilgiche}
-              {PingFangHK}
-              {PingFangSC}
-              {PingFangTC}
-              {PlantagenetCherokee}
-              {PTMono}
-              {PTSans}
-              {PTSerif}
-              {Raanana}
-              {Raavi}
-              {Rockwell}
-              {RockwellNova}
-              {Rod}
-              {SakkalMajalla}
-              {Sana}
-              {Sand}
-              {SanskritText}
-              {Sathu}
-              {SegoePrint}
-              {SegoeScript}
-              {SegoeUI}
-              {Seoul}
-              {ShinMyungjoNeue}
-              {ShonarBangla}
-              {ShreeDevanagari714}
-              {Shruti}
-              {SignPainterHouseScript}
-              {Silom}
-              {SimHei}
-              {SimplifiedArabic}
-              {SimSun}
-              {SinhalaMN}
-              {SinhalaSangamMN}
-              {SitkaText}
-              {Skia}
-              {SnellRoundhand}
-              {SnellRoundhandBlack}
-              {SongtiSC}
-              {SongtiTC}
-              {STFangSong}
-              {STFangSong2}
-              {STHeiti}
-              {STKaiti}
-              {STSong}
-              {STIXGeneralRegular}
-              {SukhumvitSetText}
-              {Sylfaen}
-              {TaeGraphic}
-              {Tahoma}
-              {Taipei}
-              {TamilMN}
-              {TamilSangamMN}
-              {Techno}
-              {TeluguMN}
-              {TeluguSangamMN}
-              {Textile}
-              {Thonburi}
-              {Times}
-              {TimesCY}
-              {TimesNewRoman}
-              {TimesRoman}
-              {TraditionalArabic}
-              {Trattatello}
-              {TrebuchetMS}
-              {Tunga}
-              {UDDigiKyokashoNR}
-              {UrduTypesetting}
-              {Utsaah}
-              {Vani}
-              {Verdana}
-              {VerdanaPro}
-              {Vijaya}
-              {Vrinda}
-              {Waseem}
-              {YuGothic}
-              {YuMincho}
-              {ZapfChancery}
-              {Zapfino}
+              <span className={'text-gray-900 group menuitem'}><b>Detected Fonts:</b></span>
+              {isAharoniBold && AharoniBold}
+              {isAlBayan && AlBayan}
+              {isAlNile && AlNile}
+              {isAlTarikh && AlTarikh}
+              {isAldhabi && Aldhabi}
+              {isAmericanTypewriter && AmericanTypewriter}
+              {isAndaleMono && AndaleMono}
+              {isAndalus && Andalus}
+              {isAngsanaNew && AngsanaNew}
+              {isAngsanaUPC && AngsanaUPC}
+              {isAparajita && Aparajita}
+              {isAppleBraille && AppleBraille}
+              {isAppleCasual && AppleCasual}
+              {isAppleChancery && AppleChancery}
+              {isAppleGaramond && AppleGaramond}
+              {isAppleGothic && AppleGothic}
+              {isAppleLiGothic && AppleLiGothic}
+              {isAppleLiSung && AppleLiSung}
+              {isAppleMyungjo && AppleMyungjo}
+              {isAppleSDGothicNeoReg && AppleSDGothicNeoReg}
+              {isAquaKana && AquaKana}
+              {isArabicTypesetting && ArabicTypesetting}
+              {isArial && Arial}
+              {isArialBlack && ArialBlack}
+              {isArialHebrew && ArialHebrew}
+              {isArialNova && ArialNova}
+              {isAvenirBook && AvenirBook}
+              {isAvenirNext && AvenirNext}
+              {isAvenirRoman && AvenirRoman}
+              {isAyuthaya && Ayuthaya}
+              {isBaghdad && Baghdad}
+              {isBahnschrift && Bahnschrift}
+              {isBanglaMN && BanglaMN}
+              {isBanglaSangamMN && BanglaSangamMN}
+              {isBaskerville && Baskerville}
+              {isBatang && Batang}
+              {isBeijing && Beijing}
+              {isBeirut && Beirut}
+              {isBiauKai && BiauKai}
+              {isBigCaslon && BigCaslon}
+              {isBIZUDGothic && BIZUDGothic}
+              {isBIZUDMinchoMedium && BIZUDMinchoMedium}
+              {isBodoni72Book && Bodoni72Book}
+              {isBrowalliaNew && BrowalliaNew}
+              {isBrowalliaUPC && BrowalliaUPC}
+              {isBrushScript && BrushScript}
+              {isCalibri && Calibri}
+              {isCambria && Cambria}
+              {isCandara && Candara}
+              {isChalkboard && Chalkboard}
+              {isChalkboardSE && ChalkboardSE}
+              {isChalkduster && Chalkduster}
+              {isCharcoal && Charcoal}
+              {isCharcoalCY && CharcoalCY}
+              {isCharterRoman && CharterRoman}
+              {isChicago && Chicago}
+              {isCochin && Cochin}
+              {isComicSans && ComicSans}
+              {isComicSansMS && ComicSansMS}
+              {isConsolas && Consolas}
+              {isConstantia && Constantia}
+              {isCooper && Cooper}
+              {isCopperplate && Copperplate}
+              {isCorbel && Corbel}
+              {isCordiaNew && CordiaNew}
+              {isCordiaUPC && CordiaUPC}
+              {isCorsivaHebrew && CorsivaHebrew}
+              {isCourier && Courier}
+              {isCourierNew && CourierNew}
+              {isDamascus && Damascus}
+              {isDaunPenh && DaunPenh}
+              {isDavid && David}
+              {isDecoTypeNaskh && DecoTypeNaskh}
+              {isDengXian && DengXian}
+              {isDevanagari && Devanagari}
+              {isDevanagariMT && DevanagariMT}
+              {isDevanagariSangamMN && DevanagariSangamMN}
+              {isDFKaiSB && DFKaiSB}
+              {isDidot && Didot}
+              {isDilleniaUPC && DilleniaUPC}
+              {isDiwanKufi && DiwanKufi}
+              {isDiwanThuluth && DiwanThuluth}
+              {isDokChampa && DokChampa}
+              {isDotum && Dotum}
+              {isEbrima && Ebrima}
+              {isEstrangeloEdessa && EstrangeloEdessa}
+              {isEucrosiaUPC && EucrosiaUPC}
+              {isEuphemia && Euphemia}
+              {isEuphemiaUCAS && EuphemiaUCAS}
+              {isFangSong && FangSong}
+              {isFarah && Farah}
+              {isFarisi && Farisi}
+              {isFranklinGothicMedium && FranklinGothicMedium}
+              {isFrankRuehl && FrankRuehl}
+              {isFreesiaUPC && FreesiaUPC}
+              {isFutura && Futura}
+              {isGabriola && Gabriola}
+              {isGadget && Gadget}
+              {isGadugi && Gadugi}
+              {isGalvji && Galvji}
+              {isGautami && Gautami}
+              {isGB18030Bitmap && GB18030Bitmap}
+              {isGeezaPro && GeezaPro}
+              {isGeezah && Geezah}
+              {isGeneva && Geneva}
+              {isGenevaCY && GenevaCY}
+              {isGeorgia && Georgia}
+              {isGeorgiaPro && GeorgiaPro}
+              {isGillSans && GillSans}
+              {isGillSansNova && GillSansNova}
+              {isGisha && Gisha}
+              {isGujarati && Gujarati}
+              {isGujaratiMT && GujaratiMT}
+              {isGujaratiSangamMN && GujaratiSangamMN}
+              {isGulim && Gulim}
+              {isGungSeoche && GungSeoche}
+              {isGungsuh && Gungsuh}
+              {isGurmukhi && Gurmukhi}
+              {isGurmukhiMN && GurmukhiMN}
+              {isGurmukhiMT && GurmukhiMT}
+              {isGurmukhiSangamMN && GurmukhiSangamMN}
+              {isHangangche && Hangangche}
+              {isHeadlineA && HeadlineA}
+              {isHei && Hei}
+              {isHelvetica && Helvetica}
+              {isHelveticaCY && HelveticaCY}
+              {isHelveticaNeue && HelveticaNeue}
+              {isHerculanum && Herculanum}
+              {isHiraginoKakuGothicPro && HiraginoKakuGothicPro}
+              {isHiraginoMaruGothicPro && HiraginoMaruGothicPro}
+              {isHiraginoMinchoPro && HiraginoMinchoPro}
+              {isHiraginoSansGBW3 && HiraginoSansGBW3}
+              {isHiraginoSansGBW6 && HiraginoSansGBW6}
+              {isHiraginoSansW0 && HiraginoSansW0}
+              {isHiraginoSansW1 && HiraginoSansW1}
+              {isHiraginoSansW2 && HiraginoSansW2}
+              {isHiraginoSansW3 && HiraginoSansW3}
+              {isHiraginoSansW4 && HiraginoSansW4}
+              {isHiraginoSansW5 && HiraginoSansW5}
+              {isHiraginoSansW6 && HiraginoSansW6}
+              {isHiraginoSansW7 && HiraginoSansW7}
+              {isHiraginoSansW8 && HiraginoSansW8}
+              {isHiraginoSansW9 && HiraginoSansW9}
+              {isHoeflerText && HoeflerText}
+              {isImpact && Impact}
+              {isInaiMathi && InaiMathi}
+              {isInkFree && InkFree}
+              {isIrisUPC && IrisUPC}
+              {isIskoolaPota && IskoolaPota}
+              {isITFDevanagariBook && ITFDevanagariBook}
+              {isITFDevanagariMarathiBk && ITFDevanagariMarathiBk}
+              {isJasmineUPC && JasmineUPC}
+              {isJavaneseText && JavaneseText}
+              {isJungGothic && JungGothic}
+              {isKai && Kai}
+              {isKailasa && Kailasa}
+              {isKaiTi && KaiTi}
+              {isKalinga && Kalinga}
+              {isKannadaMN && KannadaMN}
+              {isKannadaSangamMN && KannadaSangamMN}
+              {isKartika && Kartika}
+              {isKefaBold && KefaBold}
+              {isKefa && Kefa}
+              {isKeyboard && Keyboard}
+              {isKhmerMN && KhmerMN}
+              {isKhmerSangamMN && KhmerSangamMN}
+              {isKhmerUI && KhmerUI}
+              {isKodchiangUPC && KodchiangUPC}
+              {isKohinoorBangla && KohinoorBangla}
+              {isKohinoorDevanagari && KohinoorDevanagari}
+              {isKohinoorTelugu && KohinoorTelugu}
+              {isKokila && Kokila}
+              {isKokonor && Kokonor}
+              {isKrungthep && Krungthep}
+              {isKuenstlerScript && KuenstlerScript}
+              {isKufiStandardGK && KufiStandardGK}
+              {isLaoMN && LaoMN}
+              {isLaoSangamMN && LaoSangamMN}
+              {isLaoUI && LaoUI}
+              {isLastResort && LastResort}
+              {isLatha && Latha}
+              {isLeelawadee && Leelawadee}
+              {isLeelawadeeUI && LeelawadeeUI}
+              {isLevenimMT && LevenimMT}
+              {isLiHeiPro && LiHeiPro}
+              {isLilyUPC && LilyUPC}
+              {isLiSongPro && LiSongPro}
+              {isLucidaConsole && LucidaConsole}
+              {isLucidaGrande && LucidaGrande}
+              {isLucidaSans && LucidaSans}
+              {isLucidaSansUnicode && LucidaSansUnicode}
+              {isLuminari && Luminari}
+              {isMalayalamMN && MalayalamMN}
+              {isMalayalamSangamMN && MalayalamSangamMN}
+              {isMalgunGothic && MalgunGothic}
+              {isMangal && Mangal}
+              {isMarkerFelt && MarkerFelt}
+              {isMarlett && Marlett}
+              {isMeiryo && Meiryo}
+              {isMenlo && Menlo}
+              {isMicrosoftHimalaya && MicrosoftHimalaya}
+              {isMicrosoftJhengHei && MicrosoftJhengHei}
+              {isMicrosoftNewTaiLue && MicrosoftNewTaiLue}
+              {isMicrosoftPhagsPa && MicrosoftPhagsPa}
+              {isMicrosoftSansSerif && MicrosoftSansSerif}
+              {isMicrosoftTaiLe && MicrosoftTaiLe}
+              {isMicrosoftUighur && MicrosoftUighur}
+              {isMicrosoftYaHei && MicrosoftYaHei}
+              {isMicrosoftYiBaiti && MicrosoftYiBaiti}
+              {isMingLiU && MingLiU}
+              {isMingLiUExtB && MingLiUExtB}
+              {isMiriam && Miriam}
+              {isMishafiGold && MishafiGold}
+              {isMishafi && Mishafi}
+              {isMonaco && Monaco}
+              {isMonacoCY && MonacoCY}
+              {isMongolianBaiti && MongolianBaiti}
+              {isMoolBoran && MoolBoran}
+              {isMSGothic && MSGothic}
+              {isMSMincho && MSMincho}
+              {isMshtakan && Mshtakan}
+              {isMuktaMahee && MuktaMahee}
+              {isMuna && Muna}
+              {isMVBoli && MVBoli}
+              {isMyanmarMN && MyanmarMN}
+              {isMyanmarSangamMN && MyanmarSangamMN}
+              {isMyanmarText && MyanmarText}
+              {isNadeem && Nadeem}
+              {isNarkisim && Narkisim}
+              {isNeueHaasGrotskTxtPro && NeueHaasGrotskTxtPro}
+              {isNewPeninim && NewPeninim}
+              {isNewPeninimMT && NewPeninimMT}
+              {isNewYork && NewYork}
+              {isNirmalaUI && NirmalaUI}
+              {isNISCGB18030 && NISCGB18030}
+              {isNotoNastaliqUrdu && NotoNastaliqUrdu}
+              {isNotoSansJavanese && NotoSansJavanese}
+              {isNotoSansKannada && NotoSansKannada}
+              {isNotoSansMyanmar && NotoSansMyanmar}
+              {isNotoSansOriya && NotoSansOriya}
+              {isNotoSerifMyanmar && NotoSerifMyanmar}
+              {isNyala && Nyala}
+              {isOptima && Optima}
+              {isOriyaMN && OriyaMN}
+              {isOriyaSangamMN && OriyaSangamMN}
+              {isOsaka && Osaka}
+              {isPalatino && Palatino}
+              {isPalatinoLinotype && PalatinoLinotype}
+              {isPapyrus && Papyrus}
+              {isPartyLETPlain && PartyLETPlain}
+              {isPCMyungjo && PCMyungjo}
+              {isPilgiche && Pilgiche}
+              {isPingFangHK && PingFangHK}
+              {isPingFangSC && PingFangSC}
+              {isPingFangTC && PingFangTC}
+              {isPlantagenetCherokee && PlantagenetCherokee}
+              {isPTMono && PTMono}
+              {isPTSans && PTSans}
+              {isPTSerif && PTSerif}
+              {isRaanana && Raanana}
+              {isRaavi && Raavi}
+              {isRockwell && Rockwell}
+              {isRockwellNova && RockwellNova}
+              {isRod && Rod}
+              {isSakkalMajalla && SakkalMajalla}
+              {isSana && Sana}
+              {isSand && Sand}
+              {isSanskritText && SanskritText}
+              {isSathu && Sathu}
+              {isSegoePrint && SegoePrint}
+              {isSegoeScript && SegoeScript}
+              {isSegoeUI && SegoeUI}
+              {isSeoul && Seoul}
+              {isShinMyungjoNeue && ShinMyungjoNeue}
+              {isShonarBangla && ShonarBangla}
+              {isShreeDevanagari714 && ShreeDevanagari714}
+              {isShruti && Shruti}
+              {isSignPainterHouseScript && SignPainterHouseScript}
+              {isSilom && Silom}
+              {isSimHei && SimHei}
+              {isSimplifiedArabic && SimplifiedArabic}
+              {isSimSun && SimSun}
+              {isSinhalaMN && SinhalaMN}
+              {isSinhalaSangamMN && SinhalaSangamMN}
+              {isSitkaText && SitkaText}
+              {isSkia && Skia}
+              {isSnellRoundhand && SnellRoundhand}
+              {isSnellRoundhandBlack && SnellRoundhandBlack}
+              {isSongtiSC && SongtiSC}
+              {isSongtiTC && SongtiTC}
+              {isSTFangSong && STFangSong}
+              {isSTFangSong2 && STFangSong2}
+              {isSTHeiti && STHeiti}
+              {isSTKaiti && STKaiti}
+              {isSTSong && STSong}
+              {isSTIXGeneralRegular && STIXGeneralRegular}
+              {isSukhumvitSetText && SukhumvitSetText}
+              {isSylfaen && Sylfaen}
+              {isTaeGraphic && TaeGraphic}
+              {isTahoma && Tahoma}
+              {isTaipei && Taipei}
+              {isTamilMN && TamilMN}
+              {isTamilSangamMN && TamilSangamMN}
+              {isTechno && Techno}
+              {isTeluguMN && TeluguMN}
+              {isTeluguSangamMN && TeluguSangamMN}
+              {isTextile && Textile}
+              {isThonburi && Thonburi}
+              {isTimes && Times}
+              {isTimesCY && TimesCY}
+              {isTimesNewRoman && TimesNewRoman}
+              {isTimesRoman && TimesRoman}
+              {isTraditionalArabic && TraditionalArabic}
+              {isTrattatello && Trattatello}
+              {isTrebuchetMS && TrebuchetMS}
+              {isTunga && Tunga}
+              {isUDDigiKyokashoNR && UDDigiKyokashoNR}
+              {isUrduTypesetting && UrduTypesetting}
+              {isUtsaah && Utsaah}
+              {isVani && Vani}
+              {isVerdana && Verdana}
+              {isVerdanaPro && VerdanaPro}
+              {isVijaya && Vijaya}
+              {isVrinda && Vrinda}
+              {isWaseem && Waseem}
+              {isYuGothic && YuGothic}
+              {isYuMincho && YuMincho}
+              {isZapfChancery && ZapfChancery}
+              {isZapfino && Zapfino}
             </div>
           </Menu.Items>
         </Transition>
