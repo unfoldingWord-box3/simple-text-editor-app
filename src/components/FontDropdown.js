@@ -1177,7 +1177,7 @@ const isZapfino = doesFontExist('Zapfino')
               {taiHeritageProRW}
             </div>}
             {graphiteEnabled && <div className="px-1 py-1">
-              <span className="text-gray-900 group menuitem"><b>Graphite-enabled (local):</b>{isNoGEFonts && '<br /> - none detected -'}</span>
+              <span className="text-gray-900 group menuitem"><b>Graphite-enabled (local):<i>{isNoGEFonts && ' -none detected-'}</i></b></span>
               {isAkatab && akatab}
               {isAlkalami && alkalami}
               {isAlkalamiLight && alkalamiLight}
