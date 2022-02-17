@@ -80,7 +80,7 @@ export default function FontDropdown(props) {
   const isAppleLiGothic = doesFontExist('Apple LiGothic')
   const isAppleLiSung = doesFontExist('Apple LiSung')
   const isAppleMyungjo = doesFontExist('Apple Myungjo')
-  const isAppleSDGothicNeoReg = doesFontExist('Apple SD Gothic Neo Reg')
+  const isAppleSDGothicNeo = doesFontExist('Apple SD Gothic Neo')
   const isAquaKana = doesFontExist('AquaKana')
   const isArabicTypesetting = doesFontExist('Arabic Typesetting')
   const isArial = doesFontExist('Arial')
@@ -211,7 +211,7 @@ export default function FontDropdown(props) {
   const isIrisUPC = doesFontExist('IrisUPC')
   const isIskoolaPota = doesFontExist('Iskoola Pota')
   const isITFDevanagariBook = doesFontExist('ITF Devanagari Book')
-  const isITFDevanagariMarathiBk = doesFontExist('ITF Devanagari MarathiBk')
+  const isITFDevanagariMarathiBk = doesFontExist('ITF Devanagari Marathi Book')
   const isJasmineUPC = doesFontExist('JasmineUPC')
   const isJavaneseText = doesFontExist('Javanese Text')
   const isJungGothic = doesFontExist('Jung Gothic')
@@ -290,7 +290,7 @@ export default function FontDropdown(props) {
   const isMyanmarText = doesFontExist('Myanmar Text')
   const isNadeem = doesFontExist('Nadeem')
   const isNarkisim = doesFontExist('Narkisim')
-  const isNeueHaasGrotskTxtPro = doesFontExist('Neue Haas Grotsk Txt Pro')
+  const isNeueHaasGrotskTxtPro = doesFontExist('Neue Haas Grotesk Text Pro')
   const isNewPeninim = doesFontExist('New Peninim')
   const isNewPeninimMT = doesFontExist('New Peninim MT')
   const isNewYork = doesFontExist('New York')
@@ -463,7 +463,7 @@ export default function FontDropdown(props) {
   const onFontAppleLiGothic = () => { setFont('AppleLiGothic'); };
   const onFontAppleLiSung = () => { setFont('AppleLiSung'); };
   const onFontAppleMyungjo = () => { setFont('AppleMyungjo'); };
-  const onFontAppleSDGothicNeoReg = () => { setFont('AppleSDGothicNeoReg'); };
+  const onFontAppleSDGothicNeo = () => { setFont('AppleSDGothicNeo'); };
   const onFontAquaKana = () => { setFont('AquaKana'); };
   const onFontArabicTypesetting = () => { setFont('ArabicTypesetting'); };
   const onFontArial = () => { setFont('Arial'); };
@@ -785,7 +785,7 @@ export default function FontDropdown(props) {
     return (
       <Menu.Item>
       {({ active }) => (
-        <button  type="button" onClick={itemClick} className={`${ active ? 'menuitemhov' : 'menuitemnohov' } group menuitem ${fontActive}`}>
+        <button  type="button" onClick={itemClick} className={`${ active ? 'menuitemhov' : 'menuitemnohov' } text-left group menuitem ${fontActive}`}>
         {fontList}
       </button>
       )}
@@ -866,7 +866,7 @@ export default function FontDropdown(props) {
   const AppleLiGothic = FontMenuItem('Apple LiGothic', onFontAppleLiGothic, 'AppleLiGothic')
   const AppleLiSung = FontMenuItem('Apple LiSung', onFontAppleLiSung, 'AppleLiSung')
   const AppleMyungjo = FontMenuItem('Apple Myungjo', onFontAppleMyungjo, 'AppleMyungjo')
-  const AppleSDGothicNeoReg = FontMenuItem('Apple SD Gothic Neo Reg', onFontAppleSDGothicNeoReg, 'AppleSDGothicNeoReg')
+  const AppleSDGothicNeo = FontMenuItem('Apple SD Gothic Neo', onFontAppleSDGothicNeo, 'AppleSDGothicNeo')
   const AquaKana = FontMenuItem('AquaKana', onFontAquaKana, 'AquaKana')
   const ArabicTypesetting = FontMenuItem('Arabic Typesetting', onFontArabicTypesetting, 'ArabicTypesetting')
   const Arial = FontMenuItem('Arial', onFontArial, 'Arial')
@@ -997,7 +997,7 @@ export default function FontDropdown(props) {
   const IrisUPC = FontMenuItem('IrisUPC', onFontIrisUPC, 'IrisUPC')
   const IskoolaPota = FontMenuItem('Iskoola Pota', onFontIskoolaPota, 'IskoolaPota')
   const ITFDevanagariBook = FontMenuItem('ITF Devanagari Book', onFontITFDevanagariBook, 'ITFDevanagariBook')
-  const ITFDevanagariMarathiBk = FontMenuItem('ITF Devanagari MarathiBk', onFontITFDevanagariMarathiBk, 'ITFDevanagariMarathiBk')
+  const ITFDevanagariMarathiBk = FontMenuItem('ITF Devanagari Marathi Book', onFontITFDevanagariMarathiBk, 'ITFDevanagariMarathiBk')
   const JasmineUPC = FontMenuItem('JasmineUPC', onFontJasmineUPC, 'JasmineUPC')
   const JavaneseText = FontMenuItem('Javanese Text', onFontJavaneseText, 'JavaneseText')
   const JungGothic = FontMenuItem('Jung Gothic', onFontJungGothic, 'JungGothic')
@@ -1076,7 +1076,7 @@ export default function FontDropdown(props) {
   const MyanmarText = FontMenuItem('Myanmar Text', onFontMyanmarText, 'MyanmarText')
   const Nadeem = FontMenuItem('Nadeem', onFontNadeem, 'Nadeem')
   const Narkisim = FontMenuItem('Narkisim', onFontNarkisim, 'Narkisim')
-  const NeueHaasGrotskTxtPro = FontMenuItem('Neue Haas Grotsk Txt Pro', onFontNeueHaasGrotskTxtPro, 'NeueHaasGrotskTxtPro')
+  const NeueHaasGrotskTxtPro = FontMenuItem('Neue Haas Grotesk Text Pro', onFontNeueHaasGrotskTxtPro, 'NeueHaasGrotskTxtPro')
   const NewPeninim = FontMenuItem('New Peninim', onFontNewPeninim, 'NewPeninim')
   const NewPeninimMT = FontMenuItem('New Peninim MT', onFontNewPeninimMT, 'NewPeninimMT')
   const NewYork = FontMenuItem('New York', onFontNewYork, 'NewYork')
@@ -1198,7 +1198,7 @@ export default function FontDropdown(props) {
               {defaultFont}
             </div>
             {graphiteEnabled && <div className="px-1 py-1">
-             <span className="text-gray-900 group menuitem"><b>Graphite-enabled:</b></span>
+             <span className="text-left text-gray-900 group menuitem"><b>Graphite-enabled:</b></span>
               {akatabRW}
               {alkalamiRW}
               {alkalamiLW}
@@ -1215,7 +1215,7 @@ export default function FontDropdown(props) {
               {taiHeritageProRW}
             </div>}
             {graphiteEnabled && <div className="px-1 py-1">
-              <span className="text-gray-900 group menuitem"><b>Graphite-enabled (local):<em>{isNoGEFonts && ' -none detected-'}</em></b></span>
+              <span className="text-left text-gray-900 group menuitem"><b>Graphite-enabled (local):<em>{isNoGEFonts && ' -none detected-'}</em></b></span>
               {isAbyssinicaSIL && AbyssinicaSIL}
               {isAkatab && Akatab}
               {isAlkalami && Alkalami}
@@ -1249,7 +1249,7 @@ export default function FontDropdown(props) {
               {isTaiHeritagePro && TaiHeritagePro}              
             </div>}
             <div className="px-1 py-1">
-              <span className={'text-gray-900 group menuitem'}><b>Detected Fonts:</b></span>
+              <span className={'text-left text-gray-900 group menuitem'}><b>Detected Fonts:</b></span>
               {isAharoniBold && AharoniBold}
               {isAlBayan && AlBayan}
               {isAlNile && AlNile}
@@ -1269,7 +1269,7 @@ export default function FontDropdown(props) {
               {isAppleLiGothic && AppleLiGothic}
               {isAppleLiSung && AppleLiSung}
               {isAppleMyungjo && AppleMyungjo}
-              {isAppleSDGothicNeoReg && AppleSDGothicNeoReg}
+              {isAppleSDGothicNeo && AppleSDGothicNeo}
               {isAquaKana && AquaKana}
               {isArabicTypesetting && ArabicTypesetting}
               {isArial && Arial}
