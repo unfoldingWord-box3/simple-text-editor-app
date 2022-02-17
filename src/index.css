@@ -221,16 +221,23 @@ code {
 /* A Compilation of Windows and MacOS System Font Families, including supplemental language packs:  */                                                        */
 /*    - meant to exclude symbols, icons, emojis, assets, wingdings, webdings, ornaments, math, etc. */
 /*    - meant to exclude variants - bold, italic, oblique, light, medium, thin, extra, etc.         */
+.AdelleSansDevanagari { font-family: 'Adelle Sans Devanagari'; }
 .Aharoni { font-family: Aharoni; }
 .AlBayan { font-family: 'Al Bayan'; }
+.AlFirat { font-family: 'Al Firat'; }
+.AlKhalil { font-family: 'Al Khalil'; }
 .AlNile { font-family: 'Al Nile'; }
+.AlRafidain { font-family: 'Al Rafidain'; }
+.AlRafidainAlFanni { font-family: 'Al Rafidain Al Fanni'; }
 .AlTarikh { font-family: 'Al Tarikh'; }
 .Aldhabi { font-family: Aldhabi; }
+.Algiers { font-family: Algiers; }
 .AmericanTypewriter { font-family: 'American Typewriter'; }
 .AndaleMono { font-family: 'Andale Mono'; }
 .Andalus { font-family: Andalus; }
 .AngsanaNew { font-family: 'Angsana New'; }
 .AngsanaUPC { font-family: AngsanaUPC; }
+.AnnaiMN { font-family: 'Annai MN'; }
 .Aparajita { font-family: Aparajita; }
 .AppleBraille { font-family: 'Apple Braille'; }
 .AppleCasual { font-family: 'Apple Casual'; }
@@ -245,14 +252,30 @@ code {
 .ArabicTypesetting { font-family: 'Arabic Typesetting'; }
 .Arial { font-family: Arial; }
 .ArialHebrew { font-family: 'Arial Hebrew'; }
+.ArialHebrewScholar { font-family: 'Arial Hebrew Scholar'; }
+.ArialNarrow { font-family: 'Arial Narrow'; }
 .ArialNova { font-family: 'Arial Nova'; }
+.ArialUnicodeMS { font-family: 'Arial Unicode MS'; }
 .Avenir { font-family: Avenir; }
 .Ayuthaya { font-family: Ayuthaya; }
 .Baghdad { font-family: Baghdad; }
 .Bahnschrift { font-family: Bahnschrift; }
+.Baloo { font-family: Baloo; }
+.BalooBhai { font-family: 'Baloo Bhai'; }
+.BalooBhaijaan { font-family: 'Baloo Bhaijaan'; }
+.BalooBhaina { font-family: 'Baloo Bhaina'; }
+.BalooChettan { font-family: 'Baloo Chettan'; }
+.BalooDa { font-family: 'Baloo Da'; }
+.BalooPaaji { font-family: 'Baloo Paaji'; }
+.BalooTamma { font-family: 'Baloo Tamma'; }
+.BalooTammudu { font-family: 'Baloo Tammudu'; }
+.BalooThambi { font-family: 'Baloo Thambi'; }
 .BanglaMN { font-family: 'Bangla MN'; }
 .BanglaSangamMN { font-family: 'Bangla Sangam MN'; }
+.BaoliSC { font-family: 'Baoli SC'; }
+.BaoliTC { font-family: 'Baoli TC'; }
 .Baskerville { font-family: Baskerville; }
+.Basra { font-family: Basra; }
 .Batang { font-family: Batang; }
 .Beijing { font-family: Beijing; }
 .Beirut { font-family: Beirut; }
@@ -261,12 +284,19 @@ code {
 .BIZUDGothic { font-family: 'BIZ UDGothic'; }
 .BIZUDMincho { font-family: 'BIZ UDMincho'; }
 .Bodoni72 { font-family: 'Bodoni 72'; }
+.Braganza { font-family: Braganza; }
 .BrowalliaNew { font-family: 'Browallia New'; }
 .BrowalliaUPC { font-family: BrowalliaUPC; }
 .BrushScript { font-family: 'Brush Script'; }
 .Calibri { font-family: Calibri; }
+.CambayDevanagari { font-family: 'Cambay Devanagari'; }
 .Cambria { font-family: Cambria; }
 .Candara { font-family: Candara; }
+.Canela { font-family: Canela; }
+.CanelaDeck { font-family: 'Canela Deck'; }
+.Capitals { font-family: Capitals; }
+.CenturyGothic { font-family: 'Century Gothic'; }
+.CenturySchoolbook { font-family: 'Century Schoolbook'; }
 .Chalkboard { font-family: Chalkboard; }
 .Chalkduster { font-family: Chalkduster; }
 .Charcoal { font-family: Charcoal; }
@@ -289,6 +319,7 @@ code {
 .Damascus { font-family: Damascus; }
 .DaunPenh { font-family: DaunPenh; }
 .David { font-family: David; }
+.DearJoeFour { font-family: 'Dear Joe Four'; }
 .DecoTypeNaskh { font-family: 'DecoType Naskh'; }
 .DengXian { font-family: DengXian; }
 .Devanagari { font-family: Devanagari; }
@@ -296,10 +327,12 @@ code {
 .DevanagariSangamMN { font-family: 'Devanagari Sangam MN'; }
 .DFKaiSB { font-family: DFKai-SB; }
 .Didot { font-family: Didot; }
+.Dijla { font-family: Dijla; }
 .DilleniaUPC { font-family: DilleniaUPC; }
 .DiwanKufi { font-family: 'Diwan Kufi'; }
 .DiwanThuluth { font-family: 'Diwan Thuluth'; }
 .DokChampa { font-family: DokChampa; }
+.DomaineDisplay { font-family: 'Domaine Display'; }
 .Dotum { font-family: Dotum; }
 .Ebrima { font-family: Ebrima; }
 .EstrangeloEdessa { font-family: 'Estrangelo Edessa'; }
@@ -309,6 +342,8 @@ code {
 .FangSong { font-family: FangSong; }
 .Farah { font-family: Farah; }
 .Farisi { font-family: Farisi; }
+.ForgottenFuturist { font-family: 'Forgotten Futurist'; }
+.FoundersGrotesk { font-family: 'Founders Grotesk'; }
 .FranklinGothic { font-family: 'Franklin Gothic'; }
 .FrankRuehl { font-family: FrankRuehl; }
 .FreesiaUPC { font-family: FreesiaUPC; }
@@ -317,6 +352,7 @@ code {
 .Gadget { font-family: Gadget; }
 .Gadugi { font-family: Gadugi; }
 .Galvji { font-family: Galvji; }
+.Garamond { font-family: Garamond; }
 .Gautami { font-family: Gautami; }
 .GB18030Bitmap { font-family: 'GB18030 Bitmap'; }
 .GeezaPro { font-family: 'Geeza Pro'; }
@@ -328,17 +364,24 @@ code {
 .GillSans { font-family: 'Gill Sans'; }
 .GillSansNova { font-family: 'Gill Sans Nova'; }
 .Gisha { font-family: Gisha; }
+.Gotu { font-family: Gotu; }
+.Graphik { font-family: Graphik; }
 .Gujarati { font-family: Gujarati; }
 .GujaratiMT { font-family: 'Gujarati MT'; }
 .GujaratiSangamMN { font-family: 'Gujarati Sangam MN'; }
 .Gulim { font-family: Gulim; }
 .GungSeoche { font-family: 'Gung Seoche'; }
+.GungSeo { font-family: GungSeo; }
 .Gungsuh { font-family: Gungsuh; }
 .Gurmukhi { font-family: Gurmukhi; }
 .GurmukhiMN { font-family: 'Gurmukhi MN'; }
 .GurmukhiMT { font-family: 'Gurmukhi MT'; }
 .GurmukhiSangamMN { font-family: 'Gurmukhi Sangam MN'; }
 .Hangangche { font-family: Hangangche; }
+.HannotateSC { font-family: 'Hannotate SC'; }
+.HannotateTC { font-family: 'Hannotate TC'; }
+.HanziPenSC { font-family: 'HanziPen SC'; }
+.HanziPenTC { font-family: 'HanziPen TC'; }
 .HeadlineA { font-family: HeadlineA; }
 .Hei { font-family: Hei; }
 .HeitiSC { font-family: 'Heiti SC'; }
@@ -352,14 +395,18 @@ code {
 .HiraginoMinchoPro { font-family: 'Hiragino Mincho Pro'; }
 .HiraginoSans { font-family: 'Hiragino Sans'; }
 .HoeflerText { font-family: 'Hoefler Text'; }
+.HopperScript { font-family: 'Hopper Script'; }
 .Impact { font-family: Impact; }
 .InaiMathi { font-family: 'Inai Mathi'; }
 .InkFree { font-family: 'Ink Free'; }
+.IowanOldStyleTitling { font-family: 'Iowan Old Style Titling'; }
 .IrisUPC { font-family: IrisUPC; }
 .IskoolaPota { font-family: 'Iskoola Pota'; }
 .ITCBodoni72 { font-family: 'ITC Bodoni 72'; }
 .ITFDevanagari { font-family: 'ITF Devanagari'; }
 .ITFDevanagariMarathi { font-family: 'ITF Devanagari Marathi'; }
+.Jaini { font-family: Jaini; }
+.JainiPurva { font-family: 'Jaini Purva'; }
 .JasmineUPC { font-family: JasmineUPC; }
 .JavaneseText { font-family: 'Javanese Text'; }
 .JungGothic { font-family: 'Jung Gothic'; }
@@ -367,10 +414,12 @@ code {
 .Kailasa { font-family: Kailasa; }
 .KaiTi { font-family: KaiTi; }
 .KaitiSC { font-family: 'Kaiti SC'; }
+.KaitiTC { font-family: 'Kaiti TC'; }
 .Kalinga { font-family: Kalinga; }
 .KannadaMN { font-family: 'Kannada MN'; }
 .KannadaSangamMN { font-family: 'Kannada Sangam MN'; }
 .Kartika { font-family: Kartika; }
+.Katari { font-family: Katari; }
 .Kefa { font-family: Kefa; }
 .Keyboard { font-family: Keyboard; }
 .KhmerMN { font-family: 'Khmer MN'; }
@@ -382,17 +431,25 @@ code {
 .KohinoorTelugu { font-family: 'Kohinoor Telugu'; }
 .Kokila { font-family: Kokila; }
 .Kokonor { font-family: Kokonor; }
+.KoufiAbjadi { font-family: 'Koufi Abjadi'; }
 .Krungthep { font-family: Krungthep; }
 .KuenstlerScript { font-family: 'Kuenstler Script'; }
 .KufiStandardGK { font-family: 'KufiStandard GK'; }
+.LahoreGurmukhi { font-family: 'Lahore Gurmukhi'; }
+.Laimoon { font-family: Laimoon; }
 .LaoMN { font-family: 'Lao MN'; }
 .LaoSangamMN { font-family: 'Lao Sangam MN'; }
 .LaoUI { font-family: 'Lao UI'; }
 .LastResort { font-family: LastResort; }
 .Latha { font-family: Latha; }
+.LavaDevanagari { font-family: 'Lava Devanagari'; }
+.LavaKannada { font-family: 'Lava Kannada'; }
+.LavaTelugu { font-family: 'Lava Telugu'; }
 .Leelawadee { font-family: Leelawadee; }
 .LeelawadeeUI { font-family: 'Leelawadee UI'; }
 .LevenimMT { font-family: 'Levenim MT'; }
+.LibianSC { font-family: 'Libian SC'; }
+.LibianTC { font-family: 'Libian TC'; }
 .LiHeiPro { font-family: 'LiHei Pro'; }
 .LilyUPC { font-family: LilyUPC; }
 .LiSongPro { font-family: 'LiSong Pro'; }
@@ -401,6 +458,7 @@ code {
 .LucidaSans { font-family: 'Lucida Sans'; }
 .LucidaSansUnicode { font-family: 'Lucida Sans Unicode'; }
 .Luminari { font-family: Luminari; }
+.Maku { font-family: Maku; }
 .MalayalamMN { font-family: 'Malayalam MN'; }
 .MalayalamSangamMN { font-family: 'Malayalam Sangam MN'; }
 .MalgunGothic { font-family: 'Malgun Gothic'; }
@@ -423,6 +481,8 @@ code {
 .Miriam { font-family: Miriam; }
 .Mishafi { font-family: Mishafi; }
 .MishafiGold { font-family: 'Mishafi Gold'; }
+.Modak { font-family: Modak; }
+.MonaLisaSolidITCTT { font-family: 'Mona Lisa Solid ITC TT'; }
 .Monaco { font-family: Monaco; }
 .MonacoCY { font-family: 'Monaco CY'; }
 .MongolianBaiti { font-family: 'Mongolian Baiti'; }
@@ -431,6 +491,9 @@ code {
 .MSGothic { font-family: 'MS Gothic'; }
 .MSMincho { font-family: 'MS Mincho'; }
 .Mshtakan { font-family: Mshtakan; }
+.Mukta { font-family: Mukta; }
+.MuktaMalar { font-family: 'Mukta Malar'; }
+.MuktaVaani { font-family: 'Mukta Vaani'; }
 .MuktaMahee { font-family: MuktaMahee; }
 .Muna { font-family: Muna; }
 .MVBoli { font-family: 'MV Boli'; }
@@ -439,12 +502,18 @@ code {
 .MyanmarText { font-family: 'Myanmar Text'; }
 .MyriadArabic { font-family: 'Myriad Arabic'; }
 .Nadeem { font-family: Nadeem; }
+.NanumBrushScript { font-family: 'Nanum Brush Script'; }
+.NanumPenScript { font-family: 'Nanum Pen Script'; }
+.NanumGothic { font-family: NanumGothic; }
+.NanumMyeongjo { font-family: NanumMyeongjo; }
 .Narkisim { font-family: Narkisim; }
 .NeueHaasGrotskTxtPro { font-family: 'Neue Haas Grotsk Txt Pro'; }
 .NewPeninim { font-family: 'New Peninim'; }
 .NewPeninimMT { font-family: 'New Peninim MT'; }
+.NewPeninimMTInclined { font-family: 'New Peninim MT Inclined'; }
 .NewYork { font-family: 'New York'; }
 .NirmalaUI { font-family: 'Nirmala UI'; }
+.Nisan { font-family: Nisan; }
 .NISCGB18030 { font-family: 'NISC GB18030'; }
 .Noteworthy { font-family: Noteworthy; }
 .NotoNastaliqUrdu { font-family: 'Noto Nastaliq Urdu'; }
@@ -452,42 +521,67 @@ code {
 .NotoSansKannada { font-family: 'Noto Sans Kannada'; }
 .NotoSansMyanmar { font-family: 'Noto Sans Myanmar'; }
 .NotoSansOriya { font-family: 'Noto Sans Oriya'; }
+.NotoSerifKannada { font-family: 'Noto Serif Kannada'; }
 .NotoSerifMyanmar { font-family: 'Noto Serif Myanmar'; }
 .Nyala { font-family: Nyala; }
+.OctoberDevanagari { font-family: 'October Devanagari'; }
+.OctoberTamil { font-family: 'October Tamil'; }
 .Optima { font-family: Optima; }
 .OriyaMN { font-family: 'Oriya MN'; }
 .OriyaSangamMN { font-family: 'Oriya Sangam MN'; }
 .Osaka { font-family: Osaka; }
+.OsakaMono { font-family: Osaka-Mono; }
 .Palatino { font-family: Palatino; }
 .PalatinoLinotype { font-family: 'Palatino Linotype'; }
 .Papyrus { font-family: Papyrus; }
 .PCMyungjo { font-family: 'PC Myungjo'; }
 .Phosphate { font-family: Phosphate; }
+.PilGi { font-family: PilGi; }
 .Pilgiche { font-family: Pilgiche; }
 .PingFangHK { font-family: 'PingFang HK'; }
 .PingFangSC { font-family: 'PingFang SC'; }
 .PingFangTC { font-family: 'PingFang TC'; }
 .PlantagenetCherokee { font-family: 'Plantagenet Cherokee'; }
+.PortagoITCTT { font-family: 'PortagoITC TT'; }
+.PrincetownLET { font-family: 'Princetown LET'; }
+.Produkt { font-family: Produkt; }
+.ProximaNova { font-family: 'Proxima Nova'; }
+.PSLOrnanongPro { font-family: 'PSL Ornanong Pro'; }
 .PTMono { font-family: 'PT Mono'; }
 .PTSans { font-family: 'PT Sans'; }
+.PTSansNarrow { font-family: 'PT Sans Narrow'; }
 .PTSerif { font-family: 'PT Serif'; }
+.PublicoHeadlineRoman { font-family: 'Publico Headline Roman'; }
+.QuotesCaps { font-family: 'Quotes Caps'; }
+.QuotesScript { font-family: 'Quotes Script'; }
 .Raanana { font-family: Raanana; }
 .Raavi { font-family: Raavi; }
+.Raya { font-family: Raya; }
 .Rockwell { font-family: Rockwell; }
 .RockwellNova { font-family: 'Rockwell Nova'; }
 .Rod { font-family: Rod; }
 .SakkalMajalla { font-family: 'Sakkal Majalla'; }
+.SamaDevanagari { font-family: 'Sama Devanagari'; }
+.SamaGujarati { font-family: 'Sama Gujarati'; }
+.SamaGurmukhi { font-family: 'Sama Gurmukhi'; }
+.SamaKannada { font-family: 'Sama Kannada'; }
+.SamaMalayalam { font-family: 'Sama Malayalam'; }
+.SamaTamil { font-family: 'Sama Tamil'; }
 .SanFranciscoMono { font-family: 'San Francisco Mono'; }
 .Sana { font-family: Sana; }
 .Sand { font-family: Sand; }
 .SanskritText { font-family: 'Sanskrit Text'; }
 .Sathu { font-family: Sathu; }
+.SauberScript { font-family: 'Sauber Script'; }
+.SchoolHouseCursiveB { font-family: 'SchoolHouse Cursive B'; }
+.SchoolHousePrintedA { font-family: 'SchoolHouse Printed A'; }
 .SegoePrint { font-family: 'Segoe Print'; }
 .SegoeScript { font-family: 'Segoe Script'; }
 .SegoeUI { font-family: 'Segoe UI'; }
 .Seoul { font-family: Seoul; }
 .SFArabic { font-family: 'SF Arabic'; }
 .ShinMyungjoNeue { font-family: 'Shin Myungjo Neue'; }
+.Shobhika { font-family: Shobhika; }
 .ShonarBangla { font-family: 'Shonar Bangla'; }
 .ShreeDevanagari714 { font-family: 'Shree Devanagari 714'; }
 .Shruti { font-family: Shruti; }
@@ -496,22 +590,28 @@ code {
 .Silom { font-family: Silom; }
 .SimHei { font-family: SimHei; }
 .SimplifiedArabic { font-family: 'Simplified Arabic'; }
+.SimSong { font-family: SimSong; }
 .SimSun { font-family: SimSun; }
 .SinhalaMN { font-family: 'Sinhala MN'; }
 .SinhalaSangamMN { font-family: 'Sinhala Sangam MN'; }
 .Sitka { font-family: Sitka; }
 .Skia { font-family: Skia; }
 .SnellRoundhand { font-family: 'Snell Roundhand'; }
+.Somer { font-family: Somer; }
 .SongtiSC { font-family: 'Songti SC'; }
 .SongtiTC { font-family: 'Songti TC'; }
+.SpotMono { font-family: 'Spot Mono'; }
 .STFangSong { font-family: 'ST FangSong'; }
 .STHeiti { font-family: 'ST Heiti'; }
 .STKaiti { font-family: 'ST Kaiti'; }
 .STSong { font-family: 'ST Song'; }
+.STXihei { font-family: 'ST Xihei'; }
 .STIXTwoText { font-family: 'STIX Two Text'; }
 .STIXGeneralRegular { font-family: STIXGeneral-Regular; }
+.StoneSansSemITCTT { font-family: 'Stone Sans Sem ITC TT'; }
 .SukhumvitSetText { font-family: 'Sukhumvit Set Text'; }
 .Sylfaen { font-family: Sylfaen; }
+.SynchroLET { font-family: 'Synchro LET'; }
 .TaeGraphic { font-family: 'Tae Graphic'; }
 .Tahoma { font-family: Tahoma; }
 .Taipei { font-family: Taipei; }
@@ -526,12 +626,26 @@ code {
 .TimesCY { font-family: 'Times CY'; }
 .TimesNewRoman { font-family: 'Times New Roman'; }
 .TimesRoman { font-family: 'Times Roman'; }
+.TiroBangla { font-family: 'Tiro Bangla'; }
+.TiroDevanagariHindi { font-family: 'Tiro Devanagari Hindi'; }
+.TiroDevanagariMarathi { font-family: 'Tiro Devanagari Marathi'; }
+.TiroDevanagariSanskrit { font-family: 'Tiro Devanagari Sanskrit'; }
+.TiroGurmukhi { font-family: 'Tiro Gurmukhi'; }
+.TiroHindi { font-family: 'Tiro Hindi'; }
+.TiroKannada { font-family: 'Tiro Kannada'; }
+.TiroMarathi { font-family: 'Tiro Marathi'; }
+.TiroSanskrit { font-family: 'Tiro Sanskrit'; }
+.TiroTamil { font-family: 'Tiro Tamil'; }
+.TiroTelugu { font-family: 'Tiro Telugu'; }
 .ToppanBunkyuGothic { font-family: 'Toppan Bunkyu Gothic'; }
 .ToppanBunkyuMincho { font-family: 'Toppan Bunkyu Mincho'; }
 .TraditionalArabic { font-family: 'Traditional Arabic'; }
 .Trattatello { font-family: Trattatello; }
 .TrebuchetMS { font-family: 'Trebuchet MS'; }
+.TsukushiARoundGothic { font-family: 'Tsukushi A Round Gothic'; }
+.TsukushiBRoundGothic { font-family: 'Tsukushi B Round Gothic'; }
 .Tunga { font-family: Tunga; }
+.TwCenMT { font-family: 'Tw Cen MT'; }
 .UDDigiKyokasho { font-family: 'UD Digi Kyokasho'; }
 .UrduTypesetting { font-family: 'Urdu Typesetting'; }
 .Utsaah { font-family: Utsaah; }
@@ -541,8 +655,14 @@ code {
 .Vijaya { font-family: Vijaya; }
 .Vrinda { font-family: Vrinda; }
 .Waseem { font-family: Waseem; }
+.WawatiSC { font-family: 'Wawati SC'; }
+.WawatiTC { font-family: 'Wawati TC'; }
+.Yaziji { font-family: Yaziji; }
 .YuGothic { font-family: 'Yu Gothic'; }
 .YuKyokashoN { font-family: 'Yu Kyokasho N'; }
 .YuMincho { font-family: 'Yu Mincho'; }
+.YuantiSC { font-family: 'Yuanti SC'; }
+.YuantiTC { font-family: 'Yuanti TC'; }
+.YuppySC { font-family: 'Yuppy SC'; }
 .ZapfChancery { font-family: 'Zapf Chancery'; }
 .Zapfino { font-family: Zapfino; }
