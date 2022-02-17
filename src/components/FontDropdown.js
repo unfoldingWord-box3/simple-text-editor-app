@@ -61,7 +61,7 @@ export default function FontDropdown(props) {
   const isNoGEFonts = (!isAbyssinicaSIL || !isAkatab || !isAlkalami || !isAlkalamiLight || !isAndika || !isAnnapurnaSIL || !isApparatusSIL || !isAwamiNastaliq || !isCharisSIL || !isDaiBannaSILBook || !isDaiBannaSILLight || !isDoulosSIL || !isDoulosSILCipher || !isEzraSIL || !isEzraSILSR || !isGalatiaSIL || !isGentiumPlus || !isHarmattan || !isKhmerBusra || !isKhmerMondulkiri || !isLateefGR || !isMingzat || !isNamdhinggoSIL || !isNarnoor || !isNuosuSIL || !isPadauk || !isScheherazadeNew || !isShimenkan || !isSophiaNubian || !isTagmukay || !isTaiHeritagePro);
 
   // Which of these Windows and MacOS system fonts are locally installed?
-  const isAharoniBold = doesFontExist('Aharoni Bold')
+  const isAharoni = doesFontExist('Aharoni')
   const isAlBayan = doesFontExist('Al Bayan')
   const isAlNile = doesFontExist('Al Nile')
   const isAlTarikh = doesFontExist('Al Tarikh')
@@ -84,12 +84,9 @@ export default function FontDropdown(props) {
   const isAquaKana = doesFontExist('AquaKana')
   const isArabicTypesetting = doesFontExist('Arabic Typesetting')
   const isArial = doesFontExist('Arial')
-  const isArialBlack = doesFontExist('Arial Black')
   const isArialHebrew = doesFontExist('Arial Hebrew')
   const isArialNova = doesFontExist('Arial Nova')
-  const isAvenirBook = doesFontExist('Avenir Book')
-  const isAvenirNext = doesFontExist('Avenir Next')
-  const isAvenirRoman = doesFontExist('Avenir Roman')
+  const isAvenir = doesFontExist('Avenir')
   const isAyuthaya = doesFontExist('Ayuthaya')
   const isBaghdad = doesFontExist('Baghdad')
   const isBahnschrift = doesFontExist('Bahnschrift')
@@ -102,8 +99,8 @@ export default function FontDropdown(props) {
   const isBiauKai = doesFontExist('BiauKai')
   const isBigCaslon = doesFontExist('Big Caslon')
   const isBIZUDGothic = doesFontExist('BIZ UDGothic')
-  const isBIZUDMinchoMedium = doesFontExist('BIZ UDMincho Medium')
-  const isBodoni72Book = doesFontExist('Bodoni 72 Book')
+  const isBIZUDMincho = doesFontExist('BIZ UDMincho')
+  const isBodoni72 = doesFontExist('Bodoni 72')
   const isBrowalliaNew = doesFontExist('Browallia New')
   const isBrowalliaUPC = doesFontExist('BrowalliaUPC')
   const isBrushScript = doesFontExist('Brush Script')
@@ -111,7 +108,6 @@ export default function FontDropdown(props) {
   const isCambria = doesFontExist('Cambria')
   const isCandara = doesFontExist('Candara')
   const isChalkboard = doesFontExist('Chalkboard')
-  const isChalkboardSE = doesFontExist('Chalkboard SE')
   const isChalkduster = doesFontExist('Chalkduster')
   const isCharcoal = doesFontExist('Charcoal')
   const isCharcoalCY = doesFontExist('Charcoal CY')
@@ -153,7 +149,7 @@ export default function FontDropdown(props) {
   const isFangSong = doesFontExist('FangSong')
   const isFarah = doesFontExist('Farah')
   const isFarisi = doesFontExist('Farisi')
-  const isFranklinGothicMedium = doesFontExist('Franklin Gothic Medium')
+  const isFranklinGothic = doesFontExist('Franklin Gothic')
   const isFrankRuehl = doesFontExist('FrankRuehl')
   const isFreesiaUPC = doesFontExist('FreesiaUPC')
   const isFutura = doesFontExist('Futura')
@@ -192,26 +188,15 @@ export default function FontDropdown(props) {
   const isHiraginoKakuGothicPro = doesFontExist('Hiragino Kaku Gothic Pro')
   const isHiraginoMaruGothicPro = doesFontExist('Hiragino Maru Gothic Pro')
   const isHiraginoMinchoPro = doesFontExist('Hiragino Mincho Pro')
-  const isHiraginoSansGBW3 = doesFontExist('Hiragino Sans GB W3')
-  const isHiraginoSansGBW6 = doesFontExist('Hiragino Sans GB W6')
-  const isHiraginoSansW0 = doesFontExist('Hiragino Sans W0')
-  const isHiraginoSansW1 = doesFontExist('Hiragino Sans W1')
-  const isHiraginoSansW2 = doesFontExist('Hiragino Sans W2')
-  const isHiraginoSansW3 = doesFontExist('Hiragino Sans W3')
-  const isHiraginoSansW4 = doesFontExist('Hiragino Sans W4')
-  const isHiraginoSansW5 = doesFontExist('Hiragino Sans W5')
-  const isHiraginoSansW6 = doesFontExist('Hiragino Sans W6')
-  const isHiraginoSansW7 = doesFontExist('Hiragino Sans W7')
-  const isHiraginoSansW8 = doesFontExist('Hiragino Sans W8')
-  const isHiraginoSansW9 = doesFontExist('Hiragino Sans W9')
+  const isHiraginoSans = doesFontExist('Hiragino Sans')
   const isHoeflerText = doesFontExist('Hoefler Text')
   const isImpact = doesFontExist('Impact')
   const isInaiMathi = doesFontExist('Inai Mathi')
   const isInkFree = doesFontExist('Ink Free')
   const isIrisUPC = doesFontExist('IrisUPC')
   const isIskoolaPota = doesFontExist('Iskoola Pota')
-  const isITFDevanagariBook = doesFontExist('ITF Devanagari Book')
-  const isITFDevanagariMarathiBk = doesFontExist('ITF Devanagari Marathi Book')
+  const isITFDevanagari = doesFontExist('ITF Devanagari')
+  const isITFDevanagariMarathi = doesFontExist('ITF Devanagari Marathi')
   const isJasmineUPC = doesFontExist('JasmineUPC')
   const isJavaneseText = doesFontExist('Javanese Text')
   const isJungGothic = doesFontExist('Jung Gothic')
@@ -222,7 +207,6 @@ export default function FontDropdown(props) {
   const isKannadaMN = doesFontExist('Kannada MN')
   const isKannadaSangamMN = doesFontExist('Kannada Sangam MN')
   const isKartika = doesFontExist('Kartika')
-  const isKefaBold = doesFontExist('Kefa Bold')
   const isKefa = doesFontExist('Kefa')
   const isKeyboard = doesFontExist('Keyboard')
   const isKhmerMN = doesFontExist('Khmer MN')
@@ -310,7 +294,6 @@ export default function FontDropdown(props) {
   const isPalatino = doesFontExist('Palatino')
   const isPalatinoLinotype = doesFontExist('Palatino Linotype')
   const isPapyrus = doesFontExist('Papyrus')
-  const isPartyLETPlain = doesFontExist('Party LET Plain')
   const isPCMyungjo = doesFontExist('PC Myungjo')
   const isPilgiche = doesFontExist('Pilgiche')
   const isPingFangHK = doesFontExist('PingFang HK')
@@ -345,14 +328,12 @@ export default function FontDropdown(props) {
   const isSimSun = doesFontExist('SimSun')
   const isSinhalaMN = doesFontExist('Sinhala MN')
   const isSinhalaSangamMN = doesFontExist('Sinhala Sangam MN')
-  const isSitkaText = doesFontExist('Sitka Text')
+  const isSitka = doesFontExist('Sitka')
   const isSkia = doesFontExist('Skia')
   const isSnellRoundhand = doesFontExist('Snell Roundhand')
-  const isSnellRoundhandBlack = doesFontExist('Snell Roundhand Black')
   const isSongtiSC = doesFontExist('Songti SC')
   const isSongtiTC = doesFontExist('Songti TC')
   const isSTFangSong = doesFontExist('ST FangSong')
-  const isSTFangSong2 = doesFontExist('ST FangSong 2')
   const isSTHeiti = doesFontExist('ST Heiti')
   const isSTKaiti = doesFontExist('ST Kaiti')
   const isSTSong = doesFontExist('ST Song')
@@ -377,7 +358,7 @@ export default function FontDropdown(props) {
   const isTrattatello = doesFontExist('Trattatello')
   const isTrebuchetMS = doesFontExist('Trebuchet MS')
   const isTunga = doesFontExist('Tunga')
-  const isUDDigiKyokashoNR = doesFontExist('UD Digi Kyokasho N-R')
+  const isUDDigiKyokasho = doesFontExist('UD Digi Kyokasho')
   const isUrduTypesetting = doesFontExist('Urdu Typesetting')
   const isUtsaah = doesFontExist('Utsaah')
   const isVani = doesFontExist('Vani')
@@ -390,7 +371,7 @@ export default function FontDropdown(props) {
   const isYuMincho = doesFontExist('Yu Mincho')
   const isZapfChancery = doesFontExist('Zapf Chancery')
   const isZapfino = doesFontExist('Zapfino')
-
+  
   const graphiteEnabled = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ? true : false);
 
   /** Graphite-enabled woff and woff2 fonts included */
@@ -444,7 +425,7 @@ export default function FontDropdown(props) {
   const onFontTaiHeritagePro = () => { setFont('TaiHeritagePro'); };
 
   /** Windows 11 and MacOS system fonts if locally installed */
-  const onFontAharoniBold = () => { setFont('AharoniBold'); };
+  const onFontAharoni = () => { setFont('Aharoni'); };
   const onFontAlBayan = () => { setFont('AlBayan'); };
   const onFontAlNile = () => { setFont('AlNile'); };
   const onFontAlTarikh = () => { setFont('AlTarikh'); };
@@ -467,12 +448,9 @@ export default function FontDropdown(props) {
   const onFontAquaKana = () => { setFont('AquaKana'); };
   const onFontArabicTypesetting = () => { setFont('ArabicTypesetting'); };
   const onFontArial = () => { setFont('Arial'); };
-  const onFontArialBlack = () => { setFont('ArialBlack'); };
   const onFontArialHebrew = () => { setFont('ArialHebrew'); };
   const onFontArialNova = () => { setFont('ArialNova'); };
-  const onFontAvenirBook = () => { setFont('AvenirBook'); };
-  const onFontAvenirNext = () => { setFont('AvenirNext'); };
-  const onFontAvenirRoman = () => { setFont('AvenirRoman'); };
+  const onFontAvenir = () => { setFont('Avenir'); };
   const onFontAyuthaya = () => { setFont('Ayuthaya'); };
   const onFontBaghdad = () => { setFont('Baghdad'); };
   const onFontBahnschrift = () => { setFont('Bahnschrift'); };
@@ -485,8 +463,8 @@ export default function FontDropdown(props) {
   const onFontBiauKai = () => { setFont('BiauKai'); };
   const onFontBigCaslon = () => { setFont('BigCaslon'); };
   const onFontBIZUDGothic = () => { setFont('BIZUDGothic'); };
-  const onFontBIZUDMinchoMedium = () => { setFont('BIZUDMinchoMedium'); };
-  const onFontBodoni72Book = () => { setFont('Bodoni72Book'); };
+  const onFontBIZUDMincho = () => { setFont('BIZUDMincho'); };
+  const onFontBodoni72 = () => { setFont('Bodoni72'); };
   const onFontBrowalliaNew = () => { setFont('BrowalliaNew'); };
   const onFontBrowalliaUPC = () => { setFont('BrowalliaUPC'); };
   const onFontBrushScript = () => { setFont('BrushScript'); };
@@ -494,7 +472,6 @@ export default function FontDropdown(props) {
   const onFontCambria = () => { setFont('Cambria'); };
   const onFontCandara = () => { setFont('Candara'); };
   const onFontChalkboard = () => { setFont('Chalkboard'); };
-  const onFontChalkboardSE = () => { setFont('ChalkboardSE'); };
   const onFontChalkduster = () => { setFont('Chalkduster'); };
   const onFontCharcoal = () => { setFont('Charcoal'); };
   const onFontCharcoalCY = () => { setFont('CharcoalCY'); };
@@ -536,7 +513,7 @@ export default function FontDropdown(props) {
   const onFontFangSong = () => { setFont('FangSong'); };
   const onFontFarah = () => { setFont('Farah'); };
   const onFontFarisi = () => { setFont('Farisi'); };
-  const onFontFranklinGothicMedium = () => { setFont('FranklinGothicMedium'); };
+  const onFontFranklinGothic = () => { setFont('FranklinGothic'); };
   const onFontFrankRuehl = () => { setFont('FrankRuehl'); };
   const onFontFreesiaUPC = () => { setFont('FreesiaUPC'); };
   const onFontFutura = () => { setFont('Futura'); };
@@ -575,26 +552,15 @@ export default function FontDropdown(props) {
   const onFontHiraginoKakuGothicPro = () => { setFont('HiraginoKakuGothicPro'); };
   const onFontHiraginoMaruGothicPro = () => { setFont('HiraginoMaruGothicPro'); };
   const onFontHiraginoMinchoPro = () => { setFont('HiraginoMinchoPro'); };
-  const onFontHiraginoSansGBW3 = () => { setFont('HiraginoSansGBW3'); };
-  const onFontHiraginoSansGBW6 = () => { setFont('HiraginoSansGBW6'); };
-  const onFontHiraginoSansW0 = () => { setFont('HiraginoSansW0'); };
-  const onFontHiraginoSansW1 = () => { setFont('HiraginoSansW1'); };
-  const onFontHiraginoSansW2 = () => { setFont('HiraginoSansW2'); };
-  const onFontHiraginoSansW3 = () => { setFont('HiraginoSansW3'); };
-  const onFontHiraginoSansW4 = () => { setFont('HiraginoSansW4'); };
-  const onFontHiraginoSansW5 = () => { setFont('HiraginoSansW5'); };
-  const onFontHiraginoSansW6 = () => { setFont('HiraginoSansW6'); };
-  const onFontHiraginoSansW7 = () => { setFont('HiraginoSansW7'); };
-  const onFontHiraginoSansW8 = () => { setFont('HiraginoSansW8'); };
-  const onFontHiraginoSansW9 = () => { setFont('HiraginoSansW9'); };
+  const onFontHiraginoSans = () => { setFont('HiraginoSans'); };
   const onFontHoeflerText = () => { setFont('HoeflerText'); };
   const onFontImpact = () => { setFont('Impact'); };
   const onFontInaiMathi = () => { setFont('InaiMathi'); };
   const onFontInkFree = () => { setFont('InkFree'); };
   const onFontIrisUPC = () => { setFont('IrisUPC'); };
   const onFontIskoolaPota = () => { setFont('IskoolaPota'); };
-  const onFontITFDevanagariBook = () => { setFont('ITFDevanagariBook'); };
-  const onFontITFDevanagariMarathiBk = () => { setFont('ITFDevanagariMarathiBk'); };
+  const onFontITFDevanagari = () => { setFont('ITFDevanagari'); };
+  const onFontITFDevanagariMarathi = () => { setFont('ITFDevanagariMarathi'); };
   const onFontJasmineUPC = () => { setFont('JasmineUPC'); };
   const onFontJavaneseText = () => { setFont('JavaneseText'); };
   const onFontJungGothic = () => { setFont('JungGothic'); };
@@ -605,7 +571,6 @@ export default function FontDropdown(props) {
   const onFontKannadaMN = () => { setFont('KannadaMN'); };
   const onFontKannadaSangamMN = () => { setFont('KannadaSangamMN'); };
   const onFontKartika = () => { setFont('Kartika'); };
-  const onFontKefaBold = () => { setFont('KefaBold'); };
   const onFontKefa = () => { setFont('Kefa'); };
   const onFontKeyboard = () => { setFont('Keyboard'); };
   const onFontKhmerMN = () => { setFont('KhmerMN'); };
@@ -693,7 +658,6 @@ export default function FontDropdown(props) {
   const onFontPalatino = () => { setFont('Palatino'); };
   const onFontPalatinoLinotype = () => { setFont('PalatinoLinotype'); };
   const onFontPapyrus = () => { setFont('Papyrus'); };
-  const onFontPartyLETPlain = () => { setFont('PartyLETPlain'); };
   const onFontPCMyungjo = () => { setFont('PCMyungjo'); };
   const onFontPilgiche = () => { setFont('Pilgiche'); };
   const onFontPingFangHK = () => { setFont('PingFangHK'); };
@@ -728,14 +692,12 @@ export default function FontDropdown(props) {
   const onFontSimSun = () => { setFont('SimSun'); };
   const onFontSinhalaMN = () => { setFont('SinhalaMN'); };
   const onFontSinhalaSangamMN = () => { setFont('SinhalaSangamMN'); };
-  const onFontSitkaText = () => { setFont('SitkaText'); };
+  const onFontSitka = () => { setFont('Sitka'); };
   const onFontSkia = () => { setFont('Skia'); };
   const onFontSnellRoundhand = () => { setFont('SnellRoundhand'); };
-  const onFontSnellRoundhandBlack = () => { setFont('SnellRoundhandBlack'); };
   const onFontSongtiSC = () => { setFont('SongtiSC'); };
   const onFontSongtiTC = () => { setFont('SongtiTC'); };
   const onFontSTFangSong = () => { setFont('STFangSong'); };
-  const onFontSTFangSong2 = () => { setFont('STFangSong2'); };
   const onFontSTHeiti = () => { setFont('STHeiti'); };
   const onFontSTKaiti = () => { setFont('STKaiti'); };
   const onFontSTSong = () => { setFont('STSong'); };
@@ -760,7 +722,7 @@ export default function FontDropdown(props) {
   const onFontTrattatello = () => { setFont('Trattatello'); };
   const onFontTrebuchetMS = () => { setFont('TrebuchetMS'); };
   const onFontTunga = () => { setFont('Tunga'); };
-  const onFontUDDigiKyokashoNR = () => { setFont('UDDigiKyokashoN-R'); };
+  const onFontUDDigiKyokasho = () => { setFont('UDDigiKyokasho'); };
   const onFontUrduTypesetting = () => { setFont('UrduTypesetting'); };
   const onFontUtsaah = () => { setFont('Utsaah'); };
   const onFontVani = () => { setFont('Vani'); };
@@ -773,7 +735,7 @@ export default function FontDropdown(props) {
   const onFontYuMincho = () => { setFont('YuMincho'); };
   const onFontZapfChancery = () => { setFont('ZapfChancery'); };
   const onFontZapfino = () => { setFont('Zapfino'); };
-    
+      
   const fontOnOrOff = (itemFont) => font === itemFont ? 'on' : ''
   const itemPresentation = (itemName) => "➤" + itemName
 
@@ -847,7 +809,7 @@ export default function FontDropdown(props) {
   const TaiHeritagePro = FontMenuItem('Tai Heritage Pro', onFontTaiHeritagePro, 'TaiHeritagePro')
 
   /** Windows 11 and MacOS system fonts if locally installed */
-  const AharoniBold = FontMenuItem('Aharoni Bold', onFontAharoniBold, 'AharoniBold')
+  const Aharoni = FontMenuItem('Aharoni', onFontAharoni, 'Aharoni')
   const AlBayan = FontMenuItem('Al Bayan', onFontAlBayan, 'AlBayan')
   const AlNile = FontMenuItem('Al Nile', onFontAlNile, 'AlNile')
   const AlTarikh = FontMenuItem('Al Tarikh', onFontAlTarikh, 'AlTarikh')
@@ -870,12 +832,9 @@ export default function FontDropdown(props) {
   const AquaKana = FontMenuItem('AquaKana', onFontAquaKana, 'AquaKana')
   const ArabicTypesetting = FontMenuItem('Arabic Typesetting', onFontArabicTypesetting, 'ArabicTypesetting')
   const Arial = FontMenuItem('Arial', onFontArial, 'Arial')
-  const ArialBlack = FontMenuItem('Arial Black', onFontArialBlack, 'ArialBlack')
   const ArialHebrew = FontMenuItem('Arial Hebrew', onFontArialHebrew, 'ArialHebrew')
   const ArialNova = FontMenuItem('Arial Nova', onFontArialNova, 'ArialNova')
-  const AvenirBook = FontMenuItem('Avenir Book', onFontAvenirBook, 'AvenirBook')
-  const AvenirNext = FontMenuItem('Avenir Next', onFontAvenirNext, 'AvenirNext')
-  const AvenirRoman = FontMenuItem('Avenir Roman', onFontAvenirRoman, 'AvenirRoman')
+  const Avenir = FontMenuItem('Avenir', onFontAvenir, 'Avenir')
   const Ayuthaya = FontMenuItem('Ayuthaya', onFontAyuthaya, 'Ayuthaya')
   const Baghdad = FontMenuItem('Baghdad', onFontBaghdad, 'Baghdad')
   const Bahnschrift = FontMenuItem('Bahnschrift', onFontBahnschrift, 'Bahnschrift')
@@ -888,8 +847,8 @@ export default function FontDropdown(props) {
   const BiauKai = FontMenuItem('BiauKai', onFontBiauKai, 'BiauKai')
   const BigCaslon = FontMenuItem('Big Caslon', onFontBigCaslon, 'BigCaslon')
   const BIZUDGothic = FontMenuItem('BIZ UDGothic', onFontBIZUDGothic, 'BIZUDGothic')
-  const BIZUDMinchoMedium = FontMenuItem('BIZ UDMincho Medium', onFontBIZUDMinchoMedium, 'BIZUDMinchoMedium')
-  const Bodoni72Book = FontMenuItem('Bodoni 72 Book', onFontBodoni72Book, 'Bodoni72Book')
+  const BIZUDMincho = FontMenuItem('BIZ UDMincho', onFontBIZUDMincho, 'BIZUDMincho')
+  const Bodoni72 = FontMenuItem('Bodoni 72', onFontBodoni72, 'Bodoni72')
   const BrowalliaNew = FontMenuItem('Browallia New', onFontBrowalliaNew, 'BrowalliaNew')
   const BrowalliaUPC = FontMenuItem('BrowalliaUPC', onFontBrowalliaUPC, 'BrowalliaUPC')
   const BrushScript = FontMenuItem('Brush Script', onFontBrushScript, 'BrushScript')
@@ -897,7 +856,6 @@ export default function FontDropdown(props) {
   const Cambria = FontMenuItem('Cambria', onFontCambria, 'Cambria')
   const Candara = FontMenuItem('Candara', onFontCandara, 'Candara')
   const Chalkboard = FontMenuItem('Chalkboard', onFontChalkboard, 'Chalkboard')
-  const ChalkboardSE = FontMenuItem('Chalkboard SE', onFontChalkboardSE, 'ChalkboardSE')
   const Chalkduster = FontMenuItem('Chalkduster', onFontChalkduster, 'Chalkduster')
   const Charcoal = FontMenuItem('Charcoal', onFontCharcoal, 'Charcoal')
   const CharcoalCY = FontMenuItem('Charcoal CY', onFontCharcoalCY, 'CharcoalCY')
@@ -939,7 +897,7 @@ export default function FontDropdown(props) {
   const FangSong = FontMenuItem('FangSong', onFontFangSong, 'FangSong')
   const Farah = FontMenuItem('Farah', onFontFarah, 'Farah')
   const Farisi = FontMenuItem('Farisi', onFontFarisi, 'Farisi')
-  const FranklinGothicMedium = FontMenuItem('Franklin Gothic Medium', onFontFranklinGothicMedium, 'FranklinGothicMedium')
+  const FranklinGothic = FontMenuItem('Franklin Gothic', onFontFranklinGothic, 'FranklinGothic')
   const FrankRuehl = FontMenuItem('FrankRuehl', onFontFrankRuehl, 'FrankRuehl')
   const FreesiaUPC = FontMenuItem('FreesiaUPC', onFontFreesiaUPC, 'FreesiaUPC')
   const Futura = FontMenuItem('Futura', onFontFutura, 'Futura')
@@ -978,26 +936,15 @@ export default function FontDropdown(props) {
   const HiraginoKakuGothicPro = FontMenuItem('Hiragino Kaku Gothic Pro', onFontHiraginoKakuGothicPro, 'HiraginoKakuGothicPro')
   const HiraginoMaruGothicPro = FontMenuItem('Hiragino Maru Gothic Pro', onFontHiraginoMaruGothicPro, 'HiraginoMaruGothicPro')
   const HiraginoMinchoPro = FontMenuItem('Hiragino Mincho Pro', onFontHiraginoMinchoPro, 'HiraginoMinchoPro')
-  const HiraginoSansGBW3 = FontMenuItem('Hiragino Sans GB W3', onFontHiraginoSansGBW3, 'HiraginoSansGBW3')
-  const HiraginoSansGBW6 = FontMenuItem('Hiragino Sans GB W6', onFontHiraginoSansGBW6, 'HiraginoSansGBW6')
-  const HiraginoSansW0 = FontMenuItem('Hiragino Sans W0', onFontHiraginoSansW0, 'HiraginoSansW0')
-  const HiraginoSansW1 = FontMenuItem('Hiragino Sans W1', onFontHiraginoSansW1, 'HiraginoSansW1')
-  const HiraginoSansW2 = FontMenuItem('Hiragino Sans W2', onFontHiraginoSansW2, 'HiraginoSansW2')
-  const HiraginoSansW3 = FontMenuItem('Hiragino Sans W3', onFontHiraginoSansW3, 'HiraginoSansW3')
-  const HiraginoSansW4 = FontMenuItem('Hiragino Sans W4', onFontHiraginoSansW4, 'HiraginoSansW4')
-  const HiraginoSansW5 = FontMenuItem('Hiragino Sans W5', onFontHiraginoSansW5, 'HiraginoSansW5')
-  const HiraginoSansW6 = FontMenuItem('Hiragino Sans W6', onFontHiraginoSansW6, 'HiraginoSansW6')
-  const HiraginoSansW7 = FontMenuItem('Hiragino Sans W7', onFontHiraginoSansW7, 'HiraginoSansW7')
-  const HiraginoSansW8 = FontMenuItem('Hiragino Sans W8', onFontHiraginoSansW8, 'HiraginoSansW8')
-  const HiraginoSansW9 = FontMenuItem('Hiragino Sans W9', onFontHiraginoSansW9, 'HiraginoSansW9')
+  const HiraginoSans = FontMenuItem('Hiragino Sans', onFontHiraginoSans, 'HiraginoSans')
   const HoeflerText = FontMenuItem('Hoefler Text', onFontHoeflerText, 'HoeflerText')
   const Impact = FontMenuItem('Impact', onFontImpact, 'Impact')
   const InaiMathi = FontMenuItem('Inai Mathi', onFontInaiMathi, 'InaiMathi')
   const InkFree = FontMenuItem('Ink Free', onFontInkFree, 'InkFree')
   const IrisUPC = FontMenuItem('IrisUPC', onFontIrisUPC, 'IrisUPC')
   const IskoolaPota = FontMenuItem('Iskoola Pota', onFontIskoolaPota, 'IskoolaPota')
-  const ITFDevanagariBook = FontMenuItem('ITF Devanagari Book', onFontITFDevanagariBook, 'ITFDevanagariBook')
-  const ITFDevanagariMarathiBk = FontMenuItem('ITF Devanagari Marathi Book', onFontITFDevanagariMarathiBk, 'ITFDevanagariMarathiBk')
+  const ITFDevanagari = FontMenuItem('ITF Devanagari', onFontITFDevanagari, 'ITFDevanagari')
+  const ITFDevanagariMarathi = FontMenuItem('ITF Devanagari Marathi', onFontITFDevanagariMarathi, 'ITFDevanagariMarathi')
   const JasmineUPC = FontMenuItem('JasmineUPC', onFontJasmineUPC, 'JasmineUPC')
   const JavaneseText = FontMenuItem('Javanese Text', onFontJavaneseText, 'JavaneseText')
   const JungGothic = FontMenuItem('Jung Gothic', onFontJungGothic, 'JungGothic')
@@ -1008,7 +955,6 @@ export default function FontDropdown(props) {
   const KannadaMN = FontMenuItem('Kannada MN', onFontKannadaMN, 'KannadaMN')
   const KannadaSangamMN = FontMenuItem('Kannada Sangam MN', onFontKannadaSangamMN, 'KannadaSangamMN')
   const Kartika = FontMenuItem('Kartika', onFontKartika, 'Kartika')
-  const KefaBold = FontMenuItem('Kefa Bold', onFontKefaBold, 'KefaBold')
   const Kefa = FontMenuItem('Kefa', onFontKefa, 'Kefa')
   const Keyboard = FontMenuItem('Keyboard', onFontKeyboard, 'Keyboard')
   const KhmerMN = FontMenuItem('Khmer MN', onFontKhmerMN, 'KhmerMN')
@@ -1096,7 +1042,6 @@ export default function FontDropdown(props) {
   const Palatino = FontMenuItem('Palatino', onFontPalatino, 'Palatino')
   const PalatinoLinotype = FontMenuItem('Palatino Linotype', onFontPalatinoLinotype, 'PalatinoLinotype')
   const Papyrus = FontMenuItem('Papyrus', onFontPapyrus, 'Papyrus')
-  const PartyLETPlain = FontMenuItem('Party LET Plain', onFontPartyLETPlain, 'PartyLETPlain')
   const PCMyungjo = FontMenuItem('PC Myungjo', onFontPCMyungjo, 'PCMyungjo')
   const Pilgiche = FontMenuItem('Pilgiche', onFontPilgiche, 'Pilgiche')
   const PingFangHK = FontMenuItem('PingFang HK', onFontPingFangHK, 'PingFangHK')
@@ -1131,14 +1076,12 @@ export default function FontDropdown(props) {
   const SimSun = FontMenuItem('SimSun', onFontSimSun, 'SimSun')
   const SinhalaMN = FontMenuItem('Sinhala MN', onFontSinhalaMN, 'SinhalaMN')
   const SinhalaSangamMN = FontMenuItem('Sinhala Sangam MN', onFontSinhalaSangamMN, 'SinhalaSangamMN')
-  const SitkaText = FontMenuItem('Sitka Text', onFontSitkaText, 'SitkaText')
+  const Sitka = FontMenuItem('Sitka', onFontSitka, 'Sitka')
   const Skia = FontMenuItem('Skia', onFontSkia, 'Skia')
   const SnellRoundhand = FontMenuItem('Snell Roundhand', onFontSnellRoundhand, 'SnellRoundhand')
-  const SnellRoundhandBlack = FontMenuItem('Snell Roundhand Black', onFontSnellRoundhandBlack, 'SnellRoundhandBlack')
   const SongtiSC = FontMenuItem('Songti SC', onFontSongtiSC, 'SongtiSC')
   const SongtiTC = FontMenuItem('Songti TC', onFontSongtiTC, 'SongtiTC')
   const STFangSong = FontMenuItem('ST FangSong', onFontSTFangSong, 'STFangSong')
-  const STFangSong2 = FontMenuItem('ST FangSong 2', onFontSTFangSong2, 'STFangSong2')
   const STHeiti = FontMenuItem('ST Heiti', onFontSTHeiti, 'STHeiti')
   const STKaiti = FontMenuItem('ST Kaiti', onFontSTKaiti, 'STKaiti')
   const STSong = FontMenuItem('ST Song', onFontSTSong, 'STSong')
@@ -1163,7 +1106,7 @@ export default function FontDropdown(props) {
   const Trattatello = FontMenuItem('Trattatello', onFontTrattatello, 'Trattatello')
   const TrebuchetMS = FontMenuItem('Trebuchet MS', onFontTrebuchetMS, 'TrebuchetMS')
   const Tunga = FontMenuItem('Tunga', onFontTunga, 'Tunga')
-  const UDDigiKyokashoNR = FontMenuItem('UD Digi Kyokasho N-R', onFontUDDigiKyokashoNR, 'UDDigiKyokashoNR')
+  const UDDigiKyokasho = FontMenuItem('UD Digi Kyokasho', onFontUDDigiKyokasho, 'UDDigiKyokasho')
   const UrduTypesetting = FontMenuItem('Urdu Typesetting', onFontUrduTypesetting, 'UrduTypesetting')
   const Utsaah = FontMenuItem('Utsaah', onFontUtsaah, 'Utsaah')
   const Vani = FontMenuItem('Vani', onFontVani, 'Vani')
@@ -1176,7 +1119,7 @@ export default function FontDropdown(props) {
   const YuMincho = FontMenuItem('Yu Mincho', onFontYuMincho, 'YuMincho')
   const ZapfChancery = FontMenuItem('Zapf Chancery', onFontZapfChancery, 'ZapfChancery')
   const Zapfino = FontMenuItem('Zapfino', onFontZapfino, 'Zapfino')
-  
+    
   return (
       <Menu as="div" className="relative inline-block text-left" style={{textAlign: "center"}}>
         <div>
@@ -1250,7 +1193,7 @@ export default function FontDropdown(props) {
             </div>}
             <div className="px-1 py-1">
               <span className={'text-left text-gray-900 group menuitem'}><b>Detected Fonts:</b></span>
-              {isAharoniBold && AharoniBold}
+              {isAharoni && Aharoni}
               {isAlBayan && AlBayan}
               {isAlNile && AlNile}
               {isAlTarikh && AlTarikh}
@@ -1273,12 +1216,9 @@ export default function FontDropdown(props) {
               {isAquaKana && AquaKana}
               {isArabicTypesetting && ArabicTypesetting}
               {isArial && Arial}
-              {isArialBlack && ArialBlack}
               {isArialHebrew && ArialHebrew}
               {isArialNova && ArialNova}
-              {isAvenirBook && AvenirBook}
-              {isAvenirNext && AvenirNext}
-              {isAvenirRoman && AvenirRoman}
+              {isAvenir && Avenir}
               {isAyuthaya && Ayuthaya}
               {isBaghdad && Baghdad}
               {isBahnschrift && Bahnschrift}
@@ -1291,8 +1231,8 @@ export default function FontDropdown(props) {
               {isBiauKai && BiauKai}
               {isBigCaslon && BigCaslon}
               {isBIZUDGothic && BIZUDGothic}
-              {isBIZUDMinchoMedium && BIZUDMinchoMedium}
-              {isBodoni72Book && Bodoni72Book}
+              {isBIZUDMincho && BIZUDMincho}
+              {isBodoni72 && Bodoni72}
               {isBrowalliaNew && BrowalliaNew}
               {isBrowalliaUPC && BrowalliaUPC}
               {isBrushScript && BrushScript}
@@ -1300,7 +1240,6 @@ export default function FontDropdown(props) {
               {isCambria && Cambria}
               {isCandara && Candara}
               {isChalkboard && Chalkboard}
-              {isChalkboardSE && ChalkboardSE}
               {isChalkduster && Chalkduster}
               {isCharcoal && Charcoal}
               {isCharcoalCY && CharcoalCY}
@@ -1342,7 +1281,7 @@ export default function FontDropdown(props) {
               {isFangSong && FangSong}
               {isFarah && Farah}
               {isFarisi && Farisi}
-              {isFranklinGothicMedium && FranklinGothicMedium}
+              {isFranklinGothic && FranklinGothic}
               {isFrankRuehl && FrankRuehl}
               {isFreesiaUPC && FreesiaUPC}
               {isFutura && Futura}
@@ -1381,26 +1320,15 @@ export default function FontDropdown(props) {
               {isHiraginoKakuGothicPro && HiraginoKakuGothicPro}
               {isHiraginoMaruGothicPro && HiraginoMaruGothicPro}
               {isHiraginoMinchoPro && HiraginoMinchoPro}
-              {isHiraginoSansGBW3 && HiraginoSansGBW3}
-              {isHiraginoSansGBW6 && HiraginoSansGBW6}
-              {isHiraginoSansW0 && HiraginoSansW0}
-              {isHiraginoSansW1 && HiraginoSansW1}
-              {isHiraginoSansW2 && HiraginoSansW2}
-              {isHiraginoSansW3 && HiraginoSansW3}
-              {isHiraginoSansW4 && HiraginoSansW4}
-              {isHiraginoSansW5 && HiraginoSansW5}
-              {isHiraginoSansW6 && HiraginoSansW6}
-              {isHiraginoSansW7 && HiraginoSansW7}
-              {isHiraginoSansW8 && HiraginoSansW8}
-              {isHiraginoSansW9 && HiraginoSansW9}
+              {isHiraginoSans && HiraginoSans}
               {isHoeflerText && HoeflerText}
               {isImpact && Impact}
               {isInaiMathi && InaiMathi}
               {isInkFree && InkFree}
               {isIrisUPC && IrisUPC}
               {isIskoolaPota && IskoolaPota}
-              {isITFDevanagariBook && ITFDevanagariBook}
-              {isITFDevanagariMarathiBk && ITFDevanagariMarathiBk}
+              {isITFDevanagari && ITFDevanagari}
+              {isITFDevanagariMarathi && ITFDevanagariMarathi}
               {isJasmineUPC && JasmineUPC}
               {isJavaneseText && JavaneseText}
               {isJungGothic && JungGothic}
@@ -1411,7 +1339,6 @@ export default function FontDropdown(props) {
               {isKannadaMN && KannadaMN}
               {isKannadaSangamMN && KannadaSangamMN}
               {isKartika && Kartika}
-              {isKefaBold && KefaBold}
               {isKefa && Kefa}
               {isKeyboard && Keyboard}
               {isKhmerMN && KhmerMN}
@@ -1499,7 +1426,6 @@ export default function FontDropdown(props) {
               {isPalatino && Palatino}
               {isPalatinoLinotype && PalatinoLinotype}
               {isPapyrus && Papyrus}
-              {isPartyLETPlain && PartyLETPlain}
               {isPCMyungjo && PCMyungjo}
               {isPilgiche && Pilgiche}
               {isPingFangHK && PingFangHK}
@@ -1534,14 +1460,12 @@ export default function FontDropdown(props) {
               {isSimSun && SimSun}
               {isSinhalaMN && SinhalaMN}
               {isSinhalaSangamMN && SinhalaSangamMN}
-              {isSitkaText && SitkaText}
+              {isSitka && Sitka}
               {isSkia && Skia}
               {isSnellRoundhand && SnellRoundhand}
-              {isSnellRoundhandBlack && SnellRoundhandBlack}
               {isSongtiSC && SongtiSC}
               {isSongtiTC && SongtiTC}
               {isSTFangSong && STFangSong}
-              {isSTFangSong2 && STFangSong2}
               {isSTHeiti && STHeiti}
               {isSTKaiti && STKaiti}
               {isSTSong && STSong}
@@ -1566,7 +1490,7 @@ export default function FontDropdown(props) {
               {isTrattatello && Trattatello}
               {isTrebuchetMS && TrebuchetMS}
               {isTunga && Tunga}
-              {isUDDigiKyokashoNR && UDDigiKyokashoNR}
+              {isUDDigiKyokasho && UDDigiKyokasho}
               {isUrduTypesetting && UrduTypesetting}
               {isUtsaah && Utsaah}
               {isVani && Vani}
@@ -1578,7 +1502,7 @@ export default function FontDropdown(props) {
               {isYuGothic && YuGothic}
               {isYuMincho && YuMincho}
               {isZapfChancery && ZapfChancery}
-              {isZapfino && Zapfino}
+              {isZapfino && Zapfino}              
             </div>
           </Menu.Items>
         </Transition>

@@ -218,11 +218,10 @@ code {
 
 }
 
-/* Windows 11 system font families                                       */
-/*    * includes supplemental language packs                             */
-/*    * excludes symbols, icons, emojis, assets, wingdings, and webdings */
-/* And MacOS Font system font famlies through Catalina 10.15             */
-/*    * excludes symbols, icons, emojis, assets, wingdings, and webdings */
+/* A Compilation of Windows and MacOS System Font Families:                                 */
+/*    * includes supplemental language packs                                                */
+/*    * excludes symbols, icons, emojis, assets, wingdings, webdings, ornaments, math, etc. */
+/*    * excludes bold, italic, oblique, light, medium, thin, extra, etc.                    */
 .AharoniBold { font-family: 'Aharoni Bold'; }
 .AlBayan { font-family: 'Al Bayan'; }
 .AlNile { font-family: 'Al Nile'; }
@@ -510,7 +509,6 @@ code {
 .SitkaText { font-family: 'Sitka Text'; }
 .Skia { font-family: Skia; }
 .SnellRoundhand { font-family: 'Snell Roundhand'; }
-.SnellRoundhandBlack { font-family: 'Snell Roundhand Black'; }
 .SongtiSC { font-family: 'Songti SC'; }
 .SongtiTC { font-family: 'Songti TC'; }
 .STFangSong { font-family: 'ST FangSong'; }
