@@ -1,7 +1,7 @@
 {
   "name": "simple-usfm-alignment-prototype",
   "license": "MIT",
-  "version": "0.7.8",
+  "version": "0.7.9",
   "homepage": "https://simple-usfm-alignment-prototype.netlify.app/",
   "private": false,
   "dependencies": {
