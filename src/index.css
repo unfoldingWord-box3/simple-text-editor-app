@@ -60,13 +60,28 @@ code {
   @apply border-t-2 border-b-2 border-r-2;
 }
 
-.menuitems {
+.dropdown {
+  @apply relative;
+  @apply inline-block;
+  @apply text-left;
+}
+
+.menuitemsall {
   @apply absolute right-0 w-40 mt-0.5 origin-top-right;
   @apply bg-white;
   @apply divide-y divide-gray-900 divide-opacity-50;
   @apply rounded-md shadow-lg;
   @apply ring-1 ring-black ring-opacity-5;
   @apply focus:outline-none;
+}
+
+.subgroup {
+  @apply px-1;
+  @apply py-1;
+}
+
+.subheading {
+  @apply text-gray-900;
 }
 
 .menuitem {
@@ -77,6 +92,7 @@ code {
   @apply px-0.5;
   @apply py-0.5;
   @apply text-xs;
+  @apply text-left;
 }
 
 .menuitemnohov {
@@ -218,7 +234,7 @@ code {
 
 }
 
-/* A Compilation of Windows and MacOS System Font Families, including supplemental language packs:  */                                                        */
+/* A Compilation of Windows and MacOS System Font Families, including supplemental language packs:  */
 /*    - meant to exclude symbols, icons, emojis, assets, wingdings, webdings, ornaments, math, etc. */
 /*    - meant to exclude variants - bold, italic, oblique, light, medium, thin, extra, etc.         */
 .AdelleSansDevanagari { font-family: 'Adelle Sans Devanagari'; }

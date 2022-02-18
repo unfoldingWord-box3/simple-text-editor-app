@@ -4,28 +4,28 @@ import { Fragment } from 'react'
 export default function FontDropdown(props) {
   const {font, setFont} = props;
 
-  // Test font availability.
+  /** Test font availability. */
   function doesFontExist(fontName) {
-    // Create an in-memory Canvas element.
+    /** Create an in-memory Canvas element. */
     var canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
-    // The text whose final pixel size will be measured
+    /** The text whose final pixel size will be measured */
     const text = "abcdefghijklmnopqrstuvwxyz0123456789";
-    // Baseline font; Must be available for the test to work.
+    /** Baseline font; Must be available for the test to work. */
     context.font = "72px monospace";
-    // Get the size of text with the baseline font.
+    /** Get the size of text with the baseline font. */
     const baselineSize = context.measureText(text).width;
-    // Specify the font to test
+    /** Specify the font to test */
     context.font = "72px '" + fontName + "', monospace";
-    // Get the size of the text with the tested font.
+    /** Get the size of the text with the tested font. */
     const newSize = context.measureText(text).width;
-    // Remove the in-memory Canvas element.
+    /** Remove the in-memory Canvas element. */
     canvas = null;
-    // If the size of the two text instances differs, then font exists.
+    /** If the size of the two text instances differs, then font exists. */
     return (newSize === baselineSize ? false : true);
   }
 
-  // Which of these Graphite-enabled fonts are locally installed?
+  /** Which of these Graphite-enabled fonts are locally installed? */
   const isAbyssinicaSIL = doesFontExist('Abyssinica SIL')
   const isAkatab = doesFontExist('Akatab')
   const isAlkalami = doesFontExist('Alkalami')
@@ -57,10 +57,10 @@ export default function FontDropdown(props) {
   const isSophiaNubian = doesFontExist('Sophia Nubian')
   const isTagmukay = doesFontExist('Tagmukay')
   const isTaiHeritagePro = doesFontExist('Tai Heritage Pro')
-  // Are any Graphite-enabled fonts locally installed?
+  /** Are any Graphite-enabled fonts locally installed? */
   const isNoGEFonts = (!isAbyssinicaSIL || !isAkatab || !isAlkalami || !isAlkalamiLight || !isAndika || !isAnnapurnaSIL || !isApparatusSIL || !isAwamiNastaliq || !isCharisSIL || !isDaiBannaSILBook || !isDaiBannaSILLight || !isDoulosSIL || !isDoulosSILCipher || !isEzraSIL || !isEzraSILSR || !isGalatiaSIL || !isGentiumPlus || !isHarmattan || !isKhmerBusra || !isKhmerMondulkiri || !isLateefGR || !isMingzat || !isNamdhinggoSIL || !isNarnoor || !isNuosuSIL || !isPadauk || !isScheherazadeNew || !isShimenkan || !isSophiaNubian || !isTagmukay || !isTaiHeritagePro);
 
-  // Which of these Windows and MacOS system fonts are locally installed?
+  /** Which of these Windows and MacOS system fonts are locally installed? */
   const isAdelleSansDevanagari = doesFontExist('Adelle Sans Devanagari')
   const isAharoni = doesFontExist('Aharoni')
   const isAlBayan = doesFontExist('Al Bayan')
@@ -506,11 +506,14 @@ export default function FontDropdown(props) {
   const isYuppySC = doesFontExist('Yuppy SC')
   const isZapfChancery = doesFontExist('Zapf Chancery')
   const isZapfino = doesFontExist('Zapfino')
-        
+  
+  /** Should Graphite-enabled fonts be displayed? */
   const graphiteEnabled = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ? true : false);
 
-  /** Graphite-enabled woff and woff2 fonts included */
+  /** Set font state for default font */
   const onFontClear = () => { setFont(''); };
+
+  /** Set font state for Graphite-enabled woff and woff2 fonts provided */
   const onFontAkatabRW = () => { setFont('AkatabRW'); };
   const onFontAlkalamiLW = () => { setFont('AlkalamiLW'); };
   const onFontAlkalamiRW = () => { setFont('AlkalamiRW'); };
@@ -526,7 +529,7 @@ export default function FontDropdown(props) {
   const onFontTagmukayRW = () => { setFont('TagmukayRW'); };
   const onFontTaiHeritageProRW = () => { setFont('TaiHeritageProRW'); };
 
-  /** Graphite-enabled fonts if locally installed */
+  /** Set font state for Graphite-enabled fonts, for use when locally detected */
   const onFontAbyssinicaSIL = () => { setFont('AbyssinicaSIL'); };
   const onFontAkatab = () => { setFont('Akatab'); };
   const onFontAlkalami = () => { setFont('Alkalami'); };
@@ -559,7 +562,7 @@ export default function FontDropdown(props) {
   const onFontTagmukay = () => { setFont('Tagmukay'); };
   const onFontTaiHeritagePro = () => { setFont('TaiHeritagePro'); };
 
-  /** Windows 11 and MacOS system fonts if locally installed */
+  /** Set font state for these Windows and MacOS fonts, for use when locally detected */
   const onFontAdelleSansDevanagari = () => { setFont('AdelleSansDevanagari'); };
   const onFontAharoni = () => { setFont('Aharoni'); };
   const onFontAlBayan = () => { setFont('AlBayan'); };
@@ -1005,10 +1008,14 @@ export default function FontDropdown(props) {
   const onFontYuppySC = () => { setFont('YuppySC'); };
   const onFontZapfChancery = () => { setFont('ZapfChancery'); };
   const onFontZapfino = () => { setFont('Zapfino'); };
-          
+
+  /** Identify the font currently set */
   const fontOnOrOff = (itemFont) => font === itemFont ? 'on' : ''
+
+  /** Font Name display in dropdown menu */
   const itemPresentation = (itemName) => "➤" + itemName
 
+  /** Assemble the menu item button for each font */
   function FontMenuItem(itemName, itemClick, itemFont) {
 
     const fontActive = fontOnOrOff(itemFont)
@@ -1017,7 +1024,7 @@ export default function FontDropdown(props) {
     return (
       <Menu.Item>
       {({ active }) => (
-        <button  type="button" onClick={itemClick} className={`${ active ? 'menuitemhov' : 'menuitemnohov' } text-left group menuitem ${fontActive}`}>
+        <button  type="button" onClick={itemClick} className={`${ active ? 'menuitemhov' : 'menuitemnohov' } group menuitem ${fontActive}`}>
         {fontList}
       </button>
       )}
@@ -1025,10 +1032,13 @@ export default function FontDropdown(props) {
     )
   }
 
+  /** Dropdown button indication when a font is set */
   const fontDropdownOnOrOff = font === "" ? "btnAll btnRight" : "btnAll btnRight on"
+
+  /** Dropdown button indication of which font is set */
   const fontDropdownPresentation = font === "" ? "Set Font ⇩" : font + " ⇩"
 
-  /** Graphite-enabled woff and woff2 fonts included */
+  /** Assemble menu items for Graphite-enabled woff and woff2 fonts provided */
   const defaultFont = FontMenuItem('Default Font', onFontClear, '')
   const akatabRW = FontMenuItem('Akatab 2.000', onFontAkatabRW, 'AkatabRW')
   const alkalamiRW = FontMenuItem('Alkalami 1.200', onFontAlkalamiRW, 'AlkalamiRW')
@@ -1045,7 +1055,7 @@ export default function FontDropdown(props) {
   const tagmukayRW = FontMenuItem('Tagmukay 2.000', onFontTagmukayRW, 'TagmukayRW')
   const taiHeritageProRW = FontMenuItem('TaiHeritagePro 2.600', onFontTaiHeritageProRW, 'TaiHeritageProRW')
 
-  /** Graphite-enabled fonts if locally installed */
+  /** Assemble menu items for Graphite-enabled fonts locally detected */
   const AbyssinicaSIL = FontMenuItem('Abyssinica SIL', onFontAbyssinicaSIL, 'AbyssinicaSIL')
   const Akatab = FontMenuItem('Akatab', onFontAkatab, 'Akatab')
   const Alkalami = FontMenuItem('Alkalami', onFontAlkalami, 'Alkalami')
@@ -1078,7 +1088,7 @@ export default function FontDropdown(props) {
   const Tagmukay = FontMenuItem('Tagmukay', onFontTagmukay, 'Tagmukay')
   const TaiHeritagePro = FontMenuItem('Tai Heritage Pro', onFontTaiHeritagePro, 'TaiHeritagePro')
 
-  /** Windows 11 and MacOS system fonts if locally installed */
+  /** Assemble menu items Windows and MacOS fonts locally detected */
   const AdelleSansDevanagari = FontMenuItem('Adelle Sans Devanagari', onFontAdelleSansDevanagari, 'AdelleSansDevanagari')
   const Aharoni = FontMenuItem('Aharoni', onFontAharoni, 'Aharoni')
   const AlBayan = FontMenuItem('Al Bayan', onFontAlBayan, 'AlBayan')
@@ -1524,9 +1534,10 @@ export default function FontDropdown(props) {
   const YuppySC = FontMenuItem('Yuppy SC', onFontYuppySC, 'YuppySC')
   const ZapfChancery = FontMenuItem('Zapf Chancery', onFontZapfChancery, 'ZapfChancery')
   const Zapfino = FontMenuItem('Zapfino', onFontZapfino, 'Zapfino')  
-        
+
+  /** Return the Dropdown */
   return (
-      <Menu as="div" className="relative inline-block text-left" style={{textAlign: "center"}}>
+      <Menu as="div" className="dropdown">
         <div>
           <Menu.Button className={fontDropdownOnOrOff}>
             {fontDropdownPresentation}
@@ -1541,12 +1552,12 @@ export default function FontDropdown(props) {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="menuitems">
-            <div className="px-1 py-1">
+          <Menu.Items className="menuitemsall">
+            <div className="subgroup">
               {defaultFont}
             </div>
-            {graphiteEnabled && <div className="px-1 py-1">
-             <span className="text-left text-gray-900 group menuitem"><b>Graphite-enabled:</b></span>
+            {graphiteEnabled && <div className="subgroup">
+             <span className="subheading group menuitem"><b>Graphite-enabled:</b></span>
               {akatabRW}
               {alkalamiRW}
               {alkalamiLW}
@@ -1562,8 +1573,8 @@ export default function FontDropdown(props) {
               {tagmukayRW}
               {taiHeritageProRW}
             </div>}
-            {graphiteEnabled && <div className="px-1 py-1">
-              <span className="text-left text-gray-900 group menuitem"><b>Graphite-enabled (local):<em>{isNoGEFonts && ' -none detected-'}</em></b></span>
+            {graphiteEnabled && <div className="subgroup">
+             <span className="subheading group menuitem"><b>Graphite-enabled (local):<em>{isNoGEFonts && ' -none detected-'}</em></b></span>
               {isAbyssinicaSIL && AbyssinicaSIL}
               {isAkatab && Akatab}
               {isAlkalami && Alkalami}
@@ -1594,10 +1605,10 @@ export default function FontDropdown(props) {
               {isShimenkan && Shimenkan}
               {isSophiaNubian && SophiaNubian}
               {isTagmukay && Tagmukay}
-              {isTaiHeritagePro && TaiHeritagePro}              
+              {isTaiHeritagePro && TaiHeritagePro}
             </div>}
-            <div className="px-1 py-1">
-              <span className={'text-left text-gray-900 group menuitem'}><b>Detected Fonts:</b></span>
+            <div className="subgroup">
+             <span className="subheading group menuitem"><b>Detected Fonts:</b></span>
               {isAdelleSansDevanagari && AdelleSansDevanagari}
               {isAharoni && Aharoni}
               {isAlBayan && AlBayan}
@@ -2042,7 +2053,7 @@ export default function FontDropdown(props) {
               {isYuantiTC && YuantiTC}
               {isYuppySC && YuppySC}
               {isZapfChancery && ZapfChancery}
-              {isZapfino && Zapfino}              
+              {isZapfino && Zapfino}
             </div>
           </Menu.Items>
         </Transition>
