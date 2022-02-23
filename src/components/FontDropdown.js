@@ -1,11 +1,11 @@
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment, useCallback, useMemo } from 'react'
 
 export default function FontDropdown(props) {
   const {font, setFont} = props;
 
   /** Test font availability. */
-  function doesFontExist(fontName) {
+  const doesFontExist = useCallback((fontName) => {
     /** Create an in-memory Canvas element. */
     var canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
@@ -21,1006 +21,1011 @@ export default function FontDropdown(props) {
     const newSize = context.measureText(text).width;
     /** Remove the in-memory Canvas element. */
     canvas = null;
+
+    console.log("doesFontExist ran");
+
     /** If the size of the two text instances differs, then font exists. */
     return (newSize === baselineSize ? false : true);
-  }
+  }, []);
 
-  /** Which of these Graphite-enabled fonts are locally installed? */
-  const isAbyssinicaSIL = doesFontExist('Abyssinica SIL')
-  const isAkatab = doesFontExist('Akatab')
-  const isAlkalami = doesFontExist('Alkalami')
-  const isAlkalamiLight = doesFontExist('Alkalami Light')
-  const isAndika = doesFontExist('Andika')
-  const isAnnapurnaSIL = doesFontExist('Annapurna SIL')
-  const isApparatusSIL = doesFontExist('Apparatus SIL')
-  const isAwamiNastaliq = doesFontExist('Awami Nastaliq')
-  const isCharisSIL = doesFontExist('Charis SIL')
-  const isDaiBannaSILBook = doesFontExist('Dai Banna SIL Book')
-  const isDaiBannaSILLight = doesFontExist('Dai Banna SIL Light')
-  const isDoulosSIL = doesFontExist('Doulos SIL')
-  const isDoulosSILCipher = doesFontExist('Doulos SIL Cipher')
-  const isEzraSIL = doesFontExist('Ezra SIL')
-  const isEzraSILSR = doesFontExist('Ezra SIL SR')
-  const isGalatiaSIL = doesFontExist('Galatia SIL')
-  const isGentiumPlus = doesFontExist('Gentium Plus')
-  const isHarmattan = doesFontExist('Harmattan')
-  const isKhmerBusra = doesFontExist('Khmer Busra')
-  const isKhmerMondulkiri = doesFontExist('Khmer Mondulkiri')
-  const isLateefGR = doesFontExist('LateefGR')
-  const isMingzat = doesFontExist('Mingzat')
-  const isNamdhinggoSIL = doesFontExist('Namdhinggo SIL')
-  const isNarnoor = doesFontExist('Narnoor')
-  const isNuosuSIL = doesFontExist('Nuosu SIL')
-  const isPadauk = doesFontExist('Padauk')
-  const isScheherazadeNew = doesFontExist('Scheherazade New')
-  const isShimenkan = doesFontExist('Shimenkan')
-  const isSophiaNubian = doesFontExist('Sophia Nubian')
-  const isTagmukay = doesFontExist('Tagmukay')
-  const isTaiHeritagePro = doesFontExist('Tai Heritage Pro')
-  /** Are any Graphite-enabled fonts locally installed? */
-  const isNoGEFonts = (!isAbyssinicaSIL || !isAkatab || !isAlkalami || !isAlkalamiLight || !isAndika || !isAnnapurnaSIL || !isApparatusSIL || !isAwamiNastaliq || !isCharisSIL || !isDaiBannaSILBook || !isDaiBannaSILLight || !isDoulosSIL || !isDoulosSILCipher || !isEzraSIL || !isEzraSILSR || !isGalatiaSIL || !isGentiumPlus || !isHarmattan || !isKhmerBusra || !isKhmerMondulkiri || !isLateefGR || !isMingzat || !isNamdhinggoSIL || !isNarnoor || !isNuosuSIL || !isPadauk || !isScheherazadeNew || !isShimenkan || !isSophiaNubian || !isTagmukay || !isTaiHeritagePro);
+    /** Which of these Graphite-enabled fonts are locally installed? */
+    const isAbyssinicaSIL = useMemo(() => doesFontExist('Abyssinica SIL'), [doesFontExist]);
+    const isAkatab = useMemo(() => doesFontExist('Akatab'), [doesFontExist]);
+    const isAlkalami = useMemo(() => doesFontExist('Alkalami'), [doesFontExist]);
+    const isAlkalamiLight = useMemo(() => doesFontExist('Alkalami Light'), [doesFontExist]);
+    const isAndika = useMemo(() => doesFontExist('Andika'), [doesFontExist]);
+    const isAnnapurnaSIL = useMemo(() => doesFontExist('Annapurna SIL'), [doesFontExist]);
+    const isApparatusSIL = useMemo(() => doesFontExist('Apparatus SIL'), [doesFontExist]);
+    const isAwamiNastaliq = useMemo(() => doesFontExist('Awami Nastaliq'), [doesFontExist]);
+    const isCharisSIL = useMemo(() => doesFontExist('Charis SIL'), [doesFontExist]);
+    const isDaiBannaSILBook = useMemo(() => doesFontExist('Dai Banna SIL Book'), [doesFontExist]);
+    const isDaiBannaSILLight = useMemo(() => doesFontExist('Dai Banna SIL Light'), [doesFontExist]);
+    const isDoulosSIL = useMemo(() => doesFontExist('Doulos SIL'), [doesFontExist]);
+    const isDoulosSILCipher = useMemo(() => doesFontExist('Doulos SIL Cipher'), [doesFontExist]);
+    const isEzraSIL = useMemo(() => doesFontExist('Ezra SIL'), [doesFontExist]);
+    const isEzraSILSR = useMemo(() => doesFontExist('Ezra SIL SR'), [doesFontExist]);
+    const isGalatiaSIL = useMemo(() => doesFontExist('Galatia SIL'), [doesFontExist]);
+    const isGentiumPlus = useMemo(() => doesFontExist('Gentium Plus'), [doesFontExist]);
+    const isHarmattan = useMemo(() => doesFontExist('Harmattan'), [doesFontExist]);
+    const isKhmerBusra = useMemo(() => doesFontExist('Khmer Busra'), [doesFontExist]);
+    const isKhmerMondulkiri = useMemo(() => doesFontExist('Khmer Mondulkiri'), [doesFontExist]);
+    const isLateefGR = useMemo(() => doesFontExist('LateefGR'), [doesFontExist]);
+    const isMingzat = useMemo(() => doesFontExist('Mingzat'), [doesFontExist]);
+    const isNamdhinggoSIL = useMemo(() => doesFontExist('Namdhinggo SIL'), [doesFontExist]);
+    const isNarnoor = useMemo(() => doesFontExist('Narnoor'), [doesFontExist]);
+    const isNuosuSIL = useMemo(() => doesFontExist('Nuosu SIL'), [doesFontExist]);
+    const isPadauk = useMemo(() => doesFontExist('Padauk'), [doesFontExist]);
+    const isScheherazadeNew = useMemo(() => doesFontExist('Scheherazade New'), [doesFontExist]);
+    const isShimenkan = useMemo(() => doesFontExist('Shimenkan'), [doesFontExist]);
+    const isSophiaNubian = useMemo(() => doesFontExist('Sophia Nubian'), [doesFontExist]);
+    const isTagmukay = useMemo(() => doesFontExist('Tagmukay'), [doesFontExist]);
+    const isTaiHeritagePro = useMemo(() => doesFontExist('Tai Heritage Pro'), [doesFontExist]);
+    /** Are any Graphite-enabled fonts locally installed? */
+    const isNoGEFonts = (!isAbyssinicaSIL || !isAkatab || !isAlkalami || !isAlkalamiLight || !isAndika || !isAnnapurnaSIL || !isApparatusSIL || !isAwamiNastaliq || !isCharisSIL || !isDaiBannaSILBook || !isDaiBannaSILLight || !isDoulosSIL || !isDoulosSILCipher || !isEzraSIL || !isEzraSILSR || !isGalatiaSIL || !isGentiumPlus || !isHarmattan || !isKhmerBusra || !isKhmerMondulkiri || !isLateefGR || !isMingzat || !isNamdhinggoSIL || !isNarnoor || !isNuosuSIL || !isPadauk || !isScheherazadeNew || !isShimenkan || !isSophiaNubian || !isTagmukay || !isTaiHeritagePro);
 
-  /** Which of these Windows and MacOS system fonts are locally installed? */
-  const isAdelleSansDevanagari = doesFontExist('Adelle Sans Devanagari')
-  const isAharoni = doesFontExist('Aharoni')
-  const isAlBayan = doesFontExist('Al Bayan')
-  const isAlFirat = doesFontExist('Al Firat')
-  const isAlKhalil = doesFontExist('Al Khalil')
-  const isAlNile = doesFontExist('Al Nile')
-  const isAlRafidain = doesFontExist('Al Rafidain')
-  const isAlRafidainAlFanni = doesFontExist('Al Rafidain Al Fanni')
-  const isAlTarikh = doesFontExist('Al Tarikh')
-  const isAldhabi = doesFontExist('Aldhabi')
-  const isAlgiers = doesFontExist('Algiers')
-  const isAmericanTypewriter = doesFontExist('American Typewriter')
-  const isAndaleMono = doesFontExist('Andalé Mono')
-  const isAndalus = doesFontExist('Andalus')
-  const isAngsanaNew = doesFontExist('Angsana New')
-  const isAngsanaUPC = doesFontExist('AngsanaUPC')
-  const isAnnaiMN = doesFontExist('Annai MN')
-  const isAparajita = doesFontExist('Aparajita')
-  const isAppleBraille = doesFontExist('Apple Braille')
-  const isAppleCasual = doesFontExist('Apple Casual')
-  const isAppleChancery = doesFontExist('Apple Chancery')
-  const isAppleGaramond = doesFontExist('Apple Garamond')
-  const isAppleGothic = doesFontExist('Apple Gothic')
-  const isAppleLiGothic = doesFontExist('Apple LiGothic')
-  const isAppleLiSung = doesFontExist('Apple LiSung')
-  const isAppleMyungjo = doesFontExist('Apple Myungjo')
-  const isAppleSDGothicNeo = doesFontExist('Apple SD Gothic Neo')
-  const isAquaKana = doesFontExist('AquaKana')
-  const isArabicTypesetting = doesFontExist('Arabic Typesetting')
-  const isArial = doesFontExist('Arial')
-  const isArialHebrew = doesFontExist('Arial Hebrew')
-  const isArialHebrewScholar = doesFontExist('Arial Hebrew Scholar')
-  const isArialNarrow = doesFontExist('Arial Narrow')
-  const isArialNova = doesFontExist('Arial Nova')
-  const isArialUnicodeMS = doesFontExist('Arial Unicode MS')
-  const isAvenir = doesFontExist('Avenir')
-  const isAyuthaya = doesFontExist('Ayuthaya')
-  const isBaghdad = doesFontExist('Baghdad')
-  const isBahnschrift = doesFontExist('Bahnschrift')
-  const isBaloo = doesFontExist('Baloo')
-  const isBalooBhai = doesFontExist('Baloo Bhai')
-  const isBalooBhaijaan = doesFontExist('Baloo Bhaijaan')
-  const isBalooBhaina = doesFontExist('Baloo Bhaina')
-  const isBalooChettan = doesFontExist('Baloo Chettan')
-  const isBalooDa = doesFontExist('Baloo Da')
-  const isBalooPaaji = doesFontExist('Baloo Paaji')
-  const isBalooTamma = doesFontExist('Baloo Tamma')
-  const isBalooTammudu = doesFontExist('Baloo Tammudu')
-  const isBalooThambi = doesFontExist('Baloo Thambi')
-  const isBanglaMN = doesFontExist('Bangla MN')
-  const isBanglaSangamMN = doesFontExist('Bangla Sangam MN')
-  const isBaoliSC = doesFontExist('Baoli SC')
-  const isBaoliTC = doesFontExist('Baoli TC')
-  const isBaskerville = doesFontExist('Baskerville')
-  const isBasra = doesFontExist('Basra')
-  const isBatang = doesFontExist('Batang')
-  const isBeijing = doesFontExist('Beijing')
-  const isBeirut = doesFontExist('Beirut')
-  const isBiauKai = doesFontExist('BiauKai')
-  const isBigCaslon = doesFontExist('Big Caslon')
-  const isBIZUDGothic = doesFontExist('BIZ UDGothic')
-  const isBIZUDMincho = doesFontExist('BIZ UDMincho')
-  const isBodoni72 = doesFontExist('Bodoni 72')
-  const isBraganza = doesFontExist('Braganza')
-  const isBrowalliaNew = doesFontExist('Browallia New')
-  const isBrowalliaUPC = doesFontExist('BrowalliaUPC')
-  const isBrushScript = doesFontExist('Brush Script')
-  const isCalibri = doesFontExist('Calibri')
-  const isCambayDevanagari = doesFontExist('Cambay Devanagari')
-  const isCambria = doesFontExist('Cambria')
-  const isCandara = doesFontExist('Candara')
-  const isCanela = doesFontExist('Canela')
-  const isCanelaDeck = doesFontExist('Canela Deck')
-  const isCapitals = doesFontExist('Capitals')
-  const isCenturyGothic = doesFontExist('Century Gothic')
-  const isCenturySchoolbook = doesFontExist('Century Schoolbook')
-  const isChalkboard = doesFontExist('Chalkboard')
-  const isChalkduster = doesFontExist('Chalkduster')
-  const isCharcoal = doesFontExist('Charcoal')
-  const isCharcoalCY = doesFontExist('Charcoal CY')
-  const isCharterRoman = doesFontExist('Charter Roman')
-  const isChicago = doesFontExist('Chicago')
-  const isCochin = doesFontExist('Cochin')
-  const isComicSans = doesFontExist('Comic Sans')
-  const isComicSansMS = doesFontExist('Comic Sans MS')
-  const isConsolas = doesFontExist('Consolas')
-  const isConstantia = doesFontExist('Constantia')
-  const isCooper = doesFontExist('Cooper')
-  const isCopperplate = doesFontExist('Copperplate')
-  const isCorbel = doesFontExist('Corbel')
-  const isCordiaNew = doesFontExist('Cordia New')
-  const isCordiaUPC = doesFontExist('CordiaUPC')
-  const isCorsivaHebrew = doesFontExist('Corsiva Hebrew')
-  const isCourier = doesFontExist('Courier')
-  const isCourierNew = doesFontExist('Courier New')
-  const isDamascus = doesFontExist('Damascus')
-  const isDaunPenh = doesFontExist('DaunPenh')
-  const isDavid = doesFontExist('David')
-  const isDearJoeFour = doesFontExist('Dear Joe Four')
-  const isDecoTypeNaskh = doesFontExist('DecoType Naskh')
-  const isDengXian = doesFontExist('DengXian')
-  const isDevanagari = doesFontExist('Devanagari')
-  const isDevanagariMT = doesFontExist('Devanagari MT')
-  const isDevanagariSangamMN = doesFontExist('Devanagari Sangam MN')
-  const isDFKaiSB = doesFontExist('DFKai-SB')
-  const isDidot = doesFontExist('Didot')
-  const isDijla = doesFontExist('Dijla')
-  const isDilleniaUPC = doesFontExist('DilleniaUPC')
-  const isDiwanKufi = doesFontExist('Diwan Kufi')
-  const isDiwanThuluth = doesFontExist('Diwan Thuluth')
-  const isDokChampa = doesFontExist('DokChampa')
-  const isDomaineDisplay = doesFontExist('Domaine Display')
-  const isDotum = doesFontExist('Dotum')
-  const isEbrima = doesFontExist('Ebrima')
-  const isEstrangeloEdessa = doesFontExist('Estrangelo Edessa')
-  const isEucrosiaUPC = doesFontExist('EucrosiaUPC')
-  const isEuphemia = doesFontExist('Euphemia')
-  const isEuphemiaUCAS = doesFontExist('Euphemia UCAS')
-  const isFangSong = doesFontExist('FangSong')
-  const isFarah = doesFontExist('Farah')
-  const isFarisi = doesFontExist('Farisi')
-  const isForgottenFuturist = doesFontExist('Forgotten Futurist')
-  const isFoundersGrotesk = doesFontExist('Founders Grotesk')
-  const isFranklinGothic = doesFontExist('Franklin Gothic')
-  const isFrankRuehl = doesFontExist('FrankRuehl')
-  const isFreesiaUPC = doesFontExist('FreesiaUPC')
-  const isFutura = doesFontExist('Futura')
-  const isGabriola = doesFontExist('Gabriola')
-  const isGadget = doesFontExist('Gadget')
-  const isGadugi = doesFontExist('Gadugi')
-  const isGalvji = doesFontExist('Galvji')
-  const isGaramond = doesFontExist('Garamond')
-  const isGautami = doesFontExist('Gautami')
-  const isGB18030Bitmap = doesFontExist('GB18030 Bitmap')
-  const isGeezaPro = doesFontExist('Geeza Pro')
-  const isGeezah = doesFontExist('Geezah')
-  const isGeneva = doesFontExist('Geneva')
-  const isGenevaCY = doesFontExist('Geneva CY')
-  const isGeorgia = doesFontExist('Georgia')
-  const isGeorgiaPro = doesFontExist('Georgia Pro')
-  const isGillSans = doesFontExist('Gill Sans')
-  const isGillSansNova = doesFontExist('Gill Sans Nova')
-  const isGisha = doesFontExist('Gisha')
-  const isGotu = doesFontExist('Gotu')
-  const isGraphik = doesFontExist('Graphik')
-  const isGujarati = doesFontExist('Gujarati')
-  const isGujaratiMT = doesFontExist('Gujarati MT')
-  const isGujaratiSangamMN = doesFontExist('Gujarati Sangam MN')
-  const isGulim = doesFontExist('Gulim')
-  const isGungSeoche = doesFontExist('Gung Seoche')
-  const isGungSeo = doesFontExist('GungSeo')
-  const isGungsuh = doesFontExist('Gungsuh')
-  const isGurmukhi = doesFontExist('Gurmukhi')
-  const isGurmukhiMN = doesFontExist('Gurmukhi MN')
-  const isGurmukhiMT = doesFontExist('Gurmukhi MT')
-  const isGurmukhiSangamMN = doesFontExist('Gurmukhi Sangam MN')
-  const isHangangche = doesFontExist('Hangangche')
-  const isHannotateSC = doesFontExist('Hannotate SC')
-  const isHannotateTC = doesFontExist('Hannotate TC')
-  const isHanziPenSC = doesFontExist('HanziPen SC')
-  const isHanziPenTC = doesFontExist('HanziPen TC')
-  const isHeadlineA = doesFontExist('HeadlineA')
-  const isHei = doesFontExist('Hei')
-  const isHeitiSC = doesFontExist('Heiti SC')
-  const isHelvetica = doesFontExist('Helvetica')
-  const isHelveticaCY = doesFontExist('Helvetica CY')
-  const isHelveticaNeue = doesFontExist('Helvetica Neue')
-  const isHerculanum = doesFontExist('Herculanum')
-  const isHiraginoKakuGothic = doesFontExist('Hiragino Kaku Gothic')
-  const isHiraginoKakuGothicPro = doesFontExist('Hiragino Kaku Gothic Pro')
-  const isHiraginoMaruGothicPro = doesFontExist('Hiragino Maru Gothic Pro')
-  const isHiraginoMinchoPro = doesFontExist('Hiragino Mincho Pro')
-  const isHiraginoSans = doesFontExist('Hiragino Sans')
-  const isHoeflerText = doesFontExist('Hoefler Text')
-  const isHopperScript = doesFontExist('Hopper Script')
-  const isImpact = doesFontExist('Impact')
-  const isInaiMathi = doesFontExist('Inai Mathi')
-  const isInkFree = doesFontExist('Ink Free')
-  const isIowanOldStyleTitling = doesFontExist('Iowan Old Style Titling')
-  const isIrisUPC = doesFontExist('IrisUPC')
-  const isIskoolaPota = doesFontExist('Iskoola Pota')
-  const isITCBodoni72 = doesFontExist('ITC Bodoni 72')
-  const isITFDevanagari = doesFontExist('ITF Devanagari')
-  const isITFDevanagariMarathi = doesFontExist('ITF Devanagari Marathi')
-  const isJaini = doesFontExist('Jaini')
-  const isJainiPurva = doesFontExist('Jaini Purva')
-  const isJasmineUPC = doesFontExist('JasmineUPC')
-  const isJavaneseText = doesFontExist('Javanese Text')
-  const isJungGothic = doesFontExist('Jung Gothic')
-  const isKai = doesFontExist('Kai')
-  const isKailasa = doesFontExist('Kailasa')
-  const isKaiTi = doesFontExist('KaiTi')
-  const isKaitiSC = doesFontExist('Kaiti SC')
-  const isKaitiTC = doesFontExist('Kaiti TC')
-  const isKalinga = doesFontExist('Kalinga')
-  const isKannadaMN = doesFontExist('Kannada MN')
-  const isKannadaSangamMN = doesFontExist('Kannada Sangam MN')
-  const isKartika = doesFontExist('Kartika')
-  const isKatari = doesFontExist('Katari')
-  const isKefa = doesFontExist('Kefa')
-  const isKeyboard = doesFontExist('Keyboard')
-  const isKhmerMN = doesFontExist('Khmer MN')
-  const isKhmerSangamMN = doesFontExist('Khmer Sangam MN')
-  const isKhmerUI = doesFontExist('Khmer UI')
-  const isKodchiangUPC = doesFontExist('KodchiangUPC')
-  const isKohinoorBangla = doesFontExist('Kohinoor Bangla')
-  const isKohinoorDevanagari = doesFontExist('Kohinoor Devanagari')
-  const isKohinoorTelugu = doesFontExist('Kohinoor Telugu')
-  const isKokila = doesFontExist('Kokila')
-  const isKokonor = doesFontExist('Kokonor')
-  const isKoufiAbjadi = doesFontExist('Koufi Abjadi')
-  const isKrungthep = doesFontExist('Krungthep')
-  const isKuenstlerScript = doesFontExist('Kuenstler Script')
-  const isKufiStandardGK = doesFontExist('KufiStandard GK')
-  const isLahoreGurmukhi = doesFontExist('Lahore Gurmukhi')
-  const isLaimoon = doesFontExist('Laimoon')
-  const isLaoMN = doesFontExist('Lao MN')
-  const isLaoSangamMN = doesFontExist('Lao Sangam MN')
-  const isLaoUI = doesFontExist('Lao UI')
-  const isLastResort = doesFontExist('LastResort')
-  const isLatha = doesFontExist('Latha')
-  const isLavaDevanagari = doesFontExist('Lava Devanagari')
-  const isLavaKannada = doesFontExist('Lava Kannada')
-  const isLavaTelugu = doesFontExist('Lava Telugu')
-  const isLeelawadee = doesFontExist('Leelawadee')
-  const isLeelawadeeUI = doesFontExist('Leelawadee UI')
-  const isLevenimMT = doesFontExist('Levenim MT')
-  const isLibianSC = doesFontExist('Libian SC')
-  const isLibianTC = doesFontExist('Libian TC')
-  const isLiHeiPro = doesFontExist('LiHei Pro')
-  const isLilyUPC = doesFontExist('LilyUPC')
-  const isLiSongPro = doesFontExist('LiSong Pro')
-  const isLucidaConsole = doesFontExist('Lucida Console')
-  const isLucidaGrande = doesFontExist('Lucida Grande')
-  const isLucidaSans = doesFontExist('Lucida Sans')
-  const isLucidaSansUnicode = doesFontExist('Lucida Sans Unicode')
-  const isLuminari = doesFontExist('Luminari')
-  const isMaku = doesFontExist('Maku')
-  const isMalayalamMN = doesFontExist('Malayalam MN')
-  const isMalayalamSangamMN = doesFontExist('Malayalam Sangam MN')
-  const isMalgunGothic = doesFontExist('Malgun Gothic')
-  const isMangal = doesFontExist('Mangal')
-  const isMarkerFelt = doesFontExist('Marker Felt')
-  const isMarlett = doesFontExist('Marlett')
-  const isMeiryo = doesFontExist('Meiryo')
-  const isMenlo = doesFontExist('Menlo')
-  const isMicrosoftHimalaya = doesFontExist('Microsoft Himalaya')
-  const isMicrosoftJhengHei = doesFontExist('Microsoft JhengHei')
-  const isMicrosoftNewTaiLue = doesFontExist('Microsoft New Tai Lue')
-  const isMicrosoftPhagsPa = doesFontExist('Microsoft PhagsPa')
-  const isMicrosoftSansSerif = doesFontExist('Microsoft Sans Serif')
-  const isMicrosoftTaiLe = doesFontExist('Microsoft Tai Le')
-  const isMicrosoftUighur = doesFontExist('Microsoft Uighur')
-  const isMicrosoftYaHei = doesFontExist('Microsoft YaHei')
-  const isMicrosoftYiBaiti = doesFontExist('Microsoft Yi Baiti')
-  const isMingLiU = doesFontExist('MingLiU')
-  const isMingLiUExtB = doesFontExist('MingLiU-ExtB')
-  const isMiriam = doesFontExist('Miriam')
-  const isMishafi = doesFontExist('Mishafi')
-  const isMishafiGold = doesFontExist('Mishafi Gold')
-  const isModak = doesFontExist('Modak')
-  const isMonaLisaSolidITCTT = doesFontExist('Mona Lisa Solid ITC TT')
-  const isMonaco = doesFontExist('Monaco')
-  const isMonacoCY = doesFontExist('Monaco CY')
-  const isMongolianBaiti = doesFontExist('Mongolian Baiti')
-  const isMonotypeLingWai = doesFontExist('Monotype LingWai')
-  const isMoolBoran = doesFontExist('MoolBoran')
-  const isMSGothic = doesFontExist('MS Gothic')
-  const isMSMincho = doesFontExist('MS Mincho')
-  const isMshtakan = doesFontExist('Mshtakan')
-  const isMukta = doesFontExist('Mukta')
-  const isMuktaMalar = doesFontExist('Mukta Malar')
-  const isMuktaVaani = doesFontExist('Mukta Vaani')
-  const isMuktaMahee = doesFontExist('MuktaMahee')
-  const isMuna = doesFontExist('Muna')
-  const isMVBoli = doesFontExist('MV Boli')
-  const isMyanmarMN = doesFontExist('Myanmar MN')
-  const isMyanmarSangamMN = doesFontExist('Myanmar Sangam MN')
-  const isMyanmarText = doesFontExist('Myanmar Text')
-  const isMyriadArabic = doesFontExist('Myriad Arabic')
-  const isNadeem = doesFontExist('Nadeem')
-  const isNanumBrushScript = doesFontExist('Nanum Brush Script')
-  const isNanumPenScript = doesFontExist('Nanum Pen Script')
-  const isNanumGothic = doesFontExist('NanumGothic')
-  const isNanumMyeongjo = doesFontExist('NanumMyeongjo')
-  const isNarkisim = doesFontExist('Narkisim')
-  const isNeueHaasGrotskTxtPro = doesFontExist('Neue Haas Grotesk Text Pro')
-  const isNewPeninim = doesFontExist('New Peninim')
-  const isNewPeninimMT = doesFontExist('New Peninim MT')
-  const isNewPeninimMTInclined = doesFontExist('New Peninim MT Inclined')
-  const isNewYork = doesFontExist('New York')
-  const isNirmalaUI = doesFontExist('Nirmala UI')
-  const isNisan = doesFontExist('Nisan')
-  const isNISCGB18030 = doesFontExist('NISC GB18030')
-  const isNoteworthy = doesFontExist('Noteworthy')
-  const isNotoNastaliqUrdu = doesFontExist('Noto Nastaliq Urdu')
-  const isNotoSansJavanese = doesFontExist('Noto Sans Javanese')
-  const isNotoSansKannada = doesFontExist('Noto Sans Kannada')
-  const isNotoSansMyanmar = doesFontExist('Noto Sans Myanmar')
-  const isNotoSansOriya = doesFontExist('Noto Sans Oriya')
-  const isNotoSerifKannada = doesFontExist('Noto Serif Kannada')
-  const isNotoSerifMyanmar = doesFontExist('Noto Serif Myanmar')
-  const isNyala = doesFontExist('Nyala')
-  const isOctoberDevanagari = doesFontExist('October Devanagari')
-  const isOctoberTamil = doesFontExist('October Tamil')
-  const isOptima = doesFontExist('Optima')
-  const isOriyaMN = doesFontExist('Oriya MN')
-  const isOriyaSangamMN = doesFontExist('Oriya Sangam MN')
-  const isOsaka = doesFontExist('Osaka')
-  const isOsakaMono = doesFontExist('Osaka-Mono')
-  const isPalatino = doesFontExist('Palatino')
-  const isPalatinoLinotype = doesFontExist('Palatino Linotype')
-  const isPapyrus = doesFontExist('Papyrus')
-  const isPCMyungjo = doesFontExist('PC Myungjo')
-  const isPhosphate = doesFontExist('Phosphate')
-  const isPilGi = doesFontExist('PilGi')
-  const isPilgiche = doesFontExist('Pilgiche')
-  const isPingFangHK = doesFontExist('PingFang HK')
-  const isPingFangSC = doesFontExist('PingFang SC')
-  const isPingFangTC = doesFontExist('PingFang TC')
-  const isPlantagenetCherokee = doesFontExist('Plantagenet Cherokee')
-  const isPortagoITCTT = doesFontExist('PortagoITC TT')
-  const isPrincetownLET = doesFontExist('Princetown LET')
-  const isProdukt = doesFontExist('Produkt')
-  const isProximaNova = doesFontExist('Proxima Nova')
-  const isPSLOrnanongPro = doesFontExist('PSL Ornanong Pro')
-  const isPTMono = doesFontExist('PT Mono')
-  const isPTSans = doesFontExist('PT Sans')
-  const isPTSansNarrow = doesFontExist('PT Sans Narrow')
-  const isPTSerif = doesFontExist('PT Serif')
-  const isPublicoHeadlineRoman = doesFontExist('Publico Headline Roman')
-  const isQuotesCaps = doesFontExist('Quotes Caps')
-  const isQuotesScript = doesFontExist('Quotes Script')
-  const isRaanana = doesFontExist('Raanana')
-  const isRaavi = doesFontExist('Raavi')
-  const isRaya = doesFontExist('Raya')
-  const isRockwell = doesFontExist('Rockwell')
-  const isRockwellNova = doesFontExist('Rockwell Nova')
-  const isRod = doesFontExist('Rod')
-  const isSakkalMajalla = doesFontExist('Sakkal Majalla')
-  const isSamaDevanagari = doesFontExist('Sama Devanagari')
-  const isSamaGujarati = doesFontExist('Sama Gujarati')
-  const isSamaGurmukhi = doesFontExist('Sama Gurmukhi')
-  const isSamaKannada = doesFontExist('Sama Kannada')
-  const isSamaMalayalam = doesFontExist('Sama Malayalam')
-  const isSamaTamil = doesFontExist('Sama Tamil')
-  const isSanFranciscoMono = doesFontExist('San Francisco Mono')
-  const isSana = doesFontExist('Sana')
-  const isSand = doesFontExist('Sand')
-  const isSanskritText = doesFontExist('Sanskrit Text')
-  const isSathu = doesFontExist('Sathu')
-  const isSauberScript = doesFontExist('Sauber Script')
-  const isSchoolHouseCursiveB = doesFontExist('SchoolHouse Cursive B')
-  const isSchoolHousePrintedA = doesFontExist('SchoolHouse Printed A')
-  const isSegoePrint = doesFontExist('Segoe Print')
-  const isSegoeScript = doesFontExist('Segoe Script')
-  const isSegoeUI = doesFontExist('Segoe UI')
-  const isSeoul = doesFontExist('Seoul')
-  const isSFArabic = doesFontExist('SF Arabic')
-  const isShinMyungjoNeue = doesFontExist('Shin Myungjo Neue')
-  const isShobhika = doesFontExist('Shobhika')
-  const isShonarBangla = doesFontExist('Shonar Bangla')
-  const isShreeDevanagari714 = doesFontExist('Shree Devanagari 714')
-  const isShruti = doesFontExist('Shruti')
-  const isSignPainter = doesFontExist('SignPainter')
-  const isSignPainterHouseScript = doesFontExist('SignPainter-HouseScript')
-  const isSilom = doesFontExist('Silom')
-  const isSimHei = doesFontExist('SimHei')
-  const isSimplifiedArabic = doesFontExist('Simplified Arabic')
-  const isSimSong = doesFontExist('SimSong')
-  const isSimSun = doesFontExist('SimSun')
-  const isSinhalaMN = doesFontExist('Sinhala MN')
-  const isSinhalaSangamMN = doesFontExist('Sinhala Sangam MN')
-  const isSitka = doesFontExist('Sitka')
-  const isSkia = doesFontExist('Skia')
-  const isSnellRoundhand = doesFontExist('Snell Roundhand')
-  const isSomer = doesFontExist('Somer')
-  const isSongtiSC = doesFontExist('Songti SC')
-  const isSongtiTC = doesFontExist('Songti TC')
-  const isSpotMono = doesFontExist('Spot Mono')
-  const isSTFangSong = doesFontExist('ST FangSong')
-  const isSTHeiti = doesFontExist('ST Heiti')
-  const isSTKaiti = doesFontExist('ST Kaiti')
-  const isSTSong = doesFontExist('ST Song')
-  const isSTXihei = doesFontExist('ST Xihei')
-  const isSTIXTwoText = doesFontExist('STIX Two Text')
-  const isSTIXGeneralRegular = doesFontExist('STIXGeneral-Regular')
-  const isStoneSansSemITCTT = doesFontExist('Stone Sans Sem ITC TT')
-  const isSukhumvitSetText = doesFontExist('Sukhumvit Set Text')
-  const isSylfaen = doesFontExist('Sylfaen')
-  const isSynchroLET = doesFontExist('Synchro LET')
-  const isTaeGraphic = doesFontExist('Tae Graphic')
-  const isTahoma = doesFontExist('Tahoma')
-  const isTaipei = doesFontExist('Taipei')
-  const isTamilMN = doesFontExist('Tamil MN')
-  const isTamilSangamMN = doesFontExist('Tamil Sangam MN')
-  const isTechno = doesFontExist('Techno')
-  const isTeluguMN = doesFontExist('Telugu MN')
-  const isTeluguSangamMN = doesFontExist('Telugu Sangam MN')
-  const isTextile = doesFontExist('Textile')
-  const isThonburi = doesFontExist('Thonburi')
-  const isTimes = doesFontExist('Times')
-  const isTimesCY = doesFontExist('Times CY')
-  const isTimesNewRoman = doesFontExist('Times New Roman')
-  const isTimesRoman = doesFontExist('Times Roman')
-  const isTiroBangla = doesFontExist('Tiro Bangla')
-  const isTiroDevanagariHindi = doesFontExist('Tiro Devanagari Hindi')
-  const isTiroDevanagariMarathi = doesFontExist('Tiro Devanagari Marathi')
-  const isTiroDevanagariSanskrit = doesFontExist('Tiro Devanagari Sanskrit')
-  const isTiroGurmukhi = doesFontExist('Tiro Gurmukhi')
-  const isTiroHindi = doesFontExist('Tiro Hindi')
-  const isTiroKannada = doesFontExist('Tiro Kannada')
-  const isTiroMarathi = doesFontExist('Tiro Marathi')
-  const isTiroSanskrit = doesFontExist('Tiro Sanskrit')
-  const isTiroTamil = doesFontExist('Tiro Tamil')
-  const isTiroTelugu = doesFontExist('Tiro Telugu')
-  const isToppanBunkyuGothic = doesFontExist('Toppan Bunkyu Gothic')
-  const isToppanBunkyuMincho = doesFontExist('Toppan Bunkyu Mincho')
-  const isTraditionalArabic = doesFontExist('Traditional Arabic')
-  const isTrattatello = doesFontExist('Trattatello')
-  const isTrebuchetMS = doesFontExist('Trebuchet MS')
-  const isTsukushiARoundGothic = doesFontExist('Tsukushi A Round Gothic')
-  const isTsukushiBRoundGothic = doesFontExist('Tsukushi B Round Gothic')
-  const isTunga = doesFontExist('Tunga')
-  const isTwCenMT = doesFontExist('Tw Cen MT')
-  const isUDDigiKyokasho = doesFontExist('UD Digi Kyokasho')
-  const isUrduTypesetting = doesFontExist('Urdu Typesetting')
-  const isUtsaah = doesFontExist('Utsaah')
-  const isVani = doesFontExist('Vani')
-  const isVerdana = doesFontExist('Verdana')
-  const isVerdanaPro = doesFontExist('Verdana Pro')
-  const isVijaya = doesFontExist('Vijaya')
-  const isVrinda = doesFontExist('Vrinda')
-  const isWaseem = doesFontExist('Waseem')
-  const isWawatiSC = doesFontExist('Wawati SC')
-  const isWawatiTC = doesFontExist('Wawati TC')
-  const isYaziji = doesFontExist('Yaziji')
-  const isYuGothic = doesFontExist('Yu Gothic')
-  const isYuKyokashoN = doesFontExist('Yu Kyokasho N')
-  const isYuMincho = doesFontExist('Yu Mincho')
-  const isYuantiSC = doesFontExist('Yuanti SC')
-  const isYuantiTC = doesFontExist('Yuanti TC')
-  const isYuppySC = doesFontExist('Yuppy SC')
-  const isZapfChancery = doesFontExist('Zapf Chancery')
-  const isZapfino = doesFontExist('Zapfino')
+    /** Which of these Windows and MacOS system fonts are locally installed? */
+    const isAdelleSansDevanagari = useMemo(() => doesFontExist('Adelle Sans Devanagari'), [doesFontExist]);
+    const isAharoni = useMemo(() => doesFontExist('Aharoni'), [doesFontExist]);
+    const isAlBayan = useMemo(() => doesFontExist('Al Bayan'), [doesFontExist]);
+    const isAlFirat = useMemo(() => doesFontExist('Al Firat'), [doesFontExist]);
+    const isAlKhalil = useMemo(() => doesFontExist('Al Khalil'), [doesFontExist]);
+    const isAlNile = useMemo(() => doesFontExist('Al Nile'), [doesFontExist]);
+    const isAlRafidain = useMemo(() => doesFontExist('Al Rafidain'), [doesFontExist]);
+    const isAlRafidainAlFanni = useMemo(() => doesFontExist('Al Rafidain Al Fanni'), [doesFontExist]);
+    const isAlTarikh = useMemo(() => doesFontExist('Al Tarikh'), [doesFontExist]);
+    const isAldhabi = useMemo(() => doesFontExist('Aldhabi'), [doesFontExist]);
+    const isAlgiers = useMemo(() => doesFontExist('Algiers'), [doesFontExist]);
+    const isAmericanTypewriter = useMemo(() => doesFontExist('American Typewriter'), [doesFontExist]);
+    const isAndaleMono = useMemo(() => doesFontExist('Andalé Mono'), [doesFontExist]);
+    const isAndalus = useMemo(() => doesFontExist('Andalus'), [doesFontExist]);
+    const isAngsanaNew = useMemo(() => doesFontExist('Angsana New'), [doesFontExist]);
+    const isAngsanaUPC = useMemo(() => doesFontExist('AngsanaUPC'), [doesFontExist]);
+    const isAnnaiMN = useMemo(() => doesFontExist('Annai MN'), [doesFontExist]);
+    const isAparajita = useMemo(() => doesFontExist('Aparajita'), [doesFontExist]);
+    const isAppleBraille = useMemo(() => doesFontExist('Apple Braille'), [doesFontExist]);
+    const isAppleCasual = useMemo(() => doesFontExist('Apple Casual'), [doesFontExist]);
+    const isAppleChancery = useMemo(() => doesFontExist('Apple Chancery'), [doesFontExist]);
+    const isAppleGaramond = useMemo(() => doesFontExist('Apple Garamond'), [doesFontExist]);
+    const isAppleGothic = useMemo(() => doesFontExist('Apple Gothic'), [doesFontExist]);
+    const isAppleLiGothic = useMemo(() => doesFontExist('Apple LiGothic'), [doesFontExist]);
+    const isAppleLiSung = useMemo(() => doesFontExist('Apple LiSung'), [doesFontExist]);
+    const isAppleMyungjo = useMemo(() => doesFontExist('Apple Myungjo'), [doesFontExist]);
+    const isAppleSDGothicNeo = useMemo(() => doesFontExist('Apple SD Gothic Neo'), [doesFontExist]);
+    const isAquaKana = useMemo(() => doesFontExist('AquaKana'), [doesFontExist]);
+    const isArabicTypesetting = useMemo(() => doesFontExist('Arabic Typesetting'), [doesFontExist]);
+    const isArial = useMemo(() => doesFontExist('Arial'), [doesFontExist]);
+    const isArialHebrew = useMemo(() => doesFontExist('Arial Hebrew'), [doesFontExist]);
+    const isArialHebrewScholar = useMemo(() => doesFontExist('Arial Hebrew Scholar'), [doesFontExist]);
+    const isArialNarrow = useMemo(() => doesFontExist('Arial Narrow'), [doesFontExist]);
+    const isArialNova = useMemo(() => doesFontExist('Arial Nova'), [doesFontExist]);
+    const isArialUnicodeMS = useMemo(() => doesFontExist('Arial Unicode MS'), [doesFontExist]);
+    const isAvenir = useMemo(() => doesFontExist('Avenir'), [doesFontExist]);
+    const isAyuthaya = useMemo(() => doesFontExist('Ayuthaya'), [doesFontExist]);
+    const isBaghdad = useMemo(() => doesFontExist('Baghdad'), [doesFontExist]);
+    const isBahnschrift = useMemo(() => doesFontExist('Bahnschrift'), [doesFontExist]);
+    const isBaloo = useMemo(() => doesFontExist('Baloo'), [doesFontExist]);
+    const isBalooBhai = useMemo(() => doesFontExist('Baloo Bhai'), [doesFontExist]);
+    const isBalooBhaijaan = useMemo(() => doesFontExist('Baloo Bhaijaan'), [doesFontExist]);
+    const isBalooBhaina = useMemo(() => doesFontExist('Baloo Bhaina'), [doesFontExist]);
+    const isBalooChettan = useMemo(() => doesFontExist('Baloo Chettan'), [doesFontExist]);
+    const isBalooDa = useMemo(() => doesFontExist('Baloo Da'), [doesFontExist]);
+    const isBalooPaaji = useMemo(() => doesFontExist('Baloo Paaji'), [doesFontExist]);
+    const isBalooTamma = useMemo(() => doesFontExist('Baloo Tamma'), [doesFontExist]);
+    const isBalooTammudu = useMemo(() => doesFontExist('Baloo Tammudu'), [doesFontExist]);
+    const isBalooThambi = useMemo(() => doesFontExist('Baloo Thambi'), [doesFontExist]);
+    const isBanglaMN = useMemo(() => doesFontExist('Bangla MN'), [doesFontExist]);
+    const isBanglaSangamMN = useMemo(() => doesFontExist('Bangla Sangam MN'), [doesFontExist]);
+    const isBaoliSC = useMemo(() => doesFontExist('Baoli SC'), [doesFontExist]);
+    const isBaoliTC = useMemo(() => doesFontExist('Baoli TC'), [doesFontExist]);
+    const isBaskerville = useMemo(() => doesFontExist('Baskerville'), [doesFontExist]);
+    const isBasra = useMemo(() => doesFontExist('Basra'), [doesFontExist]);
+    const isBatang = useMemo(() => doesFontExist('Batang'), [doesFontExist]);
+    const isBeijing = useMemo(() => doesFontExist('Beijing'), [doesFontExist]);
+    const isBeirut = useMemo(() => doesFontExist('Beirut'), [doesFontExist]);
+    const isBiauKai = useMemo(() => doesFontExist('BiauKai'), [doesFontExist]);
+    const isBigCaslon = useMemo(() => doesFontExist('Big Caslon'), [doesFontExist]);
+    const isBIZUDGothic = useMemo(() => doesFontExist('BIZ UDGothic'), [doesFontExist]);
+    const isBIZUDMincho = useMemo(() => doesFontExist('BIZ UDMincho'), [doesFontExist]);
+    const isBodoni72 = useMemo(() => doesFontExist('Bodoni 72'), [doesFontExist]);
+    const isBraganza = useMemo(() => doesFontExist('Braganza'), [doesFontExist]);
+    const isBrowalliaNew = useMemo(() => doesFontExist('Browallia New'), [doesFontExist]);
+    const isBrowalliaUPC = useMemo(() => doesFontExist('BrowalliaUPC'), [doesFontExist]);
+    const isBrushScript = useMemo(() => doesFontExist('Brush Script'), [doesFontExist]);
+    const isCalibri = useMemo(() => doesFontExist('Calibri'), [doesFontExist]);
+    const isCambayDevanagari = useMemo(() => doesFontExist('Cambay Devanagari'), [doesFontExist]);
+    const isCambria = useMemo(() => doesFontExist('Cambria'), [doesFontExist]);
+    const isCandara = useMemo(() => doesFontExist('Candara'), [doesFontExist]);
+    const isCanela = useMemo(() => doesFontExist('Canela'), [doesFontExist]);
+    const isCanelaDeck = useMemo(() => doesFontExist('Canela Deck'), [doesFontExist]);
+    const isCapitals = useMemo(() => doesFontExist('Capitals'), [doesFontExist]);
+    const isCenturyGothic = useMemo(() => doesFontExist('Century Gothic'), [doesFontExist]);
+    const isCenturySchoolbook = useMemo(() => doesFontExist('Century Schoolbook'), [doesFontExist]);
+    const isChalkboard = useMemo(() => doesFontExist('Chalkboard'), [doesFontExist]);
+    const isChalkduster = useMemo(() => doesFontExist('Chalkduster'), [doesFontExist]);
+    const isCharcoal = useMemo(() => doesFontExist('Charcoal'), [doesFontExist]);
+    const isCharcoalCY = useMemo(() => doesFontExist('Charcoal CY'), [doesFontExist]);
+    const isCharterRoman = useMemo(() => doesFontExist('Charter Roman'), [doesFontExist]);
+    const isChicago = useMemo(() => doesFontExist('Chicago'), [doesFontExist]);
+    const isCochin = useMemo(() => doesFontExist('Cochin'), [doesFontExist]);
+    const isComicSans = useMemo(() => doesFontExist('Comic Sans'), [doesFontExist]);
+    const isComicSansMS = useMemo(() => doesFontExist('Comic Sans MS'), [doesFontExist]);
+    const isConsolas = useMemo(() => doesFontExist('Consolas'), [doesFontExist]);
+    const isConstantia = useMemo(() => doesFontExist('Constantia'), [doesFontExist]);
+    const isCooper = useMemo(() => doesFontExist('Cooper'), [doesFontExist]);
+    const isCopperplate = useMemo(() => doesFontExist('Copperplate'), [doesFontExist]);
+    const isCorbel = useMemo(() => doesFontExist('Corbel'), [doesFontExist]);
+    const isCordiaNew = useMemo(() => doesFontExist('Cordia New'), [doesFontExist]);
+    const isCordiaUPC = useMemo(() => doesFontExist('CordiaUPC'), [doesFontExist]);
+    const isCorsivaHebrew = useMemo(() => doesFontExist('Corsiva Hebrew'), [doesFontExist]);
+    const isCourier = useMemo(() => doesFontExist('Courier'), [doesFontExist]);
+    const isCourierNew = useMemo(() => doesFontExist('Courier New'), [doesFontExist]);
+    const isDamascus = useMemo(() => doesFontExist('Damascus'), [doesFontExist]);
+    const isDaunPenh = useMemo(() => doesFontExist('DaunPenh'), [doesFontExist]);
+    const isDavid = useMemo(() => doesFontExist('David'), [doesFontExist]);
+    const isDearJoeFour = useMemo(() => doesFontExist('Dear Joe Four'), [doesFontExist]);
+    const isDecoTypeNaskh = useMemo(() => doesFontExist('DecoType Naskh'), [doesFontExist]);
+    const isDengXian = useMemo(() => doesFontExist('DengXian'), [doesFontExist]);
+    const isDevanagari = useMemo(() => doesFontExist('Devanagari'), [doesFontExist]);
+    const isDevanagariMT = useMemo(() => doesFontExist('Devanagari MT'), [doesFontExist]);
+    const isDevanagariSangamMN = useMemo(() => doesFontExist('Devanagari Sangam MN'), [doesFontExist]);
+    const isDFKaiSB = useMemo(() => doesFontExist('DFKai-SB'), [doesFontExist]);
+    const isDidot = useMemo(() => doesFontExist('Didot'), [doesFontExist]);
+    const isDijla = useMemo(() => doesFontExist('Dijla'), [doesFontExist]);
+    const isDilleniaUPC = useMemo(() => doesFontExist('DilleniaUPC'), [doesFontExist]);
+    const isDiwanKufi = useMemo(() => doesFontExist('Diwan Kufi'), [doesFontExist]);
+    const isDiwanThuluth = useMemo(() => doesFontExist('Diwan Thuluth'), [doesFontExist]);
+    const isDokChampa = useMemo(() => doesFontExist('DokChampa'), [doesFontExist]);
+    const isDomaineDisplay = useMemo(() => doesFontExist('Domaine Display'), [doesFontExist]);
+    const isDotum = useMemo(() => doesFontExist('Dotum'), [doesFontExist]);
+    const isEbrima = useMemo(() => doesFontExist('Ebrima'), [doesFontExist]);
+    const isEstrangeloEdessa = useMemo(() => doesFontExist('Estrangelo Edessa'), [doesFontExist]);
+    const isEucrosiaUPC = useMemo(() => doesFontExist('EucrosiaUPC'), [doesFontExist]);
+    const isEuphemia = useMemo(() => doesFontExist('Euphemia'), [doesFontExist]);
+    const isEuphemiaUCAS = useMemo(() => doesFontExist('Euphemia UCAS'), [doesFontExist]);
+    const isFangSong = useMemo(() => doesFontExist('FangSong'), [doesFontExist]);
+    const isFarah = useMemo(() => doesFontExist('Farah'), [doesFontExist]);
+    const isFarisi = useMemo(() => doesFontExist('Farisi'), [doesFontExist]);
+    const isForgottenFuturist = useMemo(() => doesFontExist('Forgotten Futurist'), [doesFontExist]);
+    const isFoundersGrotesk = useMemo(() => doesFontExist('Founders Grotesk'), [doesFontExist]);
+    const isFranklinGothic = useMemo(() => doesFontExist('Franklin Gothic'), [doesFontExist]);
+    const isFrankRuehl = useMemo(() => doesFontExist('FrankRuehl'), [doesFontExist]);
+    const isFreesiaUPC = useMemo(() => doesFontExist('FreesiaUPC'), [doesFontExist]);
+    const isFutura = useMemo(() => doesFontExist('Futura'), [doesFontExist]);
+    const isGabriola = useMemo(() => doesFontExist('Gabriola'), [doesFontExist]);
+    const isGadget = useMemo(() => doesFontExist('Gadget'), [doesFontExist]);
+    const isGadugi = useMemo(() => doesFontExist('Gadugi'), [doesFontExist]);
+    const isGalvji = useMemo(() => doesFontExist('Galvji'), [doesFontExist]);
+    const isGaramond = useMemo(() => doesFontExist('Garamond'), [doesFontExist]);
+    const isGautami = useMemo(() => doesFontExist('Gautami'), [doesFontExist]);
+    const isGB18030Bitmap = useMemo(() => doesFontExist('GB18030 Bitmap'), [doesFontExist]);
+    const isGeezaPro = useMemo(() => doesFontExist('Geeza Pro'), [doesFontExist]);
+    const isGeezah = useMemo(() => doesFontExist('Geezah'), [doesFontExist]);
+    const isGeneva = useMemo(() => doesFontExist('Geneva'), [doesFontExist]);
+    const isGenevaCY = useMemo(() => doesFontExist('Geneva CY'), [doesFontExist]);
+    const isGeorgia = useMemo(() => doesFontExist('Georgia'), [doesFontExist]);
+    const isGeorgiaPro = useMemo(() => doesFontExist('Georgia Pro'), [doesFontExist]);
+    const isGillSans = useMemo(() => doesFontExist('Gill Sans'), [doesFontExist]);
+    const isGillSansNova = useMemo(() => doesFontExist('Gill Sans Nova'), [doesFontExist]);
+    const isGisha = useMemo(() => doesFontExist('Gisha'), [doesFontExist]);
+    const isGotu = useMemo(() => doesFontExist('Gotu'), [doesFontExist]);
+    const isGraphik = useMemo(() => doesFontExist('Graphik'), [doesFontExist]);
+    const isGujarati = useMemo(() => doesFontExist('Gujarati'), [doesFontExist]);
+    const isGujaratiMT = useMemo(() => doesFontExist('Gujarati MT'), [doesFontExist]);
+    const isGujaratiSangamMN = useMemo(() => doesFontExist('Gujarati Sangam MN'), [doesFontExist]);
+    const isGulim = useMemo(() => doesFontExist('Gulim'), [doesFontExist]);
+    const isGungSeoche = useMemo(() => doesFontExist('Gung Seoche'), [doesFontExist]);
+    const isGungSeo = useMemo(() => doesFontExist('GungSeo'), [doesFontExist]);
+    const isGungsuh = useMemo(() => doesFontExist('Gungsuh'), [doesFontExist]);
+    const isGurmukhi = useMemo(() => doesFontExist('Gurmukhi'), [doesFontExist]);
+    const isGurmukhiMN = useMemo(() => doesFontExist('Gurmukhi MN'), [doesFontExist]);
+    const isGurmukhiMT = useMemo(() => doesFontExist('Gurmukhi MT'), [doesFontExist]);
+    const isGurmukhiSangamMN = useMemo(() => doesFontExist('Gurmukhi Sangam MN'), [doesFontExist]);
+    const isHangangche = useMemo(() => doesFontExist('Hangangche'), [doesFontExist]);
+    const isHannotateSC = useMemo(() => doesFontExist('Hannotate SC'), [doesFontExist]);
+    const isHannotateTC = useMemo(() => doesFontExist('Hannotate TC'), [doesFontExist]);
+    const isHanziPenSC = useMemo(() => doesFontExist('HanziPen SC'), [doesFontExist]);
+    const isHanziPenTC = useMemo(() => doesFontExist('HanziPen TC'), [doesFontExist]);
+    const isHeadlineA = useMemo(() => doesFontExist('HeadlineA'), [doesFontExist]);
+    const isHei = useMemo(() => doesFontExist('Hei'), [doesFontExist]);
+    const isHeitiSC = useMemo(() => doesFontExist('Heiti SC'), [doesFontExist]);
+    const isHelvetica = useMemo(() => doesFontExist('Helvetica'), [doesFontExist]);
+    const isHelveticaCY = useMemo(() => doesFontExist('Helvetica CY'), [doesFontExist]);
+    const isHelveticaNeue = useMemo(() => doesFontExist('Helvetica Neue'), [doesFontExist]);
+    const isHerculanum = useMemo(() => doesFontExist('Herculanum'), [doesFontExist]);
+    const isHiraginoKakuGothic = useMemo(() => doesFontExist('Hiragino Kaku Gothic'), [doesFontExist]);
+    const isHiraginoKakuGothicPro = useMemo(() => doesFontExist('Hiragino Kaku Gothic Pro'), [doesFontExist]);
+    const isHiraginoMaruGothicPro = useMemo(() => doesFontExist('Hiragino Maru Gothic Pro'), [doesFontExist]);
+    const isHiraginoMinchoPro = useMemo(() => doesFontExist('Hiragino Mincho Pro'), [doesFontExist]);
+    const isHiraginoSans = useMemo(() => doesFontExist('Hiragino Sans'), [doesFontExist]);
+    const isHoeflerText = useMemo(() => doesFontExist('Hoefler Text'), [doesFontExist]);
+    const isHopperScript = useMemo(() => doesFontExist('Hopper Script'), [doesFontExist]);
+    const isImpact = useMemo(() => doesFontExist('Impact'), [doesFontExist]);
+    const isInaiMathi = useMemo(() => doesFontExist('Inai Mathi'), [doesFontExist]);
+    const isInkFree = useMemo(() => doesFontExist('Ink Free'), [doesFontExist]);
+    const isIowanOldStyleTitling = useMemo(() => doesFontExist('Iowan Old Style Titling'), [doesFontExist]);
+    const isIrisUPC = useMemo(() => doesFontExist('IrisUPC'), [doesFontExist]);
+    const isIskoolaPota = useMemo(() => doesFontExist('Iskoola Pota'), [doesFontExist]);
+    const isITCBodoni72 = useMemo(() => doesFontExist('ITC Bodoni 72'), [doesFontExist]);
+    const isITFDevanagari = useMemo(() => doesFontExist('ITF Devanagari'), [doesFontExist]);
+    const isITFDevanagariMarathi = useMemo(() => doesFontExist('ITF Devanagari Marathi'), [doesFontExist]);
+    const isJaini = useMemo(() => doesFontExist('Jaini'), [doesFontExist]);
+    const isJainiPurva = useMemo(() => doesFontExist('Jaini Purva'), [doesFontExist]);
+    const isJasmineUPC = useMemo(() => doesFontExist('JasmineUPC'), [doesFontExist]);
+    const isJavaneseText = useMemo(() => doesFontExist('Javanese Text'), [doesFontExist]);
+    const isJungGothic = useMemo(() => doesFontExist('Jung Gothic'), [doesFontExist]);
+    const isKai = useMemo(() => doesFontExist('Kai'), [doesFontExist]);
+    const isKailasa = useMemo(() => doesFontExist('Kailasa'), [doesFontExist]);
+    const isKaiTi = useMemo(() => doesFontExist('KaiTi'), [doesFontExist]);
+    const isKaitiSC = useMemo(() => doesFontExist('Kaiti SC'), [doesFontExist]);
+    const isKaitiTC = useMemo(() => doesFontExist('Kaiti TC'), [doesFontExist]);
+    const isKalinga = useMemo(() => doesFontExist('Kalinga'), [doesFontExist]);
+    const isKannadaMN = useMemo(() => doesFontExist('Kannada MN'), [doesFontExist]);
+    const isKannadaSangamMN = useMemo(() => doesFontExist('Kannada Sangam MN'), [doesFontExist]);
+    const isKartika = useMemo(() => doesFontExist('Kartika'), [doesFontExist]);
+    const isKatari = useMemo(() => doesFontExist('Katari'), [doesFontExist]);
+    const isKefa = useMemo(() => doesFontExist('Kefa'), [doesFontExist]);
+    const isKeyboard = useMemo(() => doesFontExist('Keyboard'), [doesFontExist]);
+    const isKhmerMN = useMemo(() => doesFontExist('Khmer MN'), [doesFontExist]);
+    const isKhmerSangamMN = useMemo(() => doesFontExist('Khmer Sangam MN'), [doesFontExist]);
+    const isKhmerUI = useMemo(() => doesFontExist('Khmer UI'), [doesFontExist]);
+    const isKodchiangUPC = useMemo(() => doesFontExist('KodchiangUPC'), [doesFontExist]);
+    const isKohinoorBangla = useMemo(() => doesFontExist('Kohinoor Bangla'), [doesFontExist]);
+    const isKohinoorDevanagari = useMemo(() => doesFontExist('Kohinoor Devanagari'), [doesFontExist]);
+    const isKohinoorTelugu = useMemo(() => doesFontExist('Kohinoor Telugu'), [doesFontExist]);
+    const isKokila = useMemo(() => doesFontExist('Kokila'), [doesFontExist]);
+    const isKokonor = useMemo(() => doesFontExist('Kokonor'), [doesFontExist]);
+    const isKoufiAbjadi = useMemo(() => doesFontExist('Koufi Abjadi'), [doesFontExist]);
+    const isKrungthep = useMemo(() => doesFontExist('Krungthep'), [doesFontExist]);
+    const isKuenstlerScript = useMemo(() => doesFontExist('Kuenstler Script'), [doesFontExist]);
+    const isKufiStandardGK = useMemo(() => doesFontExist('KufiStandard GK'), [doesFontExist]);
+    const isLahoreGurmukhi = useMemo(() => doesFontExist('Lahore Gurmukhi'), [doesFontExist]);
+    const isLaimoon = useMemo(() => doesFontExist('Laimoon'), [doesFontExist]);
+    const isLaoMN = useMemo(() => doesFontExist('Lao MN'), [doesFontExist]);
+    const isLaoSangamMN = useMemo(() => doesFontExist('Lao Sangam MN'), [doesFontExist]);
+    const isLaoUI = useMemo(() => doesFontExist('Lao UI'), [doesFontExist]);
+    const isLastResort = useMemo(() => doesFontExist('LastResort'), [doesFontExist]);
+    const isLatha = useMemo(() => doesFontExist('Latha'), [doesFontExist]);
+    const isLavaDevanagari = useMemo(() => doesFontExist('Lava Devanagari'), [doesFontExist]);
+    const isLavaKannada = useMemo(() => doesFontExist('Lava Kannada'), [doesFontExist]);
+    const isLavaTelugu = useMemo(() => doesFontExist('Lava Telugu'), [doesFontExist]);
+    const isLeelawadee = useMemo(() => doesFontExist('Leelawadee'), [doesFontExist]);
+    const isLeelawadeeUI = useMemo(() => doesFontExist('Leelawadee UI'), [doesFontExist]);
+    const isLevenimMT = useMemo(() => doesFontExist('Levenim MT'), [doesFontExist]);
+    const isLibianSC = useMemo(() => doesFontExist('Libian SC'), [doesFontExist]);
+    const isLibianTC = useMemo(() => doesFontExist('Libian TC'), [doesFontExist]);
+    const isLiHeiPro = useMemo(() => doesFontExist('LiHei Pro'), [doesFontExist]);
+    const isLilyUPC = useMemo(() => doesFontExist('LilyUPC'), [doesFontExist]);
+    const isLiSongPro = useMemo(() => doesFontExist('LiSong Pro'), [doesFontExist]);
+    const isLucidaConsole = useMemo(() => doesFontExist('Lucida Console'), [doesFontExist]);
+    const isLucidaGrande = useMemo(() => doesFontExist('Lucida Grande'), [doesFontExist]);
+    const isLucidaSans = useMemo(() => doesFontExist('Lucida Sans'), [doesFontExist]);
+    const isLucidaSansUnicode = useMemo(() => doesFontExist('Lucida Sans Unicode'), [doesFontExist]);
+    const isLuminari = useMemo(() => doesFontExist('Luminari'), [doesFontExist]);
+    const isMaku = useMemo(() => doesFontExist('Maku'), [doesFontExist]);
+    const isMalayalamMN = useMemo(() => doesFontExist('Malayalam MN'), [doesFontExist]);
+    const isMalayalamSangamMN = useMemo(() => doesFontExist('Malayalam Sangam MN'), [doesFontExist]);
+    const isMalgunGothic = useMemo(() => doesFontExist('Malgun Gothic'), [doesFontExist]);
+    const isMangal = useMemo(() => doesFontExist('Mangal'), [doesFontExist]);
+    const isMarkerFelt = useMemo(() => doesFontExist('Marker Felt'), [doesFontExist]);
+    const isMarlett = useMemo(() => doesFontExist('Marlett'), [doesFontExist]);
+    const isMeiryo = useMemo(() => doesFontExist('Meiryo'), [doesFontExist]);
+    const isMenlo = useMemo(() => doesFontExist('Menlo'), [doesFontExist]);
+    const isMicrosoftHimalaya = useMemo(() => doesFontExist('Microsoft Himalaya'), [doesFontExist]);
+    const isMicrosoftJhengHei = useMemo(() => doesFontExist('Microsoft JhengHei'), [doesFontExist]);
+    const isMicrosoftNewTaiLue = useMemo(() => doesFontExist('Microsoft New Tai Lue'), [doesFontExist]);
+    const isMicrosoftPhagsPa = useMemo(() => doesFontExist('Microsoft PhagsPa'), [doesFontExist]);
+    const isMicrosoftSansSerif = useMemo(() => doesFontExist('Microsoft Sans Serif'), [doesFontExist]);
+    const isMicrosoftTaiLe = useMemo(() => doesFontExist('Microsoft Tai Le'), [doesFontExist]);
+    const isMicrosoftUighur = useMemo(() => doesFontExist('Microsoft Uighur'), [doesFontExist]);
+    const isMicrosoftYaHei = useMemo(() => doesFontExist('Microsoft YaHei'), [doesFontExist]);
+    const isMicrosoftYiBaiti = useMemo(() => doesFontExist('Microsoft Yi Baiti'), [doesFontExist]);
+    const isMingLiU = useMemo(() => doesFontExist('MingLiU'), [doesFontExist]);
+    const isMingLiUExtB = useMemo(() => doesFontExist('MingLiU-ExtB'), [doesFontExist]);
+    const isMiriam = useMemo(() => doesFontExist('Miriam'), [doesFontExist]);
+    const isMishafi = useMemo(() => doesFontExist('Mishafi'), [doesFontExist]);
+    const isMishafiGold = useMemo(() => doesFontExist('Mishafi Gold'), [doesFontExist]);
+    const isModak = useMemo(() => doesFontExist('Modak'), [doesFontExist]);
+    const isMonaLisaSolidITCTT = useMemo(() => doesFontExist('Mona Lisa Solid ITC TT'), [doesFontExist]);
+    const isMonaco = useMemo(() => doesFontExist('Monaco'), [doesFontExist]);
+    const isMonacoCY = useMemo(() => doesFontExist('Monaco CY'), [doesFontExist]);
+    const isMongolianBaiti = useMemo(() => doesFontExist('Mongolian Baiti'), [doesFontExist]);
+    const isMonotypeLingWai = useMemo(() => doesFontExist('Monotype LingWai'), [doesFontExist]);
+    const isMoolBoran = useMemo(() => doesFontExist('MoolBoran'), [doesFontExist]);
+    const isMSGothic = useMemo(() => doesFontExist('MS Gothic'), [doesFontExist]);
+    const isMSMincho = useMemo(() => doesFontExist('MS Mincho'), [doesFontExist]);
+    const isMshtakan = useMemo(() => doesFontExist('Mshtakan'), [doesFontExist]);
+    const isMukta = useMemo(() => doesFontExist('Mukta'), [doesFontExist]);
+    const isMuktaMalar = useMemo(() => doesFontExist('Mukta Malar'), [doesFontExist]);
+    const isMuktaVaani = useMemo(() => doesFontExist('Mukta Vaani'), [doesFontExist]);
+    const isMuktaMahee = useMemo(() => doesFontExist('MuktaMahee'), [doesFontExist]);
+    const isMuna = useMemo(() => doesFontExist('Muna'), [doesFontExist]);
+    const isMVBoli = useMemo(() => doesFontExist('MV Boli'), [doesFontExist]);
+    const isMyanmarMN = useMemo(() => doesFontExist('Myanmar MN'), [doesFontExist]);
+    const isMyanmarSangamMN = useMemo(() => doesFontExist('Myanmar Sangam MN'), [doesFontExist]);
+    const isMyanmarText = useMemo(() => doesFontExist('Myanmar Text'), [doesFontExist]);
+    const isMyriadArabic = useMemo(() => doesFontExist('Myriad Arabic'), [doesFontExist]);
+    const isNadeem = useMemo(() => doesFontExist('Nadeem'), [doesFontExist]);
+    const isNanumBrushScript = useMemo(() => doesFontExist('Nanum Brush Script'), [doesFontExist]);
+    const isNanumPenScript = useMemo(() => doesFontExist('Nanum Pen Script'), [doesFontExist]);
+    const isNanumGothic = useMemo(() => doesFontExist('NanumGothic'), [doesFontExist]);
+    const isNanumMyeongjo = useMemo(() => doesFontExist('NanumMyeongjo'), [doesFontExist]);
+    const isNarkisim = useMemo(() => doesFontExist('Narkisim'), [doesFontExist]);
+    const isNeueHaasGrotskTxtPro = useMemo(() => doesFontExist('Neue Haas Grotesk Text Pro'), [doesFontExist]);
+    const isNewPeninim = useMemo(() => doesFontExist('New Peninim'), [doesFontExist]);
+    const isNewPeninimMT = useMemo(() => doesFontExist('New Peninim MT'), [doesFontExist]);
+    const isNewPeninimMTInclined = useMemo(() => doesFontExist('New Peninim MT Inclined'), [doesFontExist]);
+    const isNewYork = useMemo(() => doesFontExist('New York'), [doesFontExist]);
+    const isNirmalaUI = useMemo(() => doesFontExist('Nirmala UI'), [doesFontExist]);
+    const isNisan = useMemo(() => doesFontExist('Nisan'), [doesFontExist]);
+    const isNISCGB18030 = useMemo(() => doesFontExist('NISC GB18030'), [doesFontExist]);
+    const isNoteworthy = useMemo(() => doesFontExist('Noteworthy'), [doesFontExist]);
+    const isNotoNastaliqUrdu = useMemo(() => doesFontExist('Noto Nastaliq Urdu'), [doesFontExist]);
+    const isNotoSansJavanese = useMemo(() => doesFontExist('Noto Sans Javanese'), [doesFontExist]);
+    const isNotoSansKannada = useMemo(() => doesFontExist('Noto Sans Kannada'), [doesFontExist]);
+    const isNotoSansMyanmar = useMemo(() => doesFontExist('Noto Sans Myanmar'), [doesFontExist]);
+    const isNotoSansOriya = useMemo(() => doesFontExist('Noto Sans Oriya'), [doesFontExist]);
+    const isNotoSerifKannada = useMemo(() => doesFontExist('Noto Serif Kannada'), [doesFontExist]);
+    const isNotoSerifMyanmar = useMemo(() => doesFontExist('Noto Serif Myanmar'), [doesFontExist]);
+    const isNyala = useMemo(() => doesFontExist('Nyala'), [doesFontExist]);
+    const isOctoberDevanagari = useMemo(() => doesFontExist('October Devanagari'), [doesFontExist]);
+    const isOctoberTamil = useMemo(() => doesFontExist('October Tamil'), [doesFontExist]);
+    const isOptima = useMemo(() => doesFontExist('Optima'), [doesFontExist]);
+    const isOriyaMN = useMemo(() => doesFontExist('Oriya MN'), [doesFontExist]);
+    const isOriyaSangamMN = useMemo(() => doesFontExist('Oriya Sangam MN'), [doesFontExist]);
+    const isOsaka = useMemo(() => doesFontExist('Osaka'), [doesFontExist]);
+    const isOsakaMono = useMemo(() => doesFontExist('Osaka-Mono'), [doesFontExist]);
+    const isPalatino = useMemo(() => doesFontExist('Palatino'), [doesFontExist]);
+    const isPalatinoLinotype = useMemo(() => doesFontExist('Palatino Linotype'), [doesFontExist]);
+    const isPapyrus = useMemo(() => doesFontExist('Papyrus'), [doesFontExist]);
+    const isPCMyungjo = useMemo(() => doesFontExist('PC Myungjo'), [doesFontExist]);
+    const isPhosphate = useMemo(() => doesFontExist('Phosphate'), [doesFontExist]);
+    const isPilGi = useMemo(() => doesFontExist('PilGi'), [doesFontExist]);
+    const isPilgiche = useMemo(() => doesFontExist('Pilgiche'), [doesFontExist]);
+    const isPingFangHK = useMemo(() => doesFontExist('PingFang HK'), [doesFontExist]);
+    const isPingFangSC = useMemo(() => doesFontExist('PingFang SC'), [doesFontExist]);
+    const isPingFangTC = useMemo(() => doesFontExist('PingFang TC'), [doesFontExist]);
+    const isPlantagenetCherokee = useMemo(() => doesFontExist('Plantagenet Cherokee'), [doesFontExist]);
+    const isPortagoITCTT = useMemo(() => doesFontExist('PortagoITC TT'), [doesFontExist]);
+    const isPrincetownLET = useMemo(() => doesFontExist('Princetown LET'), [doesFontExist]);
+    const isProdukt = useMemo(() => doesFontExist('Produkt'), [doesFontExist]);
+    const isProximaNova = useMemo(() => doesFontExist('Proxima Nova'), [doesFontExist]);
+    const isPSLOrnanongPro = useMemo(() => doesFontExist('PSL Ornanong Pro'), [doesFontExist]);
+    const isPTMono = useMemo(() => doesFontExist('PT Mono'), [doesFontExist]);
+    const isPTSans = useMemo(() => doesFontExist('PT Sans'), [doesFontExist]);
+    const isPTSansNarrow = useMemo(() => doesFontExist('PT Sans Narrow'), [doesFontExist]);
+    const isPTSerif = useMemo(() => doesFontExist('PT Serif'), [doesFontExist]);
+    const isPublicoHeadlineRoman = useMemo(() => doesFontExist('Publico Headline Roman'), [doesFontExist]);
+    const isQuotesCaps = useMemo(() => doesFontExist('Quotes Caps'), [doesFontExist]);
+    const isQuotesScript = useMemo(() => doesFontExist('Quotes Script'), [doesFontExist]);
+    const isRaanana = useMemo(() => doesFontExist('Raanana'), [doesFontExist]);
+    const isRaavi = useMemo(() => doesFontExist('Raavi'), [doesFontExist]);
+    const isRaya = useMemo(() => doesFontExist('Raya'), [doesFontExist]);
+    const isRockwell = useMemo(() => doesFontExist('Rockwell'), [doesFontExist]);
+    const isRockwellNova = useMemo(() => doesFontExist('Rockwell Nova'), [doesFontExist]);
+    const isRod = useMemo(() => doesFontExist('Rod'), [doesFontExist]);
+    const isSakkalMajalla = useMemo(() => doesFontExist('Sakkal Majalla'), [doesFontExist]);
+    const isSamaDevanagari = useMemo(() => doesFontExist('Sama Devanagari'), [doesFontExist]);
+    const isSamaGujarati = useMemo(() => doesFontExist('Sama Gujarati'), [doesFontExist]);
+    const isSamaGurmukhi = useMemo(() => doesFontExist('Sama Gurmukhi'), [doesFontExist]);
+    const isSamaKannada = useMemo(() => doesFontExist('Sama Kannada'), [doesFontExist]);
+    const isSamaMalayalam = useMemo(() => doesFontExist('Sama Malayalam'), [doesFontExist]);
+    const isSamaTamil = useMemo(() => doesFontExist('Sama Tamil'), [doesFontExist]);
+    const isSanFranciscoMono = useMemo(() => doesFontExist('San Francisco Mono'), [doesFontExist]);
+    const isSana = useMemo(() => doesFontExist('Sana'), [doesFontExist]);
+    const isSand = useMemo(() => doesFontExist('Sand'), [doesFontExist]);
+    const isSanskritText = useMemo(() => doesFontExist('Sanskrit Text'), [doesFontExist]);
+    const isSathu = useMemo(() => doesFontExist('Sathu'), [doesFontExist]);
+    const isSauberScript = useMemo(() => doesFontExist('Sauber Script'), [doesFontExist]);
+    const isSchoolHouseCursiveB = useMemo(() => doesFontExist('SchoolHouse Cursive B'), [doesFontExist]);
+    const isSchoolHousePrintedA = useMemo(() => doesFontExist('SchoolHouse Printed A'), [doesFontExist]);
+    const isSegoePrint = useMemo(() => doesFontExist('Segoe Print'), [doesFontExist]);
+    const isSegoeScript = useMemo(() => doesFontExist('Segoe Script'), [doesFontExist]);
+    const isSegoeUI = useMemo(() => doesFontExist('Segoe UI'), [doesFontExist]);
+    const isSeoul = useMemo(() => doesFontExist('Seoul'), [doesFontExist]);
+    const isSFArabic = useMemo(() => doesFontExist('SF Arabic'), [doesFontExist]);
+    const isShinMyungjoNeue = useMemo(() => doesFontExist('Shin Myungjo Neue'), [doesFontExist]);
+    const isShobhika = useMemo(() => doesFontExist('Shobhika'), [doesFontExist]);
+    const isShonarBangla = useMemo(() => doesFontExist('Shonar Bangla'), [doesFontExist]);
+    const isShreeDevanagari714 = useMemo(() => doesFontExist('Shree Devanagari 714'), [doesFontExist]);
+    const isShruti = useMemo(() => doesFontExist('Shruti'), [doesFontExist]);
+    const isSignPainter = useMemo(() => doesFontExist('SignPainter'), [doesFontExist]);
+    const isSignPainterHouseScript = useMemo(() => doesFontExist('SignPainter-HouseScript'), [doesFontExist]);
+    const isSilom = useMemo(() => doesFontExist('Silom'), [doesFontExist]);
+    const isSimHei = useMemo(() => doesFontExist('SimHei'), [doesFontExist]);
+    const isSimplifiedArabic = useMemo(() => doesFontExist('Simplified Arabic'), [doesFontExist]);
+    const isSimSong = useMemo(() => doesFontExist('SimSong'), [doesFontExist]);
+    const isSimSun = useMemo(() => doesFontExist('SimSun'), [doesFontExist]);
+    const isSinhalaMN = useMemo(() => doesFontExist('Sinhala MN'), [doesFontExist]);
+    const isSinhalaSangamMN = useMemo(() => doesFontExist('Sinhala Sangam MN'), [doesFontExist]);
+    const isSitka = useMemo(() => doesFontExist('Sitka'), [doesFontExist]);
+    const isSkia = useMemo(() => doesFontExist('Skia'), [doesFontExist]);
+    const isSnellRoundhand = useMemo(() => doesFontExist('Snell Roundhand'), [doesFontExist]);
+    const isSomer = useMemo(() => doesFontExist('Somer'), [doesFontExist]);
+    const isSongtiSC = useMemo(() => doesFontExist('Songti SC'), [doesFontExist]);
+    const isSongtiTC = useMemo(() => doesFontExist('Songti TC'), [doesFontExist]);
+    const isSpotMono = useMemo(() => doesFontExist('Spot Mono'), [doesFontExist]);
+    const isSTFangSong = useMemo(() => doesFontExist('ST FangSong'), [doesFontExist]);
+    const isSTHeiti = useMemo(() => doesFontExist('ST Heiti'), [doesFontExist]);
+    const isSTKaiti = useMemo(() => doesFontExist('ST Kaiti'), [doesFontExist]);
+    const isSTSong = useMemo(() => doesFontExist('ST Song'), [doesFontExist]);
+    const isSTXihei = useMemo(() => doesFontExist('ST Xihei'), [doesFontExist]);
+    const isSTIXTwoText = useMemo(() => doesFontExist('STIX Two Text'), [doesFontExist]);
+    const isSTIXGeneralRegular = useMemo(() => doesFontExist('STIXGeneral-Regular'), [doesFontExist]);
+    const isStoneSansSemITCTT = useMemo(() => doesFontExist('Stone Sans Sem ITC TT'), [doesFontExist]);
+    const isSukhumvitSetText = useMemo(() => doesFontExist('Sukhumvit Set Text'), [doesFontExist]);
+    const isSylfaen = useMemo(() => doesFontExist('Sylfaen'), [doesFontExist]);
+    const isSynchroLET = useMemo(() => doesFontExist('Synchro LET'), [doesFontExist]);
+    const isTaeGraphic = useMemo(() => doesFontExist('Tae Graphic'), [doesFontExist]);
+    const isTahoma = useMemo(() => doesFontExist('Tahoma'), [doesFontExist]);
+    const isTaipei = useMemo(() => doesFontExist('Taipei'), [doesFontExist]);
+    const isTamilMN = useMemo(() => doesFontExist('Tamil MN'), [doesFontExist]);
+    const isTamilSangamMN = useMemo(() => doesFontExist('Tamil Sangam MN'), [doesFontExist]);
+    const isTechno = useMemo(() => doesFontExist('Techno'), [doesFontExist]);
+    const isTeluguMN = useMemo(() => doesFontExist('Telugu MN'), [doesFontExist]);
+    const isTeluguSangamMN = useMemo(() => doesFontExist('Telugu Sangam MN'), [doesFontExist]);
+    const isTextile = useMemo(() => doesFontExist('Textile'), [doesFontExist]);
+    const isThonburi = useMemo(() => doesFontExist('Thonburi'), [doesFontExist]);
+    const isTimes = useMemo(() => doesFontExist('Times'), [doesFontExist]);
+    const isTimesCY = useMemo(() => doesFontExist('Times CY'), [doesFontExist]);
+    const isTimesNewRoman = useMemo(() => doesFontExist('Times New Roman'), [doesFontExist]);
+    const isTimesRoman = useMemo(() => doesFontExist('Times Roman'), [doesFontExist]);
+    const isTiroBangla = useMemo(() => doesFontExist('Tiro Bangla'), [doesFontExist]);
+    const isTiroDevanagariHindi = useMemo(() => doesFontExist('Tiro Devanagari Hindi'), [doesFontExist]);
+    const isTiroDevanagariMarathi = useMemo(() => doesFontExist('Tiro Devanagari Marathi'), [doesFontExist]);
+    const isTiroDevanagariSanskrit = useMemo(() => doesFontExist('Tiro Devanagari Sanskrit'), [doesFontExist]);
+    const isTiroGurmukhi = useMemo(() => doesFontExist('Tiro Gurmukhi'), [doesFontExist]);
+    const isTiroHindi = useMemo(() => doesFontExist('Tiro Hindi'), [doesFontExist]);
+    const isTiroKannada = useMemo(() => doesFontExist('Tiro Kannada'), [doesFontExist]);
+    const isTiroMarathi = useMemo(() => doesFontExist('Tiro Marathi'), [doesFontExist]);
+    const isTiroSanskrit = useMemo(() => doesFontExist('Tiro Sanskrit'), [doesFontExist]);
+    const isTiroTamil = useMemo(() => doesFontExist('Tiro Tamil'), [doesFontExist]);
+    const isTiroTelugu = useMemo(() => doesFontExist('Tiro Telugu'), [doesFontExist]);
+    const isToppanBunkyuGothic = useMemo(() => doesFontExist('Toppan Bunkyu Gothic'), [doesFontExist]);
+    const isToppanBunkyuMincho = useMemo(() => doesFontExist('Toppan Bunkyu Mincho'), [doesFontExist]);
+    const isTraditionalArabic = useMemo(() => doesFontExist('Traditional Arabic'), [doesFontExist]);
+    const isTrattatello = useMemo(() => doesFontExist('Trattatello'), [doesFontExist]);
+    const isTrebuchetMS = useMemo(() => doesFontExist('Trebuchet MS'), [doesFontExist]);
+    const isTsukushiARoundGothic = useMemo(() => doesFontExist('Tsukushi A Round Gothic'), [doesFontExist]);
+    const isTsukushiBRoundGothic = useMemo(() => doesFontExist('Tsukushi B Round Gothic'), [doesFontExist]);
+    const isTunga = useMemo(() => doesFontExist('Tunga'), [doesFontExist]);
+    const isTwCenMT = useMemo(() => doesFontExist('Tw Cen MT'), [doesFontExist]);
+    const isUDDigiKyokasho = useMemo(() => doesFontExist('UD Digi Kyokasho'), [doesFontExist]);
+    const isUrduTypesetting = useMemo(() => doesFontExist('Urdu Typesetting'), [doesFontExist]);
+    const isUtsaah = useMemo(() => doesFontExist('Utsaah'), [doesFontExist]);
+    const isVani = useMemo(() => doesFontExist('Vani'), [doesFontExist]);
+    const isVerdana = useMemo(() => doesFontExist('Verdana'), [doesFontExist]);
+    const isVerdanaPro = useMemo(() => doesFontExist('Verdana Pro'), [doesFontExist]);
+    const isVijaya = useMemo(() => doesFontExist('Vijaya'), [doesFontExist]);
+    const isVrinda = useMemo(() => doesFontExist('Vrinda'), [doesFontExist]);
+    const isWaseem = useMemo(() => doesFontExist('Waseem'), [doesFontExist]);
+    const isWawatiSC = useMemo(() => doesFontExist('Wawati SC'), [doesFontExist]);
+    const isWawatiTC = useMemo(() => doesFontExist('Wawati TC'), [doesFontExist]);
+    const isYaziji = useMemo(() => doesFontExist('Yaziji'), [doesFontExist]);
+    const isYuGothic = useMemo(() => doesFontExist('Yu Gothic'), [doesFontExist]);
+    const isYuKyokashoN = useMemo(() => doesFontExist('Yu Kyokasho N'), [doesFontExist]);
+    const isYuMincho = useMemo(() => doesFontExist('Yu Mincho'), [doesFontExist]);
+    const isYuantiSC = useMemo(() => doesFontExist('Yuanti SC'), [doesFontExist]);
+    const isYuantiTC = useMemo(() => doesFontExist('Yuanti TC'), [doesFontExist]);
+    const isYuppySC = useMemo(() => doesFontExist('Yuppy SC'), [doesFontExist]);
+    const isZapfChancery = useMemo(() => doesFontExist('Zapf Chancery'), [doesFontExist]);
+    const isZapfino = useMemo(() => doesFontExist('Zapfino'), [doesFontExist]);
+    
+    /** Should Graphite-enabled fonts be displayed? */
+    const graphiteEnabled = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ? true : false);
   
-  /** Should Graphite-enabled fonts be displayed? */
-  const graphiteEnabled = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ? true : false);
-
   /** Set font state for default font */
-  const onFontClear = () => { setFont(''); };
+  const onFontClear = useCallback(() => { setFont(''); }, [setFont]);
 
   /** Set font state for Graphite-enabled woff and woff2 fonts provided */
-  const onFontAkatabRW = () => { setFont('AkatabRW'); };
-  const onFontAlkalamiLW = () => { setFont('AlkalamiLW'); };
-  const onFontAlkalamiRW = () => { setFont('AlkalamiRW'); };
-  const onFontAndikaRW = () => { setFont('AndikaRW'); };
-  const onFontAwamiNastaliqRW = () => { setFont('AwamiNastaliqRW'); };
-  const onFontGentiumPlusRW = () => { setFont('GentiumPlusRW'); };
-  const onFontHarmattanW = () => { setFont('HarmattanW'); };
-  const onFontLateefRW = () => { setFont('LateefRW'); };
-  const onFontMingzatW = () => { setFont('MingzatW'); };
-  const onFontNarnoorW = () => { setFont('NarnoorW'); };
-  const onFontPadaukRW = () => { setFont('PadaukRW'); };
-  const onFontScheherazadeRW = () => { setFont('ScheherazadeRW'); };
-  const onFontTagmukayRW = () => { setFont('TagmukayRW'); };
-  const onFontTaiHeritageProRW = () => { setFont('TaiHeritageProRW'); };
+  const onFontAkatabRW = useCallback(() => { setFont('AkatabRW'); }, [setFont]);
+  const onFontAlkalamiLW = useCallback(() => { setFont('AlkalamiLW'); }, [setFont]);
+  const onFontAlkalamiRW = useCallback(() => { setFont('AlkalamiRW'); }, [setFont]);
+  const onFontAndikaRW = useCallback(() => { setFont('AndikaRW'); }, [setFont]);
+  const onFontAwamiNastaliqRW = useCallback(() => { setFont('AwamiNastaliqRW'); }, [setFont]);
+  const onFontGentiumPlusRW = useCallback(() => { setFont('GentiumPlusRW'); }, [setFont]);
+  const onFontHarmattanW = useCallback(() => { setFont('HarmattanW'); }, [setFont]);
+  const onFontLateefRW = useCallback(() => { setFont('LateefRW'); }, [setFont]);
+  const onFontMingzatW = useCallback(() => { setFont('MingzatW'); }, [setFont]);
+  const onFontNarnoorW = useCallback(() => { setFont('NarnoorW'); }, [setFont]);
+  const onFontPadaukRW = useCallback(() => { setFont('PadaukRW'); }, [setFont]);
+  const onFontScheherazadeRW = useCallback(() => { setFont('ScheherazadeRW'); }, [setFont]);
+  const onFontTagmukayRW = useCallback(() => { setFont('TagmukayRW'); }, [setFont]);
+  const onFontTaiHeritageProRW = useCallback(() => { setFont('TaiHeritageProRW'); }, [setFont]);
 
   /** Set font state for Graphite-enabled fonts, for use when locally detected */
-  const onFontAbyssinicaSIL = () => { setFont('AbyssinicaSIL'); };
-  const onFontAkatab = () => { setFont('Akatab'); };
-  const onFontAlkalami = () => { setFont('Alkalami'); };
-  const onFontAlkalamiLight = () => { setFont('AlkalamiLight'); };
-  const onFontAndika = () => { setFont('Andika'); };
-  const onFontAnnapurnaSIL = () => { setFont('AnnapurnaSIL'); };
-  const onFontApparatusSIL = () => { setFont('ApparatusSIL'); };
-  const onFontAwamiNastaliq = () => { setFont('AwamiNastaliq'); };
-  const onFontCharisSIL = () => { setFont('CharisSIL'); };
-  const onFontDaiBannaSILBook = () => { setFont('DaiBannaSILBook'); };
-  const onFontDaiBannaSILLight = () => { setFont('DaiBannaSILLight'); };
-  const onFontDoulosSIL = () => { setFont('DoulosSIL'); };
-  const onFontDoulosSILCipher = () => { setFont('DoulosSILCipher'); };
-  const onFontEzraSIL = () => { setFont('EzraSIL'); };
-  const onFontEzraSILSR = () => { setFont('EzraSILSR'); };
-  const onFontGalatiaSIL = () => { setFont('GalatiaSIL'); };
-  const onFontGentiumPlus = () => { setFont('GentiumPlus'); };
-  const onFontHarmattan = () => { setFont('Harmattan'); };
-  const onFontKhmerBusra = () => { setFont('KhmerBusra'); };
-  const onFontKhmerMondulkiri = () => { setFont('KhmerMondulkiri'); };
-  const onFontLateefGR = () => { setFont('LateefGR'); };
-  const onFontMingzat = () => { setFont('Mingzat'); };
-  const onFontNamdhinggoSIL = () => { setFont('NamdhinggoSIL'); };
-  const onFontNarnoor = () => { setFont('Narnoor'); };
-  const onFontNuosuSIL = () => { setFont('NuosuSIL'); };
-  const onFontPadauk = () => { setFont('Padauk'); };
-  const onFontScheherazadeNew = () => { setFont('ScheherazadeNew'); };
-  const onFontShimenkan = () => { setFont('Shimenkan'); };
-  const onFontSophiaNubian = () => { setFont('SophiaNubian'); };
-  const onFontTagmukay = () => { setFont('Tagmukay'); };
-  const onFontTaiHeritagePro = () => { setFont('TaiHeritagePro'); };
+  const onFontAbyssinicaSIL = useCallback(() => { setFont('AbyssinicaSIL'); }, [setFont]);
+  const onFontAkatab = useCallback(() => { setFont('Akatab'); }, [setFont]);
+  const onFontAlkalami = useCallback(() => { setFont('Alkalami'); }, [setFont]);
+  const onFontAlkalamiLight = useCallback(() => { setFont('AlkalamiLight'); }, [setFont]);
+  const onFontAndika = useCallback(() => { setFont('Andika'); }, [setFont]);
+  const onFontAnnapurnaSIL = useCallback(() => { setFont('AnnapurnaSIL'); }, [setFont]);
+  const onFontApparatusSIL = useCallback(() => { setFont('ApparatusSIL'); }, [setFont]);
+  const onFontAwamiNastaliq = useCallback(() => { setFont('AwamiNastaliq'); }, [setFont]);
+  const onFontCharisSIL = useCallback(() => { setFont('CharisSIL'); }, [setFont]);
+  const onFontDaiBannaSILBook = useCallback(() => { setFont('DaiBannaSILBook'); }, [setFont]);
+  const onFontDaiBannaSILLight = useCallback(() => { setFont('DaiBannaSILLight'); }, [setFont]);
+  const onFontDoulosSIL = useCallback(() => { setFont('DoulosSIL'); }, [setFont]);
+  const onFontDoulosSILCipher = useCallback(() => { setFont('DoulosSILCipher'); }, [setFont]);
+  const onFontEzraSIL = useCallback(() => { setFont('EzraSIL'); }, [setFont]);
+  const onFontEzraSILSR = useCallback(() => { setFont('EzraSILSR'); }, [setFont]);
+  const onFontGalatiaSIL = useCallback(() => { setFont('GalatiaSIL'); }, [setFont]);
+  const onFontGentiumPlus = useCallback(() => { setFont('GentiumPlus'); }, [setFont]);
+  const onFontHarmattan = useCallback(() => { setFont('Harmattan'); }, [setFont]);
+  const onFontKhmerBusra = useCallback(() => { setFont('KhmerBusra'); }, [setFont]);
+  const onFontKhmerMondulkiri = useCallback(() => { setFont('KhmerMondulkiri'); }, [setFont]);
+  const onFontLateefGR = useCallback(() => { setFont('LateefGR'); }, [setFont]);
+  const onFontMingzat = useCallback(() => { setFont('Mingzat'); }, [setFont]);
+  const onFontNamdhinggoSIL = useCallback(() => { setFont('NamdhinggoSIL'); }, [setFont]);
+  const onFontNarnoor = useCallback(() => { setFont('Narnoor'); }, [setFont]);
+  const onFontNuosuSIL = useCallback(() => { setFont('NuosuSIL'); }, [setFont]);
+  const onFontPadauk = useCallback(() => { setFont('Padauk'); }, [setFont]);
+  const onFontScheherazadeNew = useCallback(() => { setFont('ScheherazadeNew'); }, [setFont]);
+  const onFontShimenkan = useCallback(() => { setFont('Shimenkan'); }, [setFont]);
+  const onFontSophiaNubian = useCallback(() => { setFont('SophiaNubian'); }, [setFont]);
+  const onFontTagmukay = useCallback(() => { setFont('Tagmukay'); }, [setFont]);
+  const onFontTaiHeritagePro = useCallback(() => { setFont('TaiHeritagePro'); }, [setFont]);
 
   /** Set font state for these Windows and MacOS fonts, for use when locally detected */
-  const onFontAdelleSansDevanagari = () => { setFont('AdelleSansDevanagari'); };
-  const onFontAharoni = () => { setFont('Aharoni'); };
-  const onFontAlBayan = () => { setFont('AlBayan'); };
-  const onFontAlFirat = () => { setFont('AlFirat'); };
-  const onFontAlKhalil = () => { setFont('AlKhalil'); };
-  const onFontAlNile = () => { setFont('AlNile'); };
-  const onFontAlRafidain = () => { setFont('AlRafidain'); };
-  const onFontAlRafidainAlFanni = () => { setFont('AlRafidainAlFanni'); };
-  const onFontAlTarikh = () => { setFont('AlTarikh'); };
-  const onFontAldhabi = () => { setFont('Aldhabi'); };
-  const onFontAlgiers = () => { setFont('Algiers'); };
-  const onFontAmericanTypewriter = () => { setFont('AmericanTypewriter'); };
-  const onFontAndaleMono = () => { setFont('AndaleMono'); };
-  const onFontAndalus = () => { setFont('Andalus'); };
-  const onFontAngsanaNew = () => { setFont('AngsanaNew'); };
-  const onFontAngsanaUPC = () => { setFont('AngsanaUPC'); };
-  const onFontAnnaiMN = () => { setFont('AnnaiMN'); };
-  const onFontAparajita = () => { setFont('Aparajita'); };
-  const onFontAppleBraille = () => { setFont('AppleBraille'); };
-  const onFontAppleCasual = () => { setFont('AppleCasual'); };
-  const onFontAppleChancery = () => { setFont('AppleChancery'); };
-  const onFontAppleGaramond = () => { setFont('AppleGaramond'); };
-  const onFontAppleGothic = () => { setFont('AppleGothic'); };
-  const onFontAppleLiGothic = () => { setFont('AppleLiGothic'); };
-  const onFontAppleLiSung = () => { setFont('AppleLiSung'); };
-  const onFontAppleMyungjo = () => { setFont('AppleMyungjo'); };
-  const onFontAppleSDGothicNeo = () => { setFont('AppleSDGothicNeo'); };
-  const onFontAquaKana = () => { setFont('AquaKana'); };
-  const onFontArabicTypesetting = () => { setFont('ArabicTypesetting'); };
-  const onFontArial = () => { setFont('Arial'); };
-  const onFontArialHebrew = () => { setFont('ArialHebrew'); };
-  const onFontArialHebrewScholar = () => { setFont('ArialHebrewScholar'); };
-  const onFontArialNarrow = () => { setFont('ArialNarrow'); };
-  const onFontArialNova = () => { setFont('ArialNova'); };
-  const onFontArialUnicodeMS = () => { setFont('ArialUnicodeMS'); };
-  const onFontAvenir = () => { setFont('Avenir'); };
-  const onFontAyuthaya = () => { setFont('Ayuthaya'); };
-  const onFontBaghdad = () => { setFont('Baghdad'); };
-  const onFontBahnschrift = () => { setFont('Bahnschrift'); };
-  const onFontBaloo = () => { setFont('Baloo'); };
-  const onFontBalooBhai = () => { setFont('BalooBhai'); };
-  const onFontBalooBhaijaan = () => { setFont('BalooBhaijaan'); };
-  const onFontBalooBhaina = () => { setFont('BalooBhaina'); };
-  const onFontBalooChettan = () => { setFont('BalooChettan'); };
-  const onFontBalooDa = () => { setFont('BalooDa'); };
-  const onFontBalooPaaji = () => { setFont('BalooPaaji'); };
-  const onFontBalooTamma = () => { setFont('BalooTamma'); };
-  const onFontBalooTammudu = () => { setFont('BalooTammudu'); };
-  const onFontBalooThambi = () => { setFont('BalooThambi'); };
-  const onFontBanglaMN = () => { setFont('BanglaMN'); };
-  const onFontBanglaSangamMN = () => { setFont('BanglaSangamMN'); };
-  const onFontBaoliSC = () => { setFont('BaoliSC'); };
-  const onFontBaoliTC = () => { setFont('BaoliTC'); };
-  const onFontBaskerville = () => { setFont('Baskerville'); };
-  const onFontBasra = () => { setFont('Basra'); };
-  const onFontBatang = () => { setFont('Batang'); };
-  const onFontBeijing = () => { setFont('Beijing'); };
-  const onFontBeirut = () => { setFont('Beirut'); };
-  const onFontBiauKai = () => { setFont('BiauKai'); };
-  const onFontBigCaslon = () => { setFont('BigCaslon'); };
-  const onFontBIZUDGothic = () => { setFont('BIZUDGothic'); };
-  const onFontBIZUDMincho = () => { setFont('BIZUDMincho'); };
-  const onFontBodoni72 = () => { setFont('Bodoni72'); };
-  const onFontBraganza = () => { setFont('Braganza'); };
-  const onFontBrowalliaNew = () => { setFont('BrowalliaNew'); };
-  const onFontBrowalliaUPC = () => { setFont('BrowalliaUPC'); };
-  const onFontBrushScript = () => { setFont('BrushScript'); };
-  const onFontCalibri = () => { setFont('Calibri'); };
-  const onFontCambayDevanagari = () => { setFont('CambayDevanagari'); };
-  const onFontCambria = () => { setFont('Cambria'); };
-  const onFontCandara = () => { setFont('Candara'); };
-  const onFontCanela = () => { setFont('Canela'); };
-  const onFontCanelaDeck = () => { setFont('CanelaDeck'); };
-  const onFontCapitals = () => { setFont('Capitals'); };
-  const onFontCenturyGothic = () => { setFont('CenturyGothic'); };
-  const onFontCenturySchoolbook = () => { setFont('CenturySchoolbook'); };
-  const onFontChalkboard = () => { setFont('Chalkboard'); };
-  const onFontChalkduster = () => { setFont('Chalkduster'); };
-  const onFontCharcoal = () => { setFont('Charcoal'); };
-  const onFontCharcoalCY = () => { setFont('CharcoalCY'); };
-  const onFontCharterRoman = () => { setFont('CharterRoman'); };
-  const onFontChicago = () => { setFont('Chicago'); };
-  const onFontCochin = () => { setFont('Cochin'); };
-  const onFontComicSans = () => { setFont('ComicSans'); };
-  const onFontComicSansMS = () => { setFont('ComicSansMS'); };
-  const onFontConsolas = () => { setFont('Consolas'); };
-  const onFontConstantia = () => { setFont('Constantia'); };
-  const onFontCooper = () => { setFont('Cooper'); };
-  const onFontCopperplate = () => { setFont('Copperplate'); };
-  const onFontCorbel = () => { setFont('Corbel'); };
-  const onFontCordiaNew = () => { setFont('CordiaNew'); };
-  const onFontCordiaUPC = () => { setFont('CordiaUPC'); };
-  const onFontCorsivaHebrew = () => { setFont('CorsivaHebrew'); };
-  const onFontCourier = () => { setFont('Courier'); };
-  const onFontCourierNew = () => { setFont('CourierNew'); };
-  const onFontDamascus = () => { setFont('Damascus'); };
-  const onFontDaunPenh = () => { setFont('DaunPenh'); };
-  const onFontDavid = () => { setFont('David'); };
-  const onFontDearJoeFour = () => { setFont('DearJoeFour'); };
-  const onFontDecoTypeNaskh = () => { setFont('DecoTypeNaskh'); };
-  const onFontDengXian = () => { setFont('DengXian'); };
-  const onFontDevanagari = () => { setFont('Devanagari'); };
-  const onFontDevanagariMT = () => { setFont('DevanagariMT'); };
-  const onFontDevanagariSangamMN = () => { setFont('DevanagariSangamMN'); };
-  const onFontDFKaiSB = () => { setFont('DFKai-SB'); };
-  const onFontDidot = () => { setFont('Didot'); };
-  const onFontDijla = () => { setFont('Dijla'); };
-  const onFontDilleniaUPC = () => { setFont('DilleniaUPC'); };
-  const onFontDiwanKufi = () => { setFont('DiwanKufi'); };
-  const onFontDiwanThuluth = () => { setFont('DiwanThuluth'); };
-  const onFontDokChampa = () => { setFont('DokChampa'); };
-  const onFontDomaineDisplay = () => { setFont('DomaineDisplay'); };
-  const onFontDotum = () => { setFont('Dotum'); };
-  const onFontEbrima = () => { setFont('Ebrima'); };
-  const onFontEstrangeloEdessa = () => { setFont('EstrangeloEdessa'); };
-  const onFontEucrosiaUPC = () => { setFont('EucrosiaUPC'); };
-  const onFontEuphemia = () => { setFont('Euphemia'); };
-  const onFontEuphemiaUCAS = () => { setFont('EuphemiaUCAS'); };
-  const onFontFangSong = () => { setFont('FangSong'); };
-  const onFontFarah = () => { setFont('Farah'); };
-  const onFontFarisi = () => { setFont('Farisi'); };
-  const onFontForgottenFuturist = () => { setFont('ForgottenFuturist'); };
-  const onFontFoundersGrotesk = () => { setFont('FoundersGrotesk'); };
-  const onFontFranklinGothic = () => { setFont('FranklinGothic'); };
-  const onFontFrankRuehl = () => { setFont('FrankRuehl'); };
-  const onFontFreesiaUPC = () => { setFont('FreesiaUPC'); };
-  const onFontFutura = () => { setFont('Futura'); };
-  const onFontGabriola = () => { setFont('Gabriola'); };
-  const onFontGadget = () => { setFont('Gadget'); };
-  const onFontGadugi = () => { setFont('Gadugi'); };
-  const onFontGalvji = () => { setFont('Galvji'); };
-  const onFontGaramond = () => { setFont('Garamond'); };
-  const onFontGautami = () => { setFont('Gautami'); };
-  const onFontGB18030Bitmap = () => { setFont('GB18030Bitmap'); };
-  const onFontGeezaPro = () => { setFont('GeezaPro'); };
-  const onFontGeezah = () => { setFont('Geezah'); };
-  const onFontGeneva = () => { setFont('Geneva'); };
-  const onFontGenevaCY = () => { setFont('GenevaCY'); };
-  const onFontGeorgia = () => { setFont('Georgia'); };
-  const onFontGeorgiaPro = () => { setFont('GeorgiaPro'); };
-  const onFontGillSans = () => { setFont('GillSans'); };
-  const onFontGillSansNova = () => { setFont('GillSansNova'); };
-  const onFontGisha = () => { setFont('Gisha'); };
-  const onFontGotu = () => { setFont('Gotu'); };
-  const onFontGraphik = () => { setFont('Graphik'); };
-  const onFontGujarati = () => { setFont('Gujarati'); };
-  const onFontGujaratiMT = () => { setFont('GujaratiMT'); };
-  const onFontGujaratiSangamMN = () => { setFont('GujaratiSangamMN'); };
-  const onFontGulim = () => { setFont('Gulim'); };
-  const onFontGungSeoche = () => { setFont('GungSeoche'); };
-  const onFontGungSeo = () => { setFont('GungSeo'); };
-  const onFontGungsuh = () => { setFont('Gungsuh'); };
-  const onFontGurmukhi = () => { setFont('Gurmukhi'); };
-  const onFontGurmukhiMN = () => { setFont('GurmukhiMN'); };
-  const onFontGurmukhiMT = () => { setFont('GurmukhiMT'); };
-  const onFontGurmukhiSangamMN = () => { setFont('GurmukhiSangamMN'); };
-  const onFontHangangche = () => { setFont('Hangangche'); };
-  const onFontHannotateSC = () => { setFont('HannotateSC'); };
-  const onFontHannotateTC = () => { setFont('HannotateTC'); };
-  const onFontHanziPenSC = () => { setFont('HanziPenSC'); };
-  const onFontHanziPenTC = () => { setFont('HanziPenTC'); };
-  const onFontHeadlineA = () => { setFont('HeadlineA'); };
-  const onFontHei = () => { setFont('Hei'); };
-  const onFontHeitiSC = () => { setFont('HeitiSC'); };
-  const onFontHelvetica = () => { setFont('Helvetica'); };
-  const onFontHelveticaCY = () => { setFont('HelveticaCY'); };
-  const onFontHelveticaNeue = () => { setFont('HelveticaNeue'); };
-  const onFontHerculanum = () => { setFont('Herculanum'); };
-  const onFontHiraginoKakuGothic = () => { setFont('HiraginoKakuGothic'); };
-  const onFontHiraginoKakuGothicPro = () => { setFont('HiraginoKakuGothicPro'); };
-  const onFontHiraginoMaruGothicPro = () => { setFont('HiraginoMaruGothicPro'); };
-  const onFontHiraginoMinchoPro = () => { setFont('HiraginoMinchoPro'); };
-  const onFontHiraginoSans = () => { setFont('HiraginoSans'); };
-  const onFontHoeflerText = () => { setFont('HoeflerText'); };
-  const onFontHopperScript = () => { setFont('HopperScript'); };
-  const onFontImpact = () => { setFont('Impact'); };
-  const onFontInaiMathi = () => { setFont('InaiMathi'); };
-  const onFontInkFree = () => { setFont('InkFree'); };
-  const onFontIowanOldStyleTitling = () => { setFont('IowanOldStyleTitling'); };
-  const onFontIrisUPC = () => { setFont('IrisUPC'); };
-  const onFontIskoolaPota = () => { setFont('IskoolaPota'); };
-  const onFontITCBodoni72 = () => { setFont('ITCBodoni72'); };
-  const onFontITFDevanagari = () => { setFont('ITFDevanagari'); };
-  const onFontITFDevanagariMarathi = () => { setFont('ITFDevanagariMarathi'); };
-  const onFontJaini = () => { setFont('Jaini'); };
-  const onFontJainiPurva = () => { setFont('JainiPurva'); };
-  const onFontJasmineUPC = () => { setFont('JasmineUPC'); };
-  const onFontJavaneseText = () => { setFont('JavaneseText'); };
-  const onFontJungGothic = () => { setFont('JungGothic'); };
-  const onFontKai = () => { setFont('Kai'); };
-  const onFontKailasa = () => { setFont('Kailasa'); };
-  const onFontKaiTi = () => { setFont('KaiTi'); };
-  const onFontKaitiSC = () => { setFont('KaitiSC'); };
-  const onFontKaitiTC = () => { setFont('KaitiTC'); };
-  const onFontKalinga = () => { setFont('Kalinga'); };
-  const onFontKannadaMN = () => { setFont('KannadaMN'); };
-  const onFontKannadaSangamMN = () => { setFont('KannadaSangamMN'); };
-  const onFontKartika = () => { setFont('Kartika'); };
-  const onFontKatari = () => { setFont('Katari'); };
-  const onFontKefa = () => { setFont('Kefa'); };
-  const onFontKeyboard = () => { setFont('Keyboard'); };
-  const onFontKhmerMN = () => { setFont('KhmerMN'); };
-  const onFontKhmerSangamMN = () => { setFont('KhmerSangamMN'); };
-  const onFontKhmerUI = () => { setFont('KhmerUI'); };
-  const onFontKodchiangUPC = () => { setFont('KodchiangUPC'); };
-  const onFontKohinoorBangla = () => { setFont('KohinoorBangla'); };
-  const onFontKohinoorDevanagari = () => { setFont('KohinoorDevanagari'); };
-  const onFontKohinoorTelugu = () => { setFont('KohinoorTelugu'); };
-  const onFontKokila = () => { setFont('Kokila'); };
-  const onFontKokonor = () => { setFont('Kokonor'); };
-  const onFontKoufiAbjadi = () => { setFont('KoufiAbjadi'); };
-  const onFontKrungthep = () => { setFont('Krungthep'); };
-  const onFontKuenstlerScript = () => { setFont('KuenstlerScript'); };
-  const onFontKufiStandardGK = () => { setFont('KufiStandardGK'); };
-  const onFontLahoreGurmukhi = () => { setFont('LahoreGurmukhi'); };
-  const onFontLaimoon = () => { setFont('Laimoon'); };
-  const onFontLaoMN = () => { setFont('LaoMN'); };
-  const onFontLaoSangamMN = () => { setFont('LaoSangamMN'); };
-  const onFontLaoUI = () => { setFont('LaoUI'); };
-  const onFontLastResort = () => { setFont('LastResort'); };
-  const onFontLatha = () => { setFont('Latha'); };
-  const onFontLavaDevanagari = () => { setFont('LavaDevanagari'); };
-  const onFontLavaKannada = () => { setFont('LavaKannada'); };
-  const onFontLavaTelugu = () => { setFont('LavaTelugu'); };
-  const onFontLeelawadee = () => { setFont('Leelawadee'); };
-  const onFontLeelawadeeUI = () => { setFont('LeelawadeeUI'); };
-  const onFontLevenimMT = () => { setFont('LevenimMT'); };
-  const onFontLibianSC = () => { setFont('LibianSC'); };
-  const onFontLibianTC = () => { setFont('LibianTC'); };
-  const onFontLiHeiPro = () => { setFont('LiHeiPro'); };
-  const onFontLilyUPC = () => { setFont('LilyUPC'); };
-  const onFontLiSongPro = () => { setFont('LiSongPro'); };
-  const onFontLucidaConsole = () => { setFont('LucidaConsole'); };
-  const onFontLucidaGrande = () => { setFont('LucidaGrande'); };
-  const onFontLucidaSans = () => { setFont('LucidaSans'); };
-  const onFontLucidaSansUnicode = () => { setFont('LucidaSansUnicode'); };
-  const onFontLuminari = () => { setFont('Luminari'); };
-  const onFontMaku = () => { setFont('Maku'); };
-  const onFontMalayalamMN = () => { setFont('MalayalamMN'); };
-  const onFontMalayalamSangamMN = () => { setFont('MalayalamSangamMN'); };
-  const onFontMalgunGothic = () => { setFont('MalgunGothic'); };
-  const onFontMangal = () => { setFont('Mangal'); };
-  const onFontMarkerFelt = () => { setFont('MarkerFelt'); };
-  const onFontMarlett = () => { setFont('Marlett'); };
-  const onFontMeiryo = () => { setFont('Meiryo'); };
-  const onFontMenlo = () => { setFont('Menlo'); };
-  const onFontMicrosoftHimalaya = () => { setFont('MicrosoftHimalaya'); };
-  const onFontMicrosoftJhengHei = () => { setFont('MicrosoftJhengHei'); };
-  const onFontMicrosoftNewTaiLue = () => { setFont('MicrosoftNewTaiLue'); };
-  const onFontMicrosoftPhagsPa = () => { setFont('MicrosoftPhagsPa'); };
-  const onFontMicrosoftSansSerif = () => { setFont('MicrosoftSansSerif'); };
-  const onFontMicrosoftTaiLe = () => { setFont('MicrosoftTaiLe'); };
-  const onFontMicrosoftUighur = () => { setFont('MicrosoftUighur'); };
-  const onFontMicrosoftYaHei = () => { setFont('MicrosoftYaHei'); };
-  const onFontMicrosoftYiBaiti = () => { setFont('MicrosoftYiBaiti'); };
-  const onFontMingLiU = () => { setFont('MingLiU'); };
-  const onFontMingLiUExtB = () => { setFont('MingLiU-ExtB'); };
-  const onFontMiriam = () => { setFont('Miriam'); };
-  const onFontMishafi = () => { setFont('Mishafi'); };
-  const onFontMishafiGold = () => { setFont('MishafiGold'); };
-  const onFontModak = () => { setFont('Modak'); };
-  const onFontMonaLisaSolidITCTT = () => { setFont('MonaLisaSolidITCTT'); };
-  const onFontMonaco = () => { setFont('Monaco'); };
-  const onFontMonacoCY = () => { setFont('MonacoCY'); };
-  const onFontMongolianBaiti = () => { setFont('MongolianBaiti'); };
-  const onFontMonotypeLingWai = () => { setFont('MonotypeLingWai'); };
-  const onFontMoolBoran = () => { setFont('MoolBoran'); };
-  const onFontMSGothic = () => { setFont('MSGothic'); };
-  const onFontMSMincho = () => { setFont('MSMincho'); };
-  const onFontMshtakan = () => { setFont('Mshtakan'); };
-  const onFontMukta = () => { setFont('Mukta'); };
-  const onFontMuktaMalar = () => { setFont('MuktaMalar'); };
-  const onFontMuktaVaani = () => { setFont('MuktaVaani'); };
-  const onFontMuktaMahee = () => { setFont('MuktaMahee'); };
-  const onFontMuna = () => { setFont('Muna'); };
-  const onFontMVBoli = () => { setFont('MVBoli'); };
-  const onFontMyanmarMN = () => { setFont('MyanmarMN'); };
-  const onFontMyanmarSangamMN = () => { setFont('MyanmarSangamMN'); };
-  const onFontMyanmarText = () => { setFont('MyanmarText'); };
-  const onFontMyriadArabic = () => { setFont('MyriadArabic'); };
-  const onFontNadeem = () => { setFont('Nadeem'); };
-  const onFontNanumBrushScript = () => { setFont('NanumBrushScript'); };
-  const onFontNanumPenScript = () => { setFont('NanumPenScript'); };
-  const onFontNanumGothic = () => { setFont('NanumGothic'); };
-  const onFontNanumMyeongjo = () => { setFont('NanumMyeongjo'); };
-  const onFontNarkisim = () => { setFont('Narkisim'); };
-  const onFontNeueHaasGrotskTxtPro = () => { setFont('NeueHaasGrotskTxtPro'); };
-  const onFontNewPeninim = () => { setFont('NewPeninim'); };
-  const onFontNewPeninimMT = () => { setFont('NewPeninimMT'); };
-  const onFontNewPeninimMTInclined = () => { setFont('NewPeninimMTInclined'); };
-  const onFontNewYork = () => { setFont('NewYork'); };
-  const onFontNirmalaUI = () => { setFont('NirmalaUI'); };
-  const onFontNisan = () => { setFont('Nisan'); };
-  const onFontNISCGB18030 = () => { setFont('NISCGB18030'); };
-  const onFontNoteworthy = () => { setFont('Noteworthy'); };
-  const onFontNotoNastaliqUrdu = () => { setFont('NotoNastaliqUrdu'); };
-  const onFontNotoSansJavanese = () => { setFont('NotoSansJavanese'); };
-  const onFontNotoSansKannada = () => { setFont('NotoSansKannada'); };
-  const onFontNotoSansMyanmar = () => { setFont('NotoSansMyanmar'); };
-  const onFontNotoSansOriya = () => { setFont('NotoSansOriya'); };
-  const onFontNotoSerifKannada = () => { setFont('NotoSerifKannada'); };
-  const onFontNotoSerifMyanmar = () => { setFont('NotoSerifMyanmar'); };
-  const onFontNyala = () => { setFont('Nyala'); };
-  const onFontOctoberDevanagari = () => { setFont('OctoberDevanagari'); };
-  const onFontOctoberTamil = () => { setFont('OctoberTamil'); };
-  const onFontOptima = () => { setFont('Optima'); };
-  const onFontOriyaMN = () => { setFont('OriyaMN'); };
-  const onFontOriyaSangamMN = () => { setFont('OriyaSangamMN'); };
-  const onFontOsaka = () => { setFont('Osaka'); };
-  const onFontOsakaMono = () => { setFont('Osaka-Mono'); };
-  const onFontPalatino = () => { setFont('Palatino'); };
-  const onFontPalatinoLinotype = () => { setFont('PalatinoLinotype'); };
-  const onFontPapyrus = () => { setFont('Papyrus'); };
-  const onFontPCMyungjo = () => { setFont('PCMyungjo'); };
-  const onFontPhosphate = () => { setFont('Phosphate'); };
-  const onFontPilGi = () => { setFont('PilGi'); };
-  const onFontPilgiche = () => { setFont('Pilgiche'); };
-  const onFontPingFangHK = () => { setFont('PingFangHK'); };
-  const onFontPingFangSC = () => { setFont('PingFangSC'); };
-  const onFontPingFangTC = () => { setFont('PingFangTC'); };
-  const onFontPlantagenetCherokee = () => { setFont('PlantagenetCherokee'); };
-  const onFontPortagoITCTT = () => { setFont('PortagoITCTT'); };
-  const onFontPrincetownLET = () => { setFont('PrincetownLET'); };
-  const onFontProdukt = () => { setFont('Produkt'); };
-  const onFontProximaNova = () => { setFont('ProximaNova'); };
-  const onFontPSLOrnanongPro = () => { setFont('PSLOrnanongPro'); };
-  const onFontPTMono = () => { setFont('PTMono'); };
-  const onFontPTSans = () => { setFont('PTSans'); };
-  const onFontPTSansNarrow = () => { setFont('PTSansNarrow'); };
-  const onFontPTSerif = () => { setFont('PTSerif'); };
-  const onFontPublicoHeadlineRoman = () => { setFont('PublicoHeadlineRoman'); };
-  const onFontQuotesCaps = () => { setFont('QuotesCaps'); };
-  const onFontQuotesScript = () => { setFont('QuotesScript'); };
-  const onFontRaanana = () => { setFont('Raanana'); };
-  const onFontRaavi = () => { setFont('Raavi'); };
-  const onFontRaya = () => { setFont('Raya'); };
-  const onFontRockwell = () => { setFont('Rockwell'); };
-  const onFontRockwellNova = () => { setFont('RockwellNova'); };
-  const onFontRod = () => { setFont('Rod'); };
-  const onFontSakkalMajalla = () => { setFont('SakkalMajalla'); };
-  const onFontSamaDevanagari = () => { setFont('SamaDevanagari'); };
-  const onFontSamaGujarati = () => { setFont('SamaGujarati'); };
-  const onFontSamaGurmukhi = () => { setFont('SamaGurmukhi'); };
-  const onFontSamaKannada = () => { setFont('SamaKannada'); };
-  const onFontSamaMalayalam = () => { setFont('SamaMalayalam'); };
-  const onFontSamaTamil = () => { setFont('SamaTamil'); };
-  const onFontSanFranciscoMono = () => { setFont('SanFranciscoMono'); };
-  const onFontSana = () => { setFont('Sana'); };
-  const onFontSand = () => { setFont('Sand'); };
-  const onFontSanskritText = () => { setFont('SanskritText'); };
-  const onFontSathu = () => { setFont('Sathu'); };
-  const onFontSauberScript = () => { setFont('SauberScript'); };
-  const onFontSchoolHouseCursiveB = () => { setFont('SchoolHouseCursiveB'); };
-  const onFontSchoolHousePrintedA = () => { setFont('SchoolHousePrintedA'); };
-  const onFontSegoePrint = () => { setFont('SegoePrint'); };
-  const onFontSegoeScript = () => { setFont('SegoeScript'); };
-  const onFontSegoeUI = () => { setFont('SegoeUI'); };
-  const onFontSeoul = () => { setFont('Seoul'); };
-  const onFontSFArabic = () => { setFont('SFArabic'); };
-  const onFontShinMyungjoNeue = () => { setFont('ShinMyungjoNeue'); };
-  const onFontShobhika = () => { setFont('Shobhika'); };
-  const onFontShonarBangla = () => { setFont('ShonarBangla'); };
-  const onFontShreeDevanagari714 = () => { setFont('ShreeDevanagari714'); };
-  const onFontShruti = () => { setFont('Shruti'); };
-  const onFontSignPainter = () => { setFont('SignPainter'); };
-  const onFontSignPainterHouseScript = () => { setFont('SignPainter-HouseScript'); };
-  const onFontSilom = () => { setFont('Silom'); };
-  const onFontSimHei = () => { setFont('SimHei'); };
-  const onFontSimplifiedArabic = () => { setFont('SimplifiedArabic'); };
-  const onFontSimSong = () => { setFont('SimSong'); };
-  const onFontSimSun = () => { setFont('SimSun'); };
-  const onFontSinhalaMN = () => { setFont('SinhalaMN'); };
-  const onFontSinhalaSangamMN = () => { setFont('SinhalaSangamMN'); };
-  const onFontSitka = () => { setFont('Sitka'); };
-  const onFontSkia = () => { setFont('Skia'); };
-  const onFontSnellRoundhand = () => { setFont('SnellRoundhand'); };
-  const onFontSomer = () => { setFont('Somer'); };
-  const onFontSongtiSC = () => { setFont('SongtiSC'); };
-  const onFontSongtiTC = () => { setFont('SongtiTC'); };
-  const onFontSpotMono = () => { setFont('SpotMono'); };
-  const onFontSTFangSong = () => { setFont('STFangSong'); };
-  const onFontSTHeiti = () => { setFont('STHeiti'); };
-  const onFontSTKaiti = () => { setFont('STKaiti'); };
-  const onFontSTSong = () => { setFont('STSong'); };
-  const onFontSTXihei = () => { setFont('STXihei'); };
-  const onFontSTIXTwoText = () => { setFont('STIXTwoText'); };
-  const onFontSTIXGeneralRegular = () => { setFont('STIXGeneral-Regular'); };
-  const onFontStoneSansSemITCTT = () => { setFont('StoneSansSemITCTT'); };
-  const onFontSukhumvitSetText = () => { setFont('SukhumvitSetText'); };
-  const onFontSylfaen = () => { setFont('Sylfaen'); };
-  const onFontSynchroLET = () => { setFont('SynchroLET'); };
-  const onFontTaeGraphic = () => { setFont('TaeGraphic'); };
-  const onFontTahoma = () => { setFont('Tahoma'); };
-  const onFontTaipei = () => { setFont('Taipei'); };
-  const onFontTamilMN = () => { setFont('TamilMN'); };
-  const onFontTamilSangamMN = () => { setFont('TamilSangamMN'); };
-  const onFontTechno = () => { setFont('Techno'); };
-  const onFontTeluguMN = () => { setFont('TeluguMN'); };
-  const onFontTeluguSangamMN = () => { setFont('TeluguSangamMN'); };
-  const onFontTextile = () => { setFont('Textile'); };
-  const onFontThonburi = () => { setFont('Thonburi'); };
-  const onFontTimes = () => { setFont('Times'); };
-  const onFontTimesCY = () => { setFont('TimesCY'); };
-  const onFontTimesNewRoman = () => { setFont('TimesNewRoman'); };
-  const onFontTimesRoman = () => { setFont('TimesRoman'); };
-  const onFontTiroBangla = () => { setFont('TiroBangla'); };
-  const onFontTiroDevanagariHindi = () => { setFont('TiroDevanagariHindi'); };
-  const onFontTiroDevanagariMarathi = () => { setFont('TiroDevanagariMarathi'); };
-  const onFontTiroDevanagariSanskrit = () => { setFont('TiroDevanagariSanskrit'); };
-  const onFontTiroGurmukhi = () => { setFont('TiroGurmukhi'); };
-  const onFontTiroHindi = () => { setFont('TiroHindi'); };
-  const onFontTiroKannada = () => { setFont('TiroKannada'); };
-  const onFontTiroMarathi = () => { setFont('TiroMarathi'); };
-  const onFontTiroSanskrit = () => { setFont('TiroSanskrit'); };
-  const onFontTiroTamil = () => { setFont('TiroTamil'); };
-  const onFontTiroTelugu = () => { setFont('TiroTelugu'); };
-  const onFontToppanBunkyuGothic = () => { setFont('ToppanBunkyuGothic'); };
-  const onFontToppanBunkyuMincho = () => { setFont('ToppanBunkyuMincho'); };
-  const onFontTraditionalArabic = () => { setFont('TraditionalArabic'); };
-  const onFontTrattatello = () => { setFont('Trattatello'); };
-  const onFontTrebuchetMS = () => { setFont('TrebuchetMS'); };
-  const onFontTsukushiARoundGothic = () => { setFont('TsukushiARoundGothic'); };
-  const onFontTsukushiBRoundGothic = () => { setFont('TsukushiBRoundGothic'); };
-  const onFontTunga = () => { setFont('Tunga'); };
-  const onFontTwCenMT = () => { setFont('TwCenMT'); };
-  const onFontUDDigiKyokasho = () => { setFont('UDDigiKyokasho'); };
-  const onFontUrduTypesetting = () => { setFont('UrduTypesetting'); };
-  const onFontUtsaah = () => { setFont('Utsaah'); };
-  const onFontVani = () => { setFont('Vani'); };
-  const onFontVerdana = () => { setFont('Verdana'); };
-  const onFontVerdanaPro = () => { setFont('VerdanaPro'); };
-  const onFontVijaya = () => { setFont('Vijaya'); };
-  const onFontVrinda = () => { setFont('Vrinda'); };
-  const onFontWaseem = () => { setFont('Waseem'); };
-  const onFontWawatiSC = () => { setFont('WawatiSC'); };
-  const onFontWawatiTC = () => { setFont('WawatiTC'); };
-  const onFontYaziji = () => { setFont('Yaziji'); };
-  const onFontYuGothic = () => { setFont('YuGothic'); };
-  const onFontYuKyokashoN = () => { setFont('YuKyokashoN'); };
-  const onFontYuMincho = () => { setFont('YuMincho'); };
-  const onFontYuantiSC = () => { setFont('YuantiSC'); };
-  const onFontYuantiTC = () => { setFont('YuantiTC'); };
-  const onFontYuppySC = () => { setFont('YuppySC'); };
-  const onFontZapfChancery = () => { setFont('ZapfChancery'); };
-  const onFontZapfino = () => { setFont('Zapfino'); };
+  const onFontAdelleSansDevanagari = useCallback(() => { setFont('AdelleSansDevanagari'); }, [setFont]);
+  const onFontAharoni = useCallback(() => { setFont('Aharoni'); }, [setFont]);
+  const onFontAlBayan = useCallback(() => { setFont('AlBayan'); }, [setFont]);
+  const onFontAlFirat = useCallback(() => { setFont('AlFirat'); }, [setFont]);
+  const onFontAlKhalil = useCallback(() => { setFont('AlKhalil'); }, [setFont]);
+  const onFontAlNile = useCallback(() => { setFont('AlNile'); }, [setFont]);
+  const onFontAlRafidain = useCallback(() => { setFont('AlRafidain'); }, [setFont]);
+  const onFontAlRafidainAlFanni = useCallback(() => { setFont('AlRafidainAlFanni'); }, [setFont]);
+  const onFontAlTarikh = useCallback(() => { setFont('AlTarikh'); }, [setFont]);
+  const onFontAldhabi = useCallback(() => { setFont('Aldhabi'); }, [setFont]);
+  const onFontAlgiers = useCallback(() => { setFont('Algiers'); }, [setFont]);
+  const onFontAmericanTypewriter = useCallback(() => { setFont('AmericanTypewriter'); }, [setFont]);
+  const onFontAndaleMono = useCallback(() => { setFont('AndaleMono'); }, [setFont]);
+  const onFontAndalus = useCallback(() => { setFont('Andalus'); }, [setFont]);
+  const onFontAngsanaNew = useCallback(() => { setFont('AngsanaNew'); }, [setFont]);
+  const onFontAngsanaUPC = useCallback(() => { setFont('AngsanaUPC'); }, [setFont]);
+  const onFontAnnaiMN = useCallback(() => { setFont('AnnaiMN'); }, [setFont]);
+  const onFontAparajita = useCallback(() => { setFont('Aparajita'); }, [setFont]);
+  const onFontAppleBraille = useCallback(() => { setFont('AppleBraille'); }, [setFont]);
+  const onFontAppleCasual = useCallback(() => { setFont('AppleCasual'); }, [setFont]);
+  const onFontAppleChancery = useCallback(() => { setFont('AppleChancery'); }, [setFont]);
+  const onFontAppleGaramond = useCallback(() => { setFont('AppleGaramond'); }, [setFont]);
+  const onFontAppleGothic = useCallback(() => { setFont('AppleGothic'); }, [setFont]);
+  const onFontAppleLiGothic = useCallback(() => { setFont('AppleLiGothic'); }, [setFont]);
+  const onFontAppleLiSung = useCallback(() => { setFont('AppleLiSung'); }, [setFont]);
+  const onFontAppleMyungjo = useCallback(() => { setFont('AppleMyungjo'); }, [setFont]);
+  const onFontAppleSDGothicNeo = useCallback(() => { setFont('AppleSDGothicNeo'); }, [setFont]);
+  const onFontAquaKana = useCallback(() => { setFont('AquaKana'); }, [setFont]);
+  const onFontArabicTypesetting = useCallback(() => { setFont('ArabicTypesetting'); }, [setFont]);
+  const onFontArial = useCallback(() => { setFont('Arial'); }, [setFont]);
+  const onFontArialHebrew = useCallback(() => { setFont('ArialHebrew'); }, [setFont]);
+  const onFontArialHebrewScholar = useCallback(() => { setFont('ArialHebrewScholar'); }, [setFont]);
+  const onFontArialNarrow = useCallback(() => { setFont('ArialNarrow'); }, [setFont]);
+  const onFontArialNova = useCallback(() => { setFont('ArialNova'); }, [setFont]);
+  const onFontArialUnicodeMS = useCallback(() => { setFont('ArialUnicodeMS'); }, [setFont]);
+  const onFontAvenir = useCallback(() => { setFont('Avenir'); }, [setFont]);
+  const onFontAyuthaya = useCallback(() => { setFont('Ayuthaya'); }, [setFont]);
+  const onFontBaghdad = useCallback(() => { setFont('Baghdad'); }, [setFont]);
+  const onFontBahnschrift = useCallback(() => { setFont('Bahnschrift'); }, [setFont]);
+  const onFontBaloo = useCallback(() => { setFont('Baloo'); }, [setFont]);
+  const onFontBalooBhai = useCallback(() => { setFont('BalooBhai'); }, [setFont]);
+  const onFontBalooBhaijaan = useCallback(() => { setFont('BalooBhaijaan'); }, [setFont]);
+  const onFontBalooBhaina = useCallback(() => { setFont('BalooBhaina'); }, [setFont]);
+  const onFontBalooChettan = useCallback(() => { setFont('BalooChettan'); }, [setFont]);
+  const onFontBalooDa = useCallback(() => { setFont('BalooDa'); }, [setFont]);
+  const onFontBalooPaaji = useCallback(() => { setFont('BalooPaaji'); }, [setFont]);
+  const onFontBalooTamma = useCallback(() => { setFont('BalooTamma'); }, [setFont]);
+  const onFontBalooTammudu = useCallback(() => { setFont('BalooTammudu'); }, [setFont]);
+  const onFontBalooThambi = useCallback(() => { setFont('BalooThambi'); }, [setFont]);
+  const onFontBanglaMN = useCallback(() => { setFont('BanglaMN'); }, [setFont]);
+  const onFontBanglaSangamMN = useCallback(() => { setFont('BanglaSangamMN'); }, [setFont]);
+  const onFontBaoliSC = useCallback(() => { setFont('BaoliSC'); }, [setFont]);
+  const onFontBaoliTC = useCallback(() => { setFont('BaoliTC'); }, [setFont]);
+  const onFontBaskerville = useCallback(() => { setFont('Baskerville'); }, [setFont]);
+  const onFontBasra = useCallback(() => { setFont('Basra'); }, [setFont]);
+  const onFontBatang = useCallback(() => { setFont('Batang'); }, [setFont]);
+  const onFontBeijing = useCallback(() => { setFont('Beijing'); }, [setFont]);
+  const onFontBeirut = useCallback(() => { setFont('Beirut'); }, [setFont]);
+  const onFontBiauKai = useCallback(() => { setFont('BiauKai'); }, [setFont]);
+  const onFontBigCaslon = useCallback(() => { setFont('BigCaslon'); }, [setFont]);
+  const onFontBIZUDGothic = useCallback(() => { setFont('BIZUDGothic'); }, [setFont]);
+  const onFontBIZUDMincho = useCallback(() => { setFont('BIZUDMincho'); }, [setFont]);
+  const onFontBodoni72 = useCallback(() => { setFont('Bodoni72'); }, [setFont]);
+  const onFontBraganza = useCallback(() => { setFont('Braganza'); }, [setFont]);
+  const onFontBrowalliaNew = useCallback(() => { setFont('BrowalliaNew'); }, [setFont]);
+  const onFontBrowalliaUPC = useCallback(() => { setFont('BrowalliaUPC'); }, [setFont]);
+  const onFontBrushScript = useCallback(() => { setFont('BrushScript'); }, [setFont]);
+  const onFontCalibri = useCallback(() => { setFont('Calibri'); }, [setFont]);
+  const onFontCambayDevanagari = useCallback(() => { setFont('CambayDevanagari'); }, [setFont]);
+  const onFontCambria = useCallback(() => { setFont('Cambria'); }, [setFont]);
+  const onFontCandara = useCallback(() => { setFont('Candara'); }, [setFont]);
+  const onFontCanela = useCallback(() => { setFont('Canela'); }, [setFont]);
+  const onFontCanelaDeck = useCallback(() => { setFont('CanelaDeck'); }, [setFont]);
+  const onFontCapitals = useCallback(() => { setFont('Capitals'); }, [setFont]);
+  const onFontCenturyGothic = useCallback(() => { setFont('CenturyGothic'); }, [setFont]);
+  const onFontCenturySchoolbook = useCallback(() => { setFont('CenturySchoolbook'); }, [setFont]);
+  const onFontChalkboard = useCallback(() => { setFont('Chalkboard'); }, [setFont]);
+  const onFontChalkduster = useCallback(() => { setFont('Chalkduster'); }, [setFont]);
+  const onFontCharcoal = useCallback(() => { setFont('Charcoal'); }, [setFont]);
+  const onFontCharcoalCY = useCallback(() => { setFont('CharcoalCY'); }, [setFont]);
+  const onFontCharterRoman = useCallback(() => { setFont('CharterRoman'); }, [setFont]);
+  const onFontChicago = useCallback(() => { setFont('Chicago'); }, [setFont]);
+  const onFontCochin = useCallback(() => { setFont('Cochin'); }, [setFont]);
+  const onFontComicSans = useCallback(() => { setFont('ComicSans'); }, [setFont]);
+  const onFontComicSansMS = useCallback(() => { setFont('ComicSansMS'); }, [setFont]);
+  const onFontConsolas = useCallback(() => { setFont('Consolas'); }, [setFont]);
+  const onFontConstantia = useCallback(() => { setFont('Constantia'); }, [setFont]);
+  const onFontCooper = useCallback(() => { setFont('Cooper'); }, [setFont]);
+  const onFontCopperplate = useCallback(() => { setFont('Copperplate'); }, [setFont]);
+  const onFontCorbel = useCallback(() => { setFont('Corbel'); }, [setFont]);
+  const onFontCordiaNew = useCallback(() => { setFont('CordiaNew'); }, [setFont]);
+  const onFontCordiaUPC = useCallback(() => { setFont('CordiaUPC'); }, [setFont]);
+  const onFontCorsivaHebrew = useCallback(() => { setFont('CorsivaHebrew'); }, [setFont]);
+  const onFontCourier = useCallback(() => { setFont('Courier'); }, [setFont]);
+  const onFontCourierNew = useCallback(() => { setFont('CourierNew'); }, [setFont]);
+  const onFontDamascus = useCallback(() => { setFont('Damascus'); }, [setFont]);
+  const onFontDaunPenh = useCallback(() => { setFont('DaunPenh'); }, [setFont]);
+  const onFontDavid = useCallback(() => { setFont('David'); }, [setFont]);
+  const onFontDearJoeFour = useCallback(() => { setFont('DearJoeFour'); }, [setFont]);
+  const onFontDecoTypeNaskh = useCallback(() => { setFont('DecoTypeNaskh'); }, [setFont]);
+  const onFontDengXian = useCallback(() => { setFont('DengXian'); }, [setFont]);
+  const onFontDevanagari = useCallback(() => { setFont('Devanagari'); }, [setFont]);
+  const onFontDevanagariMT = useCallback(() => { setFont('DevanagariMT'); }, [setFont]);
+  const onFontDevanagariSangamMN = useCallback(() => { setFont('DevanagariSangamMN'); }, [setFont]);
+  const onFontDFKaiSB = useCallback(() => { setFont('DFKai-SB'); }, [setFont]);
+  const onFontDidot = useCallback(() => { setFont('Didot'); }, [setFont]);
+  const onFontDijla = useCallback(() => { setFont('Dijla'); }, [setFont]);
+  const onFontDilleniaUPC = useCallback(() => { setFont('DilleniaUPC'); }, [setFont]);
+  const onFontDiwanKufi = useCallback(() => { setFont('DiwanKufi'); }, [setFont]);
+  const onFontDiwanThuluth = useCallback(() => { setFont('DiwanThuluth'); }, [setFont]);
+  const onFontDokChampa = useCallback(() => { setFont('DokChampa'); }, [setFont]);
+  const onFontDomaineDisplay = useCallback(() => { setFont('DomaineDisplay'); }, [setFont]);
+  const onFontDotum = useCallback(() => { setFont('Dotum'); }, [setFont]);
+  const onFontEbrima = useCallback(() => { setFont('Ebrima'); }, [setFont]);
+  const onFontEstrangeloEdessa = useCallback(() => { setFont('EstrangeloEdessa'); }, [setFont]);
+  const onFontEucrosiaUPC = useCallback(() => { setFont('EucrosiaUPC'); }, [setFont]);
+  const onFontEuphemia = useCallback(() => { setFont('Euphemia'); }, [setFont]);
+  const onFontEuphemiaUCAS = useCallback(() => { setFont('EuphemiaUCAS'); }, [setFont]);
+  const onFontFangSong = useCallback(() => { setFont('FangSong'); }, [setFont]);
+  const onFontFarah = useCallback(() => { setFont('Farah'); }, [setFont]);
+  const onFontFarisi = useCallback(() => { setFont('Farisi'); }, [setFont]);
+  const onFontForgottenFuturist = useCallback(() => { setFont('ForgottenFuturist'); }, [setFont]);
+  const onFontFoundersGrotesk = useCallback(() => { setFont('FoundersGrotesk'); }, [setFont]);
+  const onFontFranklinGothic = useCallback(() => { setFont('FranklinGothic'); }, [setFont]);
+  const onFontFrankRuehl = useCallback(() => { setFont('FrankRuehl'); }, [setFont]);
+  const onFontFreesiaUPC = useCallback(() => { setFont('FreesiaUPC'); }, [setFont]);
+  const onFontFutura = useCallback(() => { setFont('Futura'); }, [setFont]);
+  const onFontGabriola = useCallback(() => { setFont('Gabriola'); }, [setFont]);
+  const onFontGadget = useCallback(() => { setFont('Gadget'); }, [setFont]);
+  const onFontGadugi = useCallback(() => { setFont('Gadugi'); }, [setFont]);
+  const onFontGalvji = useCallback(() => { setFont('Galvji'); }, [setFont]);
+  const onFontGaramond = useCallback(() => { setFont('Garamond'); }, [setFont]);
+  const onFontGautami = useCallback(() => { setFont('Gautami'); }, [setFont]);
+  const onFontGB18030Bitmap = useCallback(() => { setFont('GB18030Bitmap'); }, [setFont]);
+  const onFontGeezaPro = useCallback(() => { setFont('GeezaPro'); }, [setFont]);
+  const onFontGeezah = useCallback(() => { setFont('Geezah'); }, [setFont]);
+  const onFontGeneva = useCallback(() => { setFont('Geneva'); }, [setFont]);
+  const onFontGenevaCY = useCallback(() => { setFont('GenevaCY'); }, [setFont]);
+  const onFontGeorgia = useCallback(() => { setFont('Georgia'); }, [setFont]);
+  const onFontGeorgiaPro = useCallback(() => { setFont('GeorgiaPro'); }, [setFont]);
+  const onFontGillSans = useCallback(() => { setFont('GillSans'); }, [setFont]);
+  const onFontGillSansNova = useCallback(() => { setFont('GillSansNova'); }, [setFont]);
+  const onFontGisha = useCallback(() => { setFont('Gisha'); }, [setFont]);
+  const onFontGotu = useCallback(() => { setFont('Gotu'); }, [setFont]);
+  const onFontGraphik = useCallback(() => { setFont('Graphik'); }, [setFont]);
+  const onFontGujarati = useCallback(() => { setFont('Gujarati'); }, [setFont]);
+  const onFontGujaratiMT = useCallback(() => { setFont('GujaratiMT'); }, [setFont]);
+  const onFontGujaratiSangamMN = useCallback(() => { setFont('GujaratiSangamMN'); }, [setFont]);
+  const onFontGulim = useCallback(() => { setFont('Gulim'); }, [setFont]);
+  const onFontGungSeoche = useCallback(() => { setFont('GungSeoche'); }, [setFont]);
+  const onFontGungSeo = useCallback(() => { setFont('GungSeo'); }, [setFont]);
+  const onFontGungsuh = useCallback(() => { setFont('Gungsuh'); }, [setFont]);
+  const onFontGurmukhi = useCallback(() => { setFont('Gurmukhi'); }, [setFont]);
+  const onFontGurmukhiMN = useCallback(() => { setFont('GurmukhiMN'); }, [setFont]);
+  const onFontGurmukhiMT = useCallback(() => { setFont('GurmukhiMT'); }, [setFont]);
+  const onFontGurmukhiSangamMN = useCallback(() => { setFont('GurmukhiSangamMN'); }, [setFont]);
+  const onFontHangangche = useCallback(() => { setFont('Hangangche'); }, [setFont]);
+  const onFontHannotateSC = useCallback(() => { setFont('HannotateSC'); }, [setFont]);
+  const onFontHannotateTC = useCallback(() => { setFont('HannotateTC'); }, [setFont]);
+  const onFontHanziPenSC = useCallback(() => { setFont('HanziPenSC'); }, [setFont]);
+  const onFontHanziPenTC = useCallback(() => { setFont('HanziPenTC'); }, [setFont]);
+  const onFontHeadlineA = useCallback(() => { setFont('HeadlineA'); }, [setFont]);
+  const onFontHei = useCallback(() => { setFont('Hei'); }, [setFont]);
+  const onFontHeitiSC = useCallback(() => { setFont('HeitiSC'); }, [setFont]);
+  const onFontHelvetica = useCallback(() => { setFont('Helvetica'); }, [setFont]);
+  const onFontHelveticaCY = useCallback(() => { setFont('HelveticaCY'); }, [setFont]);
+  const onFontHelveticaNeue = useCallback(() => { setFont('HelveticaNeue'); }, [setFont]);
+  const onFontHerculanum = useCallback(() => { setFont('Herculanum'); }, [setFont]);
+  const onFontHiraginoKakuGothic = useCallback(() => { setFont('HiraginoKakuGothic'); }, [setFont]);
+  const onFontHiraginoKakuGothicPro = useCallback(() => { setFont('HiraginoKakuGothicPro'); }, [setFont]);
+  const onFontHiraginoMaruGothicPro = useCallback(() => { setFont('HiraginoMaruGothicPro'); }, [setFont]);
+  const onFontHiraginoMinchoPro = useCallback(() => { setFont('HiraginoMinchoPro'); }, [setFont]);
+  const onFontHiraginoSans = useCallback(() => { setFont('HiraginoSans'); }, [setFont]);
+  const onFontHoeflerText = useCallback(() => { setFont('HoeflerText'); }, [setFont]);
+  const onFontHopperScript = useCallback(() => { setFont('HopperScript'); }, [setFont]);
+  const onFontImpact = useCallback(() => { setFont('Impact'); }, [setFont]);
+  const onFontInaiMathi = useCallback(() => { setFont('InaiMathi'); }, [setFont]);
+  const onFontInkFree = useCallback(() => { setFont('InkFree'); }, [setFont]);
+  const onFontIowanOldStyleTitling = useCallback(() => { setFont('IowanOldStyleTitling'); }, [setFont]);
+  const onFontIrisUPC = useCallback(() => { setFont('IrisUPC'); }, [setFont]);
+  const onFontIskoolaPota = useCallback(() => { setFont('IskoolaPota'); }, [setFont]);
+  const onFontITCBodoni72 = useCallback(() => { setFont('ITCBodoni72'); }, [setFont]);
+  const onFontITFDevanagari = useCallback(() => { setFont('ITFDevanagari'); }, [setFont]);
+  const onFontITFDevanagariMarathi = useCallback(() => { setFont('ITFDevanagariMarathi'); }, [setFont]);
+  const onFontJaini = useCallback(() => { setFont('Jaini'); }, [setFont]);
+  const onFontJainiPurva = useCallback(() => { setFont('JainiPurva'); }, [setFont]);
+  const onFontJasmineUPC = useCallback(() => { setFont('JasmineUPC'); }, [setFont]);
+  const onFontJavaneseText = useCallback(() => { setFont('JavaneseText'); }, [setFont]);
+  const onFontJungGothic = useCallback(() => { setFont('JungGothic'); }, [setFont]);
+  const onFontKai = useCallback(() => { setFont('Kai'); }, [setFont]);
+  const onFontKailasa = useCallback(() => { setFont('Kailasa'); }, [setFont]);
+  const onFontKaiTi = useCallback(() => { setFont('KaiTi'); }, [setFont]);
+  const onFontKaitiSC = useCallback(() => { setFont('KaitiSC'); }, [setFont]);
+  const onFontKaitiTC = useCallback(() => { setFont('KaitiTC'); }, [setFont]);
+  const onFontKalinga = useCallback(() => { setFont('Kalinga'); }, [setFont]);
+  const onFontKannadaMN = useCallback(() => { setFont('KannadaMN'); }, [setFont]);
+  const onFontKannadaSangamMN = useCallback(() => { setFont('KannadaSangamMN'); }, [setFont]);
+  const onFontKartika = useCallback(() => { setFont('Kartika'); }, [setFont]);
+  const onFontKatari = useCallback(() => { setFont('Katari'); }, [setFont]);
+  const onFontKefa = useCallback(() => { setFont('Kefa'); }, [setFont]);
+  const onFontKeyboard = useCallback(() => { setFont('Keyboard'); }, [setFont]);
+  const onFontKhmerMN = useCallback(() => { setFont('KhmerMN'); }, [setFont]);
+  const onFontKhmerSangamMN = useCallback(() => { setFont('KhmerSangamMN'); }, [setFont]);
+  const onFontKhmerUI = useCallback(() => { setFont('KhmerUI'); }, [setFont]);
+  const onFontKodchiangUPC = useCallback(() => { setFont('KodchiangUPC'); }, [setFont]);
+  const onFontKohinoorBangla = useCallback(() => { setFont('KohinoorBangla'); }, [setFont]);
+  const onFontKohinoorDevanagari = useCallback(() => { setFont('KohinoorDevanagari'); }, [setFont]);
+  const onFontKohinoorTelugu = useCallback(() => { setFont('KohinoorTelugu'); }, [setFont]);
+  const onFontKokila = useCallback(() => { setFont('Kokila'); }, [setFont]);
+  const onFontKokonor = useCallback(() => { setFont('Kokonor'); }, [setFont]);
+  const onFontKoufiAbjadi = useCallback(() => { setFont('KoufiAbjadi'); }, [setFont]);
+  const onFontKrungthep = useCallback(() => { setFont('Krungthep'); }, [setFont]);
+  const onFontKuenstlerScript = useCallback(() => { setFont('KuenstlerScript'); }, [setFont]);
+  const onFontKufiStandardGK = useCallback(() => { setFont('KufiStandardGK'); }, [setFont]);
+  const onFontLahoreGurmukhi = useCallback(() => { setFont('LahoreGurmukhi'); }, [setFont]);
+  const onFontLaimoon = useCallback(() => { setFont('Laimoon'); }, [setFont]);
+  const onFontLaoMN = useCallback(() => { setFont('LaoMN'); }, [setFont]);
+  const onFontLaoSangamMN = useCallback(() => { setFont('LaoSangamMN'); }, [setFont]);
+  const onFontLaoUI = useCallback(() => { setFont('LaoUI'); }, [setFont]);
+  const onFontLastResort = useCallback(() => { setFont('LastResort'); }, [setFont]);
+  const onFontLatha = useCallback(() => { setFont('Latha'); }, [setFont]);
+  const onFontLavaDevanagari = useCallback(() => { setFont('LavaDevanagari'); }, [setFont]);
+  const onFontLavaKannada = useCallback(() => { setFont('LavaKannada'); }, [setFont]);
+  const onFontLavaTelugu = useCallback(() => { setFont('LavaTelugu'); }, [setFont]);
+  const onFontLeelawadee = useCallback(() => { setFont('Leelawadee'); }, [setFont]);
+  const onFontLeelawadeeUI = useCallback(() => { setFont('LeelawadeeUI'); }, [setFont]);
+  const onFontLevenimMT = useCallback(() => { setFont('LevenimMT'); }, [setFont]);
+  const onFontLibianSC = useCallback(() => { setFont('LibianSC'); }, [setFont]);
+  const onFontLibianTC = useCallback(() => { setFont('LibianTC'); }, [setFont]);
+  const onFontLiHeiPro = useCallback(() => { setFont('LiHeiPro'); }, [setFont]);
+  const onFontLilyUPC = useCallback(() => { setFont('LilyUPC'); }, [setFont]);
+  const onFontLiSongPro = useCallback(() => { setFont('LiSongPro'); }, [setFont]);
+  const onFontLucidaConsole = useCallback(() => { setFont('LucidaConsole'); }, [setFont]);
+  const onFontLucidaGrande = useCallback(() => { setFont('LucidaGrande'); }, [setFont]);
+  const onFontLucidaSans = useCallback(() => { setFont('LucidaSans'); }, [setFont]);
+  const onFontLucidaSansUnicode = useCallback(() => { setFont('LucidaSansUnicode'); }, [setFont]);
+  const onFontLuminari = useCallback(() => { setFont('Luminari'); }, [setFont]);
+  const onFontMaku = useCallback(() => { setFont('Maku'); }, [setFont]);
+  const onFontMalayalamMN = useCallback(() => { setFont('MalayalamMN'); }, [setFont]);
+  const onFontMalayalamSangamMN = useCallback(() => { setFont('MalayalamSangamMN'); }, [setFont]);
+  const onFontMalgunGothic = useCallback(() => { setFont('MalgunGothic'); }, [setFont]);
+  const onFontMangal = useCallback(() => { setFont('Mangal'); }, [setFont]);
+  const onFontMarkerFelt = useCallback(() => { setFont('MarkerFelt'); }, [setFont]);
+  const onFontMarlett = useCallback(() => { setFont('Marlett'); }, [setFont]);
+  const onFontMeiryo = useCallback(() => { setFont('Meiryo'); }, [setFont]);
+  const onFontMenlo = useCallback(() => { setFont('Menlo'); }, [setFont]);
+  const onFontMicrosoftHimalaya = useCallback(() => { setFont('MicrosoftHimalaya'); }, [setFont]);
+  const onFontMicrosoftJhengHei = useCallback(() => { setFont('MicrosoftJhengHei'); }, [setFont]);
+  const onFontMicrosoftNewTaiLue = useCallback(() => { setFont('MicrosoftNewTaiLue'); }, [setFont]);
+  const onFontMicrosoftPhagsPa = useCallback(() => { setFont('MicrosoftPhagsPa'); }, [setFont]);
+  const onFontMicrosoftSansSerif = useCallback(() => { setFont('MicrosoftSansSerif'); }, [setFont]);
+  const onFontMicrosoftTaiLe = useCallback(() => { setFont('MicrosoftTaiLe'); }, [setFont]);
+  const onFontMicrosoftUighur = useCallback(() => { setFont('MicrosoftUighur'); }, [setFont]);
+  const onFontMicrosoftYaHei = useCallback(() => { setFont('MicrosoftYaHei'); }, [setFont]);
+  const onFontMicrosoftYiBaiti = useCallback(() => { setFont('MicrosoftYiBaiti'); }, [setFont]);
+  const onFontMingLiU = useCallback(() => { setFont('MingLiU'); }, [setFont]);
+  const onFontMingLiUExtB = useCallback(() => { setFont('MingLiU-ExtB'); }, [setFont]);
+  const onFontMiriam = useCallback(() => { setFont('Miriam'); }, [setFont]);
+  const onFontMishafi = useCallback(() => { setFont('Mishafi'); }, [setFont]);
+  const onFontMishafiGold = useCallback(() => { setFont('MishafiGold'); }, [setFont]);
+  const onFontModak = useCallback(() => { setFont('Modak'); }, [setFont]);
+  const onFontMonaLisaSolidITCTT = useCallback(() => { setFont('MonaLisaSolidITCTT'); }, [setFont]);
+  const onFontMonaco = useCallback(() => { setFont('Monaco'); }, [setFont]);
+  const onFontMonacoCY = useCallback(() => { setFont('MonacoCY'); }, [setFont]);
+  const onFontMongolianBaiti = useCallback(() => { setFont('MongolianBaiti'); }, [setFont]);
+  const onFontMonotypeLingWai = useCallback(() => { setFont('MonotypeLingWai'); }, [setFont]);
+  const onFontMoolBoran = useCallback(() => { setFont('MoolBoran'); }, [setFont]);
+  const onFontMSGothic = useCallback(() => { setFont('MSGothic'); }, [setFont]);
+  const onFontMSMincho = useCallback(() => { setFont('MSMincho'); }, [setFont]);
+  const onFontMshtakan = useCallback(() => { setFont('Mshtakan'); }, [setFont]);
+  const onFontMukta = useCallback(() => { setFont('Mukta'); }, [setFont]);
+  const onFontMuktaMalar = useCallback(() => { setFont('MuktaMalar'); }, [setFont]);
+  const onFontMuktaVaani = useCallback(() => { setFont('MuktaVaani'); }, [setFont]);
+  const onFontMuktaMahee = useCallback(() => { setFont('MuktaMahee'); }, [setFont]);
+  const onFontMuna = useCallback(() => { setFont('Muna'); }, [setFont]);
+  const onFontMVBoli = useCallback(() => { setFont('MVBoli'); }, [setFont]);
+  const onFontMyanmarMN = useCallback(() => { setFont('MyanmarMN'); }, [setFont]);
+  const onFontMyanmarSangamMN = useCallback(() => { setFont('MyanmarSangamMN'); }, [setFont]);
+  const onFontMyanmarText = useCallback(() => { setFont('MyanmarText'); }, [setFont]);
+  const onFontMyriadArabic = useCallback(() => { setFont('MyriadArabic'); }, [setFont]);
+  const onFontNadeem = useCallback(() => { setFont('Nadeem'); }, [setFont]);
+  const onFontNanumBrushScript = useCallback(() => { setFont('NanumBrushScript'); }, [setFont]);
+  const onFontNanumPenScript = useCallback(() => { setFont('NanumPenScript'); }, [setFont]);
+  const onFontNanumGothic = useCallback(() => { setFont('NanumGothic'); }, [setFont]);
+  const onFontNanumMyeongjo = useCallback(() => { setFont('NanumMyeongjo'); }, [setFont]);
+  const onFontNarkisim = useCallback(() => { setFont('Narkisim'); }, [setFont]);
+  const onFontNeueHaasGrotskTxtPro = useCallback(() => { setFont('NeueHaasGrotskTxtPro'); }, [setFont]);
+  const onFontNewPeninim = useCallback(() => { setFont('NewPeninim'); }, [setFont]);
+  const onFontNewPeninimMT = useCallback(() => { setFont('NewPeninimMT'); }, [setFont]);
+  const onFontNewPeninimMTInclined = useCallback(() => { setFont('NewPeninimMTInclined'); }, [setFont]);
+  const onFontNewYork = useCallback(() => { setFont('NewYork'); }, [setFont]);
+  const onFontNirmalaUI = useCallback(() => { setFont('NirmalaUI'); }, [setFont]);
+  const onFontNisan = useCallback(() => { setFont('Nisan'); }, [setFont]);
+  const onFontNISCGB18030 = useCallback(() => { setFont('NISCGB18030'); }, [setFont]);
+  const onFontNoteworthy = useCallback(() => { setFont('Noteworthy'); }, [setFont]);
+  const onFontNotoNastaliqUrdu = useCallback(() => { setFont('NotoNastaliqUrdu'); }, [setFont]);
+  const onFontNotoSansJavanese = useCallback(() => { setFont('NotoSansJavanese'); }, [setFont]);
+  const onFontNotoSansKannada = useCallback(() => { setFont('NotoSansKannada'); }, [setFont]);
+  const onFontNotoSansMyanmar = useCallback(() => { setFont('NotoSansMyanmar'); }, [setFont]);
+  const onFontNotoSansOriya = useCallback(() => { setFont('NotoSansOriya'); }, [setFont]);
+  const onFontNotoSerifKannada = useCallback(() => { setFont('NotoSerifKannada'); }, [setFont]);
+  const onFontNotoSerifMyanmar = useCallback(() => { setFont('NotoSerifMyanmar'); }, [setFont]);
+  const onFontNyala = useCallback(() => { setFont('Nyala'); }, [setFont]);
+  const onFontOctoberDevanagari = useCallback(() => { setFont('OctoberDevanagari'); }, [setFont]);
+  const onFontOctoberTamil = useCallback(() => { setFont('OctoberTamil'); }, [setFont]);
+  const onFontOptima = useCallback(() => { setFont('Optima'); }, [setFont]);
+  const onFontOriyaMN = useCallback(() => { setFont('OriyaMN'); }, [setFont]);
+  const onFontOriyaSangamMN = useCallback(() => { setFont('OriyaSangamMN'); }, [setFont]);
+  const onFontOsaka = useCallback(() => { setFont('Osaka'); }, [setFont]);
+  const onFontOsakaMono = useCallback(() => { setFont('Osaka-Mono'); }, [setFont]);
+  const onFontPalatino = useCallback(() => { setFont('Palatino'); }, [setFont]);
+  const onFontPalatinoLinotype = useCallback(() => { setFont('PalatinoLinotype'); }, [setFont]);
+  const onFontPapyrus = useCallback(() => { setFont('Papyrus'); }, [setFont]);
+  const onFontPCMyungjo = useCallback(() => { setFont('PCMyungjo'); }, [setFont]);
+  const onFontPhosphate = useCallback(() => { setFont('Phosphate'); }, [setFont]);
+  const onFontPilGi = useCallback(() => { setFont('PilGi'); }, [setFont]);
+  const onFontPilgiche = useCallback(() => { setFont('Pilgiche'); }, [setFont]);
+  const onFontPingFangHK = useCallback(() => { setFont('PingFangHK'); }, [setFont]);
+  const onFontPingFangSC = useCallback(() => { setFont('PingFangSC'); }, [setFont]);
+  const onFontPingFangTC = useCallback(() => { setFont('PingFangTC'); }, [setFont]);
+  const onFontPlantagenetCherokee = useCallback(() => { setFont('PlantagenetCherokee'); }, [setFont]);
+  const onFontPortagoITCTT = useCallback(() => { setFont('PortagoITCTT'); }, [setFont]);
+  const onFontPrincetownLET = useCallback(() => { setFont('PrincetownLET'); }, [setFont]);
+  const onFontProdukt = useCallback(() => { setFont('Produkt'); }, [setFont]);
+  const onFontProximaNova = useCallback(() => { setFont('ProximaNova'); }, [setFont]);
+  const onFontPSLOrnanongPro = useCallback(() => { setFont('PSLOrnanongPro'); }, [setFont]);
+  const onFontPTMono = useCallback(() => { setFont('PTMono'); }, [setFont]);
+  const onFontPTSans = useCallback(() => { setFont('PTSans'); }, [setFont]);
+  const onFontPTSansNarrow = useCallback(() => { setFont('PTSansNarrow'); }, [setFont]);
+  const onFontPTSerif = useCallback(() => { setFont('PTSerif'); }, [setFont]);
+  const onFontPublicoHeadlineRoman = useCallback(() => { setFont('PublicoHeadlineRoman'); }, [setFont]);
+  const onFontQuotesCaps = useCallback(() => { setFont('QuotesCaps'); }, [setFont]);
+  const onFontQuotesScript = useCallback(() => { setFont('QuotesScript'); }, [setFont]);
+  const onFontRaanana = useCallback(() => { setFont('Raanana'); }, [setFont]);
+  const onFontRaavi = useCallback(() => { setFont('Raavi'); }, [setFont]);
+  const onFontRaya = useCallback(() => { setFont('Raya'); }, [setFont]);
+  const onFontRockwell = useCallback(() => { setFont('Rockwell'); }, [setFont]);
+  const onFontRockwellNova = useCallback(() => { setFont('RockwellNova'); }, [setFont]);
+  const onFontRod = useCallback(() => { setFont('Rod'); }, [setFont]);
+  const onFontSakkalMajalla = useCallback(() => { setFont('SakkalMajalla'); }, [setFont]);
+  const onFontSamaDevanagari = useCallback(() => { setFont('SamaDevanagari'); }, [setFont]);
+  const onFontSamaGujarati = useCallback(() => { setFont('SamaGujarati'); }, [setFont]);
+  const onFontSamaGurmukhi = useCallback(() => { setFont('SamaGurmukhi'); }, [setFont]);
+  const onFontSamaKannada = useCallback(() => { setFont('SamaKannada'); }, [setFont]);
+  const onFontSamaMalayalam = useCallback(() => { setFont('SamaMalayalam'); }, [setFont]);
+  const onFontSamaTamil = useCallback(() => { setFont('SamaTamil'); }, [setFont]);
+  const onFontSanFranciscoMono = useCallback(() => { setFont('SanFranciscoMono'); }, [setFont]);
+  const onFontSana = useCallback(() => { setFont('Sana'); }, [setFont]);
+  const onFontSand = useCallback(() => { setFont('Sand'); }, [setFont]);
+  const onFontSanskritText = useCallback(() => { setFont('SanskritText'); }, [setFont]);
+  const onFontSathu = useCallback(() => { setFont('Sathu'); }, [setFont]);
+  const onFontSauberScript = useCallback(() => { setFont('SauberScript'); }, [setFont]);
+  const onFontSchoolHouseCursiveB = useCallback(() => { setFont('SchoolHouseCursiveB'); }, [setFont]);
+  const onFontSchoolHousePrintedA = useCallback(() => { setFont('SchoolHousePrintedA'); }, [setFont]);
+  const onFontSegoePrint = useCallback(() => { setFont('SegoePrint'); }, [setFont]);
+  const onFontSegoeScript = useCallback(() => { setFont('SegoeScript'); }, [setFont]);
+  const onFontSegoeUI = useCallback(() => { setFont('SegoeUI'); }, [setFont]);
+  const onFontSeoul = useCallback(() => { setFont('Seoul'); }, [setFont]);
+  const onFontSFArabic = useCallback(() => { setFont('SFArabic'); }, [setFont]);
+  const onFontShinMyungjoNeue = useCallback(() => { setFont('ShinMyungjoNeue'); }, [setFont]);
+  const onFontShobhika = useCallback(() => { setFont('Shobhika'); }, [setFont]);
+  const onFontShonarBangla = useCallback(() => { setFont('ShonarBangla'); }, [setFont]);
+  const onFontShreeDevanagari714 = useCallback(() => { setFont('ShreeDevanagari714'); }, [setFont]);
+  const onFontShruti = useCallback(() => { setFont('Shruti'); }, [setFont]);
+  const onFontSignPainter = useCallback(() => { setFont('SignPainter'); }, [setFont]);
+  const onFontSignPainterHouseScript = useCallback(() => { setFont('SignPainter-HouseScript'); }, [setFont]);
+  const onFontSilom = useCallback(() => { setFont('Silom'); }, [setFont]);
+  const onFontSimHei = useCallback(() => { setFont('SimHei'); }, [setFont]);
+  const onFontSimplifiedArabic = useCallback(() => { setFont('SimplifiedArabic'); }, [setFont]);
+  const onFontSimSong = useCallback(() => { setFont('SimSong'); }, [setFont]);
+  const onFontSimSun = useCallback(() => { setFont('SimSun'); }, [setFont]);
+  const onFontSinhalaMN = useCallback(() => { setFont('SinhalaMN'); }, [setFont]);
+  const onFontSinhalaSangamMN = useCallback(() => { setFont('SinhalaSangamMN'); }, [setFont]);
+  const onFontSitka = useCallback(() => { setFont('Sitka'); }, [setFont]);
+  const onFontSkia = useCallback(() => { setFont('Skia'); }, [setFont]);
+  const onFontSnellRoundhand = useCallback(() => { setFont('SnellRoundhand'); }, [setFont]);
+  const onFontSomer = useCallback(() => { setFont('Somer'); }, [setFont]);
+  const onFontSongtiSC = useCallback(() => { setFont('SongtiSC'); }, [setFont]);
+  const onFontSongtiTC = useCallback(() => { setFont('SongtiTC'); }, [setFont]);
+  const onFontSpotMono = useCallback(() => { setFont('SpotMono'); }, [setFont]);
+  const onFontSTFangSong = useCallback(() => { setFont('STFangSong'); }, [setFont]);
+  const onFontSTHeiti = useCallback(() => { setFont('STHeiti'); }, [setFont]);
+  const onFontSTKaiti = useCallback(() => { setFont('STKaiti'); }, [setFont]);
+  const onFontSTSong = useCallback(() => { setFont('STSong'); }, [setFont]);
+  const onFontSTXihei = useCallback(() => { setFont('STXihei'); }, [setFont]);
+  const onFontSTIXTwoText = useCallback(() => { setFont('STIXTwoText'); }, [setFont]);
+  const onFontSTIXGeneralRegular = useCallback(() => { setFont('STIXGeneral-Regular'); }, [setFont]);
+  const onFontStoneSansSemITCTT = useCallback(() => { setFont('StoneSansSemITCTT'); }, [setFont]);
+  const onFontSukhumvitSetText = useCallback(() => { setFont('SukhumvitSetText'); }, [setFont]);
+  const onFontSylfaen = useCallback(() => { setFont('Sylfaen'); }, [setFont]);
+  const onFontSynchroLET = useCallback(() => { setFont('SynchroLET'); }, [setFont]);
+  const onFontTaeGraphic = useCallback(() => { setFont('TaeGraphic'); }, [setFont]);
+  const onFontTahoma = useCallback(() => { setFont('Tahoma'); }, [setFont]);
+  const onFontTaipei = useCallback(() => { setFont('Taipei'); }, [setFont]);
+  const onFontTamilMN = useCallback(() => { setFont('TamilMN'); }, [setFont]);
+  const onFontTamilSangamMN = useCallback(() => { setFont('TamilSangamMN'); }, [setFont]);
+  const onFontTechno = useCallback(() => { setFont('Techno'); }, [setFont]);
+  const onFontTeluguMN = useCallback(() => { setFont('TeluguMN'); }, [setFont]);
+  const onFontTeluguSangamMN = useCallback(() => { setFont('TeluguSangamMN'); }, [setFont]);
+  const onFontTextile = useCallback(() => { setFont('Textile'); }, [setFont]);
+  const onFontThonburi = useCallback(() => { setFont('Thonburi'); }, [setFont]);
+  const onFontTimes = useCallback(() => { setFont('Times'); }, [setFont]);
+  const onFontTimesCY = useCallback(() => { setFont('TimesCY'); }, [setFont]);
+  const onFontTimesNewRoman = useCallback(() => { setFont('TimesNewRoman'); }, [setFont]);
+  const onFontTimesRoman = useCallback(() => { setFont('TimesRoman'); }, [setFont]);
+  const onFontTiroBangla = useCallback(() => { setFont('TiroBangla'); }, [setFont]);
+  const onFontTiroDevanagariHindi = useCallback(() => { setFont('TiroDevanagariHindi'); }, [setFont]);
+  const onFontTiroDevanagariMarathi = useCallback(() => { setFont('TiroDevanagariMarathi'); }, [setFont]);
+  const onFontTiroDevanagariSanskrit = useCallback(() => { setFont('TiroDevanagariSanskrit'); }, [setFont]);
+  const onFontTiroGurmukhi = useCallback(() => { setFont('TiroGurmukhi'); }, [setFont]);
+  const onFontTiroHindi = useCallback(() => { setFont('TiroHindi'); }, [setFont]);
+  const onFontTiroKannada = useCallback(() => { setFont('TiroKannada'); }, [setFont]);
+  const onFontTiroMarathi = useCallback(() => { setFont('TiroMarathi'); }, [setFont]);
+  const onFontTiroSanskrit = useCallback(() => { setFont('TiroSanskrit'); }, [setFont]);
+  const onFontTiroTamil = useCallback(() => { setFont('TiroTamil'); }, [setFont]);
+  const onFontTiroTelugu = useCallback(() => { setFont('TiroTelugu'); }, [setFont]);
+  const onFontToppanBunkyuGothic = useCallback(() => { setFont('ToppanBunkyuGothic'); }, [setFont]);
+  const onFontToppanBunkyuMincho = useCallback(() => { setFont('ToppanBunkyuMincho'); }, [setFont]);
+  const onFontTraditionalArabic = useCallback(() => { setFont('TraditionalArabic'); }, [setFont]);
+  const onFontTrattatello = useCallback(() => { setFont('Trattatello'); }, [setFont]);
+  const onFontTrebuchetMS = useCallback(() => { setFont('TrebuchetMS'); }, [setFont]);
+  const onFontTsukushiARoundGothic = useCallback(() => { setFont('TsukushiARoundGothic'); }, [setFont]);
+  const onFontTsukushiBRoundGothic = useCallback(() => { setFont('TsukushiBRoundGothic'); }, [setFont]);
+  const onFontTunga = useCallback(() => { setFont('Tunga'); }, [setFont]);
+  const onFontTwCenMT = useCallback(() => { setFont('TwCenMT'); }, [setFont]);
+  const onFontUDDigiKyokasho = useCallback(() => { setFont('UDDigiKyokasho'); }, [setFont]);
+  const onFontUrduTypesetting = useCallback(() => { setFont('UrduTypesetting'); }, [setFont]);
+  const onFontUtsaah = useCallback(() => { setFont('Utsaah'); }, [setFont]);
+  const onFontVani = useCallback(() => { setFont('Vani'); }, [setFont]);
+  const onFontVerdana = useCallback(() => { setFont('Verdana'); }, [setFont]);
+  const onFontVerdanaPro = useCallback(() => { setFont('VerdanaPro'); }, [setFont]);
+  const onFontVijaya = useCallback(() => { setFont('Vijaya'); }, [setFont]);
+  const onFontVrinda = useCallback(() => { setFont('Vrinda'); }, [setFont]);
+  const onFontWaseem = useCallback(() => { setFont('Waseem'); }, [setFont]);
+  const onFontWawatiSC = useCallback(() => { setFont('WawatiSC'); }, [setFont]);
+  const onFontWawatiTC = useCallback(() => { setFont('WawatiTC'); }, [setFont]);
+  const onFontYaziji = useCallback(() => { setFont('Yaziji'); }, [setFont]);
+  const onFontYuGothic = useCallback(() => { setFont('YuGothic'); }, [setFont]);
+  const onFontYuKyokashoN = useCallback(() => { setFont('YuKyokashoN'); }, [setFont]);
+  const onFontYuMincho = useCallback(() => { setFont('YuMincho'); }, [setFont]);
+  const onFontYuantiSC = useCallback(() => { setFont('YuantiSC'); }, [setFont]);
+  const onFontYuantiTC = useCallback(() => { setFont('YuantiTC'); }, [setFont]);
+  const onFontYuppySC = useCallback(() => { setFont('YuppySC'); }, [setFont]);
+  const onFontZapfChancery = useCallback(() => { setFont('ZapfChancery'); }, [setFont]);
+  const onFontZapfino = useCallback(() => { setFont('Zapfino'); }, [setFont]);
 
   /** Identify the font currently set */
-  const fontOnOrOff = (itemFont) => font === itemFont ? 'on' : ''
+  const fontOnOrOff = useCallback((itemFont) => (font === itemFont ? 'on' : ''), [font]);
 
   /** Font Name display in dropdown menu */
   const itemPresentation = (itemName) => "➤" + itemName
 
   /** Assemble the menu item button for each font */
-  function FontMenuItem(itemName, itemClick, itemFont) {
+  const FontMenuItem = useCallback((itemName, itemClick, itemFont) => {
 
     const fontActive = fontOnOrOff(itemFont)
     const fontList = itemPresentation(itemName)
 
+    console.log("FontMenuItem ran");
+    
     return (
       <Menu.Item>
       {({ active }) => (
@@ -1030,7 +1035,7 @@ export default function FontDropdown(props) {
       )}
       </Menu.Item>
     )
-  }
+  },[fontOnOrOff]);
 
   /** Dropdown button indication when a font is set */
   const fontDropdownOnOrOff = font === "" ? "btnAll btnRight" : "btnAll btnRight on"
@@ -1039,501 +1044,503 @@ export default function FontDropdown(props) {
   const fontDropdownPresentation = font === "" ? "Set Font ⇩" : font + " ⇩"
 
   /** Assemble menu items for Graphite-enabled woff and woff2 fonts provided */
-  const defaultFont = FontMenuItem('Default Font', onFontClear, '')
-  const akatabRW = FontMenuItem('Akatab 2.000', onFontAkatabRW, 'AkatabRW')
-  const alkalamiRW = FontMenuItem('Alkalami 1.200', onFontAlkalamiRW, 'AlkalamiRW')
-  const alkalamiLW = FontMenuItem('Alkalami Light 1.200', onFontAlkalamiLW, 'AlkalamiLW')
-  const andikaRW = FontMenuItem('Andika 6.101', onFontAndikaRW, 'AndikaRW')
-  const awamiNastaliqRW = FontMenuItem('Awami Nastaliq 2.200', onFontAwamiNastaliqRW, 'AwamiNastaliqRW')
-  const gentiumPlusRW = FontMenuItem('Gentium Plus 6.101', onFontGentiumPlusRW, 'GentiumPlusRW')
-  const harmattanW = FontMenuItem('Harmattan 2.000', onFontHarmattanW, 'HarmattanW')
-  const lateefRW = FontMenuItem('LateefGR 1.200', onFontLateefRW, 'LateefRW')
-  const mingzatW = FontMenuItem('Mingzat 1.000', onFontMingzatW, 'MingzatW')
-  const narnoorW = FontMenuItem('Narnoor 1.000', onFontNarnoorW, 'NarnoorW')
-  const padaukRW = FontMenuItem('Padauk 5.000', onFontPadaukRW, 'PadaukRW')
-  const scheherazadeRW = FontMenuItem('Scheherazade New 3.300', onFontScheherazadeRW, 'AScheherazadeRW')
-  const tagmukayRW = FontMenuItem('Tagmukay 2.000', onFontTagmukayRW, 'TagmukayRW')
-  const taiHeritageProRW = FontMenuItem('TaiHeritagePro 2.600', onFontTaiHeritageProRW, 'TaiHeritageProRW')
-
+  const defaultFont = useMemo(() => FontMenuItem('Default Font', onFontClear, ''), [FontMenuItem, onFontClear]);
+  const akatabRW = useMemo(() => FontMenuItem('Akatab 2.000', onFontAkatabRW, 'AkatabRW'), [FontMenuItem, onFontAkatabRW]);
+  const alkalamiRW = useMemo(() => FontMenuItem('Alkalami 1.200', onFontAlkalamiRW, 'AlkalamiRW'), [FontMenuItem, onFontAlkalamiRW]);
+  const alkalamiLW = useMemo(() => FontMenuItem('Alkalami Light 1.200', onFontAlkalamiLW, 'AlkalamiLW'), [FontMenuItem, onFontAlkalamiLW]);
+  const andikaRW = useMemo(() => FontMenuItem('Andika 6.101', onFontAndikaRW, 'AndikaRW'), [FontMenuItem, onFontAndikaRW]);
+  const awamiNastaliqRW = useMemo(() => FontMenuItem('Awami Nastaliq 2.200', onFontAwamiNastaliqRW, 'AwamiNastaliqRW'), [FontMenuItem, onFontAwamiNastaliqRW]);
+  const gentiumPlusRW = useMemo(() => FontMenuItem('Gentium Plus 6.101', onFontGentiumPlusRW, 'GentiumPlusRW'), [FontMenuItem, onFontGentiumPlusRW]);
+  const harmattanW = useMemo(() => FontMenuItem('Harmattan 2.000', onFontHarmattanW, 'HarmattanW'), [FontMenuItem, onFontHarmattanW]);
+  const lateefRW = useMemo(() => FontMenuItem('LateefGR 1.200', onFontLateefRW, 'LateefRW'), [FontMenuItem, onFontLateefRW]);
+  const mingzatW = useMemo(() => FontMenuItem('Mingzat 1.000', onFontMingzatW, 'MingzatW'), [FontMenuItem, onFontMingzatW]);
+  const narnoorW = useMemo(() => FontMenuItem('Narnoor 1.000', onFontNarnoorW, 'NarnoorW'), [FontMenuItem, onFontNarnoorW]);
+  const padaukRW = useMemo(() => FontMenuItem('Padauk 5.000', onFontPadaukRW, 'PadaukRW'), [FontMenuItem, onFontPadaukRW]);
+  const scheherazadeRW = useMemo(() => FontMenuItem('Scheherazade New 3.300', onFontScheherazadeRW, 'AScheherazadeRW'), [FontMenuItem, onFontScheherazadeRW]);
+  const tagmukayRW = useMemo(() => FontMenuItem('Tagmukay 2.000', onFontTagmukayRW, 'TagmukayRW'), [FontMenuItem, onFontTagmukayRW]);
+  const taiHeritageProRW = useMemo(() => FontMenuItem('TaiHeritagePro 2.600', onFontTaiHeritageProRW, 'TaiHeritageProRW'), [FontMenuItem, onFontTaiHeritageProRW]);
+  
   /** Assemble menu items for Graphite-enabled fonts locally detected */
-  const AbyssinicaSIL = FontMenuItem('Abyssinica SIL', onFontAbyssinicaSIL, 'AbyssinicaSIL')
-  const Akatab = FontMenuItem('Akatab', onFontAkatab, 'Akatab')
-  const Alkalami = FontMenuItem('Alkalami', onFontAlkalami, 'Alkalami')
-  const AlkalamiLight = FontMenuItem('Alkalami Light', onFontAlkalamiLight, 'AlkalamiLight')
-  const Andika = FontMenuItem('Andika', onFontAndika, 'Andika')
-  const AnnapurnaSIL = FontMenuItem('Annapurna SIL', onFontAnnapurnaSIL, 'AnnapurnaSIL')
-  const ApparatusSIL = FontMenuItem('Apparatus SIL', onFontApparatusSIL, 'ApparatusSIL')
-  const AwamiNastaliq = FontMenuItem('Awami Nastaliq', onFontAwamiNastaliq, 'AwamiNastaliq')
-  const CharisSIL = FontMenuItem('Charis SIL', onFontCharisSIL, 'CharisSIL')
-  const DaiBannaSILBook = FontMenuItem('Dai Banna SIL Book', onFontDaiBannaSILBook, 'DaiBannaSILBook')
-  const DaiBannaSILLight = FontMenuItem('Dai Banna SIL Light', onFontDaiBannaSILLight, 'DaiBannaSILLight')
-  const DoulosSIL = FontMenuItem('Doulos SIL', onFontDoulosSIL, 'DoulosSIL')
-  const DoulosSILCipher = FontMenuItem('Doulos SIL Cipher', onFontDoulosSILCipher, 'DoulosSILCipher')
-  const EzraSIL = FontMenuItem('Ezra SIL', onFontEzraSIL, 'EzraSIL')
-  const EzraSILSR = FontMenuItem('Ezra SIL SR', onFontEzraSILSR, 'EzraSILSR')
-  const GalatiaSIL = FontMenuItem('Galatia SIL', onFontGalatiaSIL, 'GalatiaSIL')
-  const GentiumPlus = FontMenuItem('Gentium Plus', onFontGentiumPlus, 'GentiumPlus')
-  const Harmattan = FontMenuItem('Harmattan', onFontHarmattan, 'Harmattan')
-  const KhmerBusra = FontMenuItem('Khmer Busra', onFontKhmerBusra, 'KhmerBusra')
-  const KhmerMondulkiri = FontMenuItem('Khmer Mondulkiri', onFontKhmerMondulkiri, 'KhmerMondulkiri')
-  const LateefGR = FontMenuItem('LateefGR', onFontLateefGR, 'LateefGR')
-  const Mingzat = FontMenuItem('Mingzat', onFontMingzat, 'Mingzat')
-  const NamdhinggoSIL = FontMenuItem('Namdhinggo SIL', onFontNamdhinggoSIL, 'NamdhinggoSIL')
-  const Narnoor = FontMenuItem('Narnoor', onFontNarnoor, 'Narnoor')
-  const NuosuSIL = FontMenuItem('Nuosu SIL', onFontNuosuSIL, 'NuosuSIL')
-  const Padauk = FontMenuItem('Padauk', onFontPadauk, 'Padauk')
-  const ScheherazadeNew = FontMenuItem('Scheherazade New', onFontScheherazadeNew, 'ScheherazadeNew')
-  const Shimenkan = FontMenuItem('Shimenkan', onFontShimenkan, 'Shimenkan')
-  const SophiaNubian = FontMenuItem('Sophia Nubian', onFontSophiaNubian, 'SophiaNubian')
-  const Tagmukay = FontMenuItem('Tagmukay', onFontTagmukay, 'Tagmukay')
-  const TaiHeritagePro = FontMenuItem('Tai Heritage Pro', onFontTaiHeritagePro, 'TaiHeritagePro')
+  const AbyssinicaSIL = useMemo(() => FontMenuItem('Abyssinica SIL', onFontAbyssinicaSIL, 'AbyssinicaSIL'), [FontMenuItem, onFontAbyssinicaSIL]);
+  const Akatab = useMemo(() => FontMenuItem('Akatab', onFontAkatab, 'Akatab'), [FontMenuItem, onFontAkatab]);
+  const Alkalami = useMemo(() => FontMenuItem('Alkalami', onFontAlkalami, 'Alkalami'), [FontMenuItem, onFontAlkalami]);
+  const AlkalamiLight = useMemo(() => FontMenuItem('Alkalami Light', onFontAlkalamiLight, 'AlkalamiLight'), [FontMenuItem, onFontAlkalamiLight]);
+  const Andika = useMemo(() => FontMenuItem('Andika', onFontAndika, 'Andika'), [FontMenuItem, onFontAndika]);
+  const AnnapurnaSIL = useMemo(() => FontMenuItem('Annapurna SIL', onFontAnnapurnaSIL, 'AnnapurnaSIL'), [FontMenuItem, onFontAnnapurnaSIL]);
+  const ApparatusSIL = useMemo(() => FontMenuItem('Apparatus SIL', onFontApparatusSIL, 'ApparatusSIL'), [FontMenuItem, onFontApparatusSIL]);
+  const AwamiNastaliq = useMemo(() => FontMenuItem('Awami Nastaliq', onFontAwamiNastaliq, 'AwamiNastaliq'), [FontMenuItem, onFontAwamiNastaliq]);
+  const CharisSIL = useMemo(() => FontMenuItem('Charis SIL', onFontCharisSIL, 'CharisSIL'), [FontMenuItem, onFontCharisSIL]);
+  const DaiBannaSILBook = useMemo(() => FontMenuItem('Dai Banna SIL Book', onFontDaiBannaSILBook, 'DaiBannaSILBook'), [FontMenuItem, onFontDaiBannaSILBook]);
+  const DaiBannaSILLight = useMemo(() => FontMenuItem('Dai Banna SIL Light', onFontDaiBannaSILLight, 'DaiBannaSILLight'), [FontMenuItem, onFontDaiBannaSILLight]);
+  const DoulosSIL = useMemo(() => FontMenuItem('Doulos SIL', onFontDoulosSIL, 'DoulosSIL'), [FontMenuItem, onFontDoulosSIL]);
+  const DoulosSILCipher = useMemo(() => FontMenuItem('Doulos SIL Cipher', onFontDoulosSILCipher, 'DoulosSILCipher'), [FontMenuItem, onFontDoulosSILCipher]);
+  const EzraSIL = useMemo(() => FontMenuItem('Ezra SIL', onFontEzraSIL, 'EzraSIL'), [FontMenuItem, onFontEzraSIL]);
+  const EzraSILSR = useMemo(() => FontMenuItem('Ezra SIL SR', onFontEzraSILSR, 'EzraSILSR'), [FontMenuItem, onFontEzraSILSR]);
+  const GalatiaSIL = useMemo(() => FontMenuItem('Galatia SIL', onFontGalatiaSIL, 'GalatiaSIL'), [FontMenuItem, onFontGalatiaSIL]);
+  const GentiumPlus = useMemo(() => FontMenuItem('Gentium Plus', onFontGentiumPlus, 'GentiumPlus'), [FontMenuItem, onFontGentiumPlus]);
+  const Harmattan = useMemo(() => FontMenuItem('Harmattan', onFontHarmattan, 'Harmattan'), [FontMenuItem, onFontHarmattan]);
+  const KhmerBusra = useMemo(() => FontMenuItem('Khmer Busra', onFontKhmerBusra, 'KhmerBusra'), [FontMenuItem, onFontKhmerBusra]);
+  const KhmerMondulkiri = useMemo(() => FontMenuItem('Khmer Mondulkiri', onFontKhmerMondulkiri, 'KhmerMondulkiri'), [FontMenuItem, onFontKhmerMondulkiri]);
+  const LateefGR = useMemo(() => FontMenuItem('LateefGR', onFontLateefGR, 'LateefGR'), [FontMenuItem, onFontLateefGR]);
+  const Mingzat = useMemo(() => FontMenuItem('Mingzat', onFontMingzat, 'Mingzat'), [FontMenuItem, onFontMingzat]);
+  const NamdhinggoSIL = useMemo(() => FontMenuItem('Namdhinggo SIL', onFontNamdhinggoSIL, 'NamdhinggoSIL'), [FontMenuItem, onFontNamdhinggoSIL]);
+  const Narnoor = useMemo(() => FontMenuItem('Narnoor', onFontNarnoor, 'Narnoor'), [FontMenuItem, onFontNarnoor]);
+  const NuosuSIL = useMemo(() => FontMenuItem('Nuosu SIL', onFontNuosuSIL, 'NuosuSIL'), [FontMenuItem, onFontNuosuSIL]);
+  const Padauk = useMemo(() => FontMenuItem('Padauk', onFontPadauk, 'Padauk'), [FontMenuItem, onFontPadauk]);
+  const ScheherazadeNew = useMemo(() => FontMenuItem('Scheherazade New', onFontScheherazadeNew, 'ScheherazadeNew'), [FontMenuItem, onFontScheherazadeNew]);
+  const Shimenkan = useMemo(() => FontMenuItem('Shimenkan', onFontShimenkan, 'Shimenkan'), [FontMenuItem, onFontShimenkan]);
+  const SophiaNubian = useMemo(() => FontMenuItem('Sophia Nubian', onFontSophiaNubian, 'SophiaNubian'), [FontMenuItem, onFontSophiaNubian]);
+  const Tagmukay = useMemo(() => FontMenuItem('Tagmukay', onFontTagmukay, 'Tagmukay'), [FontMenuItem, onFontTagmukay]);
+  const TaiHeritagePro = useMemo(() => FontMenuItem('Tai Heritage Pro', onFontTaiHeritagePro, 'TaiHeritagePro'), [FontMenuItem, onFontTaiHeritagePro]);
 
   /** Assemble menu items Windows and MacOS fonts locally detected */
-  const AdelleSansDevanagari = FontMenuItem('Adelle Sans Devanagari', onFontAdelleSansDevanagari, 'AdelleSansDevanagari')
-  const Aharoni = FontMenuItem('Aharoni', onFontAharoni, 'Aharoni')
-  const AlBayan = FontMenuItem('Al Bayan', onFontAlBayan, 'AlBayan')
-  const AlFirat = FontMenuItem('Al Firat', onFontAlFirat, 'AlFirat')
-  const AlKhalil = FontMenuItem('Al Khalil', onFontAlKhalil, 'AlKhalil')
-  const AlNile = FontMenuItem('Al Nile', onFontAlNile, 'AlNile')
-  const AlRafidain = FontMenuItem('Al Rafidain', onFontAlRafidain, 'AlRafidain')
-  const AlRafidainAlFanni = FontMenuItem('Al Rafidain Al Fanni', onFontAlRafidainAlFanni, 'AlRafidainAlFanni')
-  const AlTarikh = FontMenuItem('Al Tarikh', onFontAlTarikh, 'AlTarikh')
-  const Aldhabi = FontMenuItem('Aldhabi', onFontAldhabi, 'Aldhabi')
-  const Algiers = FontMenuItem('Algiers', onFontAlgiers, 'Algiers')
-  const AmericanTypewriter = FontMenuItem('American Typewriter', onFontAmericanTypewriter, 'AmericanTypewriter')
-  const AndaleMono = FontMenuItem('Andalé Mono', onFontAndaleMono, 'AndaleMono')
-  const Andalus = FontMenuItem('Andalus', onFontAndalus, 'Andalus')
-  const AngsanaNew = FontMenuItem('Angsana New', onFontAngsanaNew, 'AngsanaNew')
-  const AngsanaUPC = FontMenuItem('AngsanaUPC', onFontAngsanaUPC, 'AngsanaUPC')
-  const AnnaiMN = FontMenuItem('Annai MN', onFontAnnaiMN, 'AnnaiMN')
-  const Aparajita = FontMenuItem('Aparajita', onFontAparajita, 'Aparajita')
-  const AppleBraille = FontMenuItem('Apple Braille', onFontAppleBraille, 'AppleBraille')
-  const AppleCasual = FontMenuItem('Apple Casual', onFontAppleCasual, 'AppleCasual')
-  const AppleChancery = FontMenuItem('Apple Chancery', onFontAppleChancery, 'AppleChancery')
-  const AppleGaramond = FontMenuItem('Apple Garamond', onFontAppleGaramond, 'AppleGaramond')
-  const AppleGothic = FontMenuItem('Apple Gothic', onFontAppleGothic, 'AppleGothic')
-  const AppleLiGothic = FontMenuItem('Apple LiGothic', onFontAppleLiGothic, 'AppleLiGothic')
-  const AppleLiSung = FontMenuItem('Apple LiSung', onFontAppleLiSung, 'AppleLiSung')
-  const AppleMyungjo = FontMenuItem('Apple Myungjo', onFontAppleMyungjo, 'AppleMyungjo')
-  const AppleSDGothicNeo = FontMenuItem('Apple SD Gothic Neo', onFontAppleSDGothicNeo, 'AppleSDGothicNeo')
-  const AquaKana = FontMenuItem('AquaKana', onFontAquaKana, 'AquaKana')
-  const ArabicTypesetting = FontMenuItem('Arabic Typesetting', onFontArabicTypesetting, 'ArabicTypesetting')
-  const Arial = FontMenuItem('Arial', onFontArial, 'Arial')
-  const ArialHebrew = FontMenuItem('Arial Hebrew', onFontArialHebrew, 'ArialHebrew')
-  const ArialHebrewScholar = FontMenuItem('Arial Hebrew Scholar', onFontArialHebrewScholar, 'ArialHebrewScholar')
-  const ArialNarrow = FontMenuItem('Arial Narrow', onFontArialNarrow, 'ArialNarrow')
-  const ArialNova = FontMenuItem('Arial Nova', onFontArialNova, 'ArialNova')
-  const ArialUnicodeMS = FontMenuItem('Arial Unicode MS', onFontArialUnicodeMS, 'ArialUnicodeMS')
-  const Avenir = FontMenuItem('Avenir', onFontAvenir, 'Avenir')
-  const Ayuthaya = FontMenuItem('Ayuthaya', onFontAyuthaya, 'Ayuthaya')
-  const Baghdad = FontMenuItem('Baghdad', onFontBaghdad, 'Baghdad')
-  const Bahnschrift = FontMenuItem('Bahnschrift', onFontBahnschrift, 'Bahnschrift')
-  const Baloo = FontMenuItem('Baloo', onFontBaloo, 'Baloo')
-  const BalooBhai = FontMenuItem('Baloo Bhai', onFontBalooBhai, 'BalooBhai')
-  const BalooBhaijaan = FontMenuItem('Baloo Bhaijaan', onFontBalooBhaijaan, 'BalooBhaijaan')
-  const BalooBhaina = FontMenuItem('Baloo Bhaina', onFontBalooBhaina, 'BalooBhaina')
-  const BalooChettan = FontMenuItem('Baloo Chettan', onFontBalooChettan, 'BalooChettan')
-  const BalooDa = FontMenuItem('Baloo Da', onFontBalooDa, 'BalooDa')
-  const BalooPaaji = FontMenuItem('Baloo Paaji', onFontBalooPaaji, 'BalooPaaji')
-  const BalooTamma = FontMenuItem('Baloo Tamma', onFontBalooTamma, 'BalooTamma')
-  const BalooTammudu = FontMenuItem('Baloo Tammudu', onFontBalooTammudu, 'BalooTammudu')
-  const BalooThambi = FontMenuItem('Baloo Thambi', onFontBalooThambi, 'BalooThambi')
-  const BanglaMN = FontMenuItem('Bangla MN', onFontBanglaMN, 'BanglaMN')
-  const BanglaSangamMN = FontMenuItem('Bangla Sangam MN', onFontBanglaSangamMN, 'BanglaSangamMN')
-  const BaoliSC = FontMenuItem('Baoli SC', onFontBaoliSC, 'BaoliSC')
-  const BaoliTC = FontMenuItem('Baoli TC', onFontBaoliTC, 'BaoliTC')
-  const Baskerville = FontMenuItem('Baskerville', onFontBaskerville, 'Baskerville')
-  const Basra = FontMenuItem('Basra', onFontBasra, 'Basra')
-  const Batang = FontMenuItem('Batang', onFontBatang, 'Batang')
-  const Beijing = FontMenuItem('Beijing', onFontBeijing, 'Beijing')
-  const Beirut = FontMenuItem('Beirut', onFontBeirut, 'Beirut')
-  const BiauKai = FontMenuItem('BiauKai', onFontBiauKai, 'BiauKai')
-  const BigCaslon = FontMenuItem('Big Caslon', onFontBigCaslon, 'BigCaslon')
-  const BIZUDGothic = FontMenuItem('BIZ UDGothic', onFontBIZUDGothic, 'BIZUDGothic')
-  const BIZUDMincho = FontMenuItem('BIZ UDMincho', onFontBIZUDMincho, 'BIZUDMincho')
-  const Bodoni72 = FontMenuItem('Bodoni 72', onFontBodoni72, 'Bodoni72')
-  const Braganza = FontMenuItem('Braganza', onFontBraganza, 'Braganza')
-  const BrowalliaNew = FontMenuItem('Browallia New', onFontBrowalliaNew, 'BrowalliaNew')
-  const BrowalliaUPC = FontMenuItem('BrowalliaUPC', onFontBrowalliaUPC, 'BrowalliaUPC')
-  const BrushScript = FontMenuItem('Brush Script', onFontBrushScript, 'BrushScript')
-  const Calibri = FontMenuItem('Calibri', onFontCalibri, 'Calibri')
-  const CambayDevanagari = FontMenuItem('Cambay Devanagari', onFontCambayDevanagari, 'CambayDevanagari')
-  const Cambria = FontMenuItem('Cambria', onFontCambria, 'Cambria')
-  const Candara = FontMenuItem('Candara', onFontCandara, 'Candara')
-  const Canela = FontMenuItem('Canela', onFontCanela, 'Canela')
-  const CanelaDeck = FontMenuItem('Canela Deck', onFontCanelaDeck, 'CanelaDeck')
-  const Capitals = FontMenuItem('Capitals', onFontCapitals, 'Capitals')
-  const CenturyGothic = FontMenuItem('Century Gothic', onFontCenturyGothic, 'CenturyGothic')
-  const CenturySchoolbook = FontMenuItem('Century Schoolbook', onFontCenturySchoolbook, 'CenturySchoolbook')
-  const Chalkboard = FontMenuItem('Chalkboard', onFontChalkboard, 'Chalkboard')
-  const Chalkduster = FontMenuItem('Chalkduster', onFontChalkduster, 'Chalkduster')
-  const Charcoal = FontMenuItem('Charcoal', onFontCharcoal, 'Charcoal')
-  const CharcoalCY = FontMenuItem('Charcoal CY', onFontCharcoalCY, 'CharcoalCY')
-  const CharterRoman = FontMenuItem('Charter Roman', onFontCharterRoman, 'CharterRoman')
-  const Chicago = FontMenuItem('Chicago', onFontChicago, 'Chicago')
-  const Cochin = FontMenuItem('Cochin', onFontCochin, 'Cochin')
-  const ComicSans = FontMenuItem('Comic Sans', onFontComicSans, 'ComicSans')
-  const ComicSansMS = FontMenuItem('Comic Sans MS', onFontComicSansMS, 'ComicSansMS')
-  const Consolas = FontMenuItem('Consolas', onFontConsolas, 'Consolas')
-  const Constantia = FontMenuItem('Constantia', onFontConstantia, 'Constantia')
-  const Cooper = FontMenuItem('Cooper', onFontCooper, 'Cooper')
-  const Copperplate = FontMenuItem('Copperplate', onFontCopperplate, 'Copperplate')
-  const Corbel = FontMenuItem('Corbel', onFontCorbel, 'Corbel')
-  const CordiaNew = FontMenuItem('Cordia New', onFontCordiaNew, 'CordiaNew')
-  const CordiaUPC = FontMenuItem('CordiaUPC', onFontCordiaUPC, 'CordiaUPC')
-  const CorsivaHebrew = FontMenuItem('Corsiva Hebrew', onFontCorsivaHebrew, 'CorsivaHebrew')
-  const Courier = FontMenuItem('Courier', onFontCourier, 'Courier')
-  const CourierNew = FontMenuItem('Courier New', onFontCourierNew, 'CourierNew')
-  const Damascus = FontMenuItem('Damascus', onFontDamascus, 'Damascus')
-  const DaunPenh = FontMenuItem('DaunPenh', onFontDaunPenh, 'DaunPenh')
-  const David = FontMenuItem('David', onFontDavid, 'David')
-  const DearJoeFour = FontMenuItem('Dear Joe Four', onFontDearJoeFour, 'DearJoeFour')
-  const DecoTypeNaskh = FontMenuItem('DecoType Naskh', onFontDecoTypeNaskh, 'DecoTypeNaskh')
-  const DengXian = FontMenuItem('DengXian', onFontDengXian, 'DengXian')
-  const Devanagari = FontMenuItem('Devanagari', onFontDevanagari, 'Devanagari')
-  const DevanagariMT = FontMenuItem('Devanagari MT', onFontDevanagariMT, 'DevanagariMT')
-  const DevanagariSangamMN = FontMenuItem('Devanagari Sangam MN', onFontDevanagariSangamMN, 'DevanagariSangamMN')
-  const DFKaiSB = FontMenuItem('DFKai-SB', onFontDFKaiSB, 'DFKaiSB')
-  const Didot = FontMenuItem('Didot', onFontDidot, 'Didot')
-  const Dijla = FontMenuItem('Dijla', onFontDijla, 'Dijla')
-  const DilleniaUPC = FontMenuItem('DilleniaUPC', onFontDilleniaUPC, 'DilleniaUPC')
-  const DiwanKufi = FontMenuItem('Diwan Kufi', onFontDiwanKufi, 'DiwanKufi')
-  const DiwanThuluth = FontMenuItem('Diwan Thuluth', onFontDiwanThuluth, 'DiwanThuluth')
-  const DokChampa = FontMenuItem('DokChampa', onFontDokChampa, 'DokChampa')
-  const DomaineDisplay = FontMenuItem('Domaine Display', onFontDomaineDisplay, 'DomaineDisplay')
-  const Dotum = FontMenuItem('Dotum', onFontDotum, 'Dotum')
-  const Ebrima = FontMenuItem('Ebrima', onFontEbrima, 'Ebrima')
-  const EstrangeloEdessa = FontMenuItem('Estrangelo Edessa', onFontEstrangeloEdessa, 'EstrangeloEdessa')
-  const EucrosiaUPC = FontMenuItem('EucrosiaUPC', onFontEucrosiaUPC, 'EucrosiaUPC')
-  const Euphemia = FontMenuItem('Euphemia', onFontEuphemia, 'Euphemia')
-  const EuphemiaUCAS = FontMenuItem('Euphemia UCAS', onFontEuphemiaUCAS, 'EuphemiaUCAS')
-  const FangSong = FontMenuItem('FangSong', onFontFangSong, 'FangSong')
-  const Farah = FontMenuItem('Farah', onFontFarah, 'Farah')
-  const Farisi = FontMenuItem('Farisi', onFontFarisi, 'Farisi')
-  const ForgottenFuturist = FontMenuItem('Forgotten Futurist', onFontForgottenFuturist, 'ForgottenFuturist')
-  const FoundersGrotesk = FontMenuItem('Founders Grotesk', onFontFoundersGrotesk, 'FoundersGrotesk')
-  const FranklinGothic = FontMenuItem('Franklin Gothic', onFontFranklinGothic, 'FranklinGothic')
-  const FrankRuehl = FontMenuItem('FrankRuehl', onFontFrankRuehl, 'FrankRuehl')
-  const FreesiaUPC = FontMenuItem('FreesiaUPC', onFontFreesiaUPC, 'FreesiaUPC')
-  const Futura = FontMenuItem('Futura', onFontFutura, 'Futura')
-  const Gabriola = FontMenuItem('Gabriola', onFontGabriola, 'Gabriola')
-  const Gadget = FontMenuItem('Gadget', onFontGadget, 'Gadget')
-  const Gadugi = FontMenuItem('Gadugi', onFontGadugi, 'Gadugi')
-  const Galvji = FontMenuItem('Galvji', onFontGalvji, 'Galvji')
-  const Garamond = FontMenuItem('Garamond', onFontGaramond, 'Garamond')
-  const Gautami = FontMenuItem('Gautami', onFontGautami, 'Gautami')
-  const GB18030Bitmap = FontMenuItem('GB18030 Bitmap', onFontGB18030Bitmap, 'GB18030Bitmap')
-  const GeezaPro = FontMenuItem('Geeza Pro', onFontGeezaPro, 'GeezaPro')
-  const Geezah = FontMenuItem('Geezah', onFontGeezah, 'Geezah')
-  const Geneva = FontMenuItem('Geneva', onFontGeneva, 'Geneva')
-  const GenevaCY = FontMenuItem('Geneva CY', onFontGenevaCY, 'GenevaCY')
-  const Georgia = FontMenuItem('Georgia', onFontGeorgia, 'Georgia')
-  const GeorgiaPro = FontMenuItem('Georgia Pro', onFontGeorgiaPro, 'GeorgiaPro')
-  const GillSans = FontMenuItem('Gill Sans', onFontGillSans, 'GillSans')
-  const GillSansNova = FontMenuItem('Gill Sans Nova', onFontGillSansNova, 'GillSansNova')
-  const Gisha = FontMenuItem('Gisha', onFontGisha, 'Gisha')
-  const Gotu = FontMenuItem('Gotu', onFontGotu, 'Gotu')
-  const Graphik = FontMenuItem('Graphik', onFontGraphik, 'Graphik')
-  const Gujarati = FontMenuItem('Gujarati', onFontGujarati, 'Gujarati')
-  const GujaratiMT = FontMenuItem('Gujarati MT', onFontGujaratiMT, 'GujaratiMT')
-  const GujaratiSangamMN = FontMenuItem('Gujarati Sangam MN', onFontGujaratiSangamMN, 'GujaratiSangamMN')
-  const Gulim = FontMenuItem('Gulim', onFontGulim, 'Gulim')
-  const GungSeoche = FontMenuItem('Gung Seoche', onFontGungSeoche, 'GungSeoche')
-  const GungSeo = FontMenuItem('GungSeo', onFontGungSeo, 'GungSeo')
-  const Gungsuh = FontMenuItem('Gungsuh', onFontGungsuh, 'Gungsuh')
-  const Gurmukhi = FontMenuItem('Gurmukhi', onFontGurmukhi, 'Gurmukhi')
-  const GurmukhiMN = FontMenuItem('Gurmukhi MN', onFontGurmukhiMN, 'GurmukhiMN')
-  const GurmukhiMT = FontMenuItem('Gurmukhi MT', onFontGurmukhiMT, 'GurmukhiMT')
-  const GurmukhiSangamMN = FontMenuItem('Gurmukhi Sangam MN', onFontGurmukhiSangamMN, 'GurmukhiSangamMN')
-  const Hangangche = FontMenuItem('Hangangche', onFontHangangche, 'Hangangche')
-  const HannotateSC = FontMenuItem('Hannotate SC', onFontHannotateSC, 'HannotateSC')
-  const HannotateTC = FontMenuItem('Hannotate TC', onFontHannotateTC, 'HannotateTC')
-  const HanziPenSC = FontMenuItem('HanziPen SC', onFontHanziPenSC, 'HanziPenSC')
-  const HanziPenTC = FontMenuItem('HanziPen TC', onFontHanziPenTC, 'HanziPenTC')
-  const HeadlineA = FontMenuItem('HeadlineA', onFontHeadlineA, 'HeadlineA')
-  const Hei = FontMenuItem('Hei', onFontHei, 'Hei')
-  const HeitiSC = FontMenuItem('Heiti SC', onFontHeitiSC, 'HeitiSC')
-  const Helvetica = FontMenuItem('Helvetica', onFontHelvetica, 'Helvetica')
-  const HelveticaCY = FontMenuItem('Helvetica CY', onFontHelveticaCY, 'HelveticaCY')
-  const HelveticaNeue = FontMenuItem('Helvetica Neue', onFontHelveticaNeue, 'HelveticaNeue')
-  const Herculanum = FontMenuItem('Herculanum', onFontHerculanum, 'Herculanum')
-  const HiraginoKakuGothic = FontMenuItem('Hiragino Kaku Gothic', onFontHiraginoKakuGothic, 'HiraginoKakuGothic')
-  const HiraginoKakuGothicPro = FontMenuItem('Hiragino Kaku Gothic Pro', onFontHiraginoKakuGothicPro, 'HiraginoKakuGothicPro')
-  const HiraginoMaruGothicPro = FontMenuItem('Hiragino Maru Gothic Pro', onFontHiraginoMaruGothicPro, 'HiraginoMaruGothicPro')
-  const HiraginoMinchoPro = FontMenuItem('Hiragino Mincho Pro', onFontHiraginoMinchoPro, 'HiraginoMinchoPro')
-  const HiraginoSans = FontMenuItem('Hiragino Sans', onFontHiraginoSans, 'HiraginoSans')
-  const HoeflerText = FontMenuItem('Hoefler Text', onFontHoeflerText, 'HoeflerText')
-  const HopperScript = FontMenuItem('Hopper Script', onFontHopperScript, 'HopperScript')
-  const Impact = FontMenuItem('Impact', onFontImpact, 'Impact')
-  const InaiMathi = FontMenuItem('Inai Mathi', onFontInaiMathi, 'InaiMathi')
-  const InkFree = FontMenuItem('Ink Free', onFontInkFree, 'InkFree')
-  const IowanOldStyleTitling = FontMenuItem('Iowan Old Style Titling', onFontIowanOldStyleTitling, 'IowanOldStyleTitling')
-  const IrisUPC = FontMenuItem('IrisUPC', onFontIrisUPC, 'IrisUPC')
-  const IskoolaPota = FontMenuItem('Iskoola Pota', onFontIskoolaPota, 'IskoolaPota')
-  const ITCBodoni72 = FontMenuItem('ITC Bodoni 72', onFontITCBodoni72, 'ITCBodoni72')
-  const ITFDevanagari = FontMenuItem('ITF Devanagari', onFontITFDevanagari, 'ITFDevanagari')
-  const ITFDevanagariMarathi = FontMenuItem('ITF Devanagari Marathi', onFontITFDevanagariMarathi, 'ITFDevanagariMarathi')
-  const Jaini = FontMenuItem('Jaini', onFontJaini, 'Jaini')
-  const JainiPurva = FontMenuItem('Jaini Purva', onFontJainiPurva, 'JainiPurva')
-  const JasmineUPC = FontMenuItem('JasmineUPC', onFontJasmineUPC, 'JasmineUPC')
-  const JavaneseText = FontMenuItem('Javanese Text', onFontJavaneseText, 'JavaneseText')
-  const JungGothic = FontMenuItem('Jung Gothic', onFontJungGothic, 'JungGothic')
-  const Kai = FontMenuItem('Kai', onFontKai, 'Kai')
-  const Kailasa = FontMenuItem('Kailasa', onFontKailasa, 'Kailasa')
-  const KaiTi = FontMenuItem('KaiTi', onFontKaiTi, 'KaiTi')
-  const KaitiSC = FontMenuItem('Kaiti SC', onFontKaitiSC, 'KaitiSC')
-  const KaitiTC = FontMenuItem('Kaiti TC', onFontKaitiTC, 'KaitiTC')
-  const Kalinga = FontMenuItem('Kalinga', onFontKalinga, 'Kalinga')
-  const KannadaMN = FontMenuItem('Kannada MN', onFontKannadaMN, 'KannadaMN')
-  const KannadaSangamMN = FontMenuItem('Kannada Sangam MN', onFontKannadaSangamMN, 'KannadaSangamMN')
-  const Kartika = FontMenuItem('Kartika', onFontKartika, 'Kartika')
-  const Katari = FontMenuItem('Katari', onFontKatari, 'Katari')
-  const Kefa = FontMenuItem('Kefa', onFontKefa, 'Kefa')
-  const Keyboard = FontMenuItem('Keyboard', onFontKeyboard, 'Keyboard')
-  const KhmerMN = FontMenuItem('Khmer MN', onFontKhmerMN, 'KhmerMN')
-  const KhmerSangamMN = FontMenuItem('Khmer Sangam MN', onFontKhmerSangamMN, 'KhmerSangamMN')
-  const KhmerUI = FontMenuItem('Khmer UI', onFontKhmerUI, 'KhmerUI')
-  const KodchiangUPC = FontMenuItem('KodchiangUPC', onFontKodchiangUPC, 'KodchiangUPC')
-  const KohinoorBangla = FontMenuItem('Kohinoor Bangla', onFontKohinoorBangla, 'KohinoorBangla')
-  const KohinoorDevanagari = FontMenuItem('Kohinoor Devanagari', onFontKohinoorDevanagari, 'KohinoorDevanagari')
-  const KohinoorTelugu = FontMenuItem('Kohinoor Telugu', onFontKohinoorTelugu, 'KohinoorTelugu')
-  const Kokila = FontMenuItem('Kokila', onFontKokila, 'Kokila')
-  const Kokonor = FontMenuItem('Kokonor', onFontKokonor, 'Kokonor')
-  const KoufiAbjadi = FontMenuItem('Koufi Abjadi', onFontKoufiAbjadi, 'KoufiAbjadi')
-  const Krungthep = FontMenuItem('Krungthep', onFontKrungthep, 'Krungthep')
-  const KuenstlerScript = FontMenuItem('Kuenstler Script', onFontKuenstlerScript, 'KuenstlerScript')
-  const KufiStandardGK = FontMenuItem('KufiStandard GK', onFontKufiStandardGK, 'KufiStandardGK')
-  const LahoreGurmukhi = FontMenuItem('Lahore Gurmukhi', onFontLahoreGurmukhi, 'LahoreGurmukhi')
-  const Laimoon = FontMenuItem('Laimoon', onFontLaimoon, 'Laimoon')
-  const LaoMN = FontMenuItem('Lao MN', onFontLaoMN, 'LaoMN')
-  const LaoSangamMN = FontMenuItem('Lao Sangam MN', onFontLaoSangamMN, 'LaoSangamMN')
-  const LaoUI = FontMenuItem('Lao UI', onFontLaoUI, 'LaoUI')
-  const LastResort = FontMenuItem('LastResort', onFontLastResort, 'LastResort')
-  const Latha = FontMenuItem('Latha', onFontLatha, 'Latha')
-  const LavaDevanagari = FontMenuItem('Lava Devanagari', onFontLavaDevanagari, 'LavaDevanagari')
-  const LavaKannada = FontMenuItem('Lava Kannada', onFontLavaKannada, 'LavaKannada')
-  const LavaTelugu = FontMenuItem('Lava Telugu', onFontLavaTelugu, 'LavaTelugu')
-  const Leelawadee = FontMenuItem('Leelawadee', onFontLeelawadee, 'Leelawadee')
-  const LeelawadeeUI = FontMenuItem('Leelawadee UI', onFontLeelawadeeUI, 'LeelawadeeUI')
-  const LevenimMT = FontMenuItem('Levenim MT', onFontLevenimMT, 'LevenimMT')
-  const LibianSC = FontMenuItem('Libian SC', onFontLibianSC, 'LibianSC')
-  const LibianTC = FontMenuItem('Libian TC', onFontLibianTC, 'LibianTC')
-  const LiHeiPro = FontMenuItem('LiHei Pro', onFontLiHeiPro, 'LiHeiPro')
-  const LilyUPC = FontMenuItem('LilyUPC', onFontLilyUPC, 'LilyUPC')
-  const LiSongPro = FontMenuItem('LiSong Pro', onFontLiSongPro, 'LiSongPro')
-  const LucidaConsole = FontMenuItem('Lucida Console', onFontLucidaConsole, 'LucidaConsole')
-  const LucidaGrande = FontMenuItem('Lucida Grande', onFontLucidaGrande, 'LucidaGrande')
-  const LucidaSans = FontMenuItem('Lucida Sans', onFontLucidaSans, 'LucidaSans')
-  const LucidaSansUnicode = FontMenuItem('Lucida Sans Unicode', onFontLucidaSansUnicode, 'LucidaSansUnicode')
-  const Luminari = FontMenuItem('Luminari', onFontLuminari, 'Luminari')
-  const Maku = FontMenuItem('Maku', onFontMaku, 'Maku')
-  const MalayalamMN = FontMenuItem('Malayalam MN', onFontMalayalamMN, 'MalayalamMN')
-  const MalayalamSangamMN = FontMenuItem('Malayalam Sangam MN', onFontMalayalamSangamMN, 'MalayalamSangamMN')
-  const MalgunGothic = FontMenuItem('Malgun Gothic', onFontMalgunGothic, 'MalgunGothic')
-  const Mangal = FontMenuItem('Mangal', onFontMangal, 'Mangal')
-  const MarkerFelt = FontMenuItem('Marker Felt', onFontMarkerFelt, 'MarkerFelt')
-  const Marlett = FontMenuItem('Marlett', onFontMarlett, 'Marlett')
-  const Meiryo = FontMenuItem('Meiryo', onFontMeiryo, 'Meiryo')
-  const Menlo = FontMenuItem('Menlo', onFontMenlo, 'Menlo')
-  const MicrosoftHimalaya = FontMenuItem('Microsoft Himalaya', onFontMicrosoftHimalaya, 'MicrosoftHimalaya')
-  const MicrosoftJhengHei = FontMenuItem('Microsoft JhengHei', onFontMicrosoftJhengHei, 'MicrosoftJhengHei')
-  const MicrosoftNewTaiLue = FontMenuItem('Microsoft New Tai Lue', onFontMicrosoftNewTaiLue, 'MicrosoftNewTaiLue')
-  const MicrosoftPhagsPa = FontMenuItem('Microsoft PhagsPa', onFontMicrosoftPhagsPa, 'MicrosoftPhagsPa')
-  const MicrosoftSansSerif = FontMenuItem('Microsoft Sans Serif', onFontMicrosoftSansSerif, 'MicrosoftSansSerif')
-  const MicrosoftTaiLe = FontMenuItem('Microsoft Tai Le', onFontMicrosoftTaiLe, 'MicrosoftTaiLe')
-  const MicrosoftUighur = FontMenuItem('Microsoft Uighur', onFontMicrosoftUighur, 'MicrosoftUighur')
-  const MicrosoftYaHei = FontMenuItem('Microsoft YaHei', onFontMicrosoftYaHei, 'MicrosoftYaHei')
-  const MicrosoftYiBaiti = FontMenuItem('Microsoft Yi Baiti', onFontMicrosoftYiBaiti, 'MicrosoftYiBaiti')
-  const MingLiU = FontMenuItem('MingLiU', onFontMingLiU, 'MingLiU')
-  const MingLiUExtB = FontMenuItem('MingLiU-ExtB', onFontMingLiUExtB, 'MingLiUExtB')
-  const Miriam = FontMenuItem('Miriam', onFontMiriam, 'Miriam')
-  const Mishafi = FontMenuItem('Mishafi', onFontMishafi, 'Mishafi')
-  const MishafiGold = FontMenuItem('Mishafi Gold', onFontMishafiGold, 'MishafiGold')
-  const Modak = FontMenuItem('Modak', onFontModak, 'Modak')
-  const MonaLisaSolidITCTT = FontMenuItem('Mona Lisa Solid ITC TT', onFontMonaLisaSolidITCTT, 'MonaLisaSolidITCTT')
-  const Monaco = FontMenuItem('Monaco', onFontMonaco, 'Monaco')
-  const MonacoCY = FontMenuItem('Monaco CY', onFontMonacoCY, 'MonacoCY')
-  const MongolianBaiti = FontMenuItem('Mongolian Baiti', onFontMongolianBaiti, 'MongolianBaiti')
-  const MonotypeLingWai = FontMenuItem('Monotype LingWai', onFontMonotypeLingWai, 'MonotypeLingWai')
-  const MoolBoran = FontMenuItem('MoolBoran', onFontMoolBoran, 'MoolBoran')
-  const MSGothic = FontMenuItem('MS Gothic', onFontMSGothic, 'MSGothic')
-  const MSMincho = FontMenuItem('MS Mincho', onFontMSMincho, 'MSMincho')
-  const Mshtakan = FontMenuItem('Mshtakan', onFontMshtakan, 'Mshtakan')
-  const Mukta = FontMenuItem('Mukta', onFontMukta, 'Mukta')
-  const MuktaMalar = FontMenuItem('Mukta Malar', onFontMuktaMalar, 'MuktaMalar')
-  const MuktaVaani = FontMenuItem('Mukta Vaani', onFontMuktaVaani, 'MuktaVaani')
-  const MuktaMahee = FontMenuItem('MuktaMahee', onFontMuktaMahee, 'MuktaMahee')
-  const Muna = FontMenuItem('Muna', onFontMuna, 'Muna')
-  const MVBoli = FontMenuItem('MV Boli', onFontMVBoli, 'MVBoli')
-  const MyanmarMN = FontMenuItem('Myanmar MN', onFontMyanmarMN, 'MyanmarMN')
-  const MyanmarSangamMN = FontMenuItem('Myanmar Sangam MN', onFontMyanmarSangamMN, 'MyanmarSangamMN')
-  const MyanmarText = FontMenuItem('Myanmar Text', onFontMyanmarText, 'MyanmarText')
-  const MyriadArabic = FontMenuItem('Myriad Arabic', onFontMyriadArabic, 'MyriadArabic')
-  const Nadeem = FontMenuItem('Nadeem', onFontNadeem, 'Nadeem')
-  const NanumBrushScript = FontMenuItem('Nanum Brush Script', onFontNanumBrushScript, 'NanumBrushScript')
-  const NanumPenScript = FontMenuItem('Nanum Pen Script', onFontNanumPenScript, 'NanumPenScript')
-  const NanumGothic = FontMenuItem('NanumGothic', onFontNanumGothic, 'NanumGothic')
-  const NanumMyeongjo = FontMenuItem('NanumMyeongjo', onFontNanumMyeongjo, 'NanumMyeongjo')
-  const Narkisim = FontMenuItem('Narkisim', onFontNarkisim, 'Narkisim')
-  const NeueHaasGrotskTxtPro = FontMenuItem('Neue Haas Grotesk Text Pro', onFontNeueHaasGrotskTxtPro, 'NeueHaasGrotskTxtPro')
-  const NewPeninim = FontMenuItem('New Peninim', onFontNewPeninim, 'NewPeninim')
-  const NewPeninimMT = FontMenuItem('New Peninim MT', onFontNewPeninimMT, 'NewPeninimMT')
-  const NewPeninimMTInclined = FontMenuItem('New Peninim MT Inclined', onFontNewPeninimMTInclined, 'NewPeninimMTInclined')
-  const NewYork = FontMenuItem('New York', onFontNewYork, 'NewYork')
-  const NirmalaUI = FontMenuItem('Nirmala UI', onFontNirmalaUI, 'NirmalaUI')
-  const Nisan = FontMenuItem('Nisan', onFontNisan, 'Nisan')
-  const NISCGB18030 = FontMenuItem('NISC GB18030', onFontNISCGB18030, 'NISCGB18030')
-  const Noteworthy = FontMenuItem('Noteworthy', onFontNoteworthy, 'Noteworthy')
-  const NotoNastaliqUrdu = FontMenuItem('Noto Nastaliq Urdu', onFontNotoNastaliqUrdu, 'NotoNastaliqUrdu')
-  const NotoSansJavanese = FontMenuItem('Noto Sans Javanese', onFontNotoSansJavanese, 'NotoSansJavanese')
-  const NotoSansKannada = FontMenuItem('Noto Sans Kannada', onFontNotoSansKannada, 'NotoSansKannada')
-  const NotoSansMyanmar = FontMenuItem('Noto Sans Myanmar', onFontNotoSansMyanmar, 'NotoSansMyanmar')
-  const NotoSansOriya = FontMenuItem('Noto Sans Oriya', onFontNotoSansOriya, 'NotoSansOriya')
-  const NotoSerifKannada = FontMenuItem('Noto Serif Kannada', onFontNotoSerifKannada, 'NotoSerifKannada')
-  const NotoSerifMyanmar = FontMenuItem('Noto Serif Myanmar', onFontNotoSerifMyanmar, 'NotoSerifMyanmar')
-  const Nyala = FontMenuItem('Nyala', onFontNyala, 'Nyala')
-  const OctoberDevanagari = FontMenuItem('October Devanagari', onFontOctoberDevanagari, 'OctoberDevanagari')
-  const OctoberTamil = FontMenuItem('October Tamil', onFontOctoberTamil, 'OctoberTamil')
-  const Optima = FontMenuItem('Optima', onFontOptima, 'Optima')
-  const OriyaMN = FontMenuItem('Oriya MN', onFontOriyaMN, 'OriyaMN')
-  const OriyaSangamMN = FontMenuItem('Oriya Sangam MN', onFontOriyaSangamMN, 'OriyaSangamMN')
-  const Osaka = FontMenuItem('Osaka', onFontOsaka, 'Osaka')
-  const OsakaMono = FontMenuItem('Osaka-Mono', onFontOsakaMono, 'OsakaMono')
-  const Palatino = FontMenuItem('Palatino', onFontPalatino, 'Palatino')
-  const PalatinoLinotype = FontMenuItem('Palatino Linotype', onFontPalatinoLinotype, 'PalatinoLinotype')
-  const Papyrus = FontMenuItem('Papyrus', onFontPapyrus, 'Papyrus')
-  const PCMyungjo = FontMenuItem('PC Myungjo', onFontPCMyungjo, 'PCMyungjo')
-  const Phosphate = FontMenuItem('Phosphate', onFontPhosphate, 'Phosphate')
-  const PilGi = FontMenuItem('PilGi', onFontPilGi, 'PilGi')
-  const Pilgiche = FontMenuItem('Pilgiche', onFontPilgiche, 'Pilgiche')
-  const PingFangHK = FontMenuItem('PingFang HK', onFontPingFangHK, 'PingFangHK')
-  const PingFangSC = FontMenuItem('PingFang SC', onFontPingFangSC, 'PingFangSC')
-  const PingFangTC = FontMenuItem('PingFang TC', onFontPingFangTC, 'PingFangTC')
-  const PlantagenetCherokee = FontMenuItem('Plantagenet Cherokee', onFontPlantagenetCherokee, 'PlantagenetCherokee')
-  const PortagoITCTT = FontMenuItem('PortagoITC TT', onFontPortagoITCTT, 'PortagoITCTT')
-  const PrincetownLET = FontMenuItem('Princetown LET', onFontPrincetownLET, 'PrincetownLET')
-  const Produkt = FontMenuItem('Produkt', onFontProdukt, 'Produkt')
-  const ProximaNova = FontMenuItem('Proxima Nova', onFontProximaNova, 'ProximaNova')
-  const PSLOrnanongPro = FontMenuItem('PSL Ornanong Pro', onFontPSLOrnanongPro, 'PSLOrnanongPro')
-  const PTMono = FontMenuItem('PT Mono', onFontPTMono, 'PTMono')
-  const PTSans = FontMenuItem('PT Sans', onFontPTSans, 'PTSans')
-  const PTSansNarrow = FontMenuItem('PT Sans Narrow', onFontPTSansNarrow, 'PTSansNarrow')
-  const PTSerif = FontMenuItem('PT Serif', onFontPTSerif, 'PTSerif')
-  const PublicoHeadlineRoman = FontMenuItem('Publico Headline Roman', onFontPublicoHeadlineRoman, 'PublicoHeadlineRoman')
-  const QuotesCaps = FontMenuItem('Quotes Caps', onFontQuotesCaps, 'QuotesCaps')
-  const QuotesScript = FontMenuItem('Quotes Script', onFontQuotesScript, 'QuotesScript')
-  const Raanana = FontMenuItem('Raanana', onFontRaanana, 'Raanana')
-  const Raavi = FontMenuItem('Raavi', onFontRaavi, 'Raavi')
-  const Raya = FontMenuItem('Raya', onFontRaya, 'Raya')
-  const Rockwell = FontMenuItem('Rockwell', onFontRockwell, 'Rockwell')
-  const RockwellNova = FontMenuItem('Rockwell Nova', onFontRockwellNova, 'RockwellNova')
-  const Rod = FontMenuItem('Rod', onFontRod, 'Rod')
-  const SakkalMajalla = FontMenuItem('Sakkal Majalla', onFontSakkalMajalla, 'SakkalMajalla')
-  const SamaDevanagari = FontMenuItem('Sama Devanagari', onFontSamaDevanagari, 'SamaDevanagari')
-  const SamaGujarati = FontMenuItem('Sama Gujarati', onFontSamaGujarati, 'SamaGujarati')
-  const SamaGurmukhi = FontMenuItem('Sama Gurmukhi', onFontSamaGurmukhi, 'SamaGurmukhi')
-  const SamaKannada = FontMenuItem('Sama Kannada', onFontSamaKannada, 'SamaKannada')
-  const SamaMalayalam = FontMenuItem('Sama Malayalam', onFontSamaMalayalam, 'SamaMalayalam')
-  const SamaTamil = FontMenuItem('Sama Tamil', onFontSamaTamil, 'SamaTamil')
-  const SanFranciscoMono = FontMenuItem('San Francisco Mono', onFontSanFranciscoMono, 'SanFranciscoMono')
-  const Sana = FontMenuItem('Sana', onFontSana, 'Sana')
-  const Sand = FontMenuItem('Sand', onFontSand, 'Sand')
-  const SanskritText = FontMenuItem('Sanskrit Text', onFontSanskritText, 'SanskritText')
-  const Sathu = FontMenuItem('Sathu', onFontSathu, 'Sathu')
-  const SauberScript = FontMenuItem('Sauber Script', onFontSauberScript, 'SauberScript')
-  const SchoolHouseCursiveB = FontMenuItem('SchoolHouse Cursive B', onFontSchoolHouseCursiveB, 'SchoolHouseCursiveB')
-  const SchoolHousePrintedA = FontMenuItem('SchoolHouse Printed A', onFontSchoolHousePrintedA, 'SchoolHousePrintedA')
-  const SegoePrint = FontMenuItem('Segoe Print', onFontSegoePrint, 'SegoePrint')
-  const SegoeScript = FontMenuItem('Segoe Script', onFontSegoeScript, 'SegoeScript')
-  const SegoeUI = FontMenuItem('Segoe UI', onFontSegoeUI, 'SegoeUI')
-  const Seoul = FontMenuItem('Seoul', onFontSeoul, 'Seoul')
-  const SFArabic = FontMenuItem('SF Arabic', onFontSFArabic, 'SFArabic')
-  const ShinMyungjoNeue = FontMenuItem('Shin Myungjo Neue', onFontShinMyungjoNeue, 'ShinMyungjoNeue')
-  const Shobhika = FontMenuItem('Shobhika', onFontShobhika, 'Shobhika')
-  const ShonarBangla = FontMenuItem('Shonar Bangla', onFontShonarBangla, 'ShonarBangla')
-  const ShreeDevanagari714 = FontMenuItem('Shree Devanagari 714', onFontShreeDevanagari714, 'ShreeDevanagari714')
-  const Shruti = FontMenuItem('Shruti', onFontShruti, 'Shruti')
-  const SignPainter = FontMenuItem('SignPainter', onFontSignPainter, 'SignPainter')
-  const SignPainterHouseScript = FontMenuItem('SignPainter-HouseScript', onFontSignPainterHouseScript, 'SignPainterHouseScript')
-  const Silom = FontMenuItem('Silom', onFontSilom, 'Silom')
-  const SimHei = FontMenuItem('SimHei', onFontSimHei, 'SimHei')
-  const SimplifiedArabic = FontMenuItem('Simplified Arabic', onFontSimplifiedArabic, 'SimplifiedArabic')
-  const SimSong = FontMenuItem('SimSong', onFontSimSong, 'SimSong')
-  const SimSun = FontMenuItem('SimSun', onFontSimSun, 'SimSun')
-  const SinhalaMN = FontMenuItem('Sinhala MN', onFontSinhalaMN, 'SinhalaMN')
-  const SinhalaSangamMN = FontMenuItem('Sinhala Sangam MN', onFontSinhalaSangamMN, 'SinhalaSangamMN')
-  const Sitka = FontMenuItem('Sitka', onFontSitka, 'Sitka')
-  const Skia = FontMenuItem('Skia', onFontSkia, 'Skia')
-  const SnellRoundhand = FontMenuItem('Snell Roundhand', onFontSnellRoundhand, 'SnellRoundhand')
-  const Somer = FontMenuItem('Somer', onFontSomer, 'Somer')
-  const SongtiSC = FontMenuItem('Songti SC', onFontSongtiSC, 'SongtiSC')
-  const SongtiTC = FontMenuItem('Songti TC', onFontSongtiTC, 'SongtiTC')
-  const SpotMono = FontMenuItem('Spot Mono', onFontSpotMono, 'SpotMono')
-  const STFangSong = FontMenuItem('ST FangSong', onFontSTFangSong, 'STFangSong')
-  const STHeiti = FontMenuItem('ST Heiti', onFontSTHeiti, 'STHeiti')
-  const STKaiti = FontMenuItem('ST Kaiti', onFontSTKaiti, 'STKaiti')
-  const STSong = FontMenuItem('ST Song', onFontSTSong, 'STSong')
-  const STXihei = FontMenuItem('ST Xihei', onFontSTXihei, 'STXihei')
-  const STIXTwoText = FontMenuItem('STIX Two Text', onFontSTIXTwoText, 'STIXTwoText')
-  const STIXGeneralRegular = FontMenuItem('STIXGeneral-Regular', onFontSTIXGeneralRegular, 'STIXGeneralRegular')
-  const StoneSansSemITCTT = FontMenuItem('Stone Sans Sem ITC TT', onFontStoneSansSemITCTT, 'StoneSansSemITCTT')
-  const SukhumvitSetText = FontMenuItem('Sukhumvit Set Text', onFontSukhumvitSetText, 'SukhumvitSetText')
-  const Sylfaen = FontMenuItem('Sylfaen', onFontSylfaen, 'Sylfaen')
-  const SynchroLET = FontMenuItem('Synchro LET', onFontSynchroLET, 'SynchroLET')
-  const TaeGraphic = FontMenuItem('Tae Graphic', onFontTaeGraphic, 'TaeGraphic')
-  const Tahoma = FontMenuItem('Tahoma', onFontTahoma, 'Tahoma')
-  const Taipei = FontMenuItem('Taipei', onFontTaipei, 'Taipei')
-  const TamilMN = FontMenuItem('Tamil MN', onFontTamilMN, 'TamilMN')
-  const TamilSangamMN = FontMenuItem('Tamil Sangam MN', onFontTamilSangamMN, 'TamilSangamMN')
-  const Techno = FontMenuItem('Techno', onFontTechno, 'Techno')
-  const TeluguMN = FontMenuItem('Telugu MN', onFontTeluguMN, 'TeluguMN')
-  const TeluguSangamMN = FontMenuItem('Telugu Sangam MN', onFontTeluguSangamMN, 'TeluguSangamMN')
-  const Textile = FontMenuItem('Textile', onFontTextile, 'Textile')
-  const Thonburi = FontMenuItem('Thonburi', onFontThonburi, 'Thonburi')
-  const Times = FontMenuItem('Times', onFontTimes, 'Times')
-  const TimesCY = FontMenuItem('Times CY', onFontTimesCY, 'TimesCY')
-  const TimesNewRoman = FontMenuItem('Times New Roman', onFontTimesNewRoman, 'TimesNewRoman')
-  const TimesRoman = FontMenuItem('Times Roman', onFontTimesRoman, 'TimesRoman')
-  const TiroBangla = FontMenuItem('Tiro Bangla', onFontTiroBangla, 'TiroBangla')
-  const TiroDevanagariHindi = FontMenuItem('Tiro Devanagari Hindi', onFontTiroDevanagariHindi, 'TiroDevanagariHindi')
-  const TiroDevanagariMarathi = FontMenuItem('Tiro Devanagari Marathi', onFontTiroDevanagariMarathi, 'TiroDevanagariMarathi')
-  const TiroDevanagariSanskrit = FontMenuItem('Tiro Devanagari Sanskrit', onFontTiroDevanagariSanskrit, 'TiroDevanagariSanskrit')
-  const TiroGurmukhi = FontMenuItem('Tiro Gurmukhi', onFontTiroGurmukhi, 'TiroGurmukhi')
-  const TiroHindi = FontMenuItem('Tiro Hindi', onFontTiroHindi, 'TiroHindi')
-  const TiroKannada = FontMenuItem('Tiro Kannada', onFontTiroKannada, 'TiroKannada')
-  const TiroMarathi = FontMenuItem('Tiro Marathi', onFontTiroMarathi, 'TiroMarathi')
-  const TiroSanskrit = FontMenuItem('Tiro Sanskrit', onFontTiroSanskrit, 'TiroSanskrit')
-  const TiroTamil = FontMenuItem('Tiro Tamil', onFontTiroTamil, 'TiroTamil')
-  const TiroTelugu = FontMenuItem('Tiro Telugu', onFontTiroTelugu, 'TiroTelugu')
-  const ToppanBunkyuGothic = FontMenuItem('Toppan Bunkyu Gothic', onFontToppanBunkyuGothic, 'ToppanBunkyuGothic')
-  const ToppanBunkyuMincho = FontMenuItem('Toppan Bunkyu Mincho', onFontToppanBunkyuMincho, 'ToppanBunkyuMincho')
-  const TraditionalArabic = FontMenuItem('Traditional Arabic', onFontTraditionalArabic, 'TraditionalArabic')
-  const Trattatello = FontMenuItem('Trattatello', onFontTrattatello, 'Trattatello')
-  const TrebuchetMS = FontMenuItem('Trebuchet MS', onFontTrebuchetMS, 'TrebuchetMS')
-  const TsukushiARoundGothic = FontMenuItem('Tsukushi A Round Gothic', onFontTsukushiARoundGothic, 'TsukushiARoundGothic')
-  const TsukushiBRoundGothic = FontMenuItem('Tsukushi B Round Gothic', onFontTsukushiBRoundGothic, 'TsukushiBRoundGothic')
-  const Tunga = FontMenuItem('Tunga', onFontTunga, 'Tunga')
-  const TwCenMT = FontMenuItem('Tw Cen MT', onFontTwCenMT, 'TwCenMT')
-  const UDDigiKyokasho = FontMenuItem('UD Digi Kyokasho', onFontUDDigiKyokasho, 'UDDigiKyokasho')
-  const UrduTypesetting = FontMenuItem('Urdu Typesetting', onFontUrduTypesetting, 'UrduTypesetting')
-  const Utsaah = FontMenuItem('Utsaah', onFontUtsaah, 'Utsaah')
-  const Vani = FontMenuItem('Vani', onFontVani, 'Vani')
-  const Verdana = FontMenuItem('Verdana', onFontVerdana, 'Verdana')
-  const VerdanaPro = FontMenuItem('Verdana Pro', onFontVerdanaPro, 'VerdanaPro')
-  const Vijaya = FontMenuItem('Vijaya', onFontVijaya, 'Vijaya')
-  const Vrinda = FontMenuItem('Vrinda', onFontVrinda, 'Vrinda')
-  const Waseem = FontMenuItem('Waseem', onFontWaseem, 'Waseem')
-  const WawatiSC = FontMenuItem('Wawati SC', onFontWawatiSC, 'WawatiSC')
-  const WawatiTC = FontMenuItem('Wawati TC', onFontWawatiTC, 'WawatiTC')
-  const Yaziji = FontMenuItem('Yaziji', onFontYaziji, 'Yaziji')
-  const YuGothic = FontMenuItem('Yu Gothic', onFontYuGothic, 'YuGothic')
-  const YuKyokashoN = FontMenuItem('Yu Kyokasho N', onFontYuKyokashoN, 'YuKyokashoN')
-  const YuMincho = FontMenuItem('Yu Mincho', onFontYuMincho, 'YuMincho')
-  const YuantiSC = FontMenuItem('Yuanti SC', onFontYuantiSC, 'YuantiSC')
-  const YuantiTC = FontMenuItem('Yuanti TC', onFontYuantiTC, 'YuantiTC')
-  const YuppySC = FontMenuItem('Yuppy SC', onFontYuppySC, 'YuppySC')
-  const ZapfChancery = FontMenuItem('Zapf Chancery', onFontZapfChancery, 'ZapfChancery')
-  const Zapfino = FontMenuItem('Zapfino', onFontZapfino, 'Zapfino')  
+  const AdelleSansDevanagari = useMemo(() => FontMenuItem('Adelle Sans Devanagari', onFontAdelleSansDevanagari, 'AdelleSansDevanagari'), [FontMenuItem, onFontAdelleSansDevanagari]);
+  const Aharoni = useMemo(() => FontMenuItem('Aharoni', onFontAharoni, 'Aharoni'), [FontMenuItem, onFontAharoni]);
+  const AlBayan = useMemo(() => FontMenuItem('Al Bayan', onFontAlBayan, 'AlBayan'), [FontMenuItem, onFontAlBayan]);
+  const AlFirat = useMemo(() => FontMenuItem('Al Firat', onFontAlFirat, 'AlFirat'), [FontMenuItem, onFontAlFirat]);
+  const AlKhalil = useMemo(() => FontMenuItem('Al Khalil', onFontAlKhalil, 'AlKhalil'), [FontMenuItem, onFontAlKhalil]);
+  const AlNile = useMemo(() => FontMenuItem('Al Nile', onFontAlNile, 'AlNile'), [FontMenuItem, onFontAlNile]);
+  const AlRafidain = useMemo(() => FontMenuItem('Al Rafidain', onFontAlRafidain, 'AlRafidain'), [FontMenuItem, onFontAlRafidain]);
+  const AlRafidainAlFanni = useMemo(() => FontMenuItem('Al Rafidain Al Fanni', onFontAlRafidainAlFanni, 'AlRafidainAlFanni'), [FontMenuItem, onFontAlRafidainAlFanni]);
+  const AlTarikh = useMemo(() => FontMenuItem('Al Tarikh', onFontAlTarikh, 'AlTarikh'), [FontMenuItem, onFontAlTarikh]);
+  const Aldhabi = useMemo(() => FontMenuItem('Aldhabi', onFontAldhabi, 'Aldhabi'), [FontMenuItem, onFontAldhabi]);
+  const Algiers = useMemo(() => FontMenuItem('Algiers', onFontAlgiers, 'Algiers'), [FontMenuItem, onFontAlgiers]);
+  const AmericanTypewriter = useMemo(() => FontMenuItem('American Typewriter', onFontAmericanTypewriter, 'AmericanTypewriter'), [FontMenuItem, onFontAmericanTypewriter]);
+  const AndaleMono = useMemo(() => FontMenuItem('Andalé Mono', onFontAndaleMono, 'AndaleMono'), [FontMenuItem, onFontAndaleMono]);
+  const Andalus = useMemo(() => FontMenuItem('Andalus', onFontAndalus, 'Andalus'), [FontMenuItem, onFontAndalus]);
+  const AngsanaNew = useMemo(() => FontMenuItem('Angsana New', onFontAngsanaNew, 'AngsanaNew'), [FontMenuItem, onFontAngsanaNew]);
+  const AngsanaUPC = useMemo(() => FontMenuItem('AngsanaUPC', onFontAngsanaUPC, 'AngsanaUPC'), [FontMenuItem, onFontAngsanaUPC]);
+  const AnnaiMN = useMemo(() => FontMenuItem('Annai MN', onFontAnnaiMN, 'AnnaiMN'), [FontMenuItem, onFontAnnaiMN]);
+  const Aparajita = useMemo(() => FontMenuItem('Aparajita', onFontAparajita, 'Aparajita'), [FontMenuItem, onFontAparajita]);
+  const AppleBraille = useMemo(() => FontMenuItem('Apple Braille', onFontAppleBraille, 'AppleBraille'), [FontMenuItem, onFontAppleBraille]);
+  const AppleCasual = useMemo(() => FontMenuItem('Apple Casual', onFontAppleCasual, 'AppleCasual'), [FontMenuItem, onFontAppleCasual]);
+  const AppleChancery = useMemo(() => FontMenuItem('Apple Chancery', onFontAppleChancery, 'AppleChancery'), [FontMenuItem, onFontAppleChancery]);
+  const AppleGaramond = useMemo(() => FontMenuItem('Apple Garamond', onFontAppleGaramond, 'AppleGaramond'), [FontMenuItem, onFontAppleGaramond]);
+  const AppleGothic = useMemo(() => FontMenuItem('Apple Gothic', onFontAppleGothic, 'AppleGothic'), [FontMenuItem, onFontAppleGothic]);
+  const AppleLiGothic = useMemo(() => FontMenuItem('Apple LiGothic', onFontAppleLiGothic, 'AppleLiGothic'), [FontMenuItem, onFontAppleLiGothic]);
+  const AppleLiSung = useMemo(() => FontMenuItem('Apple LiSung', onFontAppleLiSung, 'AppleLiSung'), [FontMenuItem, onFontAppleLiSung]);
+  const AppleMyungjo = useMemo(() => FontMenuItem('Apple Myungjo', onFontAppleMyungjo, 'AppleMyungjo'), [FontMenuItem, onFontAppleMyungjo]);
+  const AppleSDGothicNeo = useMemo(() => FontMenuItem('Apple SD Gothic Neo', onFontAppleSDGothicNeo, 'AppleSDGothicNeo'), [FontMenuItem, onFontAppleSDGothicNeo]);
+  const AquaKana = useMemo(() => FontMenuItem('AquaKana', onFontAquaKana, 'AquaKana'), [FontMenuItem, onFontAquaKana]);
+  const ArabicTypesetting = useMemo(() => FontMenuItem('Arabic Typesetting', onFontArabicTypesetting, 'ArabicTypesetting'), [FontMenuItem, onFontArabicTypesetting]);
+  const Arial = useMemo(() => FontMenuItem('Arial', onFontArial, 'Arial'), [FontMenuItem, onFontArial]);
+  const ArialHebrew = useMemo(() => FontMenuItem('Arial Hebrew', onFontArialHebrew, 'ArialHebrew'), [FontMenuItem, onFontArialHebrew]);
+  const ArialHebrewScholar = useMemo(() => FontMenuItem('Arial Hebrew Scholar', onFontArialHebrewScholar, 'ArialHebrewScholar'), [FontMenuItem, onFontArialHebrewScholar]);
+  const ArialNarrow = useMemo(() => FontMenuItem('Arial Narrow', onFontArialNarrow, 'ArialNarrow'), [FontMenuItem, onFontArialNarrow]);
+  const ArialNova = useMemo(() => FontMenuItem('Arial Nova', onFontArialNova, 'ArialNova'), [FontMenuItem, onFontArialNova]);
+  const ArialUnicodeMS = useMemo(() => FontMenuItem('Arial Unicode MS', onFontArialUnicodeMS, 'ArialUnicodeMS'), [FontMenuItem, onFontArialUnicodeMS]);
+  const Avenir = useMemo(() => FontMenuItem('Avenir', onFontAvenir, 'Avenir'), [FontMenuItem, onFontAvenir]);
+  const Ayuthaya = useMemo(() => FontMenuItem('Ayuthaya', onFontAyuthaya, 'Ayuthaya'), [FontMenuItem, onFontAyuthaya]);
+  const Baghdad = useMemo(() => FontMenuItem('Baghdad', onFontBaghdad, 'Baghdad'), [FontMenuItem, onFontBaghdad]);
+  const Bahnschrift = useMemo(() => FontMenuItem('Bahnschrift', onFontBahnschrift, 'Bahnschrift'), [FontMenuItem, onFontBahnschrift]);
+  const Baloo = useMemo(() => FontMenuItem('Baloo', onFontBaloo, 'Baloo'), [FontMenuItem, onFontBaloo]);
+  const BalooBhai = useMemo(() => FontMenuItem('Baloo Bhai', onFontBalooBhai, 'BalooBhai'), [FontMenuItem, onFontBalooBhai]);
+  const BalooBhaijaan = useMemo(() => FontMenuItem('Baloo Bhaijaan', onFontBalooBhaijaan, 'BalooBhaijaan'), [FontMenuItem, onFontBalooBhaijaan]);
+  const BalooBhaina = useMemo(() => FontMenuItem('Baloo Bhaina', onFontBalooBhaina, 'BalooBhaina'), [FontMenuItem, onFontBalooBhaina]);
+  const BalooChettan = useMemo(() => FontMenuItem('Baloo Chettan', onFontBalooChettan, 'BalooChettan'), [FontMenuItem, onFontBalooChettan]);
+  const BalooDa = useMemo(() => FontMenuItem('Baloo Da', onFontBalooDa, 'BalooDa'), [FontMenuItem, onFontBalooDa]);
+  const BalooPaaji = useMemo(() => FontMenuItem('Baloo Paaji', onFontBalooPaaji, 'BalooPaaji'), [FontMenuItem, onFontBalooPaaji]);
+  const BalooTamma = useMemo(() => FontMenuItem('Baloo Tamma', onFontBalooTamma, 'BalooTamma'), [FontMenuItem, onFontBalooTamma]);
+  const BalooTammudu = useMemo(() => FontMenuItem('Baloo Tammudu', onFontBalooTammudu, 'BalooTammudu'), [FontMenuItem, onFontBalooTammudu]);
+  const BalooThambi = useMemo(() => FontMenuItem('Baloo Thambi', onFontBalooThambi, 'BalooThambi'), [FontMenuItem, onFontBalooThambi]);
+  const BanglaMN = useMemo(() => FontMenuItem('Bangla MN', onFontBanglaMN, 'BanglaMN'), [FontMenuItem, onFontBanglaMN]);
+  const BanglaSangamMN = useMemo(() => FontMenuItem('Bangla Sangam MN', onFontBanglaSangamMN, 'BanglaSangamMN'), [FontMenuItem, onFontBanglaSangamMN]);
+  const BaoliSC = useMemo(() => FontMenuItem('Baoli SC', onFontBaoliSC, 'BaoliSC'), [FontMenuItem, onFontBaoliSC]);
+  const BaoliTC = useMemo(() => FontMenuItem('Baoli TC', onFontBaoliTC, 'BaoliTC'), [FontMenuItem, onFontBaoliTC]);
+  const Baskerville = useMemo(() => FontMenuItem('Baskerville', onFontBaskerville, 'Baskerville'), [FontMenuItem, onFontBaskerville]);
+  const Basra = useMemo(() => FontMenuItem('Basra', onFontBasra, 'Basra'), [FontMenuItem, onFontBasra]);
+  const Batang = useMemo(() => FontMenuItem('Batang', onFontBatang, 'Batang'), [FontMenuItem, onFontBatang]);
+  const Beijing = useMemo(() => FontMenuItem('Beijing', onFontBeijing, 'Beijing'), [FontMenuItem, onFontBeijing]);
+  const Beirut = useMemo(() => FontMenuItem('Beirut', onFontBeirut, 'Beirut'), [FontMenuItem, onFontBeirut]);
+  const BiauKai = useMemo(() => FontMenuItem('BiauKai', onFontBiauKai, 'BiauKai'), [FontMenuItem, onFontBiauKai]);
+  const BigCaslon = useMemo(() => FontMenuItem('Big Caslon', onFontBigCaslon, 'BigCaslon'), [FontMenuItem, onFontBigCaslon]);
+  const BIZUDGothic = useMemo(() => FontMenuItem('BIZ UDGothic', onFontBIZUDGothic, 'BIZUDGothic'), [FontMenuItem, onFontBIZUDGothic]);
+  const BIZUDMincho = useMemo(() => FontMenuItem('BIZ UDMincho', onFontBIZUDMincho, 'BIZUDMincho'), [FontMenuItem, onFontBIZUDMincho]);
+  const Bodoni72 = useMemo(() => FontMenuItem('Bodoni 72', onFontBodoni72, 'Bodoni72'), [FontMenuItem, onFontBodoni72]);
+  const Braganza = useMemo(() => FontMenuItem('Braganza', onFontBraganza, 'Braganza'), [FontMenuItem, onFontBraganza]);
+  const BrowalliaNew = useMemo(() => FontMenuItem('Browallia New', onFontBrowalliaNew, 'BrowalliaNew'), [FontMenuItem, onFontBrowalliaNew]);
+  const BrowalliaUPC = useMemo(() => FontMenuItem('BrowalliaUPC', onFontBrowalliaUPC, 'BrowalliaUPC'), [FontMenuItem, onFontBrowalliaUPC]);
+  const BrushScript = useMemo(() => FontMenuItem('Brush Script', onFontBrushScript, 'BrushScript'), [FontMenuItem, onFontBrushScript]);
+  const Calibri = useMemo(() => FontMenuItem('Calibri', onFontCalibri, 'Calibri'), [FontMenuItem, onFontCalibri]);
+  const CambayDevanagari = useMemo(() => FontMenuItem('Cambay Devanagari', onFontCambayDevanagari, 'CambayDevanagari'), [FontMenuItem, onFontCambayDevanagari]);
+  const Cambria = useMemo(() => FontMenuItem('Cambria', onFontCambria, 'Cambria'), [FontMenuItem, onFontCambria]);
+  const Candara = useMemo(() => FontMenuItem('Candara', onFontCandara, 'Candara'), [FontMenuItem, onFontCandara]);
+  const Canela = useMemo(() => FontMenuItem('Canela', onFontCanela, 'Canela'), [FontMenuItem, onFontCanela]);
+  const CanelaDeck = useMemo(() => FontMenuItem('Canela Deck', onFontCanelaDeck, 'CanelaDeck'), [FontMenuItem, onFontCanelaDeck]);
+  const Capitals = useMemo(() => FontMenuItem('Capitals', onFontCapitals, 'Capitals'), [FontMenuItem, onFontCapitals]);
+  const CenturyGothic = useMemo(() => FontMenuItem('Century Gothic', onFontCenturyGothic, 'CenturyGothic'), [FontMenuItem, onFontCenturyGothic]);
+  const CenturySchoolbook = useMemo(() => FontMenuItem('Century Schoolbook', onFontCenturySchoolbook, 'CenturySchoolbook'), [FontMenuItem, onFontCenturySchoolbook]);
+  const Chalkboard = useMemo(() => FontMenuItem('Chalkboard', onFontChalkboard, 'Chalkboard'), [FontMenuItem, onFontChalkboard]);
+  const Chalkduster = useMemo(() => FontMenuItem('Chalkduster', onFontChalkduster, 'Chalkduster'), [FontMenuItem, onFontChalkduster]);
+  const Charcoal = useMemo(() => FontMenuItem('Charcoal', onFontCharcoal, 'Charcoal'), [FontMenuItem, onFontCharcoal]);
+  const CharcoalCY = useMemo(() => FontMenuItem('Charcoal CY', onFontCharcoalCY, 'CharcoalCY'), [FontMenuItem, onFontCharcoalCY]);
+  const CharterRoman = useMemo(() => FontMenuItem('Charter Roman', onFontCharterRoman, 'CharterRoman'), [FontMenuItem, onFontCharterRoman]);
+  const Chicago = useMemo(() => FontMenuItem('Chicago', onFontChicago, 'Chicago'), [FontMenuItem, onFontChicago]);
+  const Cochin = useMemo(() => FontMenuItem('Cochin', onFontCochin, 'Cochin'), [FontMenuItem, onFontCochin]);
+  const ComicSans = useMemo(() => FontMenuItem('Comic Sans', onFontComicSans, 'ComicSans'), [FontMenuItem, onFontComicSans]);
+  const ComicSansMS = useMemo(() => FontMenuItem('Comic Sans MS', onFontComicSansMS, 'ComicSansMS'), [FontMenuItem, onFontComicSansMS]);
+  const Consolas = useMemo(() => FontMenuItem('Consolas', onFontConsolas, 'Consolas'), [FontMenuItem, onFontConsolas]);
+  const Constantia = useMemo(() => FontMenuItem('Constantia', onFontConstantia, 'Constantia'), [FontMenuItem, onFontConstantia]);
+  const Cooper = useMemo(() => FontMenuItem('Cooper', onFontCooper, 'Cooper'), [FontMenuItem, onFontCooper]);
+  const Copperplate = useMemo(() => FontMenuItem('Copperplate', onFontCopperplate, 'Copperplate'), [FontMenuItem, onFontCopperplate]);
+  const Corbel = useMemo(() => FontMenuItem('Corbel', onFontCorbel, 'Corbel'), [FontMenuItem, onFontCorbel]);
+  const CordiaNew = useMemo(() => FontMenuItem('Cordia New', onFontCordiaNew, 'CordiaNew'), [FontMenuItem, onFontCordiaNew]);
+  const CordiaUPC = useMemo(() => FontMenuItem('CordiaUPC', onFontCordiaUPC, 'CordiaUPC'), [FontMenuItem, onFontCordiaUPC]);
+  const CorsivaHebrew = useMemo(() => FontMenuItem('Corsiva Hebrew', onFontCorsivaHebrew, 'CorsivaHebrew'), [FontMenuItem, onFontCorsivaHebrew]);
+  const Courier = useMemo(() => FontMenuItem('Courier', onFontCourier, 'Courier'), [FontMenuItem, onFontCourier]);
+  const CourierNew = useMemo(() => FontMenuItem('Courier New', onFontCourierNew, 'CourierNew'), [FontMenuItem, onFontCourierNew]);
+  const Damascus = useMemo(() => FontMenuItem('Damascus', onFontDamascus, 'Damascus'), [FontMenuItem, onFontDamascus]);
+  const DaunPenh = useMemo(() => FontMenuItem('DaunPenh', onFontDaunPenh, 'DaunPenh'), [FontMenuItem, onFontDaunPenh]);
+  const David = useMemo(() => FontMenuItem('David', onFontDavid, 'David'), [FontMenuItem, onFontDavid]);
+  const DearJoeFour = useMemo(() => FontMenuItem('Dear Joe Four', onFontDearJoeFour, 'DearJoeFour'), [FontMenuItem, onFontDearJoeFour]);
+  const DecoTypeNaskh = useMemo(() => FontMenuItem('DecoType Naskh', onFontDecoTypeNaskh, 'DecoTypeNaskh'), [FontMenuItem, onFontDecoTypeNaskh]);
+  const DengXian = useMemo(() => FontMenuItem('DengXian', onFontDengXian, 'DengXian'), [FontMenuItem, onFontDengXian]);
+  const Devanagari = useMemo(() => FontMenuItem('Devanagari', onFontDevanagari, 'Devanagari'), [FontMenuItem, onFontDevanagari]);
+  const DevanagariMT = useMemo(() => FontMenuItem('Devanagari MT', onFontDevanagariMT, 'DevanagariMT'), [FontMenuItem, onFontDevanagariMT]);
+  const DevanagariSangamMN = useMemo(() => FontMenuItem('Devanagari Sangam MN', onFontDevanagariSangamMN, 'DevanagariSangamMN'), [FontMenuItem, onFontDevanagariSangamMN]);
+  const DFKaiSB = useMemo(() => FontMenuItem('DFKai-SB', onFontDFKaiSB, 'DFKaiSB'), [FontMenuItem, onFontDFKaiSB]);
+  const Didot = useMemo(() => FontMenuItem('Didot', onFontDidot, 'Didot'), [FontMenuItem, onFontDidot]);
+  const Dijla = useMemo(() => FontMenuItem('Dijla', onFontDijla, 'Dijla'), [FontMenuItem, onFontDijla]);
+  const DilleniaUPC = useMemo(() => FontMenuItem('DilleniaUPC', onFontDilleniaUPC, 'DilleniaUPC'), [FontMenuItem, onFontDilleniaUPC]);
+  const DiwanKufi = useMemo(() => FontMenuItem('Diwan Kufi', onFontDiwanKufi, 'DiwanKufi'), [FontMenuItem, onFontDiwanKufi]);
+  const DiwanThuluth = useMemo(() => FontMenuItem('Diwan Thuluth', onFontDiwanThuluth, 'DiwanThuluth'), [FontMenuItem, onFontDiwanThuluth]);
+  const DokChampa = useMemo(() => FontMenuItem('DokChampa', onFontDokChampa, 'DokChampa'), [FontMenuItem, onFontDokChampa]);
+  const DomaineDisplay = useMemo(() => FontMenuItem('Domaine Display', onFontDomaineDisplay, 'DomaineDisplay'), [FontMenuItem, onFontDomaineDisplay]);
+  const Dotum = useMemo(() => FontMenuItem('Dotum', onFontDotum, 'Dotum'), [FontMenuItem, onFontDotum]);
+  const Ebrima = useMemo(() => FontMenuItem('Ebrima', onFontEbrima, 'Ebrima'), [FontMenuItem, onFontEbrima]);
+  const EstrangeloEdessa = useMemo(() => FontMenuItem('Estrangelo Edessa', onFontEstrangeloEdessa, 'EstrangeloEdessa'), [FontMenuItem, onFontEstrangeloEdessa]);
+  const EucrosiaUPC = useMemo(() => FontMenuItem('EucrosiaUPC', onFontEucrosiaUPC, 'EucrosiaUPC'), [FontMenuItem, onFontEucrosiaUPC]);
+  const Euphemia = useMemo(() => FontMenuItem('Euphemia', onFontEuphemia, 'Euphemia'), [FontMenuItem, onFontEuphemia]);
+  const EuphemiaUCAS = useMemo(() => FontMenuItem('Euphemia UCAS', onFontEuphemiaUCAS, 'EuphemiaUCAS'), [FontMenuItem, onFontEuphemiaUCAS]);
+  const FangSong = useMemo(() => FontMenuItem('FangSong', onFontFangSong, 'FangSong'), [FontMenuItem, onFontFangSong]);
+  const Farah = useMemo(() => FontMenuItem('Farah', onFontFarah, 'Farah'), [FontMenuItem, onFontFarah]);
+  const Farisi = useMemo(() => FontMenuItem('Farisi', onFontFarisi, 'Farisi'), [FontMenuItem, onFontFarisi]);
+  const ForgottenFuturist = useMemo(() => FontMenuItem('Forgotten Futurist', onFontForgottenFuturist, 'ForgottenFuturist'), [FontMenuItem, onFontForgottenFuturist]);
+  const FoundersGrotesk = useMemo(() => FontMenuItem('Founders Grotesk', onFontFoundersGrotesk, 'FoundersGrotesk'), [FontMenuItem, onFontFoundersGrotesk]);
+  const FranklinGothic = useMemo(() => FontMenuItem('Franklin Gothic', onFontFranklinGothic, 'FranklinGothic'), [FontMenuItem, onFontFranklinGothic]);
+  const FrankRuehl = useMemo(() => FontMenuItem('FrankRuehl', onFontFrankRuehl, 'FrankRuehl'), [FontMenuItem, onFontFrankRuehl]);
+  const FreesiaUPC = useMemo(() => FontMenuItem('FreesiaUPC', onFontFreesiaUPC, 'FreesiaUPC'), [FontMenuItem, onFontFreesiaUPC]);
+  const Futura = useMemo(() => FontMenuItem('Futura', onFontFutura, 'Futura'), [FontMenuItem, onFontFutura]);
+  const Gabriola = useMemo(() => FontMenuItem('Gabriola', onFontGabriola, 'Gabriola'), [FontMenuItem, onFontGabriola]);
+  const Gadget = useMemo(() => FontMenuItem('Gadget', onFontGadget, 'Gadget'), [FontMenuItem, onFontGadget]);
+  const Gadugi = useMemo(() => FontMenuItem('Gadugi', onFontGadugi, 'Gadugi'), [FontMenuItem, onFontGadugi]);
+  const Galvji = useMemo(() => FontMenuItem('Galvji', onFontGalvji, 'Galvji'), [FontMenuItem, onFontGalvji]);
+  const Garamond = useMemo(() => FontMenuItem('Garamond', onFontGaramond, 'Garamond'), [FontMenuItem, onFontGaramond]);
+  const Gautami = useMemo(() => FontMenuItem('Gautami', onFontGautami, 'Gautami'), [FontMenuItem, onFontGautami]);
+  const GB18030Bitmap = useMemo(() => FontMenuItem('GB18030 Bitmap', onFontGB18030Bitmap, 'GB18030Bitmap'), [FontMenuItem, onFontGB18030Bitmap]);
+  const GeezaPro = useMemo(() => FontMenuItem('Geeza Pro', onFontGeezaPro, 'GeezaPro'), [FontMenuItem, onFontGeezaPro]);
+  const Geezah = useMemo(() => FontMenuItem('Geezah', onFontGeezah, 'Geezah'), [FontMenuItem, onFontGeezah]);
+  const Geneva = useMemo(() => FontMenuItem('Geneva', onFontGeneva, 'Geneva'), [FontMenuItem, onFontGeneva]);
+  const GenevaCY = useMemo(() => FontMenuItem('Geneva CY', onFontGenevaCY, 'GenevaCY'), [FontMenuItem, onFontGenevaCY]);
+  const Georgia = useMemo(() => FontMenuItem('Georgia', onFontGeorgia, 'Georgia'), [FontMenuItem, onFontGeorgia]);
+  const GeorgiaPro = useMemo(() => FontMenuItem('Georgia Pro', onFontGeorgiaPro, 'GeorgiaPro'), [FontMenuItem, onFontGeorgiaPro]);
+  const GillSans = useMemo(() => FontMenuItem('Gill Sans', onFontGillSans, 'GillSans'), [FontMenuItem, onFontGillSans]);
+  const GillSansNova = useMemo(() => FontMenuItem('Gill Sans Nova', onFontGillSansNova, 'GillSansNova'), [FontMenuItem, onFontGillSansNova]);
+  const Gisha = useMemo(() => FontMenuItem('Gisha', onFontGisha, 'Gisha'), [FontMenuItem, onFontGisha]);
+  const Gotu = useMemo(() => FontMenuItem('Gotu', onFontGotu, 'Gotu'), [FontMenuItem, onFontGotu]);
+  const Graphik = useMemo(() => FontMenuItem('Graphik', onFontGraphik, 'Graphik'), [FontMenuItem, onFontGraphik]);
+  const Gujarati = useMemo(() => FontMenuItem('Gujarati', onFontGujarati, 'Gujarati'), [FontMenuItem, onFontGujarati]);
+  const GujaratiMT = useMemo(() => FontMenuItem('Gujarati MT', onFontGujaratiMT, 'GujaratiMT'), [FontMenuItem, onFontGujaratiMT]);
+  const GujaratiSangamMN = useMemo(() => FontMenuItem('Gujarati Sangam MN', onFontGujaratiSangamMN, 'GujaratiSangamMN'), [FontMenuItem, onFontGujaratiSangamMN]);
+  const Gulim = useMemo(() => FontMenuItem('Gulim', onFontGulim, 'Gulim'), [FontMenuItem, onFontGulim]);
+  const GungSeoche = useMemo(() => FontMenuItem('Gung Seoche', onFontGungSeoche, 'GungSeoche'), [FontMenuItem, onFontGungSeoche]);
+  const GungSeo = useMemo(() => FontMenuItem('GungSeo', onFontGungSeo, 'GungSeo'), [FontMenuItem, onFontGungSeo]);
+  const Gungsuh = useMemo(() => FontMenuItem('Gungsuh', onFontGungsuh, 'Gungsuh'), [FontMenuItem, onFontGungsuh]);
+  const Gurmukhi = useMemo(() => FontMenuItem('Gurmukhi', onFontGurmukhi, 'Gurmukhi'), [FontMenuItem, onFontGurmukhi]);
+  const GurmukhiMN = useMemo(() => FontMenuItem('Gurmukhi MN', onFontGurmukhiMN, 'GurmukhiMN'), [FontMenuItem, onFontGurmukhiMN]);
+  const GurmukhiMT = useMemo(() => FontMenuItem('Gurmukhi MT', onFontGurmukhiMT, 'GurmukhiMT'), [FontMenuItem, onFontGurmukhiMT]);
+  const GurmukhiSangamMN = useMemo(() => FontMenuItem('Gurmukhi Sangam MN', onFontGurmukhiSangamMN, 'GurmukhiSangamMN'), [FontMenuItem, onFontGurmukhiSangamMN]);
+  const Hangangche = useMemo(() => FontMenuItem('Hangangche', onFontHangangche, 'Hangangche'), [FontMenuItem, onFontHangangche]);
+  const HannotateSC = useMemo(() => FontMenuItem('Hannotate SC', onFontHannotateSC, 'HannotateSC'), [FontMenuItem, onFontHannotateSC]);
+  const HannotateTC = useMemo(() => FontMenuItem('Hannotate TC', onFontHannotateTC, 'HannotateTC'), [FontMenuItem, onFontHannotateTC]);
+  const HanziPenSC = useMemo(() => FontMenuItem('HanziPen SC', onFontHanziPenSC, 'HanziPenSC'), [FontMenuItem, onFontHanziPenSC]);
+  const HanziPenTC = useMemo(() => FontMenuItem('HanziPen TC', onFontHanziPenTC, 'HanziPenTC'), [FontMenuItem, onFontHanziPenTC]);
+  const HeadlineA = useMemo(() => FontMenuItem('HeadlineA', onFontHeadlineA, 'HeadlineA'), [FontMenuItem, onFontHeadlineA]);
+  const Hei = useMemo(() => FontMenuItem('Hei', onFontHei, 'Hei'), [FontMenuItem, onFontHei]);
+  const HeitiSC = useMemo(() => FontMenuItem('Heiti SC', onFontHeitiSC, 'HeitiSC'), [FontMenuItem, onFontHeitiSC]);
+  const Helvetica = useMemo(() => FontMenuItem('Helvetica', onFontHelvetica, 'Helvetica'), [FontMenuItem, onFontHelvetica]);
+  const HelveticaCY = useMemo(() => FontMenuItem('Helvetica CY', onFontHelveticaCY, 'HelveticaCY'), [FontMenuItem, onFontHelveticaCY]);
+  const HelveticaNeue = useMemo(() => FontMenuItem('Helvetica Neue', onFontHelveticaNeue, 'HelveticaNeue'), [FontMenuItem, onFontHelveticaNeue]);
+  const Herculanum = useMemo(() => FontMenuItem('Herculanum', onFontHerculanum, 'Herculanum'), [FontMenuItem, onFontHerculanum]);
+  const HiraginoKakuGothic = useMemo(() => FontMenuItem('Hiragino Kaku Gothic', onFontHiraginoKakuGothic, 'HiraginoKakuGothic'), [FontMenuItem, onFontHiraginoKakuGothic]);
+  const HiraginoKakuGothicPro = useMemo(() => FontMenuItem('Hiragino Kaku Gothic Pro', onFontHiraginoKakuGothicPro, 'HiraginoKakuGothicPro'), [FontMenuItem, onFontHiraginoKakuGothicPro]);
+  const HiraginoMaruGothicPro = useMemo(() => FontMenuItem('Hiragino Maru Gothic Pro', onFontHiraginoMaruGothicPro, 'HiraginoMaruGothicPro'), [FontMenuItem, onFontHiraginoMaruGothicPro]);
+  const HiraginoMinchoPro = useMemo(() => FontMenuItem('Hiragino Mincho Pro', onFontHiraginoMinchoPro, 'HiraginoMinchoPro'), [FontMenuItem, onFontHiraginoMinchoPro]);
+  const HiraginoSans = useMemo(() => FontMenuItem('Hiragino Sans', onFontHiraginoSans, 'HiraginoSans'), [FontMenuItem, onFontHiraginoSans]);
+  const HoeflerText = useMemo(() => FontMenuItem('Hoefler Text', onFontHoeflerText, 'HoeflerText'), [FontMenuItem, onFontHoeflerText]);
+  const HopperScript = useMemo(() => FontMenuItem('Hopper Script', onFontHopperScript, 'HopperScript'), [FontMenuItem, onFontHopperScript]);
+  const Impact = useMemo(() => FontMenuItem('Impact', onFontImpact, 'Impact'), [FontMenuItem, onFontImpact]);
+  const InaiMathi = useMemo(() => FontMenuItem('Inai Mathi', onFontInaiMathi, 'InaiMathi'), [FontMenuItem, onFontInaiMathi]);
+  const InkFree = useMemo(() => FontMenuItem('Ink Free', onFontInkFree, 'InkFree'), [FontMenuItem, onFontInkFree]);
+  const IowanOldStyleTitling = useMemo(() => FontMenuItem('Iowan Old Style Titling', onFontIowanOldStyleTitling, 'IowanOldStyleTitling'), [FontMenuItem, onFontIowanOldStyleTitling]);
+  const IrisUPC = useMemo(() => FontMenuItem('IrisUPC', onFontIrisUPC, 'IrisUPC'), [FontMenuItem, onFontIrisUPC]);
+  const IskoolaPota = useMemo(() => FontMenuItem('Iskoola Pota', onFontIskoolaPota, 'IskoolaPota'), [FontMenuItem, onFontIskoolaPota]);
+  const ITCBodoni72 = useMemo(() => FontMenuItem('ITC Bodoni 72', onFontITCBodoni72, 'ITCBodoni72'), [FontMenuItem, onFontITCBodoni72]);
+  const ITFDevanagari = useMemo(() => FontMenuItem('ITF Devanagari', onFontITFDevanagari, 'ITFDevanagari'), [FontMenuItem, onFontITFDevanagari]);
+  const ITFDevanagariMarathi = useMemo(() => FontMenuItem('ITF Devanagari Marathi', onFontITFDevanagariMarathi, 'ITFDevanagariMarathi'), [FontMenuItem, onFontITFDevanagariMarathi]);
+  const Jaini = useMemo(() => FontMenuItem('Jaini', onFontJaini, 'Jaini'), [FontMenuItem, onFontJaini]);
+  const JainiPurva = useMemo(() => FontMenuItem('Jaini Purva', onFontJainiPurva, 'JainiPurva'), [FontMenuItem, onFontJainiPurva]);
+  const JasmineUPC = useMemo(() => FontMenuItem('JasmineUPC', onFontJasmineUPC, 'JasmineUPC'), [FontMenuItem, onFontJasmineUPC]);
+  const JavaneseText = useMemo(() => FontMenuItem('Javanese Text', onFontJavaneseText, 'JavaneseText'), [FontMenuItem, onFontJavaneseText]);
+  const JungGothic = useMemo(() => FontMenuItem('Jung Gothic', onFontJungGothic, 'JungGothic'), [FontMenuItem, onFontJungGothic]);
+  const Kai = useMemo(() => FontMenuItem('Kai', onFontKai, 'Kai'), [FontMenuItem, onFontKai]);
+  const Kailasa = useMemo(() => FontMenuItem('Kailasa', onFontKailasa, 'Kailasa'), [FontMenuItem, onFontKailasa]);
+  const KaiTi = useMemo(() => FontMenuItem('KaiTi', onFontKaiTi, 'KaiTi'), [FontMenuItem, onFontKaiTi]);
+  const KaitiSC = useMemo(() => FontMenuItem('Kaiti SC', onFontKaitiSC, 'KaitiSC'), [FontMenuItem, onFontKaitiSC]);
+  const KaitiTC = useMemo(() => FontMenuItem('Kaiti TC', onFontKaitiTC, 'KaitiTC'), [FontMenuItem, onFontKaitiTC]);
+  const Kalinga = useMemo(() => FontMenuItem('Kalinga', onFontKalinga, 'Kalinga'), [FontMenuItem, onFontKalinga]);
+  const KannadaMN = useMemo(() => FontMenuItem('Kannada MN', onFontKannadaMN, 'KannadaMN'), [FontMenuItem, onFontKannadaMN]);
+  const KannadaSangamMN = useMemo(() => FontMenuItem('Kannada Sangam MN', onFontKannadaSangamMN, 'KannadaSangamMN'), [FontMenuItem, onFontKannadaSangamMN]);
+  const Kartika = useMemo(() => FontMenuItem('Kartika', onFontKartika, 'Kartika'), [FontMenuItem, onFontKartika]);
+  const Katari = useMemo(() => FontMenuItem('Katari', onFontKatari, 'Katari'), [FontMenuItem, onFontKatari]);
+  const Kefa = useMemo(() => FontMenuItem('Kefa', onFontKefa, 'Kefa'), [FontMenuItem, onFontKefa]);
+  const Keyboard = useMemo(() => FontMenuItem('Keyboard', onFontKeyboard, 'Keyboard'), [FontMenuItem, onFontKeyboard]);
+  const KhmerMN = useMemo(() => FontMenuItem('Khmer MN', onFontKhmerMN, 'KhmerMN'), [FontMenuItem, onFontKhmerMN]);
+  const KhmerSangamMN = useMemo(() => FontMenuItem('Khmer Sangam MN', onFontKhmerSangamMN, 'KhmerSangamMN'), [FontMenuItem, onFontKhmerSangamMN]);
+  const KhmerUI = useMemo(() => FontMenuItem('Khmer UI', onFontKhmerUI, 'KhmerUI'), [FontMenuItem, onFontKhmerUI]);
+  const KodchiangUPC = useMemo(() => FontMenuItem('KodchiangUPC', onFontKodchiangUPC, 'KodchiangUPC'), [FontMenuItem, onFontKodchiangUPC]);
+  const KohinoorBangla = useMemo(() => FontMenuItem('Kohinoor Bangla', onFontKohinoorBangla, 'KohinoorBangla'), [FontMenuItem, onFontKohinoorBangla]);
+  const KohinoorDevanagari = useMemo(() => FontMenuItem('Kohinoor Devanagari', onFontKohinoorDevanagari, 'KohinoorDevanagari'), [FontMenuItem, onFontKohinoorDevanagari]);
+  const KohinoorTelugu = useMemo(() => FontMenuItem('Kohinoor Telugu', onFontKohinoorTelugu, 'KohinoorTelugu'), [FontMenuItem, onFontKohinoorTelugu]);
+  const Kokila = useMemo(() => FontMenuItem('Kokila', onFontKokila, 'Kokila'), [FontMenuItem, onFontKokila]);
+  const Kokonor = useMemo(() => FontMenuItem('Kokonor', onFontKokonor, 'Kokonor'), [FontMenuItem, onFontKokonor]);
+  const KoufiAbjadi = useMemo(() => FontMenuItem('Koufi Abjadi', onFontKoufiAbjadi, 'KoufiAbjadi'), [FontMenuItem, onFontKoufiAbjadi]);
+  const Krungthep = useMemo(() => FontMenuItem('Krungthep', onFontKrungthep, 'Krungthep'), [FontMenuItem, onFontKrungthep]);
+  const KuenstlerScript = useMemo(() => FontMenuItem('Kuenstler Script', onFontKuenstlerScript, 'KuenstlerScript'), [FontMenuItem, onFontKuenstlerScript]);
+  const KufiStandardGK = useMemo(() => FontMenuItem('KufiStandard GK', onFontKufiStandardGK, 'KufiStandardGK'), [FontMenuItem, onFontKufiStandardGK]);
+  const LahoreGurmukhi = useMemo(() => FontMenuItem('Lahore Gurmukhi', onFontLahoreGurmukhi, 'LahoreGurmukhi'), [FontMenuItem, onFontLahoreGurmukhi]);
+  const Laimoon = useMemo(() => FontMenuItem('Laimoon', onFontLaimoon, 'Laimoon'), [FontMenuItem, onFontLaimoon]);
+  const LaoMN = useMemo(() => FontMenuItem('Lao MN', onFontLaoMN, 'LaoMN'), [FontMenuItem, onFontLaoMN]);
+  const LaoSangamMN = useMemo(() => FontMenuItem('Lao Sangam MN', onFontLaoSangamMN, 'LaoSangamMN'), [FontMenuItem, onFontLaoSangamMN]);
+  const LaoUI = useMemo(() => FontMenuItem('Lao UI', onFontLaoUI, 'LaoUI'), [FontMenuItem, onFontLaoUI]);
+  const LastResort = useMemo(() => FontMenuItem('LastResort', onFontLastResort, 'LastResort'), [FontMenuItem, onFontLastResort]);
+  const Latha = useMemo(() => FontMenuItem('Latha', onFontLatha, 'Latha'), [FontMenuItem, onFontLatha]);
+  const LavaDevanagari = useMemo(() => FontMenuItem('Lava Devanagari', onFontLavaDevanagari, 'LavaDevanagari'), [FontMenuItem, onFontLavaDevanagari]);
+  const LavaKannada = useMemo(() => FontMenuItem('Lava Kannada', onFontLavaKannada, 'LavaKannada'), [FontMenuItem, onFontLavaKannada]);
+  const LavaTelugu = useMemo(() => FontMenuItem('Lava Telugu', onFontLavaTelugu, 'LavaTelugu'), [FontMenuItem, onFontLavaTelugu]);
+  const Leelawadee = useMemo(() => FontMenuItem('Leelawadee', onFontLeelawadee, 'Leelawadee'), [FontMenuItem, onFontLeelawadee]);
+  const LeelawadeeUI = useMemo(() => FontMenuItem('Leelawadee UI', onFontLeelawadeeUI, 'LeelawadeeUI'), [FontMenuItem, onFontLeelawadeeUI]);
+  const LevenimMT = useMemo(() => FontMenuItem('Levenim MT', onFontLevenimMT, 'LevenimMT'), [FontMenuItem, onFontLevenimMT]);
+  const LibianSC = useMemo(() => FontMenuItem('Libian SC', onFontLibianSC, 'LibianSC'), [FontMenuItem, onFontLibianSC]);
+  const LibianTC = useMemo(() => FontMenuItem('Libian TC', onFontLibianTC, 'LibianTC'), [FontMenuItem, onFontLibianTC]);
+  const LiHeiPro = useMemo(() => FontMenuItem('LiHei Pro', onFontLiHeiPro, 'LiHeiPro'), [FontMenuItem, onFontLiHeiPro]);
+  const LilyUPC = useMemo(() => FontMenuItem('LilyUPC', onFontLilyUPC, 'LilyUPC'), [FontMenuItem, onFontLilyUPC]);
+  const LiSongPro = useMemo(() => FontMenuItem('LiSong Pro', onFontLiSongPro, 'LiSongPro'), [FontMenuItem, onFontLiSongPro]);
+  const LucidaConsole = useMemo(() => FontMenuItem('Lucida Console', onFontLucidaConsole, 'LucidaConsole'), [FontMenuItem, onFontLucidaConsole]);
+  const LucidaGrande = useMemo(() => FontMenuItem('Lucida Grande', onFontLucidaGrande, 'LucidaGrande'), [FontMenuItem, onFontLucidaGrande]);
+  const LucidaSans = useMemo(() => FontMenuItem('Lucida Sans', onFontLucidaSans, 'LucidaSans'), [FontMenuItem, onFontLucidaSans]);
+  const LucidaSansUnicode = useMemo(() => FontMenuItem('Lucida Sans Unicode', onFontLucidaSansUnicode, 'LucidaSansUnicode'), [FontMenuItem, onFontLucidaSansUnicode]);
+  const Luminari = useMemo(() => FontMenuItem('Luminari', onFontLuminari, 'Luminari'), [FontMenuItem, onFontLuminari]);
+  const Maku = useMemo(() => FontMenuItem('Maku', onFontMaku, 'Maku'), [FontMenuItem, onFontMaku]);
+  const MalayalamMN = useMemo(() => FontMenuItem('Malayalam MN', onFontMalayalamMN, 'MalayalamMN'), [FontMenuItem, onFontMalayalamMN]);
+  const MalayalamSangamMN = useMemo(() => FontMenuItem('Malayalam Sangam MN', onFontMalayalamSangamMN, 'MalayalamSangamMN'), [FontMenuItem, onFontMalayalamSangamMN]);
+  const MalgunGothic = useMemo(() => FontMenuItem('Malgun Gothic', onFontMalgunGothic, 'MalgunGothic'), [FontMenuItem, onFontMalgunGothic]);
+  const Mangal = useMemo(() => FontMenuItem('Mangal', onFontMangal, 'Mangal'), [FontMenuItem, onFontMangal]);
+  const MarkerFelt = useMemo(() => FontMenuItem('Marker Felt', onFontMarkerFelt, 'MarkerFelt'), [FontMenuItem, onFontMarkerFelt]);
+  const Marlett = useMemo(() => FontMenuItem('Marlett', onFontMarlett, 'Marlett'), [FontMenuItem, onFontMarlett]);
+  const Meiryo = useMemo(() => FontMenuItem('Meiryo', onFontMeiryo, 'Meiryo'), [FontMenuItem, onFontMeiryo]);
+  const Menlo = useMemo(() => FontMenuItem('Menlo', onFontMenlo, 'Menlo'), [FontMenuItem, onFontMenlo]);
+  const MicrosoftHimalaya = useMemo(() => FontMenuItem('Microsoft Himalaya', onFontMicrosoftHimalaya, 'MicrosoftHimalaya'), [FontMenuItem, onFontMicrosoftHimalaya]);
+  const MicrosoftJhengHei = useMemo(() => FontMenuItem('Microsoft JhengHei', onFontMicrosoftJhengHei, 'MicrosoftJhengHei'), [FontMenuItem, onFontMicrosoftJhengHei]);
+  const MicrosoftNewTaiLue = useMemo(() => FontMenuItem('Microsoft New Tai Lue', onFontMicrosoftNewTaiLue, 'MicrosoftNewTaiLue'), [FontMenuItem, onFontMicrosoftNewTaiLue]);
+  const MicrosoftPhagsPa = useMemo(() => FontMenuItem('Microsoft PhagsPa', onFontMicrosoftPhagsPa, 'MicrosoftPhagsPa'), [FontMenuItem, onFontMicrosoftPhagsPa]);
+  const MicrosoftSansSerif = useMemo(() => FontMenuItem('Microsoft Sans Serif', onFontMicrosoftSansSerif, 'MicrosoftSansSerif'), [FontMenuItem, onFontMicrosoftSansSerif]);
+  const MicrosoftTaiLe = useMemo(() => FontMenuItem('Microsoft Tai Le', onFontMicrosoftTaiLe, 'MicrosoftTaiLe'), [FontMenuItem, onFontMicrosoftTaiLe]);
+  const MicrosoftUighur = useMemo(() => FontMenuItem('Microsoft Uighur', onFontMicrosoftUighur, 'MicrosoftUighur'), [FontMenuItem, onFontMicrosoftUighur]);
+  const MicrosoftYaHei = useMemo(() => FontMenuItem('Microsoft YaHei', onFontMicrosoftYaHei, 'MicrosoftYaHei'), [FontMenuItem, onFontMicrosoftYaHei]);
+  const MicrosoftYiBaiti = useMemo(() => FontMenuItem('Microsoft Yi Baiti', onFontMicrosoftYiBaiti, 'MicrosoftYiBaiti'), [FontMenuItem, onFontMicrosoftYiBaiti]);
+  const MingLiU = useMemo(() => FontMenuItem('MingLiU', onFontMingLiU, 'MingLiU'), [FontMenuItem, onFontMingLiU]);
+  const MingLiUExtB = useMemo(() => FontMenuItem('MingLiU-ExtB', onFontMingLiUExtB, 'MingLiUExtB'), [FontMenuItem, onFontMingLiUExtB]);
+  const Miriam = useMemo(() => FontMenuItem('Miriam', onFontMiriam, 'Miriam'), [FontMenuItem, onFontMiriam]);
+  const Mishafi = useMemo(() => FontMenuItem('Mishafi', onFontMishafi, 'Mishafi'), [FontMenuItem, onFontMishafi]);
+  const MishafiGold = useMemo(() => FontMenuItem('Mishafi Gold', onFontMishafiGold, 'MishafiGold'), [FontMenuItem, onFontMishafiGold]);
+  const Modak = useMemo(() => FontMenuItem('Modak', onFontModak, 'Modak'), [FontMenuItem, onFontModak]);
+  const MonaLisaSolidITCTT = useMemo(() => FontMenuItem('Mona Lisa Solid ITC TT', onFontMonaLisaSolidITCTT, 'MonaLisaSolidITCTT'), [FontMenuItem, onFontMonaLisaSolidITCTT]);
+  const Monaco = useMemo(() => FontMenuItem('Monaco', onFontMonaco, 'Monaco'), [FontMenuItem, onFontMonaco]);
+  const MonacoCY = useMemo(() => FontMenuItem('Monaco CY', onFontMonacoCY, 'MonacoCY'), [FontMenuItem, onFontMonacoCY]);
+  const MongolianBaiti = useMemo(() => FontMenuItem('Mongolian Baiti', onFontMongolianBaiti, 'MongolianBaiti'), [FontMenuItem, onFontMongolianBaiti]);
+  const MonotypeLingWai = useMemo(() => FontMenuItem('Monotype LingWai', onFontMonotypeLingWai, 'MonotypeLingWai'), [FontMenuItem, onFontMonotypeLingWai]);
+  const MoolBoran = useMemo(() => FontMenuItem('MoolBoran', onFontMoolBoran, 'MoolBoran'), [FontMenuItem, onFontMoolBoran]);
+  const MSGothic = useMemo(() => FontMenuItem('MS Gothic', onFontMSGothic, 'MSGothic'), [FontMenuItem, onFontMSGothic]);
+  const MSMincho = useMemo(() => FontMenuItem('MS Mincho', onFontMSMincho, 'MSMincho'), [FontMenuItem, onFontMSMincho]);
+  const Mshtakan = useMemo(() => FontMenuItem('Mshtakan', onFontMshtakan, 'Mshtakan'), [FontMenuItem, onFontMshtakan]);
+  const Mukta = useMemo(() => FontMenuItem('Mukta', onFontMukta, 'Mukta'), [FontMenuItem, onFontMukta]);
+  const MuktaMalar = useMemo(() => FontMenuItem('Mukta Malar', onFontMuktaMalar, 'MuktaMalar'), [FontMenuItem, onFontMuktaMalar]);
+  const MuktaVaani = useMemo(() => FontMenuItem('Mukta Vaani', onFontMuktaVaani, 'MuktaVaani'), [FontMenuItem, onFontMuktaVaani]);
+  const MuktaMahee = useMemo(() => FontMenuItem('MuktaMahee', onFontMuktaMahee, 'MuktaMahee'), [FontMenuItem, onFontMuktaMahee]);
+  const Muna = useMemo(() => FontMenuItem('Muna', onFontMuna, 'Muna'), [FontMenuItem, onFontMuna]);
+  const MVBoli = useMemo(() => FontMenuItem('MV Boli', onFontMVBoli, 'MVBoli'), [FontMenuItem, onFontMVBoli]);
+  const MyanmarMN = useMemo(() => FontMenuItem('Myanmar MN', onFontMyanmarMN, 'MyanmarMN'), [FontMenuItem, onFontMyanmarMN]);
+  const MyanmarSangamMN = useMemo(() => FontMenuItem('Myanmar Sangam MN', onFontMyanmarSangamMN, 'MyanmarSangamMN'), [FontMenuItem, onFontMyanmarSangamMN]);
+  const MyanmarText = useMemo(() => FontMenuItem('Myanmar Text', onFontMyanmarText, 'MyanmarText'), [FontMenuItem, onFontMyanmarText]);
+  const MyriadArabic = useMemo(() => FontMenuItem('Myriad Arabic', onFontMyriadArabic, 'MyriadArabic'), [FontMenuItem, onFontMyriadArabic]);
+  const Nadeem = useMemo(() => FontMenuItem('Nadeem', onFontNadeem, 'Nadeem'), [FontMenuItem, onFontNadeem]);
+  const NanumBrushScript = useMemo(() => FontMenuItem('Nanum Brush Script', onFontNanumBrushScript, 'NanumBrushScript'), [FontMenuItem, onFontNanumBrushScript]);
+  const NanumPenScript = useMemo(() => FontMenuItem('Nanum Pen Script', onFontNanumPenScript, 'NanumPenScript'), [FontMenuItem, onFontNanumPenScript]);
+  const NanumGothic = useMemo(() => FontMenuItem('NanumGothic', onFontNanumGothic, 'NanumGothic'), [FontMenuItem, onFontNanumGothic]);
+  const NanumMyeongjo = useMemo(() => FontMenuItem('NanumMyeongjo', onFontNanumMyeongjo, 'NanumMyeongjo'), [FontMenuItem, onFontNanumMyeongjo]);
+  const Narkisim = useMemo(() => FontMenuItem('Narkisim', onFontNarkisim, 'Narkisim'), [FontMenuItem, onFontNarkisim]);
+  const NeueHaasGrotskTxtPro = useMemo(() => FontMenuItem('Neue Haas Grotesk Text Pro', onFontNeueHaasGrotskTxtPro, 'NeueHaasGrotskTxtPro'), [FontMenuItem, onFontNeueHaasGrotskTxtPro]);
+  const NewPeninim = useMemo(() => FontMenuItem('New Peninim', onFontNewPeninim, 'NewPeninim'), [FontMenuItem, onFontNewPeninim]);
+  const NewPeninimMT = useMemo(() => FontMenuItem('New Peninim MT', onFontNewPeninimMT, 'NewPeninimMT'), [FontMenuItem, onFontNewPeninimMT]);
+  const NewPeninimMTInclined = useMemo(() => FontMenuItem('New Peninim MT Inclined', onFontNewPeninimMTInclined, 'NewPeninimMTInclined'), [FontMenuItem, onFontNewPeninimMTInclined]);
+  const NewYork = useMemo(() => FontMenuItem('New York', onFontNewYork, 'NewYork'), [FontMenuItem, onFontNewYork]);
+  const NirmalaUI = useMemo(() => FontMenuItem('Nirmala UI', onFontNirmalaUI, 'NirmalaUI'), [FontMenuItem, onFontNirmalaUI]);
+  const Nisan = useMemo(() => FontMenuItem('Nisan', onFontNisan, 'Nisan'), [FontMenuItem, onFontNisan]);
+  const NISCGB18030 = useMemo(() => FontMenuItem('NISC GB18030', onFontNISCGB18030, 'NISCGB18030'), [FontMenuItem, onFontNISCGB18030]);
+  const Noteworthy = useMemo(() => FontMenuItem('Noteworthy', onFontNoteworthy, 'Noteworthy'), [FontMenuItem, onFontNoteworthy]);
+  const NotoNastaliqUrdu = useMemo(() => FontMenuItem('Noto Nastaliq Urdu', onFontNotoNastaliqUrdu, 'NotoNastaliqUrdu'), [FontMenuItem, onFontNotoNastaliqUrdu]);
+  const NotoSansJavanese = useMemo(() => FontMenuItem('Noto Sans Javanese', onFontNotoSansJavanese, 'NotoSansJavanese'), [FontMenuItem, onFontNotoSansJavanese]);
+  const NotoSansKannada = useMemo(() => FontMenuItem('Noto Sans Kannada', onFontNotoSansKannada, 'NotoSansKannada'), [FontMenuItem, onFontNotoSansKannada]);
+  const NotoSansMyanmar = useMemo(() => FontMenuItem('Noto Sans Myanmar', onFontNotoSansMyanmar, 'NotoSansMyanmar'), [FontMenuItem, onFontNotoSansMyanmar]);
+  const NotoSansOriya = useMemo(() => FontMenuItem('Noto Sans Oriya', onFontNotoSansOriya, 'NotoSansOriya'), [FontMenuItem, onFontNotoSansOriya]);
+  const NotoSerifKannada = useMemo(() => FontMenuItem('Noto Serif Kannada', onFontNotoSerifKannada, 'NotoSerifKannada'), [FontMenuItem, onFontNotoSerifKannada]);
+  const NotoSerifMyanmar = useMemo(() => FontMenuItem('Noto Serif Myanmar', onFontNotoSerifMyanmar, 'NotoSerifMyanmar'), [FontMenuItem, onFontNotoSerifMyanmar]);
+  const Nyala = useMemo(() => FontMenuItem('Nyala', onFontNyala, 'Nyala'), [FontMenuItem, onFontNyala]);
+  const OctoberDevanagari = useMemo(() => FontMenuItem('October Devanagari', onFontOctoberDevanagari, 'OctoberDevanagari'), [FontMenuItem, onFontOctoberDevanagari]);
+  const OctoberTamil = useMemo(() => FontMenuItem('October Tamil', onFontOctoberTamil, 'OctoberTamil'), [FontMenuItem, onFontOctoberTamil]);
+  const Optima = useMemo(() => FontMenuItem('Optima', onFontOptima, 'Optima'), [FontMenuItem, onFontOptima]);
+  const OriyaMN = useMemo(() => FontMenuItem('Oriya MN', onFontOriyaMN, 'OriyaMN'), [FontMenuItem, onFontOriyaMN]);
+  const OriyaSangamMN = useMemo(() => FontMenuItem('Oriya Sangam MN', onFontOriyaSangamMN, 'OriyaSangamMN'), [FontMenuItem, onFontOriyaSangamMN]);
+  const Osaka = useMemo(() => FontMenuItem('Osaka', onFontOsaka, 'Osaka'), [FontMenuItem, onFontOsaka]);
+  const OsakaMono = useMemo(() => FontMenuItem('Osaka-Mono', onFontOsakaMono, 'OsakaMono'), [FontMenuItem, onFontOsakaMono]);
+  const Palatino = useMemo(() => FontMenuItem('Palatino', onFontPalatino, 'Palatino'), [FontMenuItem, onFontPalatino]);
+  const PalatinoLinotype = useMemo(() => FontMenuItem('Palatino Linotype', onFontPalatinoLinotype, 'PalatinoLinotype'), [FontMenuItem, onFontPalatinoLinotype]);
+  const Papyrus = useMemo(() => FontMenuItem('Papyrus', onFontPapyrus, 'Papyrus'), [FontMenuItem, onFontPapyrus]);
+  const PCMyungjo = useMemo(() => FontMenuItem('PC Myungjo', onFontPCMyungjo, 'PCMyungjo'), [FontMenuItem, onFontPCMyungjo]);
+  const Phosphate = useMemo(() => FontMenuItem('Phosphate', onFontPhosphate, 'Phosphate'), [FontMenuItem, onFontPhosphate]);
+  const PilGi = useMemo(() => FontMenuItem('PilGi', onFontPilGi, 'PilGi'), [FontMenuItem, onFontPilGi]);
+  const Pilgiche = useMemo(() => FontMenuItem('Pilgiche', onFontPilgiche, 'Pilgiche'), [FontMenuItem, onFontPilgiche]);
+  const PingFangHK = useMemo(() => FontMenuItem('PingFang HK', onFontPingFangHK, 'PingFangHK'), [FontMenuItem, onFontPingFangHK]);
+  const PingFangSC = useMemo(() => FontMenuItem('PingFang SC', onFontPingFangSC, 'PingFangSC'), [FontMenuItem, onFontPingFangSC]);
+  const PingFangTC = useMemo(() => FontMenuItem('PingFang TC', onFontPingFangTC, 'PingFangTC'), [FontMenuItem, onFontPingFangTC]);
+  const PlantagenetCherokee = useMemo(() => FontMenuItem('Plantagenet Cherokee', onFontPlantagenetCherokee, 'PlantagenetCherokee'), [FontMenuItem, onFontPlantagenetCherokee]);
+  const PortagoITCTT = useMemo(() => FontMenuItem('PortagoITC TT', onFontPortagoITCTT, 'PortagoITCTT'), [FontMenuItem, onFontPortagoITCTT]);
+  const PrincetownLET = useMemo(() => FontMenuItem('Princetown LET', onFontPrincetownLET, 'PrincetownLET'), [FontMenuItem, onFontPrincetownLET]);
+  const Produkt = useMemo(() => FontMenuItem('Produkt', onFontProdukt, 'Produkt'), [FontMenuItem, onFontProdukt]);
+  const ProximaNova = useMemo(() => FontMenuItem('Proxima Nova', onFontProximaNova, 'ProximaNova'), [FontMenuItem, onFontProximaNova]);
+  const PSLOrnanongPro = useMemo(() => FontMenuItem('PSL Ornanong Pro', onFontPSLOrnanongPro, 'PSLOrnanongPro'), [FontMenuItem, onFontPSLOrnanongPro]);
+  const PTMono = useMemo(() => FontMenuItem('PT Mono', onFontPTMono, 'PTMono'), [FontMenuItem, onFontPTMono]);
+  const PTSans = useMemo(() => FontMenuItem('PT Sans', onFontPTSans, 'PTSans'), [FontMenuItem, onFontPTSans]);
+  const PTSansNarrow = useMemo(() => FontMenuItem('PT Sans Narrow', onFontPTSansNarrow, 'PTSansNarrow'), [FontMenuItem, onFontPTSansNarrow]);
+  const PTSerif = useMemo(() => FontMenuItem('PT Serif', onFontPTSerif, 'PTSerif'), [FontMenuItem, onFontPTSerif]);
+  const PublicoHeadlineRoman = useMemo(() => FontMenuItem('Publico Headline Roman', onFontPublicoHeadlineRoman, 'PublicoHeadlineRoman'), [FontMenuItem, onFontPublicoHeadlineRoman]);
+  const QuotesCaps = useMemo(() => FontMenuItem('Quotes Caps', onFontQuotesCaps, 'QuotesCaps'), [FontMenuItem, onFontQuotesCaps]);
+  const QuotesScript = useMemo(() => FontMenuItem('Quotes Script', onFontQuotesScript, 'QuotesScript'), [FontMenuItem, onFontQuotesScript]);
+  const Raanana = useMemo(() => FontMenuItem('Raanana', onFontRaanana, 'Raanana'), [FontMenuItem, onFontRaanana]);
+  const Raavi = useMemo(() => FontMenuItem('Raavi', onFontRaavi, 'Raavi'), [FontMenuItem, onFontRaavi]);
+  const Raya = useMemo(() => FontMenuItem('Raya', onFontRaya, 'Raya'), [FontMenuItem, onFontRaya]);
+  const Rockwell = useMemo(() => FontMenuItem('Rockwell', onFontRockwell, 'Rockwell'), [FontMenuItem, onFontRockwell]);
+  const RockwellNova = useMemo(() => FontMenuItem('Rockwell Nova', onFontRockwellNova, 'RockwellNova'), [FontMenuItem, onFontRockwellNova]);
+  const Rod = useMemo(() => FontMenuItem('Rod', onFontRod, 'Rod'), [FontMenuItem, onFontRod]);
+  const SakkalMajalla = useMemo(() => FontMenuItem('Sakkal Majalla', onFontSakkalMajalla, 'SakkalMajalla'), [FontMenuItem, onFontSakkalMajalla]);
+  const SamaDevanagari = useMemo(() => FontMenuItem('Sama Devanagari', onFontSamaDevanagari, 'SamaDevanagari'), [FontMenuItem, onFontSamaDevanagari]);
+  const SamaGujarati = useMemo(() => FontMenuItem('Sama Gujarati', onFontSamaGujarati, 'SamaGujarati'), [FontMenuItem, onFontSamaGujarati]);
+  const SamaGurmukhi = useMemo(() => FontMenuItem('Sama Gurmukhi', onFontSamaGurmukhi, 'SamaGurmukhi'), [FontMenuItem, onFontSamaGurmukhi]);
+  const SamaKannada = useMemo(() => FontMenuItem('Sama Kannada', onFontSamaKannada, 'SamaKannada'), [FontMenuItem, onFontSamaKannada]);
+  const SamaMalayalam = useMemo(() => FontMenuItem('Sama Malayalam', onFontSamaMalayalam, 'SamaMalayalam'), [FontMenuItem, onFontSamaMalayalam]);
+  const SamaTamil = useMemo(() => FontMenuItem('Sama Tamil', onFontSamaTamil, 'SamaTamil'), [FontMenuItem, onFontSamaTamil]);
+  const SanFranciscoMono = useMemo(() => FontMenuItem('San Francisco Mono', onFontSanFranciscoMono, 'SanFranciscoMono'), [FontMenuItem, onFontSanFranciscoMono]);
+  const Sana = useMemo(() => FontMenuItem('Sana', onFontSana, 'Sana'), [FontMenuItem, onFontSana]);
+  const Sand = useMemo(() => FontMenuItem('Sand', onFontSand, 'Sand'), [FontMenuItem, onFontSand]);
+  const SanskritText = useMemo(() => FontMenuItem('Sanskrit Text', onFontSanskritText, 'SanskritText'), [FontMenuItem, onFontSanskritText]);
+  const Sathu = useMemo(() => FontMenuItem('Sathu', onFontSathu, 'Sathu'), [FontMenuItem, onFontSathu]);
+  const SauberScript = useMemo(() => FontMenuItem('Sauber Script', onFontSauberScript, 'SauberScript'), [FontMenuItem, onFontSauberScript]);
+  const SchoolHouseCursiveB = useMemo(() => FontMenuItem('SchoolHouse Cursive B', onFontSchoolHouseCursiveB, 'SchoolHouseCursiveB'), [FontMenuItem, onFontSchoolHouseCursiveB]);
+  const SchoolHousePrintedA = useMemo(() => FontMenuItem('SchoolHouse Printed A', onFontSchoolHousePrintedA, 'SchoolHousePrintedA'), [FontMenuItem, onFontSchoolHousePrintedA]);
+  const SegoePrint = useMemo(() => FontMenuItem('Segoe Print', onFontSegoePrint, 'SegoePrint'), [FontMenuItem, onFontSegoePrint]);
+  const SegoeScript = useMemo(() => FontMenuItem('Segoe Script', onFontSegoeScript, 'SegoeScript'), [FontMenuItem, onFontSegoeScript]);
+  const SegoeUI = useMemo(() => FontMenuItem('Segoe UI', onFontSegoeUI, 'SegoeUI'), [FontMenuItem, onFontSegoeUI]);
+  const Seoul = useMemo(() => FontMenuItem('Seoul', onFontSeoul, 'Seoul'), [FontMenuItem, onFontSeoul]);
+  const SFArabic = useMemo(() => FontMenuItem('SF Arabic', onFontSFArabic, 'SFArabic'), [FontMenuItem, onFontSFArabic]);
+  const ShinMyungjoNeue = useMemo(() => FontMenuItem('Shin Myungjo Neue', onFontShinMyungjoNeue, 'ShinMyungjoNeue'), [FontMenuItem, onFontShinMyungjoNeue]);
+  const Shobhika = useMemo(() => FontMenuItem('Shobhika', onFontShobhika, 'Shobhika'), [FontMenuItem, onFontShobhika]);
+  const ShonarBangla = useMemo(() => FontMenuItem('Shonar Bangla', onFontShonarBangla, 'ShonarBangla'), [FontMenuItem, onFontShonarBangla]);
+  const ShreeDevanagari714 = useMemo(() => FontMenuItem('Shree Devanagari 714', onFontShreeDevanagari714, 'ShreeDevanagari714'), [FontMenuItem, onFontShreeDevanagari714]);
+  const Shruti = useMemo(() => FontMenuItem('Shruti', onFontShruti, 'Shruti'), [FontMenuItem, onFontShruti]);
+  const SignPainter = useMemo(() => FontMenuItem('SignPainter', onFontSignPainter, 'SignPainter'), [FontMenuItem, onFontSignPainter]);
+  const SignPainterHouseScript = useMemo(() => FontMenuItem('SignPainter-HouseScript', onFontSignPainterHouseScript, 'SignPainterHouseScript'), [FontMenuItem, onFontSignPainterHouseScript]);
+  const Silom = useMemo(() => FontMenuItem('Silom', onFontSilom, 'Silom'), [FontMenuItem, onFontSilom]);
+  const SimHei = useMemo(() => FontMenuItem('SimHei', onFontSimHei, 'SimHei'), [FontMenuItem, onFontSimHei]);
+  const SimplifiedArabic = useMemo(() => FontMenuItem('Simplified Arabic', onFontSimplifiedArabic, 'SimplifiedArabic'), [FontMenuItem, onFontSimplifiedArabic]);
+  const SimSong = useMemo(() => FontMenuItem('SimSong', onFontSimSong, 'SimSong'), [FontMenuItem, onFontSimSong]);
+  const SimSun = useMemo(() => FontMenuItem('SimSun', onFontSimSun, 'SimSun'), [FontMenuItem, onFontSimSun]);
+  const SinhalaMN = useMemo(() => FontMenuItem('Sinhala MN', onFontSinhalaMN, 'SinhalaMN'), [FontMenuItem, onFontSinhalaMN]);
+  const SinhalaSangamMN = useMemo(() => FontMenuItem('Sinhala Sangam MN', onFontSinhalaSangamMN, 'SinhalaSangamMN'), [FontMenuItem, onFontSinhalaSangamMN]);
+  const Sitka = useMemo(() => FontMenuItem('Sitka', onFontSitka, 'Sitka'), [FontMenuItem, onFontSitka]);
+  const Skia = useMemo(() => FontMenuItem('Skia', onFontSkia, 'Skia'), [FontMenuItem, onFontSkia]);
+  const SnellRoundhand = useMemo(() => FontMenuItem('Snell Roundhand', onFontSnellRoundhand, 'SnellRoundhand'), [FontMenuItem, onFontSnellRoundhand]);
+  const Somer = useMemo(() => FontMenuItem('Somer', onFontSomer, 'Somer'), [FontMenuItem, onFontSomer]);
+  const SongtiSC = useMemo(() => FontMenuItem('Songti SC', onFontSongtiSC, 'SongtiSC'), [FontMenuItem, onFontSongtiSC]);
+  const SongtiTC = useMemo(() => FontMenuItem('Songti TC', onFontSongtiTC, 'SongtiTC'), [FontMenuItem, onFontSongtiTC]);
+  const SpotMono = useMemo(() => FontMenuItem('Spot Mono', onFontSpotMono, 'SpotMono'), [FontMenuItem, onFontSpotMono]);
+  const STFangSong = useMemo(() => FontMenuItem('ST FangSong', onFontSTFangSong, 'STFangSong'), [FontMenuItem, onFontSTFangSong]);
+  const STHeiti = useMemo(() => FontMenuItem('ST Heiti', onFontSTHeiti, 'STHeiti'), [FontMenuItem, onFontSTHeiti]);
+  const STKaiti = useMemo(() => FontMenuItem('ST Kaiti', onFontSTKaiti, 'STKaiti'), [FontMenuItem, onFontSTKaiti]);
+  const STSong = useMemo(() => FontMenuItem('ST Song', onFontSTSong, 'STSong'), [FontMenuItem, onFontSTSong]);
+  const STXihei = useMemo(() => FontMenuItem('ST Xihei', onFontSTXihei, 'STXihei'), [FontMenuItem, onFontSTXihei]);
+  const STIXTwoText = useMemo(() => FontMenuItem('STIX Two Text', onFontSTIXTwoText, 'STIXTwoText'), [FontMenuItem, onFontSTIXTwoText]);
+  const STIXGeneralRegular = useMemo(() => FontMenuItem('STIXGeneral-Regular', onFontSTIXGeneralRegular, 'STIXGeneralRegular'), [FontMenuItem, onFontSTIXGeneralRegular]);
+  const StoneSansSemITCTT = useMemo(() => FontMenuItem('Stone Sans Sem ITC TT', onFontStoneSansSemITCTT, 'StoneSansSemITCTT'), [FontMenuItem, onFontStoneSansSemITCTT]);
+  const SukhumvitSetText = useMemo(() => FontMenuItem('Sukhumvit Set Text', onFontSukhumvitSetText, 'SukhumvitSetText'), [FontMenuItem, onFontSukhumvitSetText]);
+  const Sylfaen = useMemo(() => FontMenuItem('Sylfaen', onFontSylfaen, 'Sylfaen'), [FontMenuItem, onFontSylfaen]);
+  const SynchroLET = useMemo(() => FontMenuItem('Synchro LET', onFontSynchroLET, 'SynchroLET'), [FontMenuItem, onFontSynchroLET]);
+  const TaeGraphic = useMemo(() => FontMenuItem('Tae Graphic', onFontTaeGraphic, 'TaeGraphic'), [FontMenuItem, onFontTaeGraphic]);
+  const Tahoma = useMemo(() => FontMenuItem('Tahoma', onFontTahoma, 'Tahoma'), [FontMenuItem, onFontTahoma]);
+  const Taipei = useMemo(() => FontMenuItem('Taipei', onFontTaipei, 'Taipei'), [FontMenuItem, onFontTaipei]);
+  const TamilMN = useMemo(() => FontMenuItem('Tamil MN', onFontTamilMN, 'TamilMN'), [FontMenuItem, onFontTamilMN]);
+  const TamilSangamMN = useMemo(() => FontMenuItem('Tamil Sangam MN', onFontTamilSangamMN, 'TamilSangamMN'), [FontMenuItem, onFontTamilSangamMN]);
+  const Techno = useMemo(() => FontMenuItem('Techno', onFontTechno, 'Techno'), [FontMenuItem, onFontTechno]);
+  const TeluguMN = useMemo(() => FontMenuItem('Telugu MN', onFontTeluguMN, 'TeluguMN'), [FontMenuItem, onFontTeluguMN]);
+  const TeluguSangamMN = useMemo(() => FontMenuItem('Telugu Sangam MN', onFontTeluguSangamMN, 'TeluguSangamMN'), [FontMenuItem, onFontTeluguSangamMN]);
+  const Textile = useMemo(() => FontMenuItem('Textile', onFontTextile, 'Textile'), [FontMenuItem, onFontTextile]);
+  const Thonburi = useMemo(() => FontMenuItem('Thonburi', onFontThonburi, 'Thonburi'), [FontMenuItem, onFontThonburi]);
+  const Times = useMemo(() => FontMenuItem('Times', onFontTimes, 'Times'), [FontMenuItem, onFontTimes]);
+  const TimesCY = useMemo(() => FontMenuItem('Times CY', onFontTimesCY, 'TimesCY'), [FontMenuItem, onFontTimesCY]);
+  const TimesNewRoman = useMemo(() => FontMenuItem('Times New Roman', onFontTimesNewRoman, 'TimesNewRoman'), [FontMenuItem, onFontTimesNewRoman]);
+  const TimesRoman = useMemo(() => FontMenuItem('Times Roman', onFontTimesRoman, 'TimesRoman'), [FontMenuItem, onFontTimesRoman]);
+  const TiroBangla = useMemo(() => FontMenuItem('Tiro Bangla', onFontTiroBangla, 'TiroBangla'), [FontMenuItem, onFontTiroBangla]);
+  const TiroDevanagariHindi = useMemo(() => FontMenuItem('Tiro Devanagari Hindi', onFontTiroDevanagariHindi, 'TiroDevanagariHindi'), [FontMenuItem, onFontTiroDevanagariHindi]);
+  const TiroDevanagariMarathi = useMemo(() => FontMenuItem('Tiro Devanagari Marathi', onFontTiroDevanagariMarathi, 'TiroDevanagariMarathi'), [FontMenuItem, onFontTiroDevanagariMarathi]);
+  const TiroDevanagariSanskrit = useMemo(() => FontMenuItem('Tiro Devanagari Sanskrit', onFontTiroDevanagariSanskrit, 'TiroDevanagariSanskrit'), [FontMenuItem, onFontTiroDevanagariSanskrit]);
+  const TiroGurmukhi = useMemo(() => FontMenuItem('Tiro Gurmukhi', onFontTiroGurmukhi, 'TiroGurmukhi'), [FontMenuItem, onFontTiroGurmukhi]);
+  const TiroHindi = useMemo(() => FontMenuItem('Tiro Hindi', onFontTiroHindi, 'TiroHindi'), [FontMenuItem, onFontTiroHindi]);
+  const TiroKannada = useMemo(() => FontMenuItem('Tiro Kannada', onFontTiroKannada, 'TiroKannada'), [FontMenuItem, onFontTiroKannada]);
+  const TiroMarathi = useMemo(() => FontMenuItem('Tiro Marathi', onFontTiroMarathi, 'TiroMarathi'), [FontMenuItem, onFontTiroMarathi]);
+  const TiroSanskrit = useMemo(() => FontMenuItem('Tiro Sanskrit', onFontTiroSanskrit, 'TiroSanskrit'), [FontMenuItem, onFontTiroSanskrit]);
+  const TiroTamil = useMemo(() => FontMenuItem('Tiro Tamil', onFontTiroTamil, 'TiroTamil'), [FontMenuItem, onFontTiroTamil]);
+  const TiroTelugu = useMemo(() => FontMenuItem('Tiro Telugu', onFontTiroTelugu, 'TiroTelugu'), [FontMenuItem, onFontTiroTelugu]);
+  const ToppanBunkyuGothic = useMemo(() => FontMenuItem('Toppan Bunkyu Gothic', onFontToppanBunkyuGothic, 'ToppanBunkyuGothic'), [FontMenuItem, onFontToppanBunkyuGothic]);
+  const ToppanBunkyuMincho = useMemo(() => FontMenuItem('Toppan Bunkyu Mincho', onFontToppanBunkyuMincho, 'ToppanBunkyuMincho'), [FontMenuItem, onFontToppanBunkyuMincho]);
+  const TraditionalArabic = useMemo(() => FontMenuItem('Traditional Arabic', onFontTraditionalArabic, 'TraditionalArabic'), [FontMenuItem, onFontTraditionalArabic]);
+  const Trattatello = useMemo(() => FontMenuItem('Trattatello', onFontTrattatello, 'Trattatello'), [FontMenuItem, onFontTrattatello]);
+  const TrebuchetMS = useMemo(() => FontMenuItem('Trebuchet MS', onFontTrebuchetMS, 'TrebuchetMS'), [FontMenuItem, onFontTrebuchetMS]);
+  const TsukushiARoundGothic = useMemo(() => FontMenuItem('Tsukushi A Round Gothic', onFontTsukushiARoundGothic, 'TsukushiARoundGothic'), [FontMenuItem, onFontTsukushiARoundGothic]);
+  const TsukushiBRoundGothic = useMemo(() => FontMenuItem('Tsukushi B Round Gothic', onFontTsukushiBRoundGothic, 'TsukushiBRoundGothic'), [FontMenuItem, onFontTsukushiBRoundGothic]);
+  const Tunga = useMemo(() => FontMenuItem('Tunga', onFontTunga, 'Tunga'), [FontMenuItem, onFontTunga]);
+  const TwCenMT = useMemo(() => FontMenuItem('Tw Cen MT', onFontTwCenMT, 'TwCenMT'), [FontMenuItem, onFontTwCenMT]);
+  const UDDigiKyokasho = useMemo(() => FontMenuItem('UD Digi Kyokasho', onFontUDDigiKyokasho, 'UDDigiKyokasho'), [FontMenuItem, onFontUDDigiKyokasho]);
+  const UrduTypesetting = useMemo(() => FontMenuItem('Urdu Typesetting', onFontUrduTypesetting, 'UrduTypesetting'), [FontMenuItem, onFontUrduTypesetting]);
+  const Utsaah = useMemo(() => FontMenuItem('Utsaah', onFontUtsaah, 'Utsaah'), [FontMenuItem, onFontUtsaah]);
+  const Vani = useMemo(() => FontMenuItem('Vani', onFontVani, 'Vani'), [FontMenuItem, onFontVani]);
+  const Verdana = useMemo(() => FontMenuItem('Verdana', onFontVerdana, 'Verdana'), [FontMenuItem, onFontVerdana]);
+  const VerdanaPro = useMemo(() => FontMenuItem('Verdana Pro', onFontVerdanaPro, 'VerdanaPro'), [FontMenuItem, onFontVerdanaPro]);
+  const Vijaya = useMemo(() => FontMenuItem('Vijaya', onFontVijaya, 'Vijaya'), [FontMenuItem, onFontVijaya]);
+  const Vrinda = useMemo(() => FontMenuItem('Vrinda', onFontVrinda, 'Vrinda'), [FontMenuItem, onFontVrinda]);
+  const Waseem = useMemo(() => FontMenuItem('Waseem', onFontWaseem, 'Waseem'), [FontMenuItem, onFontWaseem]);
+  const WawatiSC = useMemo(() => FontMenuItem('Wawati SC', onFontWawatiSC, 'WawatiSC'), [FontMenuItem, onFontWawatiSC]);
+  const WawatiTC = useMemo(() => FontMenuItem('Wawati TC', onFontWawatiTC, 'WawatiTC'), [FontMenuItem, onFontWawatiTC]);
+  const Yaziji = useMemo(() => FontMenuItem('Yaziji', onFontYaziji, 'Yaziji'), [FontMenuItem, onFontYaziji]);
+  const YuGothic = useMemo(() => FontMenuItem('Yu Gothic', onFontYuGothic, 'YuGothic'), [FontMenuItem, onFontYuGothic]);
+  const YuKyokashoN = useMemo(() => FontMenuItem('Yu Kyokasho N', onFontYuKyokashoN, 'YuKyokashoN'), [FontMenuItem, onFontYuKyokashoN]);
+  const YuMincho = useMemo(() => FontMenuItem('Yu Mincho', onFontYuMincho, 'YuMincho'), [FontMenuItem, onFontYuMincho]);
+  const YuantiSC = useMemo(() => FontMenuItem('Yuanti SC', onFontYuantiSC, 'YuantiSC'), [FontMenuItem, onFontYuantiSC]);
+  const YuantiTC = useMemo(() => FontMenuItem('Yuanti TC', onFontYuantiTC, 'YuantiTC'), [FontMenuItem, onFontYuantiTC]);
+  const YuppySC = useMemo(() => FontMenuItem('Yuppy SC', onFontYuppySC, 'YuppySC'), [FontMenuItem, onFontYuppySC]);
+  const ZapfChancery = useMemo(() => FontMenuItem('Zapf Chancery', onFontZapfChancery, 'ZapfChancery'), [FontMenuItem, onFontZapfChancery]);
+  const Zapfino = useMemo(() => FontMenuItem('Zapfino', onFontZapfino, 'Zapfino'), [FontMenuItem, onFontZapfino]);
+
+  console.log("FontDropdown ran");
 
   /** Return the Dropdown */
   return (
