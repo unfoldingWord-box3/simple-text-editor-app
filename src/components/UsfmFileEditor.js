@@ -85,19 +85,19 @@ export default function UsfmFileEditor ({
       setFont
     };
 
-    return <div class={font}><UsfmEditor {...editorProps} /></div>;
+    return <div className={font}><UsfmEditor {...editorProps} /></div>;
   }, [file.content, onText, editable, target, sectionable, blockable, preview, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId, font, setFont]);
 
   return (
     <div style={styles.textFileEditor}>
       <div style={styles.toolbar}>
-        <div class="btnGroup" role="group">
+        <div className="btnGroup" role="group">
           <OpenFile onFile={onFile} />
           {/** Chapters are Sections */}
-          <button  type="button" class={(sectionable ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabledbyalign} onClick={onSectionable}>Chapters</button>
-          <button  type="button" class={(blockable ? "btnAll btnMiddle" : "btnAll btnMiddle on")} disabled={disabled} onClick={onBlockable}>Paragraphs</button>
-          { target && <button  type="button" class={(editable ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabled} onClick={onEditable}>Editable</button> }
-          <button  type="button" class={(preview ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabled} onClick={onPreview}>Preview</button>  
+          <button  type="button" className={(sectionable ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabledbyalign} onClick={onSectionable}>Chapters</button>
+          <button  type="button" className={(blockable ? "btnAll btnMiddle" : "btnAll btnMiddle on")} disabled={disabled} onClick={onBlockable}>Paragraphs</button>
+          { target && <button  type="button" className={(editable ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabled} onClick={onEditable}>Editable</button> }
+          <button  type="button" className={(preview ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabled} onClick={onPreview}>Preview</button>  
           { target && <ExportFile file={file} /> }
           {fontButton}
         </div>

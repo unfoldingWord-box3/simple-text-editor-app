@@ -21,9 +21,6 @@ export default function FontDropdown(props) {
     const newSize = context.measureText(text).width;
     /** Remove the in-memory Canvas element. */
     canvas = null;
-
-    console.log("doesFontExist ran");
-
     /** If the size of the two text instances differs, then font exists. */
     return (newSize === baselineSize ? false : true);
   }, []);
@@ -1023,8 +1020,6 @@ export default function FontDropdown(props) {
 
     const fontActive = fontOnOrOff(itemFont)
     const fontList = itemPresentation(itemName)
-
-    console.log("FontMenuItem ran");
     
     return (
       <Menu.Item>
@@ -1539,8 +1534,6 @@ export default function FontDropdown(props) {
   const YuppySC = useMemo(() => FontMenuItem('Yuppy SC', onFontYuppySC, 'YuppySC'), [FontMenuItem, onFontYuppySC]);
   const ZapfChancery = useMemo(() => FontMenuItem('Zapf Chancery', onFontZapfChancery, 'ZapfChancery'), [FontMenuItem, onFontZapfChancery]);
   const Zapfino = useMemo(() => FontMenuItem('Zapfino', onFontZapfino, 'Zapfino'), [FontMenuItem, onFontZapfino]);
-
-  console.log("FontDropdown ran");
 
   /** Return the Dropdown */
   return (
