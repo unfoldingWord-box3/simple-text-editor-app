@@ -1038,10 +1038,10 @@ export default function FontDropdown(props) {
   },[fontOnOrOff]);
 
   /** Dropdown button indication when a font is set */
-  const fontDropdownOnOrOff = font === "" ? "btnAll btnRight" : "btnAll btnRight on"
+  const fontDropdownOnOrOff = useMemo(() => (font === "" ? "btnAll btnRight" : "btnAll btnRight on"), [font]);
 
   /** Dropdown button indication of which font is set */
-  const fontDropdownPresentation = font === "" ? "Set Font ⇩" : font + " ⇩"
+  const fontDropdownPresentation = useMemo(() => (font === "" ? "Set Font ⇩" : font + " ⇩"), [font]);
 
   /** Assemble menu items for Graphite-enabled woff and woff2 fonts provided */
   const defaultFont = useMemo(() => FontMenuItem('Default Font', onFontClear, ''), [FontMenuItem, onFontClear]);
