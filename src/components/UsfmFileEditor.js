@@ -47,6 +47,9 @@ export default function UsfmFileEditor ({
   }, [align]);
   
   const [font, setFont] = useState('');
+  const fontButton = useMemo(() => {
+    return <FontDropdown font={font} setFont={setFont} />;
+  }, [font]);
  
   const textEditor = useMemo(() => {
     const onVerse = (verse) => {
@@ -81,6 +84,7 @@ export default function UsfmFileEditor ({
       font,
       setFont
     };
+
     return <div class={font}><UsfmEditor {...editorProps} /></div>;
   }, [file.content, onText, editable, target, sectionable, blockable, preview, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId, font, setFont]);
 
@@ -95,7 +99,7 @@ export default function UsfmFileEditor ({
           { target && <button  type="button" class={(editable ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabled} onClick={onEditable}>Editable</button> }
           <button  type="button" class={(preview ? "btnAll btnMiddle on" : "btnAll btnMiddle")} disabled={disabled} onClick={onPreview}>Preview</button>  
           { target && <ExportFile file={file} /> }
-          { <FontDropdown font={font} setFont={setFont} /> }
+          {fontButton}
         </div>
       </div>
       <hr />
