@@ -4,6 +4,8 @@ export const styles = {
   },
   toolbar: {
     textAlign: 'left',
-    paddingTop: '0.5em'
+    paddingTop: '0.5em',
   },
 };
+
+export default styles;
