@@ -88,7 +88,7 @@ export default function UsfmFileEditor ({
       setFont
     };
 
-    return <div><UsfmEditor {...editorProps} /></div>;
+    return <div className={font}><UsfmEditor {...editorProps} /></div>;
   }, [file.content, onText, editable, sectionable, blockable, preview, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId, font, setFont]);
 
   return (
