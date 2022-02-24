@@ -14,6 +14,7 @@ function Layout() {
   const [files, setFiles] = useState(initialFiles);
 
   const onAlign = () => { setAlign(!align); };
+  
   const onFile = ({ file, type }) => {
     const myfiles = { ...files };
     myfiles[type] = file;

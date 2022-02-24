@@ -1,22 +1,29 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
+    'extends': [
+      'eslint:recommended',
+      'plugin:react/recommended',
+      'plugin:react-hooks/recommended',
+      '@unfoldingword',
+      'prettier',
     ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+    'parserOptions': {
+      'ecmaFeatures': { 'jsx': true },
+      'ecmaVersion': 12,
+      'sourceType': 'module',
     },
-    "plugins": [
-        "react"
+    'plugins': [
+      'react',
     ],
-    "rules": {
-    }
-}
+    'rules': {
+      'react-hooks/rules-of-hooks': 'error',
+      'react/jsx-tag-spacing': ['error'],
+      'react/jsx-closing-bracket-location': ['error', 'line-aligned'],
+      'indent': ['error', 2, { 'ignoredNodes': ['TemplateLiteral'] }],
+    },
+    'env': {
+      'browser': true,
+      'node': true,
+      'es2021': true,
+    },
+  };
+  

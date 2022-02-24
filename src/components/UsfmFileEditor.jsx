@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 
 import { UsfmEditor } from 'simple-text-editor-rcl';
 
+import { getSectionChapter, getBlockVerse } from '../helpers/getChapterVerse';
 import OpenFile from './OpenFile';
 import ExportFile from './ExportFile';
 import { styles } from './UsfmFileEditor.styles';
-import { getSectionChapter, getBlockVerse } from '../helpers/getChapterVerse';
 import FontDropdown from './FontDropdown';
 
 export default function UsfmFileEditor({
@@ -27,8 +27,11 @@ export default function UsfmFileEditor({
   const [preview, setPreview] = useState(true);
 
   const onSectionable = () => { setSectionable(!sectionable); };
+
   const onBlockable = () => { setBlockable(!blockable); };
+  
   const onEditable = () => { setEditable(!editable); };
+  
   const onPreview = () => { setPreview(!preview); };
 
   const onFile = useCallback((_file) => { _onFile({ file: _file, type }); }, [_onFile, type]);
@@ -42,12 +45,14 @@ export default function UsfmFileEditor({
   }, [file.name, file.lastModified, onFile]);
 
   const [target, setTarget] = useState(false);
+
   useEffect(() => {
     if (type === 'target') setTarget(true);
   }, [type]);
 
   const disabled = (!file.name || !file.content);
   const disabledbyalign = (align || disabled);
+  
   useEffect(() => {
     if (align) setSectionable(true);
   }, [align]);
@@ -59,6 +64,7 @@ export default function UsfmFileEditor({
     const onVerse = (verse) => {
       onReference({ bookId: reference.bookId, chapter: reference.chapter, verse });
     };
+
     const onChapter = (chapter) => {
       onReference({ bookId: reference.bookId, chapter, verse: undefined });
     };
@@ -69,6 +75,7 @@ export default function UsfmFileEditor({
       onChapter(chapter);
     };
 
+    // eslint-disable-next-line no-unused-vars
     const onBlockClick = ({ text: _text, index }) => {
       const verse = getBlockVerse(_text);
       onVerse(verse);
