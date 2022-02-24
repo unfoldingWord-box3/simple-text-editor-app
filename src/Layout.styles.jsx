@@ -26,7 +26,7 @@ export const styles = {
     width: '50%',
     padding: '0px',
     margin: '0px',
-    position: 'absolute', 
+    position: 'absolute',
     bottom: '0',
   },
   translationHeadingR: {
@@ -86,3 +86,5 @@ export const styles = {
     alignItems: 'flex-start',
   },
 };
+
+export default styles;
