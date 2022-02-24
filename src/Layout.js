@@ -46,7 +46,7 @@ function Layout() {
               <div style={styles.translationHeadingL}>Translation</div>
               <div style={styles.translationHeadingR}>Built {preval`module.exports = new Date().toLocaleString('en-GB', { day: 'numeric', month: 'short', year: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short' });`}</div>
             </div>
-            <UsfmFileEditor {...editorProps} target={true} file={files.target} type={'target'} />
+            <UsfmFileEditor {...editorProps} file={files.target} type={'target'} />
           </div>
        </div>
       </div>

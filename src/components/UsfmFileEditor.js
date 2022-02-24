@@ -10,7 +10,6 @@ import { getSectionChapter, getBlockVerse } from '../helpers/getChapterVerse';
 import FontDropdown from './FontDropdown';
 
 export default function UsfmFileEditor ({
-  target,
   align,
   sectionIndex,
   onSectionIndex,
@@ -39,6 +38,11 @@ export default function UsfmFileEditor ({
       lastModified: file.lastModified,
     });
   }, [file.name, file.lastModified, onFile]);
+
+  const [target, setTarget] = useState(false);
+  useEffect(() => {
+    if (type === 'target') setTarget(true);
+  }, [type]);
 
   const disabled = (!file.name || !file.content);
   const disabledbyalign = (align || disabled);
@@ -73,7 +77,6 @@ export default function UsfmFileEditor ({
     const editorProps = {
       text: file.content || '',
       onText,
-      target,
       editable,
       sectionable,
       blockable,
@@ -85,8 +88,8 @@ export default function UsfmFileEditor ({
       setFont
     };
 
-    return <div className={font}><UsfmEditor {...editorProps} /></div>;
-  }, [file.content, onText, editable, target, sectionable, blockable, preview, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId, font, setFont]);
+    return <div><UsfmEditor {...editorProps} /></div>;
+  }, [file.content, onText, editable, sectionable, blockable, preview, sectionIndex, onSectionIndex, onReference, reference.chapter, reference.bookId, font, setFont]);
 
   return (
     <div style={styles.textFileEditor}>
@@ -116,8 +119,6 @@ UsfmFileEditor.propTypes = {
   onFile: PropTypes.func,
   /** Editable? */
   editable: PropTypes.bool,
-  /** Target? */
-  target: PropTypes.bool,
   /** Align? */
   align: PropTypes.bool,
   /** Reference: { bookId, chapter, verse } */
@@ -128,7 +129,6 @@ UsfmFileEditor.propTypes = {
 
 UsfmFileEditor.defaultProps = {
   editable: false,
-  target: false,
   align: true,
   sectionable: true,
 };
