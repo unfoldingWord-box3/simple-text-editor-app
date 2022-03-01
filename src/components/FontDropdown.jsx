@@ -671,7 +671,7 @@ export default function FontDropdown(props) {
   const onFontDevanagari = useCallback(() => { setFont('Devanagari'); }, [setFont]);
   const onFontDevanagariMT = useCallback(() => { setFont('DevanagariMT'); }, [setFont]);
   const onFontDevanagariSangamMN = useCallback(() => { setFont('DevanagariSangamMN'); }, [setFont]);
-  const onFontDFKaiSB = useCallback(() => { setFont('DFKai-SB'); }, [setFont]);
+  const onFontDFKaiSB = useCallback(() => { setFont('DFKaiSB'); }, [setFont]);
   const onFontDidot = useCallback(() => { setFont('Didot'); }, [setFont]);
   const onFontDijla = useCallback(() => { setFont('Dijla'); }, [setFont]);
   const onFontDilleniaUPC = useCallback(() => { setFont('DilleniaUPC'); }, [setFont]);
@@ -821,7 +821,7 @@ export default function FontDropdown(props) {
   const onFontMicrosoftYaHei = useCallback(() => { setFont('MicrosoftYaHei'); }, [setFont]);
   const onFontMicrosoftYiBaiti = useCallback(() => { setFont('MicrosoftYiBaiti'); }, [setFont]);
   const onFontMingLiU = useCallback(() => { setFont('MingLiU'); }, [setFont]);
-  const onFontMingLiUExtB = useCallback(() => { setFont('MingLiU-ExtB'); }, [setFont]);
+  const onFontMingLiUExtB = useCallback(() => { setFont('MingLiUExtB'); }, [setFont]);
   const onFontMiriam = useCallback(() => { setFont('Miriam'); }, [setFont]);
   const onFontMishafi = useCallback(() => { setFont('Mishafi'); }, [setFont]);
   const onFontMishafiGold = useCallback(() => { setFont('MishafiGold'); }, [setFont]);
@@ -874,7 +874,7 @@ export default function FontDropdown(props) {
   const onFontOriyaMN = useCallback(() => { setFont('OriyaMN'); }, [setFont]);
   const onFontOriyaSangamMN = useCallback(() => { setFont('OriyaSangamMN'); }, [setFont]);
   const onFontOsaka = useCallback(() => { setFont('Osaka'); }, [setFont]);
-  const onFontOsakaMono = useCallback(() => { setFont('Osaka-Mono'); }, [setFont]);
+  const onFontOsakaMono = useCallback(() => { setFont('OsakaMono'); }, [setFont]);
   const onFontPalatino = useCallback(() => { setFont('Palatino'); }, [setFont]);
   const onFontPalatinoLinotype = useCallback(() => { setFont('PalatinoLinotype'); }, [setFont]);
   const onFontPapyrus = useCallback(() => { setFont('Papyrus'); }, [setFont]);
@@ -930,7 +930,7 @@ export default function FontDropdown(props) {
   const onFontShreeDevanagari714 = useCallback(() => { setFont('ShreeDevanagari714'); }, [setFont]);
   const onFontShruti = useCallback(() => { setFont('Shruti'); }, [setFont]);
   const onFontSignPainter = useCallback(() => { setFont('SignPainter'); }, [setFont]);
-  const onFontSignPainterHouseScript = useCallback(() => { setFont('SignPainter-HouseScript'); }, [setFont]);
+  const onFontSignPainterHouseScript = useCallback(() => { setFont('SignPainterHouseScript'); }, [setFont]);
   const onFontSilom = useCallback(() => { setFont('Silom'); }, [setFont]);
   const onFontSimHei = useCallback(() => { setFont('SimHei'); }, [setFont]);
   const onFontSimplifiedArabic = useCallback(() => { setFont('SimplifiedArabic'); }, [setFont]);
@@ -951,7 +951,7 @@ export default function FontDropdown(props) {
   const onFontSTSong = useCallback(() => { setFont('STSong'); }, [setFont]);
   const onFontSTXihei = useCallback(() => { setFont('STXihei'); }, [setFont]);
   const onFontSTIXTwoText = useCallback(() => { setFont('STIXTwoText'); }, [setFont]);
-  const onFontSTIXGeneralRegular = useCallback(() => { setFont('STIXGeneral-Regular'); }, [setFont]);
+  const onFontSTIXGeneralRegular = useCallback(() => { setFont('STIXGeneralRegular'); }, [setFont]);
   const onFontStoneSansSemITCTT = useCallback(() => { setFont('StoneSansSemITCTT'); }, [setFont]);
   const onFontSukhumvitSetText = useCallback(() => { setFont('SukhumvitSetText'); }, [setFont]);
   const onFontSylfaen = useCallback(() => { setFont('Sylfaen'); }, [setFont]);
