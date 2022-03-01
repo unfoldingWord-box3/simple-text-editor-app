@@ -235,8 +235,11 @@ code {
 }
 
 /* A Compilation of Windows and MacOS System Font Families, including supplemental language packs:  */
-/*    - meant to exclude symbols, icons, emojis, assets, wingdings, webdings, ornaments, math, etc. */
+/*    - meant to exclude symbols, icons, emojis, assets, wingdings, webdings, ornaments, math,      */
+/*        Marlett, etc.                                                                             */
 /*    - meant to exclude variants - bold, italic, oblique, light, medium, thin, extra, etc.         */
+/*    - meant to exclude fonts that don't fit currently anticipated use-cases, such as Impact,      */
+/*        Cooper, and other very thick fonts.                                                       */
 .AdelleSansDevanagari { font-family: 'Adelle Sans Devanagari'; }
 .Aharoni { font-family: Aharoni; }
 .AlBayan { font-family: 'Al Bayan'; }
@@ -324,7 +327,6 @@ code {
 .ComicSansMS { font-family: 'Comic Sans MS'; }
 .Consolas { font-family: Consolas; }
 .Constantia { font-family: Constantia; }
-.Cooper { font-family: Cooper; }
 .Copperplate { font-family: Copperplate; }
 .Corbel { font-family: Corbel; }
 .CordiaNew { font-family: 'Cordia New'; }
@@ -412,7 +414,6 @@ code {
 .HiraginoSans { font-family: 'Hiragino Sans'; }
 .HoeflerText { font-family: 'Hoefler Text'; }
 .HopperScript { font-family: 'Hopper Script'; }
-.Impact { font-family: Impact; }
 .InaiMathi { font-family: 'Inai Mathi'; }
 .InkFree { font-family: 'Ink Free'; }
 .IowanOldStyleTitling { font-family: 'Iowan Old Style Titling'; }
@@ -480,7 +481,6 @@ code {
 .MalgunGothic { font-family: 'Malgun Gothic'; }
 .Mangal { font-family: Mangal; }
 .MarkerFelt { font-family: 'Marker Felt'; }
-.Marlett { font-family: Marlett; }
 .Meiryo { font-family: Meiryo; }
 .Menlo { font-family: Menlo; }
 .MicrosoftHimalaya { font-family: 'Microsoft Himalaya'; }

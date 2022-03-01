@@ -156,7 +156,6 @@ export default function FontDropdown(props) {
   const isComicSansMS = useMemo(() => doesFontExist('Comic Sans MS'), [doesFontExist]);
   const isConsolas = useMemo(() => doesFontExist('Consolas'), [doesFontExist]);
   const isConstantia = useMemo(() => doesFontExist('Constantia'), [doesFontExist]);
-  const isCooper = useMemo(() => doesFontExist('Cooper'), [doesFontExist]);
   const isCopperplate = useMemo(() => doesFontExist('Copperplate'), [doesFontExist]);
   const isCorbel = useMemo(() => doesFontExist('Corbel'), [doesFontExist]);
   const isCordiaNew = useMemo(() => doesFontExist('Cordia New'), [doesFontExist]);
@@ -244,7 +243,6 @@ export default function FontDropdown(props) {
   const isHiraginoSans = useMemo(() => doesFontExist('Hiragino Sans'), [doesFontExist]);
   const isHoeflerText = useMemo(() => doesFontExist('Hoefler Text'), [doesFontExist]);
   const isHopperScript = useMemo(() => doesFontExist('Hopper Script'), [doesFontExist]);
-  const isImpact = useMemo(() => doesFontExist('Impact'), [doesFontExist]);
   const isInaiMathi = useMemo(() => doesFontExist('Inai Mathi'), [doesFontExist]);
   const isInkFree = useMemo(() => doesFontExist('Ink Free'), [doesFontExist]);
   const isIowanOldStyleTitling = useMemo(() => doesFontExist('Iowan Old Style Titling'), [doesFontExist]);
@@ -312,7 +310,6 @@ export default function FontDropdown(props) {
   const isMalgunGothic = useMemo(() => doesFontExist('Malgun Gothic'), [doesFontExist]);
   const isMangal = useMemo(() => doesFontExist('Mangal'), [doesFontExist]);
   const isMarkerFelt = useMemo(() => doesFontExist('Marker Felt'), [doesFontExist]);
-  const isMarlett = useMemo(() => doesFontExist('Marlett'), [doesFontExist]);
   const isMeiryo = useMemo(() => doesFontExist('Meiryo'), [doesFontExist]);
   const isMenlo = useMemo(() => doesFontExist('Menlo'), [doesFontExist]);
   const isMicrosoftHimalaya = useMemo(() => doesFontExist('Microsoft Himalaya'), [doesFontExist]);
@@ -658,7 +655,6 @@ export default function FontDropdown(props) {
   const onFontComicSansMS = useCallback(() => { setFont('ComicSansMS'); }, [setFont]);
   const onFontConsolas = useCallback(() => { setFont('Consolas'); }, [setFont]);
   const onFontConstantia = useCallback(() => { setFont('Constantia'); }, [setFont]);
-  const onFontCooper = useCallback(() => { setFont('Cooper'); }, [setFont]);
   const onFontCopperplate = useCallback(() => { setFont('Copperplate'); }, [setFont]);
   const onFontCorbel = useCallback(() => { setFont('Corbel'); }, [setFont]);
   const onFontCordiaNew = useCallback(() => { setFont('CordiaNew'); }, [setFont]);
@@ -746,7 +742,6 @@ export default function FontDropdown(props) {
   const onFontHiraginoSans = useCallback(() => { setFont('HiraginoSans'); }, [setFont]);
   const onFontHoeflerText = useCallback(() => { setFont('HoeflerText'); }, [setFont]);
   const onFontHopperScript = useCallback(() => { setFont('HopperScript'); }, [setFont]);
-  const onFontImpact = useCallback(() => { setFont('Impact'); }, [setFont]);
   const onFontInaiMathi = useCallback(() => { setFont('InaiMathi'); }, [setFont]);
   const onFontInkFree = useCallback(() => { setFont('InkFree'); }, [setFont]);
   const onFontIowanOldStyleTitling = useCallback(() => { setFont('IowanOldStyleTitling'); }, [setFont]);
@@ -814,7 +809,6 @@ export default function FontDropdown(props) {
   const onFontMalgunGothic = useCallback(() => { setFont('MalgunGothic'); }, [setFont]);
   const onFontMangal = useCallback(() => { setFont('Mangal'); }, [setFont]);
   const onFontMarkerFelt = useCallback(() => { setFont('MarkerFelt'); }, [setFont]);
-  const onFontMarlett = useCallback(() => { setFont('Marlett'); }, [setFont]);
   const onFontMeiryo = useCallback(() => { setFont('Meiryo'); }, [setFont]);
   const onFontMenlo = useCallback(() => { setFont('Menlo'); }, [setFont]);
   const onFontMicrosoftHimalaya = useCallback(() => { setFont('MicrosoftHimalaya'); }, [setFont]);
@@ -1183,7 +1177,6 @@ export default function FontDropdown(props) {
   const ComicSansMS = useMemo(() => FontMenuItem('Comic Sans MS', onFontComicSansMS, 'ComicSansMS'), [FontMenuItem, onFontComicSansMS]);
   const Consolas = useMemo(() => FontMenuItem('Consolas', onFontConsolas, 'Consolas'), [FontMenuItem, onFontConsolas]);
   const Constantia = useMemo(() => FontMenuItem('Constantia', onFontConstantia, 'Constantia'), [FontMenuItem, onFontConstantia]);
-  const Cooper = useMemo(() => FontMenuItem('Cooper', onFontCooper, 'Cooper'), [FontMenuItem, onFontCooper]);
   const Copperplate = useMemo(() => FontMenuItem('Copperplate', onFontCopperplate, 'Copperplate'), [FontMenuItem, onFontCopperplate]);
   const Corbel = useMemo(() => FontMenuItem('Corbel', onFontCorbel, 'Corbel'), [FontMenuItem, onFontCorbel]);
   const CordiaNew = useMemo(() => FontMenuItem('Cordia New', onFontCordiaNew, 'CordiaNew'), [FontMenuItem, onFontCordiaNew]);
@@ -1271,7 +1264,6 @@ export default function FontDropdown(props) {
   const HiraginoSans = useMemo(() => FontMenuItem('Hiragino Sans', onFontHiraginoSans, 'HiraginoSans'), [FontMenuItem, onFontHiraginoSans]);
   const HoeflerText = useMemo(() => FontMenuItem('Hoefler Text', onFontHoeflerText, 'HoeflerText'), [FontMenuItem, onFontHoeflerText]);
   const HopperScript = useMemo(() => FontMenuItem('Hopper Script', onFontHopperScript, 'HopperScript'), [FontMenuItem, onFontHopperScript]);
-  const Impact = useMemo(() => FontMenuItem('Impact', onFontImpact, 'Impact'), [FontMenuItem, onFontImpact]);
   const InaiMathi = useMemo(() => FontMenuItem('Inai Mathi', onFontInaiMathi, 'InaiMathi'), [FontMenuItem, onFontInaiMathi]);
   const InkFree = useMemo(() => FontMenuItem('Ink Free', onFontInkFree, 'InkFree'), [FontMenuItem, onFontInkFree]);
   const IowanOldStyleTitling = useMemo(() => FontMenuItem('Iowan Old Style Titling', onFontIowanOldStyleTitling, 'IowanOldStyleTitling'), [FontMenuItem, onFontIowanOldStyleTitling]);
@@ -1339,7 +1331,6 @@ export default function FontDropdown(props) {
   const MalgunGothic = useMemo(() => FontMenuItem('Malgun Gothic', onFontMalgunGothic, 'MalgunGothic'), [FontMenuItem, onFontMalgunGothic]);
   const Mangal = useMemo(() => FontMenuItem('Mangal', onFontMangal, 'Mangal'), [FontMenuItem, onFontMangal]);
   const MarkerFelt = useMemo(() => FontMenuItem('Marker Felt', onFontMarkerFelt, 'MarkerFelt'), [FontMenuItem, onFontMarkerFelt]);
-  const Marlett = useMemo(() => FontMenuItem('Marlett', onFontMarlett, 'Marlett'), [FontMenuItem, onFontMarlett]);
   const Meiryo = useMemo(() => FontMenuItem('Meiryo', onFontMeiryo, 'Meiryo'), [FontMenuItem, onFontMeiryo]);
   const Menlo = useMemo(() => FontMenuItem('Menlo', onFontMenlo, 'Menlo'), [FontMenuItem, onFontMenlo]);
   const MicrosoftHimalaya = useMemo(() => FontMenuItem('Microsoft Himalaya', onFontMicrosoftHimalaya, 'MicrosoftHimalaya'), [FontMenuItem, onFontMicrosoftHimalaya]);
@@ -1712,7 +1703,6 @@ export default function FontDropdown(props) {
             {isComicSansMS && ComicSansMS}
             {isConsolas && Consolas}
             {isConstantia && Constantia}
-            {isCooper && Cooper}
             {isCopperplate && Copperplate}
             {isCorbel && Corbel}
             {isCordiaNew && CordiaNew}
@@ -1800,7 +1790,6 @@ export default function FontDropdown(props) {
             {isHiraginoSans && HiraginoSans}
             {isHoeflerText && HoeflerText}
             {isHopperScript && HopperScript}
-            {isImpact && Impact}
             {isInaiMathi && InaiMathi}
             {isInkFree && InkFree}
             {isIowanOldStyleTitling && IowanOldStyleTitling}
@@ -1868,7 +1857,6 @@ export default function FontDropdown(props) {
             {isMalgunGothic && MalgunGothic}
             {isMangal && Mangal}
             {isMarkerFelt && MarkerFelt}
-            {isMarlett && Marlett}
             {isMeiryo && Meiryo}
             {isMenlo && Menlo}
             {isMicrosoftHimalaya && MicrosoftHimalaya}
