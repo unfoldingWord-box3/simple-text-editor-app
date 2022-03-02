@@ -1,3 +1,5 @@
+/* eslint-disable test-selectors/button */
+/* eslint-disable test-selectors/onClick */
 import React, {
   useState, useCallback, useMemo, useEffect,
 } from 'react';
