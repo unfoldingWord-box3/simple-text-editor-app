@@ -11,7 +11,7 @@ import './Markdown.css';
 
 export default function TextFileEditor ({file, onFile, editable, sectionIndex, onSectionIndex}) {
   const initialState = file || {
-    name: undefined, content: undefined, lastModified: undefined
+    name: undefined, content: '', lastModified: undefined
   };
   const [state, setState] = useState(initialState);
   const [sectionable, setSectionable] = useState(true);
@@ -36,7 +36,7 @@ export default function TextFileEditor ({file, onFile, editable, sectionIndex, o
 
   const textEditor = useMemo(() => {
     const textEditorProps = {
-      text: state.content,
+      text: state.content || '',
       onText,
       editable,
       preview,
