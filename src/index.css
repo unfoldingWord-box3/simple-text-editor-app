@@ -114,7 +114,7 @@ code {
 @-moz-document url-prefix() {
   @font-face {
     font-family: AkatabRW;
-    src: url(./fonts/Akatab-Regular.woff) format('woff');
+    src: url(./fonts/Akatab-Regular.woff2) format('woff2');
   }
   @font-face {
     font-family: AlkalamiLW;
@@ -138,19 +138,19 @@ code {
   }  
   @font-face {
     font-family: HarmattanW;
-    src: url(./fonts/Harmattan-Regular.woff) format('woff');
+    src: url(./fonts/Harmattan-Regular.woff2) format('woff2');
   }
   @font-face {
     font-family: LateefRW;
-    src: url(./fonts/LateefGR-Regular.woff) format('woff');
+    src: url(./fonts/LateefGR-Regular.woff2) format('woff2');
   }
   @font-face {
     font-family: MingzatW;
-    src: url(./fonts/Mingzat-Regular.woff) format('woff');
+    src: url(./fonts/Mingzat-Regular.woff2) format('woff2');
   }
   @font-face {
     font-family: NarnoorW;
-    src: url(./fonts/Narnoor-Regular.woff) format('woff');
+    src: url(./fonts/Narnoor-Regular.woff2) format('woff2');
   }
   @font-face {
     font-family: PadaukRW;
@@ -162,11 +162,11 @@ code {
   }
   @font-face {
     font-family: TagmukayRW;
-    src: url(./fonts/Tagmukay-Regular.woff) format('woff');
+    src: url(./fonts/Tagmukay-Regular.woff2) format('woff2');
   }
   @font-face {
     font-family: TaiHeritageProRW;
-    src: url(./fonts/TaiHeritagePro-Regular.woff) format('woff');
+    src: url(./fonts/TaiHeritagePro-Regular.woff2) format('woff2');
   }
 
   .AlkalamiRW, .AlkalamiLW, .AwamiNastaliqRW, .HarmattanW, .LateefRW, .ScheherazadeRW, .Alkalami, .AlkalamiLight, .AwamiNastaliq, .Harmattan, .LateefGR, .ScheherazadeNew {
