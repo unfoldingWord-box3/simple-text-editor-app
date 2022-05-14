@@ -118,11 +118,11 @@ code {
   }
   @font-face {
     font-family: AlkalamiLW;
-    src: url(./fonts/Alkalami-Light.woff) format('woff');
+    src: url(./fonts/Alkalami-Light.woff2) format('woff2');
   }
   @font-face {
     font-family: AlkalamiRW;
-    src: url(./fonts/Alkalami-Regular.woff) format('woff');
+    src: url(./fonts/Alkalami-Regular.woff2) format('woff2');
   }
   @font-face {
     font-family: AndikaRW;

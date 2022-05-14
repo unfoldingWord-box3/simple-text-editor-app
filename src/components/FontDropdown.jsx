@@ -1044,8 +1044,8 @@ export default function FontDropdown(props) {
   /** Assemble menu items for Graphite-enabled woff and woff2 fonts provided */
   const defaultFont = useMemo(() => FontMenuItem('Default Font', onFontClear, ''), [FontMenuItem, onFontClear]);
   const akatabRW = useMemo(() => FontMenuItem('Akatab 2.000', onFontAkatabRW, 'AkatabRW'), [FontMenuItem, onFontAkatabRW]);
-  const alkalamiRW = useMemo(() => FontMenuItem('Alkalami 1.200', onFontAlkalamiRW, 'AlkalamiRW'), [FontMenuItem, onFontAlkalamiRW]);
-  const alkalamiLW = useMemo(() => FontMenuItem('Alkalami Light 1.200', onFontAlkalamiLW, 'AlkalamiLW'), [FontMenuItem, onFontAlkalamiLW]);
+  const alkalamiRW = useMemo(() => FontMenuItem('Alkalami 1.300', onFontAlkalamiRW, 'AlkalamiRW'), [FontMenuItem, onFontAlkalamiRW]);
+  const alkalamiLW = useMemo(() => FontMenuItem('Alkalami Light 1.300', onFontAlkalamiLW, 'AlkalamiLW'), [FontMenuItem, onFontAlkalamiLW]);
   const andikaRW = useMemo(() => FontMenuItem('Andika 6.101', onFontAndikaRW, 'AndikaRW'), [FontMenuItem, onFontAndikaRW]);
   const awamiNastaliqRW = useMemo(() => FontMenuItem('Awami Nastaliq 2.200', onFontAwamiNastaliqRW, 'AwamiNastaliqRW'), [FontMenuItem, onFontAwamiNastaliqRW]);
   const gentiumPlusRW = useMemo(() => FontMenuItem('Gentium Plus 6.101', onFontGentiumPlusRW, 'GentiumPlusRW'), [FontMenuItem, onFontGentiumPlusRW]);
