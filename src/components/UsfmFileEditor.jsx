@@ -13,6 +13,7 @@ import ExportFile from './ExportFile';
 import { styles } from './UsfmFileEditor.styles';
 import FontDropdown from './FontDropdown';
 import FontSizeDropdown from './FontSizeDropdown';
+import LineHeightDropdown from './LineHeightDropdown';
 
 export default function UsfmFileEditor({
   align,
@@ -66,6 +67,9 @@ export default function UsfmFileEditor({
   const [selectedFontSize, setSelectedFontSize] = useState('1em');
   const fontSizeButton = useMemo(() => <FontSizeDropdown selectedFontSize={selectedFontSize} setSelectedFontSize={setSelectedFontSize} />, [selectedFontSize]);
 
+  const [selectedLineHeight, setSelectedLineHeight] = useState('1em');
+  const lineHeightButton = useMemo(() => <LineHeightDropdown selectedLineHeight={selectedLineHeight} setSelectedLineHeight={setSelectedLineHeight} />, [selectedLineHeight]);
+
   const textEditor = useMemo(() => {
     const onVerse = (verse) => {
       onReference({ bookId: reference.bookId, chapter: reference.chapter, verse });
@@ -101,13 +105,15 @@ export default function UsfmFileEditor({
       setSelectedFont,
       selectedFontSize,
       setSelectedFontSize,
+      selectedLineHeight,
+      setSelectedLineHeight,
     };
 
-    return <div style={{ fontFamily: selectedFont, fontSize: selectedFontSize }}><UsfmEditor {...editorProps} /></div>;
+    return <div style={{ fontFamily: selectedFont, fontSize: selectedFontSize, lineHeight: selectedLineHeight }}><UsfmEditor {...editorProps} /></div>;
   }, [
     file.content, onText, editable, sectionable, blockable, preview, sectionIndex, onSectionIndex,
     onReference, reference.chapter, reference.bookId, selectedFont, setSelectedFont,
-    selectedFontSize, setSelectedFontSize,
+    selectedFontSize, setSelectedFontSize, selectedLineHeight, setSelectedLineHeight,
   ]);
 
   return (
@@ -123,6 +129,7 @@ export default function UsfmFileEditor({
           { target && <ExportFile file={file} /> }
           {fontButton}
           {fontSizeButton}
+          {lineHeightButton}
         </div>
       </div>
       <hr />

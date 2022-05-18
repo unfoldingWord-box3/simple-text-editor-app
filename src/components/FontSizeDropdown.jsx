@@ -67,9 +67,9 @@ export default function FontSizeDropdown(fontSizeDropdownProps) {
 }
 
 FontSizeDropdown.propTypes = {
-  /** Selected Font */
+  /** Selected Font Size */
   selectedFontSize: PropTypes.string,
-  /** Set Selected Font */
+  /** Set Selected Font Size */
   setSelectedFontSize: PropTypes.func.isRequired,
 };
 
