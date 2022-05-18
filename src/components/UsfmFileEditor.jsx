@@ -12,6 +12,7 @@ import OpenFile from './OpenFile';
 import ExportFile from './ExportFile';
 import { styles } from './UsfmFileEditor.styles';
 import FontDropdown from './FontDropdown';
+import FontSizeDropdown from './FontSizeDropdown';
 
 export default function UsfmFileEditor({
   align,
@@ -62,6 +63,9 @@ export default function UsfmFileEditor({
   const [selectedFont, setSelectedFont] = useState('monospace');
   const fontButton = useMemo(() => <FontDropdown selectedFont={selectedFont} setSelectedFont={setSelectedFont} />, [selectedFont]);
 
+  const [selectedFontSize, setSelectedFontSize] = useState('1em');
+  const fontSizeButton = useMemo(() => <FontSizeDropdown selectedFontSize={selectedFontSize} setSelectedFontSize={setSelectedFontSize} />, [selectedFontSize]);
+
   const textEditor = useMemo(() => {
     const onVerse = (verse) => {
       onReference({ bookId: reference.bookId, chapter: reference.chapter, verse });
@@ -95,12 +99,15 @@ export default function UsfmFileEditor({
       onBlockClick,
       selectedFont,
       setSelectedFont,
+      selectedFontSize,
+      setSelectedFontSize,
     };
 
-    return <div style={{ fontFamily: selectedFont }}><UsfmEditor {...editorProps} /></div>;
+    return <div style={{ fontFamily: selectedFont, fontSize: selectedFontSize }}><UsfmEditor {...editorProps} /></div>;
   }, [
     file.content, onText, editable, sectionable, blockable, preview, sectionIndex, onSectionIndex,
     onReference, reference.chapter, reference.bookId, selectedFont, setSelectedFont,
+    selectedFontSize, setSelectedFontSize,
   ]);
 
   return (
@@ -115,6 +122,7 @@ export default function UsfmFileEditor({
           <button type="button" className={(preview ? 'btnAll btnMiddle on' : 'btnAll btnMiddle')} disabled={disabled} onClick={onPreview}>Preview</button>
           { target && <ExportFile file={file} /> }
           {fontButton}
+          {fontSizeButton}
         </div>
       </div>
       <hr />
