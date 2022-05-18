@@ -1,7 +1,7 @@
 {
   "name": "simple-usfm-alignment-prototype",
   "license": "MIT",
-  "version": "0.7.22",
+  "version": "0.7.23",
   "homepage": "https://simple-usfm-alignment-prototype.netlify.app/",
   "private": false,
   "dependencies": {
@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "font-detect-rhl": "^1.0.2",
     "js-file-download": "^0.4.12",
     "preval.macro": "^5.0.0",
     "prop-types": "^15.8.1",
@@ -36,7 +37,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-
   "browserslist": {
     "production": [
       ">0.2%",

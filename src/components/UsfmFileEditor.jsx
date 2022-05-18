@@ -59,8 +59,8 @@ export default function UsfmFileEditor({
     if (align) setSectionable(true);
   }, [align]);
 
-  const [font, setFont] = useState('');
-  const fontButton = useMemo(() => <FontDropdown font={font} setFont={setFont} />, [font]);
+  const [selectedFont, setSelectedFont] = useState('monospace');
+  const fontButton = useMemo(() => <FontDropdown selectedFont={selectedFont} setSelectedFont={setSelectedFont} />, [selectedFont]);
 
   const textEditor = useMemo(() => {
     const onVerse = (verse) => {
@@ -93,14 +93,14 @@ export default function UsfmFileEditor({
       sectionIndex,
       onSectionClick,
       onBlockClick,
-      font,
-      setFont,
+      selectedFont,
+      setSelectedFont,
     };
 
-    return <div className={font}><UsfmEditor {...editorProps} /></div>;
+    return <div style={{ fontFamily: selectedFont }}><UsfmEditor {...editorProps} /></div>;
   }, [
     file.content, onText, editable, sectionable, blockable, preview, sectionIndex, onSectionIndex,
-    onReference, reference.chapter, reference.bookId, font, setFont,
+    onReference, reference.chapter, reference.bookId, selectedFont, setSelectedFont,
   ]);
 
   return (
