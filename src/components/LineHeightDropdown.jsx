@@ -31,10 +31,10 @@ export default function LineHeightDropdown(lineHeightDropdownProps) {
       </Menu.Item>
     ));
 
-  /** Dropdown button indication when a font is set */
+  /** Dropdown button indication when line height is set */
   const lineHeightDropdownOnOrOff = useMemo(() => (selectedLineHeight === 'normal' ? 'btnAll btnRight' : 'btnAll btnRight on'), [selectedLineHeight]);
 
-  /** Dropdown button indication of which font is set */
+  /** Dropdown button indication of which line height is set */
   const lineHeightDropdownPresentation = useMemo(() => (selectedLineHeight === 'normal' ? 'Height ⇩' : `${selectedLineHeight} ⇩`), [selectedLineHeight]);
 
 

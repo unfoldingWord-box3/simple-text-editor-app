@@ -31,11 +31,12 @@ export default function FontSizeDropdown(fontSizeDropdownProps) {
       </Menu.Item>
     ));
 
-  /** Dropdown button indication when a font is set */
+  /** Dropdown button indication when a font size is set */
   const fontSizeDropdownOnOrOff = useMemo(() => (selectedFontSize === '1em' ? 'btnAll btnMiddle' : 'btnAll btnMiddle on'), [selectedFontSize]);
 
-  /** Dropdown button indication of which font is set */
-  const fontSizeDropdownPresentation = useMemo(() => (selectedFontSize === '1em' ? 'Size ⇩' : `${selectedFontSize} ⇩`), [selectedFontSize]);
+  /** Dropdown button indication of which font size is set */
+  const selectedFontSizeShort = selectedFontSize.replace("0.75em", "75%").replace("1.25em", "125%").replace("1.5em", "150%");
+  const fontSizeDropdownPresentation = useMemo(() => (selectedFontSize === '1em' ? 'Size ⇩' : `${selectedFontSizeShort} ⇩`), [selectedFontSize, selectedFontSizeShort]);
 
 
   /** Return the Dropdown */
