@@ -75,6 +75,17 @@ export default function FontDropdown(fontDropdownProps) {
   //No fonts detected message for any group of fonts:
   const noneDetectedMsg = "-none detected-";
 
+  /** Assemble dropdown menu item buttons for the default font */
+  const defaultFont = (
+    <Menu.Item>
+      {({ active }) => (
+        <button type="button" value="monospace" onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === 'monospace' ? 'on' : ''}`}>
+            ➤default
+        </button>
+      )}
+    </Menu.Item>
+  );
+
   /** Return the Dropdown */
   return (
     <Menu as="div" className="dropdown">
@@ -93,6 +104,9 @@ export default function FontDropdown(fontDropdownProps) {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items className="menuitemsall fontmenu">
+          <div className="subgroup">
+            {defaultFont}
+          </div>
           {isGraphiteAssumed && (
             <div className="subgroup">
               <span className="subheading group menuitem"><b>Graphite-enabled:</b></span>

@@ -32,10 +32,10 @@ export default function LineHeightDropdown(lineHeightDropdownProps) {
     ));
 
   /** Dropdown button indication when a font is set */
-  const lineHeightDropdownOnOrOff = useMemo(() => (selectedLineHeight === '1em' ? 'btnAll btnRight' : 'btnAll btnRight on'), [selectedLineHeight]);
+  const lineHeightDropdownOnOrOff = useMemo(() => (selectedLineHeight === 'normal' ? 'btnAll btnRight' : 'btnAll btnRight on'), [selectedLineHeight]);
 
   /** Dropdown button indication of which font is set */
-  const lineHeightDropdownPresentation = useMemo(() => (selectedLineHeight === '1em' ? 'Height ⇩' : `${selectedLineHeight} ⇩`), [selectedLineHeight]);
+  const lineHeightDropdownPresentation = useMemo(() => (selectedLineHeight === 'normal' ? 'Height ⇩' : `${selectedLineHeight} ⇩`), [selectedLineHeight]);
 
 
   /** Return the Dropdown */
