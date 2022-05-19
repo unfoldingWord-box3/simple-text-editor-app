@@ -32,7 +32,7 @@ export default function FontSizeDropdown(fontSizeDropdownProps) {
     ));
 
   /** Dropdown button indication when a font is set */
-  const fontSizeDropdownOnOrOff = useMemo(() => (selectedFontSize === '1em' ? 'btnAll btnRight' : 'btnAll btnRight on'), [selectedFontSize]);
+  const fontSizeDropdownOnOrOff = useMemo(() => (selectedFontSize === '1em' ? 'btnAll btnMiddle' : 'btnAll btnMiddle on'), [selectedFontSize]);
 
   /** Dropdown button indication of which font is set */
   const fontSizeDropdownPresentation = useMemo(() => (selectedFontSize === '1em' ? 'Size ⇩' : `${selectedFontSize} ⇩`), [selectedFontSize]);
@@ -57,7 +57,7 @@ export default function FontSizeDropdown(fontSizeDropdownProps) {
       >
         <Menu.Items className="menuitemsall">
           <div className="subgroup">
-            <span className="subheading group menuitem"><b>Set Font Size:</b></span>
+            <span className="subheading group menuitem"><b>Font&nbsp;Size:</b></span>
             {FontSizes}
           </div>
         </Menu.Items>

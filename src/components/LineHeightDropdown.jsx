@@ -57,7 +57,7 @@ export default function LineHeightDropdown(lineHeightDropdownProps) {
       >
         <Menu.Items className="menuitemsall">
           <div className="subgroup">
-            <span className="subheading group menuitem"><b>Set Line Height:</b></span>
+            <span className="subheading group menuitem"><b>Line&nbsp;Height:</b></span>
             {LineHeights}
           </div>
         </Menu.Items>

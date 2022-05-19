@@ -67,12 +67,16 @@ code {
 }
 
 .menuitemsall {
-  @apply absolute right-0 w-40 mt-0.5 origin-top-right;
+  @apply absolute right-0 mt-0.5 origin-top-right;
   @apply bg-white;
   @apply divide-y divide-gray-900 divide-opacity-50;
   @apply rounded-md shadow-lg;
   @apply ring-1 ring-black ring-opacity-5;
   @apply focus:outline-none;
+}
+
+.fontmenu {
+  @apply w-40;
 }
 
 .subgroup {

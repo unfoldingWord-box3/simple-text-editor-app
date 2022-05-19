@@ -66,10 +66,11 @@ export default function FontDropdown(fontDropdownProps) {
   ));
 
   /** Dropdown button indication when a font is set */
-  const fontDropdownOnOrOff = useMemo(() => (selectedFont === 'monospace' ? 'btnAll btnRight' : 'btnAll btnRight on'), [selectedFont]);
+  const fontDropdownOnOrOff = useMemo(() => (selectedFont === 'monospace' ? 'btnAll btnMiddle' : 'btnAll btnMiddle on'), [selectedFont]);
 
   /** Dropdown button indication of which font is set */
-  const fontDropdownPresentation = useMemo(() => (selectedFont === 'monospace' ? 'Set Font ⇩' : `${selectedFont} ⇩`), [selectedFont]);
+  const selectedFontShort = selectedFont.length > 10 ? selectedFont.substring(0, 7) + "..." : selectedFont
+  const fontDropdownPresentation = useMemo(() => (selectedFont === 'monospace' ? 'Set Font ⇩' : `${selectedFontShort} ⇩`), [selectedFontShort]);
 
   //No fonts detected message for any group of fonts:
   const noneDetectedMsg = "-none detected-";
@@ -91,7 +92,7 @@ export default function FontDropdown(fontDropdownProps) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="menuitemsall">
+        <Menu.Items className="menuitemsall fontmenu">
           {isGraphiteAssumed && (
             <div className="subgroup">
               <span className="subheading group menuitem"><b>Graphite-enabled:</b></span>
