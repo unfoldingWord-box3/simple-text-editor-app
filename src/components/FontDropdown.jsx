@@ -70,7 +70,7 @@ export default function FontDropdown(fontDropdownProps) {
 
   /** Dropdown button indication of which font is set */
   const selectedFontShort = selectedFont.length > 10 ? selectedFont.substring(0, 7) + "..." : selectedFont
-  const fontDropdownPresentation = useMemo(() => (selectedFont === 'monospace' ? 'Set Font ⇩' : `${selectedFontShort} ⇩`), [selectedFontShort]);
+  const fontDropdownPresentation = useMemo(() => (selectedFont === 'monospace' ? 'Set Font ⇩' : `${selectedFontShort} ⇩`), [selectedFont, selectedFontShort]);
 
   //No fonts detected message for any group of fonts:
   const noneDetectedMsg = "-none detected-";
