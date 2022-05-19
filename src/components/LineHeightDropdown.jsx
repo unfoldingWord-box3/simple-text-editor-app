@@ -74,5 +74,5 @@ LineHeightDropdown.propTypes = {
 };
 
 LineHeightDropdown.defaultProps = {
-  selectedLineHeight: '1em',
+  selectedLineHeight: 'normal',
 };

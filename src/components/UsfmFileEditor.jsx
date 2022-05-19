@@ -67,7 +67,7 @@ export default function UsfmFileEditor({
   const [selectedFontSize, setSelectedFontSize] = useState('1em');
   const fontSizeButton = useMemo(() => <FontSizeDropdown selectedFontSize={selectedFontSize} setSelectedFontSize={setSelectedFontSize} />, [selectedFontSize]);
 
-  const [selectedLineHeight, setSelectedLineHeight] = useState('1em');
+  const [selectedLineHeight, setSelectedLineHeight] = useState('normal');
   const lineHeightButton = useMemo(() => <LineHeightDropdown selectedLineHeight={selectedLineHeight} setSelectedLineHeight={setSelectedLineHeight} />, [selectedLineHeight]);
 
   const textEditor = useMemo(() => {
