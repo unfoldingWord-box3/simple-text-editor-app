@@ -45,7 +45,7 @@ export default function FontDropdown(fontDropdownProps) {
           <button type="button" value={font.id} onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === font.id ? 'on' : ''}`}>
               ➤{font.name} {font.version}
             {connector}
-            <span style={{ fontFamily: font.id }}>{font.name}</span>  
+            <button type="button" value={font.id} onClick={handleChange} style={{ fontFamily: font.id }}>{font.name}</button>  
           </button>
         )}
       </Menu.Item>
@@ -61,7 +61,7 @@ export default function FontDropdown(fontDropdownProps) {
         <button type="button" value={font.name} onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === font.name ? 'on' : ''}`}>
             ➤{font.name}
           {connector}
-          <span style={{ fontFamily: font.name }}>{font.name}</span>
+          <button type="button" value={font.name} onClick={handleChange} style={{ fontFamily: font.name }}>{font.name}</button>
         </button>
       )}
     </Menu.Item>
@@ -77,7 +77,7 @@ export default function FontDropdown(fontDropdownProps) {
         <button type="button" value={font.name} onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === font.name ? 'on' : ''}`}>
             ➤{font.name}
           {connector}
-          <span style={{ fontFamily: font.name }}>{font.name}</span>  
+          <button type="button" value={font.name} onClick={handleChange} style={{ fontFamily: font.name }}>{font.name}</button>  
         </button>
       )}
     </Menu.Item>
