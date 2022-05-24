@@ -22,6 +22,17 @@ export default function FontDropdown(fontDropdownProps) {
     setSelectedFont(event.target.value);
   };
 
+  // Menu item connector between font name and example
+  const connector = (
+    <hr
+      style={{
+        minWidth: "10px",
+        width: "100%",
+        borderBottom: "1px dotted black"
+      }}
+    />
+  );
+
   // Should Graphite-enabled fonts be detected?
   const isGraphiteAssumed = useAssumeGraphite({});
 
@@ -33,6 +44,8 @@ export default function FontDropdown(fontDropdownProps) {
         {({ active }) => (
           <button type="button" value={font.id} onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === font.id ? 'on' : ''}`}>
               ➤{font.name} {font.version}
+            {connector}
+            <span style={{ fontFamily: font.id }}>{font.name}</span>  
           </button>
         )}
       </Menu.Item>
@@ -47,10 +60,13 @@ export default function FontDropdown(fontDropdownProps) {
       {({ active }) => (
         <button type="button" value={font.name} onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === font.name ? 'on' : ''}`}>
             ➤{font.name}
+          {connector}
+          <span style={{ fontFamily: font.name }}>{font.name}</span>
         </button>
       )}
     </Menu.Item>
   ));
+  
   //Detecting fonts:
   const detectedFonts = useDetectFonts({ fonts: fontsArray });
 
@@ -60,6 +76,8 @@ export default function FontDropdown(fontDropdownProps) {
       {({ active }) => (
         <button type="button" value={font.name} onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === font.name ? 'on' : ''}`}>
             ➤{font.name}
+          {connector}
+          <span style={{ fontFamily: font.name }}>{font.name}</span>  
         </button>
       )}
     </Menu.Item>
