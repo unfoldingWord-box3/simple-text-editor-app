@@ -1,5 +1,4 @@
-/* eslint-disable test-selectors/button */
-/* eslint-disable test-selectors/onClick */
+/* eslint-disable test-selectors/button, test-selectors/onClick */
 import React, { Fragment, useMemo } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import PropTypes from 'prop-types';

@@ -21,16 +21,14 @@ export default function FontDropdown(fontDropdownProps) {
     setSelectedFont(event.target.value);
   };
 
-  // Menu item connector between font name and example
-  const connector = (
-    <hr
-      style={{
-        minWidth: "10px",
-        width: "100%",
-        borderBottom: "1px dotted black"
-      }}
-    />
-  );
+  const styles = {
+    div: {
+      width: "100%",
+      justifyContent: "space-between",
+      borderBottom: "1px outset",
+      borderRight: "1px outset"
+    }
+  };
 
   // Should Graphite-enabled fonts be detected?
   const isGraphiteAssumed = useAssumeGraphite({});
@@ -41,11 +39,30 @@ export default function FontDropdown(fontDropdownProps) {
     GraphiteEnabledWebFontsArray.map((font, index) => (
       <Menu.Item key={index}>
         {({ active }) => (
-          <button type="button" value={font.id} onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === font.id ? 'on' : ''}`}>
-              ➤{font.name} {font.version}
-            {connector}
-            <button type="button" value={font.id} onClick={handleChange} style={{ fontFamily: font.id }}>{font.name}</button>  
-          </button>
+          <div
+            className={`${
+              active ? "menuitemhov" : "menuitemnohov"
+            } group menuitem ${selectedFont === font.id ? "on" : ""}`}
+            style={styles.div}
+          >
+            <button
+              type="button"
+              value={font.id}
+              onClick={handleChange}
+              style={{ textAlign: "left" }}
+            >
+              ➤{font.name} {font.version}&nbsp;
+            </button>
+            <button
+              type="button"
+              style={{ fontFamily: font.id, width: "100%", textAlign: "right" }}
+              value={font.id}
+              onClick={handleChange}
+              className="truncate"
+            >
+              {font.name}
+            </button>
+          </div>
         )}
       </Menu.Item>
     ));
@@ -57,11 +74,34 @@ export default function FontDropdown(fontDropdownProps) {
   const detectedGEFontsComponents = isGraphiteAssumed && detectedGEFonts.map((font, index) => (
     <Menu.Item key={index}>
       {({ active }) => (
-        <button type="button" value={font.name} onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === font.name ? 'on' : ''}`}>
-            ➤{font.name}
-          {connector}
-          <button type="button" value={font.name} onClick={handleChange} style={{ fontFamily: font.name }}>{font.name}</button>
-        </button>
+        <div
+          className={`${
+          active ? "menuitemhov" : "menuitemnohov"
+        } group menuitem ${selectedFont === font.name ? "on" : ""}`}
+          style={styles.div}
+        >
+          <button
+            type="button"
+            value={font.name}
+            onClick={handleChange}
+            style={{ textAlign: "left" }}
+          >
+          ➤{font.name}&nbsp;
+          </button>
+          <button
+            type="button"
+            value={font.name}
+            onClick={handleChange}
+            style={{
+              fontFamily: font.name,
+              width: "100%",
+              textAlign: "right"
+            }}
+            className="truncate"
+          >
+            {font.name}
+          </button>
+        </div>
       )}
     </Menu.Item>
   ));
@@ -73,11 +113,30 @@ export default function FontDropdown(fontDropdownProps) {
   const detectedFontsComponents = detectedFonts.map((font, index) => (
     <Menu.Item key={index}>
       {({ active }) => (
-        <button type="button" value={font.name} onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === font.name ? 'on' : ''}`}>
-            ➤{font.name}
-          {connector}
-          <button type="button" value={font.name} onClick={handleChange} style={{ fontFamily: font.name }}>{font.name}</button>  
-        </button>
+        <div
+          className={`${
+            active ? "menuitemhov" : "menuitemnohov"
+          } group menuitem ${selectedFont === font.name ? "on" : ""}`}
+          style={styles.div}
+        >
+          <button
+            type="button"
+            value={font.name}
+            onClick={handleChange}
+            style={{ textAlign: "left" }}
+          >
+            ➤{font.name}&nbsp;
+          </button>
+          <button
+            type="button"
+            value={font.name}
+            onClick={handleChange}
+            style={{ fontFamily: font.name, width: "100%", textAlign: "right" }}
+            className="truncate"
+          >
+            {font.name}
+          </button>
+        </div>
       )}
     </Menu.Item>
   ));
