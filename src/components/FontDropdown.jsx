@@ -87,7 +87,7 @@ export default function FontDropdown(fontDropdownProps) {
   const fontDropdownOnOrOff = useMemo(() => (selectedFont === 'monospace' ? 'btnAll btnMiddle' : 'btnAll btnMiddle on'), [selectedFont]);
 
   /** Dropdown button indication of which font is set */
-  const selectedFontShort = selectedFont.length > 10 ? selectedFont.substring(0, 7) + "..." : selectedFont
+  const selectedFontShort = selectedFont.length > 8 ? selectedFont.substring(0, 6) + "..." : selectedFont
   const fontDropdownPresentation = useMemo(() => (selectedFont === 'monospace' ? 'Set Font ⇩' : `${selectedFontShort} ⇩`), [selectedFont, selectedFontShort]);
 
   //No fonts detected message for any group of fonts:
