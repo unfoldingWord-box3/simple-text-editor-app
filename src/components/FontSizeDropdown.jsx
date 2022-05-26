@@ -18,7 +18,7 @@ export default function FontSizeDropdown(fontSizeDropdownProps) {
     setSelectedFontSize(event.target.value);
   };
 
-  // Utilizing Graphite-enabled web fonts
+  // Font Size Dropdown Items
   const FontSizes =
     fontSizeArray.map((fontSize, index) => (
       <Menu.Item key={index}>

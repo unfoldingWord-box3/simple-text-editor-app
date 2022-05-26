@@ -18,7 +18,7 @@ export default function LineHeightDropdown(lineHeightDropdownProps) {
     setSelectedLineHeight(event.target.value);
   };
 
-  // Utilizing Graphite-enabled web fonts
+  // Line Height Dropdown Items
   const LineHeights =
     lineHeightArray.map((lineHeight, index) => (
       <Menu.Item key={index}>
