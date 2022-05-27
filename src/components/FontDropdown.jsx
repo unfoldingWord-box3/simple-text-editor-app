@@ -42,7 +42,7 @@ export default function FontDropdown(fontDropdownProps) {
           <div
             className={`${
               active ? "menuitemhov" : "menuitemnohov"
-            } group menuitem ${selectedFont === font.id ? "on" : ""}`}
+            } menuitem ${selectedFont === font.id ? "on" : ""}`}
             style={styles.div}
           >
             <button
@@ -77,7 +77,7 @@ export default function FontDropdown(fontDropdownProps) {
         <div
           className={`${
           active ? "menuitemhov" : "menuitemnohov"
-        } group menuitem ${selectedFont === font.name ? "on" : ""}`}
+        } menuitem ${selectedFont === font.name ? "on" : ""}`}
           style={styles.div}
         >
           <button
@@ -116,7 +116,7 @@ export default function FontDropdown(fontDropdownProps) {
         <div
           className={`${
             active ? "menuitemhov" : "menuitemnohov"
-          } group menuitem ${selectedFont === font.name ? "on" : ""}`}
+          } menuitem ${selectedFont === font.name ? "on" : ""}`}
           style={styles.div}
         >
           <button
@@ -155,7 +155,7 @@ export default function FontDropdown(fontDropdownProps) {
   const defaultFont = (
     <Menu.Item>
       {({ active }) => (
-        <button type="button" value="monospace" onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFont === 'monospace' ? 'on' : ''}`}>
+        <button type="button" value="monospace" onClick={handleChange} className={`${active ? 'menuitemhov' : 'menuitemnohov'} menuitem ${selectedFont === 'monospace' ? 'on' : ''}`}>
             ➤default
         </button>
       )}
@@ -185,13 +185,13 @@ export default function FontDropdown(fontDropdownProps) {
           </div>
           {isGraphiteAssumed && (
             <div className="subgroup">
-              <span className="subheading group menuitem"><b>Graphite-enabled:</b></span>
+              <span className="subheading menuitem"><b>Graphite-enabled:</b></span>
               {GraphiteEnabledWebFonts}
             </div>
           )}
           {isGraphiteAssumed && (
             <div className="subgroup">
-              <span className="subheading group menuitem">
+              <span className="subheading menuitem">
                 <b>
                   Graphite-enabled (local):
                   <em>{detectedGEFontsComponents.length === 0 && isGraphiteAssumed && noneDetectedMsg}</em>
@@ -201,7 +201,7 @@ export default function FontDropdown(fontDropdownProps) {
             </div>
           )}
           <div className="subgroup">
-            <span className="subheading group menuitem">
+            <span className="subheading menuitem">
               <b>
               Detected Fonts:
                 <em>{detectedFontsComponents.length === 0 && noneDetectedMsg}</em>

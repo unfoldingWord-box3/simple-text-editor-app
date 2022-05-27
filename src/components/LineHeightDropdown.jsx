@@ -23,7 +23,7 @@ export default function LineHeightDropdown(lineHeightDropdownProps) {
     lineHeightArray.map((lineHeight, index) => (
       <Menu.Item key={index}>
         {({ active }) => (
-          <button type="button" value={lineHeight.size} onClick={handleChangeLineHeight} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedLineHeight === lineHeight.size ? 'on' : ''}`}>
+          <button type="button" value={lineHeight.size} onClick={handleChangeLineHeight} className={`${active ? 'menuitemhov' : 'menuitemnohov'} menuitem ${selectedLineHeight === lineHeight.size ? 'on' : ''}`}>
               ➤{lineHeight.verbose}
           </button>
         )}
@@ -56,7 +56,7 @@ export default function LineHeightDropdown(lineHeightDropdownProps) {
       >
         <Menu.Items className="menuitemsall">
           <div className="subgroup">
-            <span className="subheading group menuitem"><b>Line&nbsp;Height:</b></span>
+            <span className="subheading menuitem"><b>Line&nbsp;Height:</b></span>
             {LineHeights}
           </div>
         </Menu.Items>

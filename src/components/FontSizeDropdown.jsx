@@ -23,7 +23,7 @@ export default function FontSizeDropdown(fontSizeDropdownProps) {
     fontSizeArray.map((fontSize, index) => (
       <Menu.Item key={index}>
         {({ active }) => (
-          <button type="button" value={fontSize.size} onClick={handleChangeSize} className={`${active ? 'menuitemhov' : 'menuitemnohov'} group menuitem ${selectedFontSize === fontSize.size ? 'on' : ''}`}>
+          <button type="button" value={fontSize.size} onClick={handleChangeSize} className={`${active ? 'menuitemhov' : 'menuitemnohov'} menuitem ${selectedFontSize === fontSize.size ? 'on' : ''}`}>
               ➤{fontSize.verbose}
           </button>
         )}
@@ -57,7 +57,7 @@ export default function FontSizeDropdown(fontSizeDropdownProps) {
       >
         <Menu.Items className="menuitemsall">
           <div className="subgroup">
-            <span className="subheading group menuitem"><b>Font&nbsp;Size:</b></span>
+            <span className="subheading menuitem"><b>Font&nbsp;Size:</b></span>
             {FontSizes}
           </div>
         </Menu.Items>
