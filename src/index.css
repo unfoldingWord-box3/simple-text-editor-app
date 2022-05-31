@@ -90,7 +90,7 @@ code {
 
 .menuitem {
   @apply flex;
-  @apply rounded-md;
+  /* @apply rounded-md; */
   @apply w-full;
   @apply px-0.5;
   @apply py-0.5;

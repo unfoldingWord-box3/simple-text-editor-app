@@ -25,8 +25,7 @@ export default function FontDropdown(fontDropdownProps) {
     div: {
       width: "100%",
       justifyContent: "space-between",
-      borderBottom: "1px outset",
-      borderRight: "1px outset"
+      borderBottom: "1px outset"
     }
   };
 
