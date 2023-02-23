@@ -4,6 +4,8 @@
   "version": "0.7.34",
   "homepage": "./",
   "main": "public/main.js",
+  "description": "Simple USFM Alignment Prototype",
+  "author": "RUN",
   "private": false,
   "dependencies": {
     "@headlessui/react": "^1.4.3",
@@ -41,7 +43,8 @@
     "dev": "concurrently -k \"cross-env BROWSER=none yarn start\" \"yarn:electron\"",
     "electron": "wait-on tcp:3000 && electron .",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "debug:make": "cross-env DEBUG=electron-forge:require-search yarn make --arch=x64"
   },
   "browserslist": {
     "production": [
