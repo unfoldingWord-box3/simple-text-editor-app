@@ -1,30 +1,44 @@
+const name = "Simple USFM Alignment";
+const ignore = [ // files/folders to not copy to app (in regex format)
+  '^/.idea',
+  '^/.vscode',
+  '^/libs',
+  '^/out',
+  '^/src',
+];
+
 module.exports = {
-  packagerConfig: {},
+  packagerConfig: {
+    ignore
+  },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: { name },
     },
     {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin'],
+      config: { name },
     },
     {
       name: '@electron-forge/maker-dmg',
       config: {
         background: './public/favicon-32x32.png',
         format: 'ULFO',
-        name: `Simple USFM Alignment`
+        name
       }
     },
     {
       name: '@electron-forge/maker-deb',
-      config: {},
+      config: { name },
     },
     {
       name: '@electron-forge/maker-rpm',
-      config: {},
+      config: { name },
     },
   ],
 };
+
+console.log('module.exports', JSON.stringify(module.exports));
