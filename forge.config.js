@@ -18,7 +18,11 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: { name },
+      config: {
+        name,
+        authors: 'ANON',
+        description: 'A simple USFM Aligner'
+      },
     },
     {
       name: '@electron-forge/maker-zip',
