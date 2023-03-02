@@ -6,6 +6,7 @@ const ignore = [ // files/folders to not copy to app (in regex format)
   '^/libs',
   '^/out',
   '^/src',
+  '^/node_modules/.cache'
 ];
 
 module.exports = {
