@@ -17,7 +17,9 @@ const createWindow = () => {
     }
   })
 
-  const url =`file://${path.join(__dirname, '../build/index.html')}`;
+  const url = isDev
+      ? 'http://localhost:3000'
+      : `file://${path.join(__dirname, '../build/index.html')}`
   
   console.log(`loading web page ${url}`)
 
