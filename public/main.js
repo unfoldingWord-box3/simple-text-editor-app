@@ -5,6 +5,9 @@ const path = require('path')
 const { app, BrowserWindow } = require('electron')
 const isDev = require('electron-is-dev')
 
+// eliminate duplicate launch
+if (require('electron-squirrel-startup')) app.quit();
+
 console.log('starting electron')
 
 const createWindow = () => {
