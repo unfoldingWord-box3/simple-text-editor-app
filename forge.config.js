@@ -9,7 +9,10 @@ const ignore = [ // files/folders to not copy to app (in regex format)
 
 module.exports = {
   packagerConfig: {
-    ignore
+    ignore,
+    osxUniversal: { // config options for `@electron/universal`
+      x64ArchFiles: '**/fsevents.node'
+    }
   },
   rebuildConfig: {},
   makers: [
