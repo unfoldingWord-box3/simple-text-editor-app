@@ -23,7 +23,9 @@ module.exports = {
       config: {
         name: ID,
         authors: 'ANON',
-        description: 'A simple USFM Aligner'
+        description: 'A simple USFM Aligner',
+        iconUrl: './public/favicon-32x32.png',
+        setupIcon: './public/favicon-32x32.png',
       },
     },
     {
