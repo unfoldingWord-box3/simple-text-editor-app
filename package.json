@@ -41,7 +41,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron:run": "yarn build && electron-forge start",
+    "electron:start": "yarn build && electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "debug:make": "cross-env DEBUG=electron-forge:require-search yarn make --arch=x64"
