@@ -1,4 +1,5 @@
 const name = "Simple USFM Alignment";
+const ID = 'SimpleUsfmAlignment';
 const ignore = [ // files/folders to not copy to app (in regex format)
   '^/.idea',
   '^/.vscode',
@@ -19,7 +20,7 @@ module.exports = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        name,
+        name: ID,
         authors: 'ANON',
         description: 'A simple USFM Aligner'
       },
